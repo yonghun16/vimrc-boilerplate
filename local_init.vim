@@ -453,6 +453,12 @@ nmap <leader>x :bn<CR>
 nmap <leader>w :bn<CR>
 nmap <leader><Tab> :ToggleBufExplorer<CR>
 
+"" 현재 창에 새 파일 열기
+nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+"" 새 탭에 새 파일 열기
+nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
 " EasyMotion
 nmap <leader>f <Leader>sf
 nmap <leader>F <Leader>sF
