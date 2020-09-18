@@ -31,6 +31,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "need phyhon (pip3
 Plug 'roxma/nvim-yarp'
 Plug 'airblade/vim-gitgutter'                          
 Plug 'preservim/nerdcommenter'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 ""etc
 Plug 'junegunn/vim-easy-align'
@@ -103,7 +104,7 @@ colorscheme onedark
 let g:airline_theme='onedark'
 let g:rehash256 = 1
 
-set guifont=D2coding:h10
+set guifont=D2coding:h11
 
 "*****************************************************************************
 "" Abbreviations
@@ -510,6 +511,9 @@ nmap <leader>v :vert diffsplit
 
 "" Show History
 nmap <leader>y :History:<CR>
+
+" Prettier
+nmap <Leader>p <Plug>(Prettier)
 
 " 자동 하이라이팅
 nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
