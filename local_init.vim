@@ -31,7 +31,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "need phyhon (pip3
 Plug 'roxma/nvim-yarp'
 Plug 'airblade/vim-gitgutter'                          
 Plug 'preservim/nerdcommenter'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 ""etc
 Plug 'junegunn/vim-easy-align'
@@ -290,7 +289,7 @@ let g:syntastic_check_on_open=1	" 시작하자마자 구문을 체크함.
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 " EasyMotion 
-let g:EasyMotion_leader_key = '<Leader>s' "<wewder>s 를 EasyMotion키로 설정
+let g:EasyMotion_leader_key = '<Leader>s' "<wewder>f 를 EasyMotion키로 설정
 
 " vim-airline
 let g:airline#extensions#branch#enabled = 1
@@ -393,24 +392,28 @@ tmap <A-h> <Left>
 tmap <A-k> <Up>
 tmap <A-j> <Down>
 
-"빠른 이동
-nmap <C-k> {
-nmap <C-j> }
+"빠른 커서 이동
+nmap <A-k> <Leader>sF
+nmap <A-j> <Leader>sf
 nmap <C-h> ^
 nmap <C-l> $
 nmap <C-g> %
 
-vmap <C-k> {
-vmap <C-j> }
+vmap <C-k> 3k
+vmap <C-j> 3j
 vmap <C-h> ^
 vmap <C-l> $
+
+"빠른 화면 이동
+nmap <C-j> <C-e><down><C-e><down><C-e><down>
+nmap <C-k> <C-y><up><C-y><up><C-y><up><C-y><up>
 
 "터미널 버퍼 일 때 창 이동
 tmap <ESC> <C-\><C-n>
 tmap <C-w>k <C-\><C-n><C-w>k
-tmap <C-j>j <C-\><C-n><C-w>j
-tmap <C-h>h <C-\><C-n><C-w>h
-tmap <C-l>l <C-\><C-n><C-w>l 
+tmap <C-w>j <C-\><C-n><C-w>j
+tmap <C-w>h <C-\><C-n><C-w>h
+tmap <C-w>l <C-\><C-n><C-w>l 
 
 "영역지정 시 Shift + j,k 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv 
@@ -419,10 +422,6 @@ vmap <S-k> :m '<-2<CR>gv
 "Shift-tab으로 back Tab
 imap <S-Tab> <C-d>
 
-"tabs
-nmap <Tab> gt<CR>
-nmap <S-Tab> gT<CR>
-nmap <silent> <S-t> :tabnew<CR>
 
 "resize split window
 nmap <C-Down> <C-W>2-
@@ -441,18 +440,19 @@ nmap <leader>d :call Debug()<CR>
 
 "sidebar plugs
 nmap <leader>h :NERDTreeToggle<CR>      
-nmap <leader>j :SrcExplToggle<CR><C-W>k[i
+nmap <leader>s :SrcExplToggle<CR><C-W>k[i
 nmap <leader>l :TagbarToggle<CR>
 
-"" Close buffer
-nmap <leader>c :bd<CR>
-
-"" Buffer nav
+"" Buffer
 nmap <leader>z :bp<CR>
-nmap <leader>q :bp<CR>
 nmap <leader>x :bn<CR>
-nmap <leader>w :bn<CR>
 nmap <leader><Tab> :ToggleBufExplorer<CR>
+
+"" Tab
+nmap <leader>q gT
+nmap <leader>w gt
+nmap <leader><tab> :tabnew<CR>
+nmap <C-i> <C-i>
 
 "" 현재 창에 새 파일 열기
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -460,9 +460,6 @@ nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" 새 탭에 새 파일 열기
 nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-" EasyMotion
-nmap <leader>f <Leader>sf
-nmap <leader>F <Leader>sF
 
 "" Git
 nmap <Leader>ga :Gwrite<CR>

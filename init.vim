@@ -354,7 +354,7 @@ nnoremap <leader>sc :CloseSession<CR>
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-"nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -490,7 +490,7 @@ nmap <Leader>oh :call phpactor#GotoDefinitionHsplit()<CR>
 nmap <Leader>ov :call phpactor#GotoDefinitionVsplit()<CR>
 nmap <Leader>ot :call phpactor#GotoDefinitionTab()<CR>
 " Show brief information about the symbol under the cursor
-nmap <Leader>K :call phpactor#Hover()<CR>
+"nmap <Leader>K :call phpactor#Hover()<CR>
 " Transform the classes in the current file
 nmap <Leader>tt :call phpactor#Transform()<CR>
 " Generate a new class (replacing the current file)
