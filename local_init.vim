@@ -375,7 +375,7 @@ smap <C-f> <ESC>
 nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
-"화살표키를 <Alt+hjkl>로 변경
+"화살표키를 <Alt + h,j,k,l>로 변경
 imap <A-l> <Right>
 imap <C-l> <RIGHT>
 imap <A-h> <Left>
@@ -406,16 +406,17 @@ vmap <C-l> $
 
 "빠른 화면 이동
 nmap <C-j> <C-e><down><C-e><down><C-e><down>
-nmap <C-k> <C-y><up><C-y><up><C-y><up><C-y><up>
+nmap <C-k> <C-y><up><C-y><up><C-y><up>
 
 "터미널 버퍼 일 때 창 이동
 tmap <ESC> <C-\><C-n>
+tmap <C-q> <C-\><C-n>:q!<CR>
 tmap <C-w>k <C-\><C-n><C-w>k
 tmap <C-w>j <C-\><C-n><C-w>j
 tmap <C-w>h <C-\><C-n><C-w>h
 tmap <C-w>l <C-\><C-n><C-w>l 
 
-"영역지정 시 Shift + j,k 키로 현재 라인을 위아래로 move 
+"영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv 
 vmap <S-k> :m '<-2<CR>gv 
 
