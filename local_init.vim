@@ -444,14 +444,9 @@ nmap <leader>s :SrcExplToggle<CR><C-W>k[i
 nmap <leader>l :TagbarToggle<CR>
 
 "" Buffer
-nmap <leader>z :bp<CR>
-nmap <leader>x :bn<CR>
-nmap <leader><Tab> :ToggleBufExplorer<CR>
-
-"" Tab
-nmap <leader>q gT
-nmap <leader>w gt
-nmap <leader><tab> :tabnew<CR>
+nmap <leader>q :bp<CR>
+nmap <leader>w :bn<CR>
+nmap <leader><tab> :ToggleBufExplorer<CR>
 nmap <C-i> <C-i>
 
 "" 현재 창에 새 파일 열기
