@@ -34,7 +34,7 @@ Plug 'preservim/nerdcommenter'
 
 ""etc
 Plug 'junegunn/vim-easy-align'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tlib_vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
 Plug 'vim-scripts/L9'
@@ -190,7 +190,7 @@ function! Debug() range
             execute ':! java %<'
         elseif has("unix")
             execute ':! javac -encoding utf-8 %<.java'
-            execute ':! java %<'
+            execute 'j! java %<'
         endif
     elseif &filetype =="c"
         execute ':! gcc -g -o d_%< %<.c'
@@ -288,9 +288,6 @@ let g:syntastic_check_on_open=1	" 시작하자마자 구문을 체크함.
 " FuzzyFinder
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
-" EasyMotion 
-let g:EasyMotion_leader_key = '<Leader>s' "<wewder>f 를 EasyMotion키로 설정
-
 " vim-airline
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
@@ -372,7 +369,6 @@ imap <C-f> <ESC>
 cmap <C-f> <ESC>
 vmap <C-f> <ESC>
 smap <C-f> <ESC>
-nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
 "화살표키를 <Alt + h,j,k,l>로 변경
@@ -393,8 +389,10 @@ tmap <A-k> <Up>
 tmap <A-j> <Down>
 
 "빠른 커서 이동
-nmap <A-k> <Leader>sF
-nmap <A-j> <Leader>sf
+nmap <C-j> <Plug>(easymotion-w)
+nmap <C-k> <Plug>(easymotion-b)
+nmap <C-f> <Plug>(easymotion-overwin-f2)
+
 nmap <C-h> ^
 nmap <C-l> $
 nmap <C-g> %
@@ -405,8 +403,8 @@ vmap <C-h> ^
 vmap <C-l> $
 
 "빠른 화면 이동
-nmap <C-j> <C-e><down><C-e><down><C-e><down>
-nmap <C-k> <C-y><up><C-y><up><C-y><up>
+nmap <C-n> <C-e><down><C-e><down><C-e><down>
+nmap <C-p> <C-y><up><C-y><up><C-y><up>
 
 "터미널 버퍼 일 때 창 이동
 tmap <ESC> <C-\><C-n>
@@ -441,7 +439,7 @@ nmap <leader>d :call Debug()<CR>
 
 "sidebar plugs
 nmap <leader>h :NERDTreeToggle<CR>      
-nmap <leader>s :SrcExplToggle<CR><C-W>k[i
+nmap <leader>j :SrcExplToggle<CR><C-W>k[i
 nmap <leader>l :TagbarToggle<CR>
 
 "" Buffer
