@@ -354,7 +354,7 @@ let g:indentLine_char = '│'
 let g:indentLine_faster = 1
 
 " emmet-vim 설정
-let g:user_emmet_leader_key='<C-m>'
+let g:user_emmet_leader_key=','
 
 "*****************************************************************************
 "" Functions
