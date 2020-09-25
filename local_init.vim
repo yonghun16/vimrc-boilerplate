@@ -124,6 +124,7 @@ ab calss class
 ab functio function
 ab dunction function
 ab defalut default
+ab defautl default
 ab functuin function
 ab dunction function
 ab functuin function
@@ -369,6 +370,7 @@ imap <C-f> <ESC>
 cmap <C-f> <ESC>
 vmap <C-f> <ESC>
 smap <C-f> <ESC>
+nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
 "화살표키를 <Alt + h,j,k,l>로 변경
@@ -389,13 +391,15 @@ tmap <A-k> <Up>
 tmap <A-j> <Down>
 
 "빠른 커서 이동
-nmap <C-j> <Plug>(easymotion-w)
-nmap <C-k> <Plug>(easymotion-b)
-nmap <C-f> <Plug>(easymotion-overwin-f2)
+nmap <A-j> <Plug>(easymotion-w)
+nmap <A-k> <Plug>(easymotion-b)
+nmap <A-h> <Plug>(easymotion-overwin-f2)
+nmap <A-l> <Plug>(easymotion-overwin-line)
 
+nmap <C-k> 3k
+nmap <C-j> 3j
 nmap <C-h> ^
 nmap <C-l> $
-nmap <C-g> %
 
 vmap <C-k> 3k
 vmap <C-j> 3j
@@ -403,8 +407,8 @@ vmap <C-h> ^
 vmap <C-l> $
 
 "빠른 화면 이동
-nmap <C-n> <C-e><down><C-e><down><C-e><down>
-nmap <C-p> <C-y><up><C-y><up><C-y><up>
+nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
+nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 "터미널 버퍼 일 때 창 이동
 tmap <ESC> <C-\><C-n>
@@ -420,7 +424,6 @@ vmap <S-k> :m '<-2<CR>gv
 
 "Shift-tab으로 back Tab
 imap <S-Tab> <C-d>
-
 
 "resize split window
 nmap <C-Down> <C-W>2-
