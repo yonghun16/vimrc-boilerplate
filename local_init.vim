@@ -395,13 +395,17 @@ tmap <A-j> <Down>
 "빠른 커서 이동
 nmap <A-j> <Plug>(easymotion-w)
 nmap <A-k> <Plug>(easymotion-b)
-nmap <A-h> <Plug>(easymotion-overwin-f2)
 nmap <A-l> <Plug>(easymotion-overwin-line)
+nmap f <Plug>(easymotion-f)
+nmap F <Plug>(easymotion-F)
+nmap <A-h> <Plug>(easymotion-overwin-f2)
 
 nmap <C-k> 3k
 nmap <C-j> 3j
 nmap <C-h> ^
 nmap <C-l> $
+nmap <A-C-j> 9j
+nmap <A-C-k> 9k
 
 vmap <C-k> 3k
 vmap <C-j> 3j
@@ -450,8 +454,9 @@ nmap <leader>l :TagbarToggle<CR>
 "" Buffer
 nmap <leader>q :bp<CR>
 nmap <leader>w :bn<CR>
+nmap <tab> :bn<CR>
+nmap <S-tab> :bp<CR>
 nmap <leader><tab> :ToggleBufExplorer<CR>
-nmap <C-i> <C-i>
 
 "" 현재 창에 새 파일 열기
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
