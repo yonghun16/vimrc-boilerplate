@@ -63,7 +63,6 @@ set backspace=indent,eol,start
 syntax on 				" 구문 강조
 sy enable 				" 파일 형식에 따른 신택스 하이라이팅 켜기
 set nu 					" 행 라인 표시
-set rnu                 " 상대 넘버 라인 표시
 set ruler               " 화면 하단에 커서 위치 표시
 set nocompatible		" be iMproved
 filet plugin indent on	" 파일의 종류를 자동으로 인식
@@ -395,17 +394,16 @@ tmap <A-j> <Down>
 "빠른 커서 이동
 nmap <A-j> <Plug>(easymotion-w)
 nmap <A-k> <Plug>(easymotion-b)
-nmap <A-l> <Plug>(easymotion-overwin-line)
+nmap <leader>l <Plug>(easymotion-overwin-line)
 nmap f <Plug>(easymotion-f)
 nmap F <Plug>(easymotion-F)
-nmap <A-h> <Plug>(easymotion-overwin-f2)
 
 nmap <C-k> 3k
 nmap <C-j> 3j
 nmap <C-h> ^
 nmap <C-l> $
-nmap <A-C-j> 9j
-nmap <A-C-k> 9k
+nmap <C-A-j> 9j
+nmap <C-A-k> 9k
 
 vmap <C-k> 3k
 vmap <C-j> 3j
@@ -449,7 +447,7 @@ nmap <leader>d :call Debug()<CR>
 "sidebar plugs
 nmap <leader>h :NERDTreeToggle<CR>      
 nmap <leader>j :SrcExplToggle<CR><C-W>k[i
-nmap <leader>l :TagbarToggle<CR>
+nmap <A-l> :TagbarToggle<CR>
 
 "" Buffer
 nmap <leader>q :bp<CR>
