@@ -39,6 +39,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
+Plug 'blueyed/vim-diminactive'
 
 call plug#end()
 filetype plugin indent on
@@ -423,8 +424,8 @@ tmap <C-w>h <C-\><C-n><C-w>h
 tmap <C-w>l <C-\><C-n><C-w>l 
 
 "영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
-vmap <S-j> :m '>+1<CR>gv 
-vmap <S-k> :m '<-2<CR>gv 
+vmap <S-j> :m '>+1<CR>gv=gv
+vmap <S-k> :m '<-2<CR>gv=gv
 
 "Shift-tab으로 back Tab
 imap <S-Tab> <C-d>
@@ -443,6 +444,9 @@ let mapleader = ','
 " C, Java 컴파일 및 실행
 nmap <leader>a :call Run()<CR>
 nmap <leader>d :call Debug()<CR>
+
+"검색어로 파일 찾기
+nmap <silent> <leader>f :Rgrep<CR>
 
 "sidebar plugs
 nmap <leader>h :NERDTreeToggle<CR>      
