@@ -12,7 +12,7 @@ endif
 
 let g:vim_bootstrap_langs = "c,html,javascript,php,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "molokai"
+let g:vim_bootstrap_theme = "gruvbox"
 let g:vim_bootstrap_frams = "vuejs"
 
 if !filereadable(vimplug_exists)
@@ -51,7 +51,6 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'tomasr/molokai'
-
 Plug 'morhetz/gruvbox'
 
 if isdirectory('/usr/local/opt/fzf')

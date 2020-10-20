@@ -38,6 +38,12 @@ Plug 'tomtom/tlib_vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
+Plug 'mhinz/vim-startify'
+Plug 'yegappan/mru'
+
+""language
+Plug 'ap/vim-css-color'
+Plug 'eslint/eslint'
 
 call plug#end()
 filetype plugin indent on
@@ -97,12 +103,9 @@ set go+=c               " '간단한 선택' 다이얼로그가 새 창에서 �
 "" Visual Settings
 "*****************************************************************************
 "컬러스킴(테마) 설정
-"colorscheme onedark
-"let g:airline_theme='onedark'
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 let g:rehash256 = 1
-
 set guifont=D2coding:h11
 
 "*****************************************************************************
@@ -247,6 +250,9 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 30
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+
+"MRU
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix"
 
 "deoplete
 let g:deoplete#enable_at_startup = 1
