@@ -23,7 +23,6 @@
 "*****************************************************************************
 ""sidebar
 Plug 'jlanzarotta/bufexplorer'
-Plug 'wesleyche/SrcExpl'
 Plug 'majutsushi/tagbar'    "$sudo apt-get install ctags
 
 ""syntax
@@ -39,7 +38,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
-Plug 'blueyed/vim-diminactive'
 
 call plug#end()
 filetype plugin indent on
@@ -63,7 +61,7 @@ set fileformats=unix,dos,mac
 set backspace=indent,eol,start
 syntax on 				" 구문 강조
 sy enable 				" 파일 형식에 따른 신택스 하이라이팅 켜기
-set nu 					" 행 라인 표시
+set rnu 				" 행 라인 표시
 set ruler               " 화면 하단에 커서 위치 표시
 set nocompatible		" be iMproved
 filet plugin indent on	" 파일의 종류를 자동으로 인식
@@ -99,8 +97,10 @@ set go+=c               " '간단한 선택' 다이얼로그가 새 창에서 �
 "" Visual Settings
 "*****************************************************************************
 "컬러스킴(테마) 설정
-colorscheme onedark
-let g:airline_theme='onedark'
+"colorscheme onedark
+"let g:airline_theme='onedark'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 let g:rehash256 = 1
 
 set guifont=D2coding:h11
@@ -130,8 +130,6 @@ ab dunction function
 ab functuin function
 ab functopn function
 ab fumction function
-ab vlass class
-ab xlass class
 ab classs class
 ab forarch foreach
 ab inser insert
@@ -139,8 +137,6 @@ ab insertt insert
 ab quewrty query
 ab ovject object
 ab objectr object
-ab evho echo
-ab printr print_r
 ab prit print
 ab printnl println
 ab prnitln println
@@ -148,14 +144,12 @@ ab fales false
 ab treu true
 ab teur true
 ab nulll null
-ab nuii null
 ab retrun return
 ab retunr return
-ab htis this
-ab erturn return
 ab bcakground background
 ab herf href
 
+ab clog console.log()
 
 "*****************************************************************************
 "" Commands
@@ -243,36 +237,26 @@ endfunction
 "" Plug setting
 "*****************************************************************************
 " NERD Tree
-let NERDTreeWinPos = "left"			" NERDTree 왼쪽에 놓기
-set autochdir						" 디렉토리 이동 시 자동으로 디렉토리 인덱스 변경
+let NERDTreeWinPos = "right"			
+set autochdir
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 30
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 "deoplete
 let g:deoplete#enable_at_startup = 1
 
-"BufExplorer
-let g:bufExplorerSplitHorzSize=12   " BufExplorer 사이즈 12로 설정
-
-"Source Explorer
-let g:SrcExpl_winHeight = 12		" SrcExpl 윈도우 높이 지정
-let g:SrcExpl_refreshTime = 100		" refreshing time = 100ms
-let g:SrcExpl_isUpdateTags = 0		" tag file update = off
-let g:SrcExpl_jumpKey = "<ENTER>"
-let g:SrcExpl_gobackKey = "<SPACE>"
-
 "ale
 let g:ale_linters = {}
 
 "Tag bar
-let g:tagbar_right = 1				" Tagbar 오른쪽에 놓기  
-let g:tagbar_width = 40			    " 너비 40으로 설정
+let g:tagbar_left = 1				
+let g:tagbar_width = 30	   
 let g:tagbar_sort = 0				" 파일 안의 태그 순서대로 태그정렬
 let g:tagbar_autoshowtag = 1
 let g:tagbar_autofocus = 1
@@ -332,7 +316,6 @@ else
 endif
 
 " grep.vim
-nmap <silent> <leader>g :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
@@ -367,6 +350,7 @@ let g:user_emmet_leader_key=','
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
 "ESC 키를 편하게 <Ctrl+f>로 변경
 imap <C-f> <ESC>
 cmap <C-f> <ESC>
@@ -392,36 +376,36 @@ tmap <A-h> <Left>
 tmap <A-k> <Up>
 tmap <A-j> <Down>
 
-"빠른 커서 이동
-nmap <A-j> <Plug>(easymotion-w)
-nmap <A-k> <Plug>(easymotion-b)
-nmap <leader>l <Plug>(easymotion-overwin-line)
-nmap f <Plug>(easymotion-f)
-nmap F <Plug>(easymotion-F)
+"resize split window
+nmap <C-Up> <C-W>2+
+nmap <C-Down> <C-W>2-
+nmap <C-Left> <C-W>2<
+nmap <C-Right> <C-W>2>
 
-nmap <C-k> 3k
+"빠른 커서 이동
 nmap <C-j> 3j
+nmap <C-k> 3k
 nmap <C-h> ^
 nmap <C-l> $
-nmap <C-A-j> 9j
-nmap <C-A-k> 9k
 
 vmap <C-k> 3k
 vmap <C-j> 3j
 vmap <C-h> ^
 vmap <C-l> $
 
+nmap f <Plug>(easymotion-f)
+nmap F <Plug>(easymotion-F)
+
 "빠른 화면 이동
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
 nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
 
-"터미널 버퍼 일 때 창 이동
+"터미널 버퍼
 tmap <ESC> <C-\><C-n>
-tmap <C-q> <C-\><C-n>:q!<CR>
-tmap <C-w>k <C-\><C-n><C-w>k
-tmap <C-w>j <C-\><C-n><C-w>j
-tmap <C-w>h <C-\><C-n><C-w>h
-tmap <C-w>l <C-\><C-n><C-w>l 
+tmap <C-w>j <C-\><C-n><c-w>j
+tmap <C-w>k <C-\><C-n><c-w>k
+tmap <C-w>h <C-\><C-n><c-w>h
+tmap <C-w>l <C-\><C-n><c-w>l
 
 "영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv=gv
@@ -430,16 +414,17 @@ vmap <S-k> :m '<-2<CR>gv=gv
 "Shift-tab으로 back Tab
 imap <S-Tab> <C-d>
 
-"resize split window
-nmap <C-Down> <C-W>2-
-nmap <C-Up> <C-W>2+
-nmap <C-Left> <C-W>2<
-nmap <C-Right> <C-W>2>
-
 "----------------------------------------------------------
 
 " set leaderkey
 let mapleader = ','
+
+"basic Shotkey
+tmap <leader>q <C-\><C-n>:q<CR>
+nmap <leader>q <ESC>:q<CR>
+nmap <leader>w <ESC>:w<CR>
+nmap <leader>Q <ESC>:q!<CR>
+nmap <leader>W <ESC>:wq<CR>
 
 " C, Java 컴파일 및 실행
 nmap <leader>a :call Run()<CR>
@@ -449,13 +434,11 @@ nmap <leader>d :call Debug()<CR>
 nmap <silent> <leader>f :Rgrep<CR>
 
 "sidebar plugs
-nmap <leader>h :NERDTreeToggle<CR>      
-nmap <leader>j :SrcExplToggle<CR><C-W>k[i
-nmap <A-l> :TagbarToggle<CR>
+nmap <leader>l :NERDTreeToggle<CR>      
+nmap <leader>h :TagbarToggle<CR>
+nmap <silent> <leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>a
 
 "" Buffer
-nmap <leader>q :bp<CR>
-nmap <leader>w :bn<CR>
 nmap <tab> :bn<CR>
 nmap <S-tab> :bp<CR>
 nmap <leader><tab> :ToggleBufExplorer<CR>
@@ -466,6 +449,8 @@ nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" 새 탭에 새 파일 열기
 nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+:"Grep.vim
+nmap <silent> <leader>g :Rgrep<CR>
 
 "" Git
 nmap <Leader>ga :Gwrite<CR>
@@ -483,13 +468,6 @@ nmap <Leader>o :.Gbrowse<CR>
 " 상대 넘버 토글
 nmap <leader>r :set rnu!<cr>
 
-" FuzzyFinder 단축키
-nmap <silent>sf		 :FufFile **/<CR>
-nmap <silent>sb 	 :FufBuffer<CR>
-nmap <silent>st 	 :FufTagWithCursorWord!<CR>
-nmap <silent>s,      :FufBufferTag<CR>
-nmap <silent>so      :FufJumpList<CR>
-"nmap <silent>st 	   :FufTag<CR>
 
 " session management
 nmap <leader>so :OpenSession<Space>
@@ -497,17 +475,9 @@ nmap <leader>ss :SaveSession<Space>
 nmap <leader>sd :DeleteSession<CR>
 nmap <leader>sc :CloseSession<CR>
 
-" terminal emulation
-nmap <silent> <leader>sh :sp<CR><C-w>j<C-w>10_:terminal<CR>a
 
 " 탭 공백 4칸 변경 on/off 토글
 nmap <leader>t :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
-
-" Tag 관련
-nmap <silent>tt :!ctags -R .<CR>
-nmap <silent>ts :tselect<CR>
-nmap <silent>tn :tnext<CR>
-nmap <silent>tp :tprevious<CR>
 
 " 파일 비교하기
 nmap <leader>v :vert diffsplit 
@@ -526,6 +496,20 @@ nmap <leader>. :lcd %:p:h<CR>
 
 "" Clean search (highlight)
 nmap <silent> <leader><space> :noh<cr>
+
+" FuzzyFinder 단축키
+nmap <silent>sf		 :FufFile **/<CR>
+nmap <silent>sb 	 :FufBuffer<CR>
+nmap <silent>st 	 :FufTagWithCursorWord!<CR>
+nmap <silent>s,      :FufBufferTag<CR>
+nmap <silent>so      :FufJumpList<CR>
+"nmap <silent>st 	   :FufTag<CR>
+
+" Tag 관련
+nmap <silent>tt :!ctags -R .<CR>
+nmap <silent>ts :tselect<CR>
+nmap <silent>tn :tnext<CR>
+nmap <silent>tp :tprevious<CR>
 
 " 영역지정 시 들여쓰기/내어쓰기. 
 vmap >> >gv 

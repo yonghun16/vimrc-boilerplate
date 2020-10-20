@@ -52,7 +52,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'tomasr/molokai'
 
-Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
