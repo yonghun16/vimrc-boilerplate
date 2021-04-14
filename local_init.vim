@@ -399,8 +399,8 @@ vmap <C-j> 3j
 vmap <C-h> ^
 vmap <C-l> $
 
-nmap f <Plug>(easymotion-f)
-nmap F <Plug>(easymotion-F)
+nmap mf <Plug>(easymotion-f)
+nmap mF <Plug>(easymotion-F)
 
 "빠른 화면 이동
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
