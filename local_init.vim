@@ -365,24 +365,23 @@ smap <C-f> <ESC>
 nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
-"화살표키를 <Alt + h,j,k,l>로 변경
-imap <A-l> <Right>
+"버퍼 및 탭 이동
+nmap <A-t> :tabnew<CR>
+nmap <A-c> :tabclose<CR>
+nmap <A-f> :ToggleBufExplorer<CR>
+nmap <A-h> gT
+nmap <A-l> gt
+nmap <A-k> :bp<CR>
+nmap <A-j> :bn<CR>
+nmap <S-tab> :bp<CR>
+nmap <tab> :bn<CR>
+
+"입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
-imap <A-h> <Left>
-imap <A-k> <Up>
-imap <A-j> <Down>
+imap <C-k> <ESC>O
+imap <S-Tab> <C-d>
 
-cmap <A-l> <Right>
-cmap <A-h> <Left>
-cmap <A-k> <Up>
-cmap <A-j> <Down>
-
-tmap <A-l> <Right>
-tmap <A-h> <Left>
-tmap <A-k> <Up>
-tmap <A-j> <Down>
-
-"resize split window
+"분할창 크기조절
 nmap <C-Up> <C-W>2+
 nmap <C-Down> <C-W>2-
 nmap <C-Left> <C-W>2<
@@ -417,8 +416,6 @@ tmap <C-w>l <C-\><C-n><c-w>l
 vmap <S-j> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
 
-"Shift-tab으로 back Tab
-imap <S-Tab> <C-d>
 
 "----------------------------------------------------------
 
@@ -443,11 +440,6 @@ nmap <silent> <leader>f :Rgrep<CR>
 nmap <leader>l :NERDTreeToggle<CR>      
 nmap <leader>h :TagbarToggle<CR>
 nmap <silent> <leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>a
-
-"" Buffer
-nmap <tab> :bn<CR>
-nmap <S-tab> :bp<CR>
-nmap <leader><tab> :ToggleBufExplorer<CR>
 
 "" 현재 창에 새 파일 열기
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
