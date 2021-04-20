@@ -378,7 +378,8 @@ nmap <tab> :bn<CR>
 
 "입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
-imap <C-k> <ESC>O
+imap <C-o> <ESC>O
+imap <C-k> <ESC>:-1d<CR>i
 imap <S-Tab> <C-d>
 
 "분할창 크기조절
