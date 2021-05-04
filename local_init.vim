@@ -11,12 +11,12 @@
 "===== 추가 하기 =====
 "Plug 'joshdick/onedark.vim' 
 
-"===== 주석 처리 하기 =====
+"===== 삭제 하기 =====
 "Plug 'gko/vim-coloresque' 
 "Plug 'jistr/vim-nerdtree-tabs' 
 
-"===== .vimrc 및 init.vim 업데이트 명령어 =====
-":VimBootstrapUpdate
+"===== 업데이트 =====
+":VimBootstrapUpdate 
 
 "*****************************************************************************
 "" Custom bundles
@@ -216,7 +216,7 @@ function! AutoHighlightToggle()
     endif
 endfunction
 
-"탭 토글
+"탭 4칸 2칸 토글
 function! Tab_toggle()
     let @/ = ''
     if exists('#tab_toggle')
@@ -365,16 +365,8 @@ smap <C-f> <ESC>
 nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
-"버퍼 및 탭 이동
-nmap <A-t> :tabnew<CR>
-nmap <A-c> :tabclose<CR>
-nmap <A-f> :ToggleBufExplorer<CR>
-nmap <A-h> gT
-nmap <A-l> gt
-nmap <A-k> :bp<CR>
-nmap <A-j> :bn<CR>
-nmap <S-tab> :bp<CR>
-nmap <tab> :bn<CR>
+"Tab 관련
+nmap <leader><tab> :ToggleBufExplorer<CR>
 
 "입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
@@ -399,8 +391,8 @@ vmap <C-j> 3j
 vmap <C-h> ^
 vmap <C-l> $
 
-nmap mf <Plug>(easymotion-f)
-nmap mF <Plug>(easymotion-F)
+nmap <A-f> <Plug>(easymotion-f)
+nmap <A-F> <Plug>(easymotion-F)
 
 "빠른 화면 이동
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
@@ -476,7 +468,7 @@ nmap <leader>sc :CloseSession<CR>
 
 
 " 탭 공백 4칸 변경 on/off 토글
-nmap <leader>t :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
+nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
 
 " 파일 비교하기
 nmap <leader>v :vert diffsplit 
