@@ -228,12 +228,14 @@ function! Numberline_toggle()
     if exists('#numberline_toggle')
         au!
         set nu rnu
+        execute ':IndentLinesToggle'
         augroup! numberline_toggle
         return 0
     else
         augroup numberline_toggle
             au!
             set nonu nornu
+            execute ':IndentLinesToggle'
         augroup end
         return 1
     endif
