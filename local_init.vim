@@ -235,6 +235,24 @@ function! Tab_toggle()
     endif
 endfunction
 
+"행번호 제거
+function! Numberline_toggle()
+    let @/ = ''
+    if exists('#numberline_toggle')
+        au!
+        set nu
+        set rnu
+        augroup! numberline_toggle
+        return 0
+    else
+        augroup numberline_toggle
+            au!
+            set nonu
+            set nornu
+        augroup end
+        return 1
+    endif
+endfunction
 
 "*****************************************************************************
 "" Plug setting
@@ -459,16 +477,17 @@ nmap <Leader>o :.Gbrowse<CR>
 " 상대 넘버 토글
 nmap <leader>r :set rnu!<cr>
 
+" 행번호 지우기
+nmap <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
+
+" 탭 공백 4칸 변경 on/off 토글
+nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
 
 " session management
 nmap <leader>so :OpenSession<Space>
 nmap <leader>ss :SaveSession<Space>
 nmap <leader>sd :DeleteSession<CR>
 nmap <leader>sc :CloseSession<CR>
-
-
-" 탭 공백 4칸 변경 on/off 토글
-nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
 
 " 파일 비교하기
 nmap <leader>v :vert diffsplit 
