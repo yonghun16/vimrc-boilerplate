@@ -157,8 +157,8 @@ ab clog console.log()
 "*****************************************************************************
 "" Commands
 "*****************************************************************************
-" 저장
-function! Run() range
+" 컴파일 단축키
+function! Compile() range
     execute ':w'
     if &filetype == "java"
         if has("win32") || has("win64")  
@@ -176,23 +176,10 @@ function! Run() range
             execute ':! gcc -o %< %<.c'
             execute ':! ./%<'
         endif
-    endif
-endfunction
-
-" Debug Command (JAVA:현재폴더 컴파일, C: 디버거)
-function! Debug() range
-    execute ':w'
-    if &filetype == "java"
-        if has("win32") || has("win64")  
-            execute ':! javac %<.java'
-            execute ':! java %<'
-        elseif has("unix")
-            execute ':! javac -encoding utf-8 %<.java'
-            execute 'j! java %<'
+    elseif &filetype =="python"
+        if has("unix")
+            execute ':! python3 ./%<.py'
         endif
-    elseif &filetype =="c"
-        execute ':! gcc -g -o d_%< %<.c'
-        execute ':! gdb d_%<'
     endif
 endfunction
 
@@ -437,12 +424,9 @@ let mapleader = ','
 tmap <leader>q <C-\><C-n>:q<CR>
 nmap <leader>q <ESC>:q<CR>
 nmap <leader>w <ESC>:w<CR>
-nmap <leader>Q <ESC>:q!<CR>
-nmap <leader>W <ESC>:wq<CR>
 
-" C, Java 컴파일 및 실행
-nmap <leader>a :call Run()<CR>
-nmap <leader>d :call Debug()<CR>
+"컴파일
+nmap <leader>a :call Compile()<CR>
 
 "검색어로 파일 찾기
 nmap <silent> <leader>f :Rgrep<CR>
@@ -475,10 +459,10 @@ nmap <Leader>gr :Gremove<CR>
 nmap <Leader>o :.Gbrowse<CR>
 
 " 상대 넘버 토글
-nmap <leader>r :set rnu!<cr>
+nmap <silent> <leader>r :set rnu!<cr>
 
 " 행번호 지우기
-nmap <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
+nmap <silent> <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
 
 " 탭 공백 4칸 변경 on/off 토글
 nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
