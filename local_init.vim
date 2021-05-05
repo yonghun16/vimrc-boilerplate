@@ -9,7 +9,7 @@
 " init.vim (.config/nvim) 수정
 "*****************************************************************************
 "===== 추가 하기 =====
-"Plug 'joshdick/onedark.vim' 
+"Plug 'morhetz/gruvbox'
 
 "===== 삭제 하기 =====
 "Plug 'gko/vim-coloresque' 
