@@ -1,8 +1,8 @@
 "-----------------------------------------------------------------------------
 " Filename : local_init.vim
-" Version : 2.2
+" Version : 2.6
 " Writer :  song. Y. H
-" Date : 2020. 9. 17
+" Date : 2021. 05. 01
 "-----------------------------------------------------------------------------
 "
 "*****************************************************************************
@@ -227,15 +227,13 @@ function! Numberline_toggle()
     let @/ = ''
     if exists('#numberline_toggle')
         au!
-        set nu
-        set rnu
+        set nu rnu
         augroup! numberline_toggle
         return 0
     else
         augroup numberline_toggle
             au!
-            set nonu
-            set nornu
+            set nonu nornu
         augroup end
         return 1
     endif
@@ -434,7 +432,7 @@ nmap <silent> <leader>f :Rgrep<CR>
 "sidebar plugs
 nmap <leader>l :NERDTreeToggle<CR>      
 nmap <leader>h :TagbarToggle<CR>
-nmap <silent> <leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>a
+nmap <silent> <leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
 "" 현재 창에 새 파일 열기
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
