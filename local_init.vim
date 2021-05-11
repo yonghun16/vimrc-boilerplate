@@ -180,6 +180,10 @@ function! Compile() range
         if has("unix")
             execute ':! python3 ./%<.py'
         endif
+    elseif &filetype =="javascript"
+        if has("unix")
+            execute ':! node ./%<.js'
+        endif
     endif
 endfunction
 
@@ -425,8 +429,9 @@ tmap <leader>q <C-\><C-n>:q<CR>
 nmap <leader>q <ESC>:q<CR>
 nmap <leader>w <ESC>:w<CR>
 
-"컴파일
-nmap <leader>a :call Compile()<CR>
+"Compile & Run on down window
+nmap <silent><leader>a :call Compile()<CR>
+nmap <silent><leader>A :w<CR><C-w>ja<UP><CR>
 
 "검색어로 파일 찾기
 nmap <silent> <leader>f :Rgrep<CR>
@@ -434,7 +439,7 @@ nmap <silent> <leader>f :Rgrep<CR>
 "sidebar plugs
 nmap <leader>l :NERDTreeToggle<CR>      
 nmap <leader>h :TagbarToggle<CR>
-nmap <silent> <leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
+nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
 "" 현재 창에 새 파일 열기
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
