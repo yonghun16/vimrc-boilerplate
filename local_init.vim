@@ -387,12 +387,6 @@ nmap <C-Down> <C-W>2-
 nmap <C-Left> <C-W>2<
 nmap <C-Right> <C-W>2>
 
-"분할창 이동
-nmap <A-j> <C-w>j
-nmap <A-k> <C-w>k
-nmap <A-l> <C-w>l
-nmap <A-h> <C-w>h
-
 "빠른 커서 이동
 nmap <C-j> 3j
 nmap <C-k> 3k
@@ -410,10 +404,10 @@ nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 "터미널 버퍼
 tmap <ESC> <C-\><C-n>
-tmap <A-j> <C-\><C-n><C-w>j
-tmap <A-k> <C-\><C-n><C-w>k
-tmap <A-l> <C-\><C-n><C-w>l
-tmap <A-h> <C-\><C-n><C-w>h
+tmap <C-w>j <C-\><C-n><C-w>j
+tmap <C-w>k <C-\><C-n><C-w>k
+tmap <C-w>l <C-\><C-n><C-w>l
+tmap <C-w>h <C-\><C-n><C-w>h
 
 "영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv=gv
