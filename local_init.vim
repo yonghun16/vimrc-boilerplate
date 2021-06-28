@@ -399,7 +399,6 @@ nmap <C-j> 3j
 nmap <C-k> 3k
 nmap <C-h> <Plug>(easymotion-F)
 nmap <C-l> <Plug>(easymotion-f)
-
 vmap <C-k> 3k
 vmap <C-j> 3j
 vmap <C-h> <Plug>(easymotion-F)
@@ -453,17 +452,16 @@ nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nmap <silent> <leader>g :Rgrep<CR>
 
 "" Git
+nmap <Leader>gs :Git<CR>
 nmap <Leader>ga :Gwrite<CR>
-nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gsh :Gpush<CR>
-nmap <Leader>gll :Gpull<CR>
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gb :Gblame<CR>
-nmap <Leader>gd :Gvdiff<CR>
+nmap <Leader>gc :Git commit<CR>
+nmap <Leader>gsh :Git push<CR>
+nmap <Leader>gll :Git pull<CR>
+nmap <Leader>gb :Git blame<CR>
+nmap <Leader>gd :Git diff<CR>
+nmap <Leader>gl :Git log<CR>
 nmap <Leader>gr :Gremove<CR>
-
-"" Open current line on GitHub
-nmap <Leader>o :.Gbrowse<CR>
+nmap <Leader>o :GBrowse<CR>
 
 " 상대 넘버 토글
 nmap <silent> <leader>r :set rnu!<cr>
