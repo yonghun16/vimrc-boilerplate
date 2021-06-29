@@ -66,6 +66,7 @@ set ttyfast
 set fileformats=unix,dos,mac
 
 " Editing
+set autoread
 set backspace=indent,eol,start
 syntax on 				" 구문 강조
 sy enable 				" 파일 형식에 따른 신택스 하이라이팅 켜기
