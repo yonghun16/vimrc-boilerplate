@@ -66,7 +66,6 @@ set ttyfast
 set fileformats=unix,dos,mac
 
 " Editing
-set autoread
 set backspace=indent,eol,start
 syntax on 				" 구문 강조
 sy enable 				" 파일 형식에 따른 신택스 하이라이팅 켜기
@@ -398,12 +397,16 @@ nmap <C-Right> <C-W>2>
 "빠른 커서 이동
 nmap <C-j> 3j
 nmap <C-k> 3k
-nmap <C-h> <Plug>(easymotion-F)
-nmap <C-l> <Plug>(easymotion-f)
+nmap <C-h> H
+nmap <C-l> L
+nmap <C-m> M
+nmap <S-f> <Plug>(easymotion-bd-f)
 vmap <C-k> 3k
 vmap <C-j> 3j
-vmap <C-h> <Plug>(easymotion-F)
-vmap <C-l> <Plug>(easymotion-f)
+vmap <C-h> H
+vmap <C-l> L
+vmap <C-m> M
+vmap <S-f> <Plug>(easymotion-bd-f)
 
 "빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
