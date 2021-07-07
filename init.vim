@@ -12,7 +12,7 @@ endif
 
 let g:vim_bootstrap_langs = "c,html,javascript,python,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "molokai"
+"let g:vim_bootstrap_theme = "molokai"
 let g:vim_bootstrap_frams = "vuejs"
 
 if !filereadable(vimplug_exists)
@@ -47,10 +47,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'editor-bootstrap/vim-bootstrap-updater'
+Plug 'editor-bootstrap/vim-bootstrap-updater' " :VimBootstrapUpdate 
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'tomasr/molokai'
-Plug 'morhetz/gruvbox'
+"Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox' " add color theme
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -177,7 +177,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme molokai
+"colorscheme molokai
 
 
 set mousemodel=popup

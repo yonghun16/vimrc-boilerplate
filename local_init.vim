@@ -1,23 +1,12 @@
-"-----------------------------------------------------------------------------
-" Filename : local_init.vim
-" Version : 2.8
-" Writer :  yonghun16
-" Date : 2021. 05. 23
-"-----------------------------------------------------------------------------
-"
+"*****************************************************************************
+"" Vim-Plug core
+"*****************************************************************************
+
 
 "*****************************************************************************
-" init.vim (.config/nvim) 수정
+"" Plug install packages
 "*****************************************************************************
-"----- 추가 하기 -----
-"Plug 'morhetz/gruvbox'
-
-"----- 삭제 하기 -----
-"Plug 'gko/vim-coloresque' 
-"Plug 'jistr/vim-nerdtree-tabs' 
-
-"----- 업데이트 -----
-":VimBootstrapUpdate 
+Plug 'morhetz/gruvbox' " add color theme
 
 
 "*****************************************************************************
@@ -486,9 +475,6 @@ nmap <leader>v :vert diffsplit
 
 "" Show History
 nmap <leader>y :History:<CR>
-
-" Prettier
-nmap <Leader>p <Plug>(Prettier)
 
 " 자동 하이라이팅
 nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
