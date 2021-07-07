@@ -42,6 +42,7 @@ Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'mhinz/vim-startify'
 Plug 'yegappan/mru'
+Plug 'ryanoasis/vim-devicons'
 
 ""language
 Plug 'ap/vim-css-color'
@@ -73,7 +74,6 @@ set rnu 				" 행 라인 표시
 set ruler               " 화면 하단에 커서 위치 표시
 set nocompatible		" be iMproved
 filet plugin indent on	" 파일의 종류를 자동으로 인식
-"set linespace=4         " 행 라인 간격 조정
 set bs=2 				" 백스페이스 사용
 set hi=100 				" 명령어 기록 갯수 100개
 set sc					" 완성중인 명령을 보이게함
@@ -108,7 +108,6 @@ set termguicolors       "터미널에서 24bit컬러(GUI컬러) 지원하기
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 let g:rehash256 = 1
-set guifont=D2coding:h11
 
 
 "*****************************************************************************
