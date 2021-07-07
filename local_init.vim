@@ -239,7 +239,7 @@ endfunction
 "*****************************************************************************
 "" Plug setting
 "*****************************************************************************
-" NERD Tree
+"NERD Tree
 let NERDTreeWinPos = "right"			
 set autochdir
 let g:NERDTreeChDirMode=2
@@ -273,13 +273,13 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsEditSplit="vertical"
 
-" syntastic 
+"syntastic 
 let g:syntastic_check_on_open=1	" 시작하자마자 구문을 체크함.
 
-" FuzzyFinder
+"FuzzyFinder
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
-" vim-airline
+"vim-airline
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -326,7 +326,7 @@ let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
-"gitgutter 설정
+" gitgutter 설정
 let g:gitgutter_grep_command = 'grep -e'
 let g:gitgutter_async = 0
 let g:gitgutter_enabled = 0
@@ -361,7 +361,7 @@ let g:user_emmet_leader_key=','
 "*****************************************************************************
 
 
-"ESC 키를 편하게 <Ctrl+f>로 변경
+" ESC 키를 편하게 <Ctrl+f>로 변경
 imap <C-f> <ESC>
 cmap <C-f> <ESC>
 vmap <C-f> <ESC>
@@ -369,20 +369,17 @@ smap <C-f> <ESC>
 nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
-"Tab 관련
-nmap <leader><tab> :ToggleBufExplorer<CR>
-
-"입력모드에서 간단한 커서이동
+" 입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
 imap <S-Tab> <C-d>
 
-"분할창 크기조절
+" 분할창 크기조절
 nmap <C-Up> <C-W>2+
 nmap <C-Down> <C-W>2-
 nmap <C-Left> <C-W>2<
 nmap <C-Right> <C-W>2>
 
-"빠른 커서 이동
+" 빠른 커서 이동
 nmap <C-j> 3j
 nmap <C-k> 3k
 nmap <C-h> H
@@ -396,18 +393,18 @@ vmap <C-l> L
 vmap <C-m> M
 vmap <S-f> <Plug>(easymotion-bd-f)
 
-"빠른 스크롤
+" 빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
 nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
 
-"터미널 버퍼
+" 터미널 버퍼
 tmap <ESC> <C-\><C-n>
 tmap <C-w>j <C-\><C-n><C-w>j
 tmap <C-w>k <C-\><C-n><C-w>k
 tmap <C-w>l <C-\><C-n><C-w>l
 tmap <C-w>h <C-\><C-n><C-w>h
 
-"영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
+" 영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
 
@@ -417,33 +414,40 @@ vmap <S-k> :m '<-2<CR>gv=gv
 "----------------------------------------------------------------------
 let mapleader = ','
 
-"basic Shotkey
+" basic Shotkey
 tmap <leader>q <C-\><C-n>:q<CR>
 nmap <leader>q <ESC>:q<CR>
 nmap <leader>w <ESC>:w<CR>
 
-"Compile
+" Compile
 nmap <silent><leader>a :call Compile()<CR>
 nmap <silent><leader>A :w<CR><C-w>ja<UP><CR>
 
-"검색어로 파일 찾기
+" Tab 관련 
+nmap <silent><S-q> gt
+nmap <silent><S-Tab> gT
+nmap <Leader>tn :tabnew<CR>
+nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Buffer 관련
+nmap <leader>z :bp<CR>
+nmap <leader>x :bn<CR>
+nmap <leader><tab> :ToggleBufExplorer<CR>
+nmap <leader>c :bd<CR>
+
+" 검색어로 파일 찾기
 nmap <silent> <leader>f :Rgrep<CR>
 
-"sidebar plugs
+" sidebar plugs
 nmap <leader>l :NERDTreeToggle<CR>      
 nmap <leader>h :TagbarToggle<CR>
 nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
-"" 현재 창에 새 파일 열기
-nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"" 새 탭에 새 파일 열기
-nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-:"Grep.vim
+" Grep.vim
 nmap <silent> <leader>g :Rgrep<CR>
 
-"" Git
+" Git
 nmap <Leader>gs :Git<CR>
 nmap <Leader>ga :Gwrite<CR>
 nmap <Leader>gc :Git commit<CR>
@@ -473,16 +477,16 @@ nmap <leader>sc :CloseSession<CR>
 " 파일 비교하기
 nmap <leader>v :vert diffsplit 
 
-"" Show History
+" Show History
 nmap <leader>y :History:<CR>
 
 " 자동 하이라이팅
 nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
-"" Set working directory
+" Set working directory
 nmap <leader>. :lcd %:p:h<CR>
 
-"" Clean search (highlight)
+" Clean search (highlight)
 nmap <silent> <leader><space> :noh<cr>
 
 " FuzzyFinder 단축키
