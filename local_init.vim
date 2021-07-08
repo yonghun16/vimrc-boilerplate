@@ -321,12 +321,12 @@ else
     let g:airline_symbols.linenr = ''
 endif
 
-"grep.vim
+" grep.vim
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
-"gitgutter 설정
+" gitgutter 설정
 let g:gitgutter_grep_command = 'grep -e'
 let g:gitgutter_async = 0
 let g:gitgutter_enabled = 0
@@ -336,13 +336,13 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 let g:gitgutter_avoid_cmd_prompt_on_windows = 0
 
-"IndentLine
+" IndentLine
 let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '│'
 let g:indentLine_faster = 1
 
-"emmet-vim 설정
+" emmet-vim 설정
 let g:user_emmet_leader_key=','
 
 
@@ -361,7 +361,7 @@ let g:user_emmet_leader_key=','
 "*****************************************************************************
 
 
-"ESC 키를 편하게 <Ctrl+f>로 변경
+" ESC 키를 편하게 <Ctrl+f>로 변경
 imap <C-f> <ESC>
 cmap <C-f> <ESC>
 vmap <C-f> <ESC>
@@ -369,17 +369,17 @@ smap <C-f> <ESC>
 nmap <C-f> <ESC>
 tmap <C-f> <C-\><C-n>
 
-"입력모드에서 간단한 커서이동
+" 입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
 imap <S-Tab> <C-d>
 
-"분할창 크기조절
+" 분할창 크기조절
 nmap <C-Up> <C-W>2+
 nmap <C-Down> <C-W>2-
 nmap <C-Left> <C-W>2<
 nmap <C-Right> <C-W>2>
 
-"빠른 커서 이동
+" 빠른 커서 이동
 nmap <C-j> 3j
 nmap <C-k> 3k
 nmap <C-h> H
@@ -393,18 +393,23 @@ vmap <C-l> L
 vmap <C-m> M
 vmap <S-f> <Plug>(easymotion-bd-f)
 
-"빠른 스크롤
+" Tab 관련 
+nmap <silent><S-q> gt
+nmap <silent><S-Tab> gT
+nmap <silent><S-t> :tabnew<CR>
+
+" 빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
 nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
 
-"터미널 버퍼
+" 터미널 버퍼
 tmap <ESC> <C-\><C-n>
 tmap <C-w>j <C-\><C-n><C-w>j
 tmap <C-w>k <C-\><C-n><C-w>k
 tmap <C-w>l <C-\><C-n><C-w>l
 tmap <C-w>h <C-\><C-n><C-w>h
 
-"영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
+" 영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
 
@@ -414,40 +419,33 @@ vmap <S-k> :m '<-2<CR>gv=gv
 "----------------------------------------------------------------------
 let mapleader = ','
 
-"basic Shotkey
+" basic Shotkey
 tmap <leader>q <C-\><C-n>:q<CR>
 nmap <leader>q <ESC>:q<CR>
 nmap <leader>w <ESC>:w<CR>
 
-"Compile
+" Compile
 nmap <silent><leader>a :call Compile()<CR>
 nmap <silent><leader>A :w<CR><C-w>ja<UP><CR>
 
-" Tab 관련 
-nmap <silent><S-q> gt
-nmap <silent><S-Tab> gT
-nmap <Leader>tn :tabnew<CR>
-nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"Buffer 관련
+" Buffer 관련
 nmap <leader>z :bp<CR>
 nmap <leader>x :bn<CR>
 nmap <leader><tab> :ToggleBufExplorer<CR>
 nmap <leader>c :bd<CR>
 
-"검색어로 파일 찾기
+" 검색어로 파일 찾기
 nmap <silent> <leader>f :Rgrep<CR>
 
-"sidebar plugs
+" sidebar plugs
 nmap <leader>l :NERDTreeToggle<CR>      
 nmap <leader>h :TagbarToggle<CR>
 nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
-"Grep.vim
+" Grep.vim
 nmap <silent> <leader>g :Rgrep<CR>
 
-"Git
+" Git
 nmap <Leader>gs :Git<CR>
 nmap <Leader>ga :Gwrite<CR>
 nmap <Leader>gc :Git commit<CR>
@@ -459,37 +457,37 @@ nmap <Leader>gl :Git log<CR>
 nmap <Leader>gr :Gremove<CR>
 nmap <Leader>o :GBrowse<CR>
 
-"상대 넘버 토글
+" 상대 넘버 토글
 nmap <silent> <leader>r :set rnu!<cr>
 
-"행번호 지우기
+" 행번호 지우기
 nmap <silent> <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
 
-"탭 공백 4칸 변경 on/off 토글
+" 탭 공백 4칸 변경 on/off 토글
 nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
 
-"session management
+" session management
 nmap <leader>so :OpenSession<Space>
 nmap <leader>ss :SaveSession<Space>
 nmap <leader>sd :DeleteSession<CR>
 nmap <leader>sc :CloseSession<CR>
 
-"파일 비교하기
+" 파일 비교하기
 nmap <leader>v :vert diffsplit 
 
-"Show History
+" Show History
 nmap <leader>y :History:<CR>
 
 " 자동 하이라이팅
 nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 
-"Set working directory
+" Set working directory
 nmap <leader>. :lcd %:p:h<CR>
 
-"Clean search (highlight)
+" Clean search (highlight)
 nmap <silent> <leader><space> :noh<cr>
 
-"FuzzyFinder 단축키
+" FuzzyFinder 단축키
 nmap <silent>sf		 :FufFile **/<CR>
 nmap <silent>sb 	 :FufBuffer<CR>
 nmap <silent>st 	 :FufTagWithCursorWord!<CR>
@@ -497,13 +495,13 @@ nmap <silent>s,      :FufBufferTag<CR>
 nmap <silent>so      :FufJumpList<CR>
 "nmap <silent>st 	   :FufTag<CR>
 
-"Tag 관련
+" Tag 관련
 nmap <silent>tt :!ctags -R .<CR>
 nmap <silent>ts :tselect<CR>
 nmap <silent>tn :tnext<CR>
 nmap <silent>tp :tprevious<CR>
 
-"영역지정 시 들여쓰기/내어쓰기. 
+" 영역지정 시 들여쓰기/내어쓰기. 
 vmap >> >gv 
 vmap << <gv 
 
@@ -511,7 +509,7 @@ vmap << <gv
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
-"vuejs
+" vuejs
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 
@@ -520,18 +518,18 @@ autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 "----------------------------------------------------------------------
 if exists("$HOME")
 
-    "특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가 붙어 있기 때문에, 그것들을 제거한다.	
+    " 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가 붙어 있기 때문에, 그것들을 제거한다.	
     let s:home_dir = $HOME	
     let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)	
     if s:temp == "/" || s:temp == "\\"	
         let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)	
     endif
 
-    "경로 설정
+    " 경로 설정
     let s:dir_tmp = s:home_dir."/.vim/tmp"
     let s:dir_backup = s:home_dir."/.vim/backup"
 
-    "임시 디렉토리 설정
+    " 임시 디렉토리 설정
     if isdirectory(s:dir_tmp)
         set swf
         let &dir = s:dir_tmp
@@ -540,7 +538,7 @@ if exists("$HOME")
         set dir=.
     endif
 
-    "백업 디렉토리 설정
+    " 백업 디렉토리 설정
     if isdirectory(s:dir_backup)
         set bk
         let &bdir = s:dir_backup
