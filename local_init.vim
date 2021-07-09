@@ -362,11 +362,13 @@ let g:user_emmet_leader_key=','
 
 
 " ESC 키를 편하게 <Ctrl+f>로 변경
-imap <C-f> <ESC>
-cmap <C-f> <ESC>
-vmap <C-f> <ESC>
-smap <C-f> <ESC>
-nmap <C-f> <ESC>
+nmap <C-f> <C-\><C-n>
+imap <C-f> <C-\><C-n>
+vmap <C-f> <C-\><C-n>
+smap <C-f> <C-\><C-n>
+xmap <C-f> <C-\><C-n>
+cmap <C-f> <C-\><C-n>
+omap <C-f> <C-\><C-n>
 tmap <C-f> <C-\><C-n>
 
 " 입력모드에서 간단한 커서이동
