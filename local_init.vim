@@ -393,11 +393,6 @@ vmap <C-l> L
 vmap <C-m> M
 vmap <S-f> <Plug>(easymotion-bd-f)
 
-" Tab 관련 
-nmap <silent><S-q> gt
-nmap <silent><S-Tab> gT
-nmap <silent><S-t> :tabnew<CR>
-
 " 빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
 nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
@@ -427,6 +422,13 @@ nmap <leader>w <ESC>:w<CR>
 " Compile
 nmap <silent><leader>a :call Compile()<CR>
 nmap <silent><leader>A :w<CR><C-w>ja<UP><CR>
+
+" Tab 관련 
+nmap <silent><S-q> gt
+nmap <silent><S-Tab> gT
+nmap <Leader>tn :tabnew<CR>
+nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Buffer 관련
 nmap <leader>z :bp<CR>
