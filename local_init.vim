@@ -399,13 +399,6 @@ vmap <S-f> <Plug>(easymotion-bd-f)
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
 nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
 
-" 터미널 버퍼
-tmap <ESC> <C-\><C-n>
-tmap <C-w>j <C-\><C-n><C-w>j
-tmap <C-w>k <C-\><C-n><C-w>k
-tmap <C-w>l <C-\><C-n><C-w>l
-tmap <C-w>h <C-\><C-n><C-w>h
-
 " 영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
 vmap <S-j> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
