@@ -454,8 +454,8 @@ nmap <Leader>gl :Git log<CR>
 nmap <Leader>gr :Gremove<CR>
 nmap <Leader>o :GBrowse<CR>
 
-" 상대 넘버 토글
-nmap <silent> <leader>r :set rnu!<cr>
+" 레지스터 보기
+nmap <silent> <leader>r :reg<cr>
 
 " 행번호 지우기
 nmap <silent> <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
