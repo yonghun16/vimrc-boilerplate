@@ -151,20 +151,14 @@ ab herf href
 function! Compile() range
     execute ':w'
     if &filetype == "java"
-        if has("win32") || has("win64")  
-            execute ':! javac -d ../bin %<.java'
-            execute ':! java -cp ../bin %<'
-        elseif has("unix")
-            execute ':! javac -encoding utf-8 -d ../bin %<.java'
-            execute ':! java -cp ../bin %<'
+        if has("unix")
+            execute ':! java -cp ~/bin %<'
+            execute ':! javac -encoding utf-8 -d ~/bin %<.java'
         endif
     elseif &filetype =="c"
-        if has("win32") || has("win64")  
-            execute ':! gcc -o %< %<.c'
-            execute ':! %<.exe'
-        elseif has("unix")
-            execute ':! gcc -o %< %<.c'
-            execute ':! ./%<'
+        if has("unix")
+            execute ':! gcc -o ~/bin/%< %<.c'
+            execute ':! ~/bin/%<'
         endif
     elseif &filetype =="python"
         if has("unix")
@@ -416,7 +410,6 @@ nmap <leader>w <ESC>:w<CR>
 
 " Compile
 nmap <silent><leader>a :call Compile()<CR>
-nmap <silent><leader>A :w<CR><C-w>ja<UP><CR>
 
 " Tab 관련 
 nmap <silent><S-q> gt
