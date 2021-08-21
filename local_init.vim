@@ -412,8 +412,7 @@ nmap <silent><leader>a :call Compile()<CR>
 " Tab 관련 
 nmap <silent><S-q> gt
 nmap <silent><S-Tab> gT
-nmap <Leader>tn :tabnew<CR>
-nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Buffer 관련
