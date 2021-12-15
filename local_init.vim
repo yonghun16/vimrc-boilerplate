@@ -1,5 +1,5 @@
 "*****************************************************************************
-"" Vim-Plug core a1
+"" Vim-Plug core
 "*****************************************************************************
 
 
@@ -17,7 +17,13 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'    "$sudo apt-get install ctags
 
 ""syntax
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "need phyhon (pip3 install pynvim, pip3 install --upgrade pynvim)
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'roxma/nvim-yarp'
 Plug 'airblade/vim-gitgutter'                          
 Plug 'preservim/nerdcommenter'
@@ -376,13 +382,13 @@ nmap <C-Left> <C-W>2<
 nmap <C-Right> <C-W>2>
 
 " 빠른 커서 이동
-nmap <C-j> 3j
-nmap <C-k> 3k
+nmap <C-j> jjj
+nmap <C-k> kkk
 nmap <C-h> ^
 nmap <C-l> $
 nmap <S-f> <Plug>(easymotion-bd-f)
-vmap <C-k> 3k
-vmap <C-j> 3j
+vmap <C-k> kkk
+vmap <C-j> jjj
 vmap <C-h> ^
 vmap <C-l> $
 vmap <S-f> <Plug>(easymotion-bd-f)
