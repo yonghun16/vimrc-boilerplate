@@ -166,6 +166,11 @@ function! Compile() range
             execute ':! gcc -o ~/bin/%< %<.c'
             execute ':! ~/bin/%<'
         endif
+    elseif &filetype =="cpp"
+        if has("unix")
+            execute ':! g++ -o ~/bin/%< %<.cpp'
+            execute ':! ~/bin/%<'
+        endif
     elseif &filetype =="python"
         if has("unix")
             execute ':! python3 ./%<.py'
