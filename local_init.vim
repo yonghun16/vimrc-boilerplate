@@ -155,12 +155,7 @@ ab herf href
 " 컴파일 단축키
 function! Compile() range
     execute ':w'
-    if &filetype == "java"
-        if has("unix")
-            execute ':! java -cp ~/bin %<'
-            execute ':! javac -encoding utf-8 -d ~/bin %<.java'
-        endif
-    elseif &filetype =="c"
+    if &filetype =="c"
         if has("unix")
             execute ':! gcc -o ~/bin/%< %<.c'
             execute ':! ~/bin/%<'
@@ -170,13 +165,18 @@ function! Compile() range
             execute ':! g++ -o ~/bin/%< %<.cpp'
             execute ':! ~/bin/%<'
         endif
-    elseif &filetype =="python"
+    elseif &filetype == "java"
         if has("unix")
-            execute ':! python3 ./%<.py'
+            execute ':! java -cp ~/bin %<'
+            execute ':! javac -encoding utf-8 -d ~/bin %<.java'
         endif
     elseif &filetype =="javascript"
         if has("unix")
             execute ':! node ./%<.js'
+        endif
+    elseif &filetype =="python"
+        if has("unix")
+            execute ':! python3 ./%<.py'
         endif
     endif
 endfunction
