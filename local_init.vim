@@ -170,13 +170,13 @@ function! Compile() range
             execute ':! java -cp ~/bin %<'
             execute ':! javac -encoding utf-8 -d ~/bin %<.java'
         endif
-    elseif &filetype =="javascript"
-        if has("unix")
-            execute ':! node ./%<.js'
-        endif
     elseif &filetype =="python"
         if has("unix")
             execute ':! python3 ./%<.py'
+        endif
+    elseif &filetype =="javascript"
+        if has("unix")
+            execute ':! node ./%<.js'
         endif
     endif
 endfunction
