@@ -167,8 +167,8 @@ function! Compile() range
         endif
     elseif &filetype == "java"
         if has("unix")
-            execute ':! java -cp ~/bin %<'
             execute ':! javac -encoding utf-8 -d ~/bin %<.java'
+            execute ':! java -cp ~/bin %<'
         endif
     elseif &filetype =="python"
         if has("unix")
