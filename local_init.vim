@@ -399,8 +399,8 @@ nmap <C-k> 3k
 nmap <C-h> ^
 nmap <C-l> $
 nmap <S-f> <Plug>(easymotion-bd-f)
-vmap <C-k> 3j
-vmap <C-j> 3k
+vmap <C-j> 3j
+vmap <C-k> 3k
 vmap <C-h> ^
 vmap <C-l> $
 vmap <S-f> <Plug>(easymotion-bd-f)
