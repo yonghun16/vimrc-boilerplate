@@ -172,10 +172,12 @@ function! Compile() range
         endif
     elseif &filetype =="python"
         if has("unix")
+            execute ':! cp ./%<.py ~/bin'
             execute ':! python3 ./%<.py'
         endif
     elseif &filetype =="javascript"
         if has("unix")
+            execute ':! cp ./%<.js ~/bin'
             execute ':! node ./%<.js'
         endif
     endif
