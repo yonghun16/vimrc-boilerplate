@@ -475,7 +475,6 @@ nmap <silent>sb :FufBuffer<CR>
 nmap <silent>st :FufTagWithCursorWord!<CR>
 nmap <silent>s, :FufBufferTag<CR>
 nmap <silent>so :FufJumpList<CR>
-"nmap <silent>st 	   :FufTag<CR>
 
 " Grep.vim
 nmap <silent> <leader>gp :Rgrep<CR>
