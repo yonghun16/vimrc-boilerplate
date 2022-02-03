@@ -396,12 +396,12 @@ imap <S-Tab> <C-d>
 " 빠른 커서 이동
 nmap <C-j> 3j
 nmap <C-k> 3k
-nmap <C-h> 6h
-nmap <C-l> 6l
+nmap <C-h> 5h
+nmap <C-l> 5l
 vmap <C-j> 3j
 vmap <C-k> 3k
-vmap <C-h> 6h
-vmap <C-l> 6l
+vmap <C-h> 5h
+vmap <C-l> 5l
 
 " 빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
