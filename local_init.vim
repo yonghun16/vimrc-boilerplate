@@ -366,6 +366,10 @@ let g:user_emmet_leader_key=','
 "" Mappings
 "*****************************************************************************
 
+"----------------------------------------------------------------------
+"" Basic mapping
+"----------------------------------------------------------------------
+let mapleader = ','
 
 " ESC 키를 편하게 <Ctrl+f>로 변경
 nmap <C-f> <ESC>
@@ -389,68 +393,92 @@ tmap <ESC> <C-\><C-n>
 imap <C-l> <RIGHT>
 imap <S-Tab> <C-d>
 
+" 빠른 커서 이동
+nmap <C-j> 3j
+nmap <C-k> 3k
+nmap <C-h> 6h
+nmap <C-l> 6l
+vmap <C-j> 3j
+vmap <C-k> 3k
+vmap <C-h> 6h
+vmap <C-l> 6l
+
+" 빠른 스크롤
+nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
+nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
+
 " 분할창 크기조절
 nmap <C-Up> <C-W>2+
 nmap <C-Down> <C-W>2-
 nmap <C-Left> <C-W>2<
 nmap <C-Right> <C-W>2>
 
-" 빠른 커서 이동
-nmap <C-j> 3j
-nmap <C-k> 3k
-nmap <C-h> 6h
-nmap <C-l> 6l
-nmap <S-f> <Plug>(easymotion-bd-f)
-vmap <C-j> 3j
-vmap <C-k> 3k
-vmap <C-h> 6h
-vmap <C-l> 6l
-vmap <S-f> <Plug>(easymotion-bd-f)
-
-" 빠른 스크롤
-nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
-nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
-
-" 영역지정 시 <Shift + j,k> 키로 현재 라인을 위아래로 move 
-vmap <S-j> :m '>+1<CR>gv=gv
-vmap <S-k> :m '<-2<CR>gv=gv
-
-
-"----------------------------------------------------------------------
-"" set <Leader> key
-"----------------------------------------------------------------------
-let mapleader = ','
-
-" basic Shotkey
-tmap <leader>q <C-\><C-n>:q<CR>
-nmap <leader>q <ESC>:q<CR>
-nmap <leader>w <ESC>:w<CR>
-
-" Compile
-nmap <silent><leader>a :call Compile()<CR>
-
-" Tab 관련 
-nmap <silent><S-q> gt
-nmap <silent><S-Tab> gT
-nmap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
-nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Buffer 관련
+" Buffer
 nmap <leader>z :bp<CR>
 nmap <leader>x :bn<CR>
 nmap <leader><tab> :ToggleBufExplorer<CR>
 nmap <leader>c :bd<CR>
 
-" 검색어로 파일 찾기
-nmap <silent> <leader>f :Rgrep<CR>
+" Tab
+nmap <silent><S-q> gt
+nmap <silent><S-Tab> gT
+nmap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" sidebar plugs
-nmap <leader>l :NERDTreeToggle<CR>      
-nmap <leader>h :TagbarToggle<CR>
-nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
+" 영역지정 된 행을 위아래로 이동
+vmap <S-j> :m '>+1<CR>gv=gv
+vmap <S-k> :m '<-2<CR>gv=gv
+
+" 영역지정 시 들여쓰기/내어쓰기. 
+vmap >> >gv 
+vmap << <gv 
+
+" 레지스터 보기
+nmap <silent> <leader>r :reg<cr>
+
+" 파일비교
+nmap <leader>v :vert diffsplit 
+
+" 현재 경로를 작업경로로 설정
+nmap <leader>. :lcd %:p:h<CR>
+
+" 종료
+nmap <leader>w <ESC>:w<CR>
+tmap <leader>q <C-\><C-n>:q<CR>
+nmap <leader>q <ESC>:q<CR>
+
+"----------------------------------------------------------------------
+"" plugins & etc function mapping
+"----------------------------------------------------------------------
+
+" Auto highlight
+nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+
+" Clean search (highlight)
+nmap <silent> <leader><space> :noh<cr>
+
+" Compile
+nmap <silent><leader>a :call Compile()<CR>
+
+" Ctags 
+nmap <silent>tt :!ctags -R .<CR>
+nmap <silent>ts :tselect<CR>
+nmap <silent>tn :tnext<CR>
+nmap <silent>tp :tprevious<CR>
+
+" Easymotion
+nmap <leader>f <Plug>(easymotion-bd-f)
+
+" FuzzyFinder
+nmap <silent>sf :FufFile **/<CR>
+nmap <silent>sb :FufBuffer<CR>
+nmap <silent>st :FufTagWithCursorWord!<CR>
+nmap <silent>s, :FufBufferTag<CR>
+nmap <silent>so :FufJumpList<CR>
+"nmap <silent>st 	   :FufTag<CR>
 
 " Grep.vim
-nmap <silent> <leader>g :Rgrep<CR>
+nmap <silent> <leader>gp :Rgrep<CR>
 
 " Git
 nmap <Leader>gs :Git<CR>
@@ -464,53 +492,16 @@ nmap <Leader>gl :Git log<CR>
 nmap <Leader>gr :Gremove<CR>
 nmap <Leader>o :GBrowse<CR>
 
-" 레지스터 보기
-nmap <silent> <leader>r :reg<cr>
-
-" 행번호 지우기
+" Remove line numbers
 nmap <silent> <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
 
-" 탭 공백 4칸 변경 on/off 토글
+" Sidebar
+nmap <leader>l :NERDTreeToggle<CR>      
+nmap <leader>h :TagbarToggle<CR>
+nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
+
+" Tab change to 4 space
 nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
-
-" session management
-nmap <leader>so :OpenSession<Space>
-nmap <leader>ss :SaveSession<Space>
-nmap <leader>sd :DeleteSession<CR>
-nmap <leader>sc :CloseSession<CR>
-
-" 파일 비교하기
-nmap <leader>v :vert diffsplit 
-
-" Show History
-nmap <leader>y :History:<CR>
-
-" 자동 하이라이팅
-nmap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-
-" Set working directory
-nmap <leader>. :lcd %:p:h<CR>
-
-" Clean search (highlight)
-nmap <silent> <leader><space> :noh<cr>
-
-" FuzzyFinder 단축키
-nmap <silent>sf		 :FufFile **/<CR>
-nmap <silent>sb 	 :FufBuffer<CR>
-nmap <silent>st 	 :FufTagWithCursorWord!<CR>
-nmap <silent>s,      :FufBufferTag<CR>
-nmap <silent>so      :FufJumpList<CR>
-"nmap <silent>st 	   :FufTag<CR>
-
-" Tag 관련
-nmap <silent>tt :!ctags -R .<CR>
-nmap <silent>ts :tselect<CR>
-nmap <silent>tn :tnext<CR>
-nmap <silent>tp :tprevious<CR>
-
-" 영역지정 시 들여쓰기/내어쓰기. 
-vmap >> >gv 
-vmap << <gv 
 
 
 "*****************************************************************************
