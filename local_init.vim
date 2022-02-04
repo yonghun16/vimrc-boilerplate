@@ -50,30 +50,30 @@ filetype plugin indent on
 "" Basic Setup
 "*****************************************************************************
 " Encoding 
-set enc=utf-8 			    " editor의 인코딩
-set tenc=utf-8				" terminal의 인코딩
+set enc=utf-8               " editor의 인코딩
+set tenc=utf-8              " terminal의 인코딩
 set fencs=ucs-bom,utf-8,cp949,latin1,euc-kr
-set nobomb 	                " Byte Order Mark 사용하지 않음 (unix와의 인코딩 해결 문제)
-let $LANG = 'ko_KR.UTF-8' 	" vim의 언어
+set nobomb                  " Byte Order Mark 사용하지 않음 (unix와의 인코딩 해결 문제)
+let $LANG = 'ko_KR.UTF-8'   " vim의 언어
 set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
 set fileformats=unix,dos,mac
 
 " Syntax
-syntax on 				" 구문 강조
-syntax enable 			" 파일 형식에 따른 문법 하이라이팅 켜기
-filet plugin indent on	" 파일의 종류를 자동으로 인식
-set wrap 				" 자동 줄바꿈 사용
-set magic 				" 모든 정규식 문자를 사용 할 수 있게함
-set sc					" 완성중인 명령을 보이게함
+syntax on               " 구문 강조
+syntax enable           " 파일 형식에 따른 문법 하이라이팅 켜기
+filet plugin indent on  " 파일의 종류를 자동으로 인식
+set wrap                " 자동 줄바꿈 사용
+set magic               " 모든 정규식 문자를 사용 할 수 있게함
+set sc                  " 완성중인 명령을 보이게함
 set wmnu                " 자동완성 가능 목록을 보여줌
-"set sm 				" 새로 추가된 괄호 짝 보여주기
-"set mps+=<:> 			" 괄호짝 찾기에서 <> 도 찾도록 추가하기 (HTML 작업시 유용)
+"set sm                 " 새로 추가된 괄호 짝 보여주기
+"set mps+=<:>           " 괄호짝 찾기에서 <> 도 찾도록 추가하기 (HTML 작업시 유용)
 
 " Indent & tab
 set backspace=indent,eol,start
-set autoindent 			" 자동 들여쓰기
+set autoindent          " 자동 들여쓰기
 set tabstop=4           " 탭 크기 4로 하기
 set softtabstop=4       " 탭 크기 4로 하기
 set shiftwidth=4        " 들여쓰기를 4칸으로 
@@ -82,22 +82,22 @@ set smarttab            " 스마트 탭
 set smartindent         " 스마트 들여쓰기
 
 " Searching
-set hlsearch			" 검색어 하이라이트 
+set hlsearch            " 검색어 하이라이트 
 set incsearch           " 검색 시 점진적으로 검색.
 set ignorecase          " 검색 시 대소문자 구별 안함.
 set go+=c               " '간단한 선택' 다이얼로그가 새 창에서 뜨지 않도록...
 set smartcase           " 스마트 대소문자 구별 기능 사용
 
 " Etc
-set rnu 				" 행 라인 표시
+set rnu                 " 행 라인 표시
 set ruler               " 화면 하단에 커서 위치 표시
 set cursorline          " 커서라인 하이라이팅
-set bs=2 				" 백스페이스 사용
-set hi=100 				" 명령어 기록 갯수 100개
+set bs=2                " 백스페이스 사용
+set hi=100              " 명령어 기록 갯수 100개
 set sel=exclusive		" 비주얼 모드에서의 동작 설정
 set pastetoggle=<Ins>   " <Ins>키로 paste 사용
-set ls=2 				" 항상 status 라인을 표시
-set uc=10				" 몇 글자를 입력받으면 swap 파일을 쓸 것인지 설정
+set ls=2                " 항상 status 라인을 표시
+set uc=10               " 몇 글자를 입력받으면 swap 파일을 쓸 것인지 설정
 set belloff=all         " Bell off
 
 
