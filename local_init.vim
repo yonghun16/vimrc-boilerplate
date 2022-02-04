@@ -94,7 +94,7 @@ set ruler               " 화면 하단에 커서 위치 표시
 set cursorline          " 커서라인 하이라이팅
 set bs=2                " 백스페이스 사용
 set hi=100              " 명령어 기록 갯수 100개
-set sel=exclusive		" 비주얼 모드에서의 동작 설정
+set sel=exclusive       " 비주얼 모드에서의 동작 설정
 set pastetoggle=<Ins>   " <Ins>키로 paste 사용
 set ls=2                " 항상 status 라인을 표시
 set uc=10               " 몇 글자를 입력받으면 swap 파일을 쓸 것인지 설정
@@ -275,7 +275,7 @@ let g:ale_linters = {}
 " Tag bar
 let g:tagbar_left = 1				
 let g:tagbar_width = 30	   
-let g:tagbar_sort = 0				" 파일 안의 태그 순서대로 태그정렬
+let g:tagbar_sort = 0               " 파일 안의 태그 순서대로 태그정렬
 let g:tagbar_autoshowtag = 1
 let g:tagbar_autofocus = 1
 
@@ -286,7 +286,7 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Syntastic 
-let g:syntastic_check_on_open=1	" 시작하자마자 구문을 체크함.
+let g:syntastic_check_on_open=1     " 시작하자마자 구문을 체크함.
 
 " FuzzyFinder
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
