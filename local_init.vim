@@ -49,7 +49,7 @@ filetype plugin indent on
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************
-"" Encoding 
+" Encoding 
 set enc=utf-8 			    " editor의 인코딩
 set tenc=utf-8				" terminal의 인코딩
 set fencs=ucs-bom,utf-8,cp949,latin1,euc-kr
@@ -60,39 +60,45 @@ set fileencodings=utf-8
 set ttyfast
 set fileformats=unix,dos,mac
 
-" Editing
-set backspace=indent,eol,start
-syntax on 				" 구문 강조
-sy enable 				" 파일 형식에 따른 신택스 하이라이팅 켜기
-set rnu 				" 행 라인 표시
-set ruler               " 화면 하단에 커서 위치 표시
+" Syntax
 set nocompatible		" be iMproved
 filet plugin indent on	" 파일의 종류를 자동으로 인식
+syntax on 				" 구문 강조
+sy enable 				" 파일 형식에 따른 문법 하이라이팅 켜기
+set wrap 				" 자동 줄바꿈 사용
+set magic 				" 모든 정규식 문자를 사용 할 수 있게함
+"set sm 				" 새로 추가된 괄호 짝 보여주기
+"set mps+=<:> 			" 괄호짝 찾기에서 <> 도 찾도록 추가하기 (HTML 작업시 유용)
+
+" Indent & tab
+set backspace=indent,eol,start
+set ai 					" 자동 들여쓰기
+set si 					" 스마트 들여쓰기
+set tabstop=4           " 탭 크기 4로 하기
+set softtabstop=4       " 탭 크기 4로 하기"
+set shiftwidth=4        " 들여쓰기를 4칸으로 
+set expandtab           " 탭을 공백으로 바꿈
+
+" Searching
+set hlsearch			" 검색어 하이라이트 
+set incsearch           " 검색 시 점진적으로 검색.
+set ignorecase          " 검색 시 대소문자 구별 안함.
+set smartcase           " 검색 시 똑똑한 대소문자 구별 기능 사용
+set go+=c               " '간단한 선택' 다이얼로그가 새 창에서 뜨지 않도록...
+
+" Etc
+set rnu 				" 행 라인 표시
+set ruler               " 화면 하단에 커서 위치 표시
+set ru 					" 커서 위치 항상 보이기
 set bs=2 				" 백스페이스 사용
 set hi=100 				" 명령어 기록 갯수 100개
 set sc					" 완성중인 명령을 보이게함
 set sel=exclusive		" 비주얼 모드에서의 동작 설정
-set wrap 				" 자동 줄바꿈 사용
-set ru 					" 커서 위치 항상 보이기
-set magic 				" 모든 정규식 문자를 사용 할 수 있게함
+set pastetoggle=<Ins>   " <Ins>키로 paste 사용
 set ls=2 				" 항상 status 라인을 표시
 set cursorline          " 커서라인 하이라이팅
 set uc=10				" 몇 글자를 입력받으면 swap 파일을 쓸 것인지 설정
 set belloff=all         " Bell off
-"set sm 				" 새로 추가된 괄호 짝 보여주기
-"set mps+=<:> 			" 괄호짝 찾기에서 <> 도 찾도록 추가하기 (HTML 작업시 유용)
-set pastetoggle=<Ins>   " <Ins>키로 paste 사용
-set ai 					" 자동 들여쓰기
-set si 					" 스마트 들여쓰기
-set tabstop=4           " 탭 크기 4로 하기
-set softtabstop=0
-set shiftwidth=4        " 들여쓰기를 4칸으로 
-set expandtab           " 탭을 공백으로 바꿈
-set hlsearch			" 검색어 하이라이트 
-set incsearch           " 검색 시 대소문자 구별 안함.
-set ignorecase
-set smartcase           " 검색 시 똑똑한 대소문자 구별 기능 사용
-set go+=c               " '간단한 선택' 다이얼로그가 새 창에서 뜨지 않도록...
 
 
 "*****************************************************************************
@@ -245,7 +251,7 @@ endfunction
 "*****************************************************************************
 "" Plug setting
 "*****************************************************************************
-"NERD Tree
+" NERD Tree
 let NERDTreeWinPos = "right"			
 set autochdir
 let g:NERDTreeChDirMode=2
@@ -257,35 +263,35 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 30
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
-"MRU
+" MRU
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'  " For Unix"
 
-"deoplete
+" deoplete
 let g:deoplete#enable_at_startup = 1
 
-"ale
+" ale
 let g:ale_linters = {}
 
-"Tag bar
+" Tag bar
 let g:tagbar_left = 1				
 let g:tagbar_width = 30	   
 let g:tagbar_sort = 0				" 파일 안의 태그 순서대로 태그정렬
 let g:tagbar_autoshowtag = 1
 let g:tagbar_autofocus = 1
 
-"ultisnips 
+" Ultisnips 
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsEditSplit="vertical"
 
-"syntastic 
+" Syntastic 
 let g:syntastic_check_on_open=1	" 시작하자마자 구문을 체크함.
 
-"FuzzyFinder
+" FuzzyFinder
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
-"vim-airline
+" vim-airline
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -365,7 +371,6 @@ let g:user_emmet_leader_key=','
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-
 "----------------------------------------------------------------------
 "" Basic mapping
 "----------------------------------------------------------------------
@@ -391,7 +396,6 @@ tmap <ESC> <C-\><C-n>
 
 " 입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
-imap <S-Tab> <C-d>
 
 " 빠른 커서 이동
 nmap <C-j> 3j
@@ -507,7 +511,7 @@ nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
 "" Custom configs
 "*****************************************************************************
 " vuejs
-autocmd Filetype vue setlocal ts=2 sw=2 expandtab
+autocmd Filetype vue setlocal ts=2 sw=2 expandtab 
 
 
 "----------------------------------------------------------------------
