@@ -399,12 +399,12 @@ imap <C-l> <RIGHT>
 
 " 빠른 커서 이동
 nmap <C-j> 3j
-nmap <C-k> 3k
-nmap <C-h> 5h
-nmap <C-l> 5l
 vmap <C-j> 3j
+nmap <C-k> 3k
 vmap <C-k> 3k
+nmap <C-h> 5h
 vmap <C-h> 5h
+nmap <C-l> 5l
 vmap <C-l> 5l
 
 " 빠른 스크롤
