@@ -228,22 +228,18 @@ function! Tab_toggle()
     endif
 endfunction
 
-"행번호 제거 (소스를 복사할 때 유용.)
+"행번호 변경 토글
 function! Numberline_toggle()
-    let @/ = ''
-    if exists('#numberline_toggle')
-        au!
-        set nu rnu
+    if(&relativenumber==1)
+        set norelativenumber!
+    elseif(&number==0)
+        set relativenumber
+        set number
         execute ':IndentLinesToggle'
-        augroup! numberline_toggle
-        return 0
-    else
-        augroup numberline_toggle
-            au!
-            set nonu nornu
-            execute ':IndentLinesToggle'
-        augroup end
-        return 1
+    elseif(&relativenumber==0)
+        set norelativenumber
+        set nonumber
+        execute ':IndentLinesToggle'
     endif
 endfunction
 
@@ -495,8 +491,9 @@ nmap <Leader>gl :Git log<CR>
 nmap <Leader>gr :Gremove<CR>
 nmap <Leader>o :GBrowse<CR>
 
-" Remove line numbers
-nmap <silent> <leader>R :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
+" Numberline change
+"nmap <silent> <leader>n :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
+nmap <silent> <leader>n :call Numberline_toggle()<CR>
 
 " Sidebar
 nmap <leader>l :NERDTreeToggle<CR>      
