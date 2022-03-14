@@ -234,12 +234,10 @@ function! Numberline_remove_toggle()
         set norelativenumber
         set nonumber
         execute ':IndentLinesToggle'
-        echo "w"
     else
         set relativenumber
         set number
         execute ':IndentLinesToggle'
-        echo "e"
     endif
 endfunction
 
