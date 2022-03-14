@@ -398,10 +398,10 @@ nmap <C-j> 3j
 vmap <C-j> 3j
 nmap <C-k> 3k
 vmap <C-k> 3k
-nmap <C-h> 5h
-vmap <C-h> 5h
-nmap <C-l> 5l
-vmap <C-l> 5l
+nmap <C-h> 10h
+vmap <C-h> 10h
+nmap <C-l> 10l
+vmap <C-l> 10l
 
 " 빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
@@ -467,7 +467,8 @@ nmap <silent>tn :tnext<CR>
 nmap <silent>tp :tprevious<CR>
 
 " Easymotion
-nmap <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>ff <Plug>(easymotion-f)
+nmap <leader>fF <Plug>(easymotion-F)
 
 " FuzzyFinder
 nmap <silent>sf :FufFile **/<CR>
