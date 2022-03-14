@@ -228,26 +228,30 @@ function! Tab_toggle()
     endif
 endfunction
 
-"행번호 지우기 토글
+"행번호 지우기 토글(putty에서 복사 할 때 유용)
 function! Numberline_remove_toggle()
+    execute ':IndentLinesToggle'
     if(&number==1)
         set nonumber
         set norelativenumber
-        execute ':IndentLinesToggle'
+        let g:indentLine_enabled = 0
     else
         set number
         set relativenumber
-        execute ':IndentLinesToggle'
+        let g:indentLine_enabled = 1
     endif
 endfunction
 
 "행번호 변경 토글
 function! Numberline_change_toggle()
+    set number
+    if(g:indentLine_enabled == 0)
+        let g:indentLine_enabled = 1
+        execute ':IndentLinesToggle'
+    endif
     if(&relativenumber==1)
-        set number
         set norelativenumber!
     else
-        set number
         set relativenumber
     endif
 endfunction
