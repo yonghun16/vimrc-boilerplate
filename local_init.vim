@@ -231,12 +231,12 @@ endfunction
 "행번호 지우기 토글
 function! Numberline_remove_toggle()
     if(&number==1)
-        set norelativenumber
         set nonumber
+        set norelativenumber
         execute ':IndentLinesToggle'
     else
-        set relativenumber
         set number
+        set relativenumber
         execute ':IndentLinesToggle'
     endif
 endfunction
@@ -244,8 +244,10 @@ endfunction
 "행번호 변경 토글
 function! Numberline_change_toggle()
     if(&relativenumber==1)
+        set number
         set norelativenumber!
     else
+        set number
         set relativenumber
     endif
 endfunction
