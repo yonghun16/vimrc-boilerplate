@@ -386,21 +386,9 @@ let g:user_emmet_leader_key=','
 let mapleader = ','
 
 " ESC 키를 편하게 <Ctrl+f>로 변경
-nmap <C-f> <ESC>
-imap <C-f> <ESC>
-vmap <C-f> <ESC>
-smap <C-f> <ESC>
-xmap <C-f> <ESC>
-cmap <C-f> <ESC>
-omap <C-f> <ESC>
+map  <C-f> <ESC>
 tmap <C-f> <ESC>
-nmap <ESC> <C-\><C-n>
-imap <ESC> <C-\><C-n>
-vmap <ESC> <C-\><C-n>
-smap <ESC> <C-\><C-n>
-xmap <ESC> <C-\><C-n>
-cmap <ESC> <C-\><C-n>
-omap <ESC> <C-\><C-n>
+map  <ESC> <C-\><C-n>
 tmap <ESC> <C-\><C-n>
 
 " 입력모드에서 간단한 커서이동
@@ -413,14 +401,14 @@ map <C-h> 10h
 map <C-l> 10l
 
 " 빠른 스크롤
-nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
-nmap <C-p> <C-y><up><down><C-y><up><down><C-y>
+map <C-n> <C-e><down><Up><C-e><down><up><C-e>
+map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 " 분할창 크기조절
-nmap <C-Up> <C-W>2+
-nmap <C-Down> <C-W>2-
-nmap <C-Left> <C-W>2<
-nmap <C-Right> <C-W>2>
+map <C-Up> <C-W>2+
+map <C-Down> <C-W>2-
+map <C-Left> <C-W>2<
+map <C-Right> <C-W>2>
 
 " Buffer
 nmap <leader>z :bp<CR>
@@ -452,9 +440,9 @@ nmap <leader>v :vert diffsplit
 nmap <leader>. :lcd %:p:h<CR>
 
 " 종료
-nmap <leader>w <ESC>:w<CR>
+map  <leader>w <ESC>:w<CR>
+map  <leader>q <ESC>:q<CR>
 tmap <leader>q <C-\><C-n>:q<CR>
-nmap <leader>q <ESC>:q<CR>
 
 "----------------------------------------------------------------------
 "" plugins & etc function mapping
