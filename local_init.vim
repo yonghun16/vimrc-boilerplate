@@ -228,18 +228,27 @@ function! Tab_toggle()
     endif
 endfunction
 
-"행번호 변경 토글
-function! Numberline_toggle()
-    if(&relativenumber==1)
-        set norelativenumber!
-    elseif(&number==0)
-        set relativenumber
-        set number
-        execute ':IndentLinesToggle'
-    elseif(&relativenumber==0)
+"행번호 지우기 토글
+function! Numberline_remove_toggle()
+    if(&number==1)
         set norelativenumber
         set nonumber
         execute ':IndentLinesToggle'
+        echo "w"
+    else
+        set relativenumber
+        set number
+        execute ':IndentLinesToggle'
+        echo "e"
+    endif
+endfunction
+
+"행번호 변경 토글
+function! Numberline_change_toggle()
+    if(&relativenumber==1)
+        set norelativenumber!
+    else
+        set relativenumber
     endif
 endfunction
 
@@ -394,14 +403,10 @@ tmap <ESC> <C-\><C-n>
 imap <C-l> <RIGHT>
 
 " 빠른 커서 이동
-nmap <C-j> 3j
-vmap <C-j> 3j
-nmap <C-k> 3k
-vmap <C-k> 3k
-nmap <C-h> 10h
-vmap <C-h> 10h
-nmap <C-l> 10l
-vmap <C-l> 10l
+map <C-j> 3j
+map <C-k> 3k
+map <C-h> 10h
+map <C-l> 10l
 
 " 빠른 스크롤
 nmap <C-n> <C-e><down><Up><C-e><down><up><C-e>
@@ -467,8 +472,8 @@ nmap <silent>tn :tnext<CR>
 nmap <silent>tp :tprevious<CR>
 
 " Easymotion
-nmap <leader>ff <Plug>(easymotion-f)
-nmap <leader>fF <Plug>(easymotion-F)
+map <leader>ff <Plug>(easymotion-f)
+map <leader>fF <Plug>(easymotion-F)
 
 " FuzzyFinder
 nmap <silent>sf :FufFile **/<CR>
@@ -492,13 +497,13 @@ nmap <Leader>gl :Git log<CR>
 nmap <Leader>gr :Gremove<CR>
 nmap <Leader>o :GBrowse<CR>
 
-" Numberline change
-"nmap <silent> <leader>n :if Numberline_toggle()<Bar>set nonu<Bar>endif<CR>
-nmap <silent> <leader>n :call Numberline_toggle()<CR>
+" Numberline
+map <silent><leader>R :call Numberline_remove_toggle()<CR>
+map <silent><leader>k :call Numberline_change_toggle()<CR>
 
 " Sidebar
-nmap <leader>l :NERDTreeToggle<CR>      
-nmap <leader>h :TagbarToggle<CR>
+nmap <silent><leader>l :NERDTreeToggle<CR>      
+nmap <silent><leader>h :TagbarToggle<CR>
 nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
 " Tab change to 4 space
