@@ -388,8 +388,10 @@ let mapleader = ','
 " ESC 키를 편하게 <Ctrl+f>로 변경
 map  <C-f> <ESC>
 tmap <C-f> <ESC>
+imap <C-f> <ESC>
 map  <ESC> <C-\><C-n>
 tmap <ESC> <C-\><C-n>
+imap <ESC> <C-\><C-n>
 
 " 입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
