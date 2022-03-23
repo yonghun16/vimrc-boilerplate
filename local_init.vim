@@ -300,6 +300,33 @@ let g:syntastic_check_on_open=1     " 시작하자마자 구문을 체크함.
 " FuzzyFinder
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
+" grep.vim
+let Grep_Default_Options = '-IR'
+let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Dirs = '.git node_modules'
+
+" gitgutter
+let g:gitgutter_grep_command = 'grep -e'
+let g:gitgutter_async = 0
+let g:gitgutter_enabled = 0
+let g:gitgutter_signs = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+let g:gitgutter_avoid_cmd_prompt_on_windows = 0
+
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '│'
+let g:indentLine_faster = 1
+
+" emmet-vim
+let g:user_emmet_leader_key=','
+
+" Split-mapage
+let g:split_manpage_prefix = '<Leader>m'
+
 " vim-airline
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
@@ -341,30 +368,6 @@ else
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = ''
 endif
-
-" grep.vim
-let Grep_Default_Options = '-IR'
-let Grep_Skip_Files = '*.log *.db'
-let Grep_Skip_Dirs = '.git node_modules'
-
-" gitgutter 설정
-let g:gitgutter_grep_command = 'grep -e'
-let g:gitgutter_async = 0
-let g:gitgutter_enabled = 0
-let g:gitgutter_signs = 0
-let g:gitgutter_map_keys = 0
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-let g:gitgutter_avoid_cmd_prompt_on_windows = 0
-
-" IndentLine
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '│'
-let g:indentLine_faster = 1
-
-" emmet-vim 설정
-let g:user_emmet_leader_key=','
 
 
 "*****************************************************************************

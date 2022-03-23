@@ -83,18 +83,18 @@ Plug 'ludwig/split-manpage.vim'
 " html
 "" HTML Bundle
 Plug 'hail2u/vim-css3-syntax'
-"Plug 'gko/vim-coloresque'
+Plug 'gko/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
 
 " javascript
-"" Javascript Bundle
+" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
 
 
 " python
-"" Python Bundle
+" Python Bundle
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 
@@ -207,7 +207,7 @@ else
     set term=gnome-256color
   else
     if $TERM == 'xterm'
-      set term=xterm-256color
+      "set term=xterm-256color
     endif
   endif
   
