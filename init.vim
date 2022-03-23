@@ -87,7 +87,7 @@ Plug 'gko/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
- 
+
 " javascript
 " Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
