@@ -318,9 +318,6 @@ let g:indentLine_faster = 1
 " emmet-vim
 let g:user_emmet_leader_key=','
 
-" Split-mapage
-let g:split_manpage_prefix = '<Leader>m'
-
 " vim-airline
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1

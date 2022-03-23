@@ -77,7 +77,7 @@ Plug 'honza/vim-snippets'
 
 " c
 "Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-Plug 'ludwig/split-manpage.vim'
+"Plug 'ludwig/split-manpage.vim'
 
 
 " html
