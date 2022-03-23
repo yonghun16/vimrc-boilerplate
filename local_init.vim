@@ -24,7 +24,6 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'roxma/nvim-yarp'
-Plug 'airblade/vim-gitgutter'                          
 Plug 'preservim/nerdcommenter'
 
 ""etc
@@ -299,11 +298,6 @@ let g:syntastic_check_on_open=1     " 시작하자마자 구문을 체크함.
 
 " FuzzyFinder
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|class|pyc|orig)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-
-" grep.vim
-let Grep_Default_Options = '-IR'
-let Grep_Skip_Files = '*.log *.db'
-let Grep_Skip_Dirs = '.git node_modules'
 
 " gitgutter
 let g:gitgutter_grep_command = 'grep -e'
