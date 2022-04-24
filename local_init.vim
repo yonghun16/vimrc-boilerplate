@@ -390,11 +390,11 @@ imap <ESC> <C-\><C-n>
 " 입력모드에서 간단한 커서이동
 imap <C-l> <RIGHT>
 
-" 빠른 커서 이동(easymotion)
+" 빠른 커서 이동
 map <C-j> 3j
 map <C-k> 3k
-map <C-l> <Plug>(easymotion-f)
-map <C-h> <Plug>(easymotion-F)
+map <C-l> $
+map <C-h> ^
 
 " 빠른 스크롤
 map <C-n> <C-e><down><Up><C-e><down><up><C-e>
@@ -458,6 +458,10 @@ nmap <silent>tt :!ctags -R .<CR>
 nmap <silent>ts :tselect<CR>
 nmap <silent>tn :tnext<CR>
 nmap <silent>tp :tprevious<CR>
+
+" Easymotion
+map <leader>f <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-F)
 
 " FuzzyFinder
 nmap <silent>sf :FufFile **/<CR>
