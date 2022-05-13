@@ -138,6 +138,7 @@ ab classs class
 ab forarch foreach
 ab inser insert
 ab insertt insert
+ab itn int
 ab quewrty query
 ab ovject object
 ab objectr object
