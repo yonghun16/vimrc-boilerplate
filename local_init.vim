@@ -387,8 +387,9 @@ map  <ESC> <C-\><C-n>
 tmap <ESC> <C-\><C-n>
 imap <ESC> <C-\><C-n>
 
-" 입력모드에서 간단한 커서이동
+" 입력모드에서 간단한 조작
 imap <C-l> <RIGHT>
+imap <C-x> <DEL>
 
 " 빠른 커서 이동
 map <C-j> 3j
@@ -396,7 +397,7 @@ map <C-k> 3k
 map <C-l> $
 map <C-h> ^
 
-" 빠른 스크롤
+" 빠른 페이지 스크롤
 map <C-n> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
