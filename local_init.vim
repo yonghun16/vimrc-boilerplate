@@ -398,10 +398,10 @@ imap <C-k> <ESC><RIGHT>C
 " 빠른 커서 이동
 map <C-j> 3j
 map <C-k> 3k
-map <C-l> $
-map <C-h> ^
+map <C-l> 3w
+map <C-h> 3b
 
-" 빠른 페이지 스크롤
+" 빠른 페이지 이동
 map <C-n> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
