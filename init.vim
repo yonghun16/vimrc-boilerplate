@@ -1,4 +1,4 @@
-" vim-bootstrap 2022-01-03 15:28:31
+" vim-bootstrap 2022-06-10 08:54:07
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -10,8 +10,8 @@ else
   let curl_exists=expand('curl')
 endif
 
-let g:vim_bootstrap_langs = "c,html,javascript,python,typescript"
-let g:vim_bootstrap_editor = "neovim"				" nvim or vim
+let g:vim_bootstrap_langs = "html,javascript,python,typescript"
+let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 let g:vim_bootstrap_theme = "gruvbox"
 let g:vim_bootstrap_frams = "vuejs"
 
@@ -75,11 +75,6 @@ Plug 'honza/vim-snippets'
 "" Custom bundles
 "*****************************************************************************
 
-" c
-"Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-"Plug 'ludwig/split-manpage.vim'
-
-
 " html
 "" HTML Bundle
 Plug 'hail2u/vim-css3-syntax'
@@ -89,12 +84,13 @@ Plug 'mattn/emmet-vim'
 
 
 " javascript
-" Javascript Bundle
+"" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
 
 
 " python
-" Python Bundle
+"" Python Bundle
+"Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 
@@ -130,7 +126,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-set ttyfast
+
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -198,31 +194,20 @@ else
 
   " IndentLine
   let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
+  let g:indentLine_concealcursor = ''
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
   
-  if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-  else
-    if $TERM == 'xterm'
-      "set term=xterm-256color
-    endif
-  endif
-  
 endif
 
-
-if &term =~ '256color'
-  set t_ut=
-endif
 
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
 
-set scrolloff=3
+au TermEnter * setlocal scrolloff=0
+au TermLeave * setlocal scrolloff=3
 
 
 "" Status bar
@@ -348,7 +333,6 @@ noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Git
-Plug 'davidhalter/jedi-vim'
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Git commit --verbose<CR>
 noremap <Leader>gsh :Git push<CR>
@@ -365,7 +349,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
-"nnoremap <Tab> gt
+nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
@@ -468,11 +452,6 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
-
-" c
-autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
-
 
 " html
 " for html files, 2 spaces

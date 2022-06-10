@@ -479,16 +479,17 @@ nmap <silent>so :FufJumpList<CR>
 nmap <silent> <leader>gp :Rgrep<CR>
 
 " Git
-nmap <Leader>gs :Git<CR>
-nmap <Leader>ga :Gwrite<CR>
-nmap <Leader>gc :Git commit<CR>
+nmap <Leader>gss :Git<CR>
+nmap <Leader>ga  :Gwrite<CR>
+nmap <Leader>gA  :!git add *<CR>
+nmap <Leader>gc  :Git commit<CR>
 nmap <Leader>gsh :Git push<CR>
 nmap <Leader>gll :Git pull<CR>
-nmap <Leader>gb :Git blame<CR>
-nmap <Leader>gd :Git diff<CR>
-nmap <Leader>gl :Git log<CR>
-nmap <Leader>gr :Gremove<CR>
-nmap <Leader>o :GBrowse<CR>
+nmap <Leader>gb  :Git blame<CR>
+nmap <Leader>gd  :Git diff<CR>
+nmap <Leader>gl  :Git log<CR>
+nmap <Leader>gr  :Gremove<CR>
+nmap <Leader>o   :GBrowse<CR>
 
 " Numberline
 map <silent><leader>R :call Numberline_remove_toggle()<CR>
