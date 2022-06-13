@@ -457,7 +457,6 @@ nnoremap <Leader>o :.Gbrowse<CR>
 " for html files, 2 spaces
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
-
 " javascript
 let g:javascript_enable_domhtmlcss = 1
 
