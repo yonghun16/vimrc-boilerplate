@@ -40,6 +40,7 @@ Plug 'ryanoasis/vim-devicons'
 ""language
 Plug 'ap/vim-css-color'
 Plug 'eslint/eslint'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 filetype plugin indent on
