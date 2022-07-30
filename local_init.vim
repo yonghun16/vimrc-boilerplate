@@ -388,13 +388,14 @@ map  <ESC> <C-\><C-n>
 tmap <ESC> <C-\><C-n>
 imap <ESC> <C-\><C-n>
 
-" 입력모드에서 터미널 단축키 사용
+" 입력모드에서 터미널 단축키 사용 및 기타
 imap <C-l> <RIGHT>
 imap <C-b> <LEFT>
 imap <C-a> <ESC>^i
 imap <C-e> <ESC>$a
 imap <C-d> <DEL>
 imap <C-k> <ESC><RIGHT>C
+imap <C-ENTER> <ESC>o
 
 " 빠른 커서 이동
 map <C-j> 3j
