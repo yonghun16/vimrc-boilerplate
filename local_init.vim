@@ -41,6 +41,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
 Plug 'eslint/eslint'
 Plug 'sheerun/vim-polyglot'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 
 call plug#end()
 filetype plugin indent on
