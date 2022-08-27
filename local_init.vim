@@ -497,6 +497,9 @@ nmap <Leader>gl  :Git log<CR>
 nmap <Leader>gr  :Gremove<CR>
 nmap <Leader>o   :GBrowse<CR>
 
+" JsDoc
+nmap <silent><leader>C <Plug>(jsdoc)
+
 " Numberline
 map <silent><leader>R :call Numberline_remove_toggle()<CR>
 map <silent><leader>k :call Numberline_change_toggle()<CR>
