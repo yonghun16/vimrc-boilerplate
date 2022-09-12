@@ -447,6 +447,10 @@ vmap << <gv
 " 레지스터 보기
 nmap <silent> <leader>r :reg<cr>
 
+" 들여쓰기 정렬
+nmap <C-=> =G
+imap <C-=> <ESC>=Ga
+
 " 파일비교
 nmap <leader>v :vert diffsplit 
 
@@ -481,8 +485,8 @@ nmap <silent>tn :tnext<CR>
 nmap <silent>tp :tprevious<CR>
 
 " Easymotion
-map <leader>f <Plug>(easymotion-f)
-map <leader>F <Plug>(easymotion-F)
+map <C-s> <Plug>(easymotion-f)
+map <C-a> <Plug>(easymotion-F)
 
 " FuzzyFinder
 nmap <silent>sf :FufFile **/<CR>
