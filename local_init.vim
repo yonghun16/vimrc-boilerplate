@@ -260,6 +260,13 @@ function! Numberline_change_toggle()
   endif
 endfunction
 
+" 저장 및 열기 시 자동 폴드
+augroup remember_folds
+  autocmd!
+  au BufWinLeave ?* mkview 1
+  au BufWinEnter ?* silent! loadview 1
+augroup END
+
 
 "*****************************************************************************
 "" Plug setting
@@ -446,10 +453,13 @@ nmap <leader>v :vert diffsplit
 " 현재 경로를 작업경로로 설정
 nmap <leader>. :lcd %:p:h<CR>
 
-" 종료
+" 저장 및 종료
 map  <leader>w <ESC>:w<CR>
+map  <leader>W <ESC>:wq<CR>
 map  <leader>q <ESC>:q<CR>
+map  <leader>Q <ESC>:q!<CR>
 tmap <leader>q <C-\><C-n>:q<CR>
+
 
 "----------------------------------------------------------------------
 "" plugins & etc function mapping
