@@ -42,9 +42,9 @@ Plug 'ap/vim-css-color'
 Plug 'eslint/eslint'
 Plug 'sheerun/vim-polyglot'
 Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install'
-\}
+      \ 'for': ['javascript', 'javascript.jsx','typescript'],
+      \ 'do': 'make install'
+      \}
 
 call plug#end()
 filetype plugin indent on
@@ -164,100 +164,100 @@ ab herf href
 "*****************************************************************************
 " 컴파일 단축키
 function! Compile() range
-    execute ':w'
-    if &filetype =="c"
-        if has("unix")
-            execute ':! gcc -o ~/bin/%< %<.c'
-            execute ':! ~/bin/%<'
-        endif
-    elseif &filetype =="cpp"
-        if has("unix")
-            execute ':! g++ -o ~/bin/%< %<.cpp'
-            execute ':! ~/bin/%<'
-        endif
-    elseif &filetype == "java"
-        if has("unix")
-            execute ':! javac -encoding utf-8 -d ~/bin %<.java'
-            execute ':! java -cp ~/bin %<'
-        endif
-    elseif &filetype =="python"
-        if has("unix")
-            execute ':! cp ./%<.py ~/bin'
-            execute ':! python3 ./%<.py'
-        endif
-    elseif &filetype =="javascript"
-        if has("unix")
-            execute ':! cp ./%<.js ~/bin'
-            execute ':! node ./%<.js'
-        endif
+  execute ':w'
+  if &filetype =="c"
+    if has("unix")
+      execute ':! gcc -o ~/bin/%< %<.c'
+      execute ':! ~/bin/%<'
     endif
+  elseif &filetype =="cpp"
+    if has("unix")
+      execute ':! g++ -o ~/bin/%< %<.cpp'
+      execute ':! ~/bin/%<'
+    endif
+  elseif &filetype == "java"
+    if has("unix")
+      execute ':! javac -encoding utf-8 -d ~/bin %<.java'
+      execute ':! java -cp ~/bin %<'
+    endif
+  elseif &filetype =="python"
+    if has("unix")
+      execute ':! cp ./%<.py ~/bin'
+      execute ':! python3 ./%<.py'
+    endif
+  elseif &filetype =="javascript"
+    if has("unix")
+      execute ':! cp ./%<.js ~/bin'
+      execute ':! node ./%<.js'
+    endif
+  endif
 endfunction
 
 " 오토 하이라이팅 토글
 function! AutoHighlightToggle()
-    let @/ = ''
-    if exists('#auto_highlight')
-        au! auto_highlight
-        augroup! auto_highlight
-        setl updatetime=4000
-        echo 'Highlight current word: off'
-        return 0
-    else
-        augroup auto_highlight
-            au!
-            au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-        augroup end
-        setl updatetime=1
-        echo 'Highlight current word: ON'
-        return 1
-    endif
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=4000
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=1
+    echo 'Highlight current word: ON'
+    return 1
+  endif
 endfunction
 
 "탭 토글(mysql쿼리문에서 유용)
 function! Tab_toggle()
-    let @/ = ''
-    if exists('#tab_toggle')
-        au!
-        set expandtab
-        augroup! tab_toggle
-        echo 'Tab = 4 or 2 spaces'
-        return 0
-    else
-        augroup tab_toggle
-            au!
-            set noexpandtab
-        augroup end
-        echo 'Tab = block'
-        return 1
-    endif
+  let @/ = ''
+  if exists('#tab_toggle')
+    au!
+    set expandtab
+    augroup! tab_toggle
+    echo 'Tab = 4 or 2 spaces'
+    return 0
+  else
+    augroup tab_toggle
+      au!
+      set noexpandtab
+    augroup end
+    echo 'Tab = block'
+    return 1
+  endif
 endfunction
 
 "행번호 지우기 토글(putty에서 복사 할 때 유용)
 function! Numberline_remove_toggle()
-    execute ':IndentLinesToggle'
-    if(&number==1)
-        set nonumber
-        set norelativenumber
-        let g:indentLine_enabled = 0
-    else
-        set number
-        set relativenumber
-        let g:indentLine_enabled = 1
-    endif
+  execute ':IndentLinesToggle'
+  if(&number==1)
+    set nonumber
+    set norelativenumber
+    let g:indentLine_enabled = 0
+  else
+    set number
+    set relativenumber
+    let g:indentLine_enabled = 1
+  endif
 endfunction
 
 "행번호 변경 토글
 function! Numberline_change_toggle()
-    set number
-    if(g:indentLine_enabled == 0)
-        let g:indentLine_enabled = 1
-        execute ':IndentLinesToggle'
-    endif
-    if(&relativenumber==1)
-        set norelativenumber!
-    else
-        set relativenumber
-    endif
+  set number
+  if(g:indentLine_enabled == 0)
+    let g:indentLine_enabled = 1
+    execute ':IndentLinesToggle'
+  endif
+  if(&relativenumber==1)
+    set norelativenumber!
+  else
+    set relativenumber
+  endif
 endfunction
 
 
@@ -331,38 +331,38 @@ let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 if !exists('g:airline_powerline_fonts')
-    let g:airline#extensions#tabline#left_sep = ' '
-    let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline_left_sep          = '▶'
-    let g:airline_left_alt_sep      = '»'
-    let g:airline_right_sep         = '◀'
-    let g:airline_right_alt_sep     = '«'
-    let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-    let g:airline#extensions#readonly#symbol   = '⊘'
-    let g:airline#extensions#linecolumn#prefix = '¶'
-    let g:airline#extensions#paste#symbol      = 'ρ'
-    let g:airline_symbols.linenr    = '␊'
-    let g:airline_symbols.branch    = '⎇'
-    let g:airline_symbols.paste     = 'ρ'
-    let g:airline_symbols.paste     = 'Þ'
-    let g:airline_symbols.paste     = '∥'
-    let g:airline_symbols.whitespace = 'Ξ'
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = '␊'
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
 else
-    let g:airline#extensions#tabline#left_sep = ''
-    let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
 
-    " powerline symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.readonly = ''
-    let g:airline_symbols.linenr = ''
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
 endif
 
 
@@ -406,9 +406,6 @@ map <C-j> 3j
 map <C-k> 3k
 map <C-l> $
 map <C-h> ^
-
-" 문서 자동 정렬
-nmap <silent><C-;> H=G''
 
 " 빠른 페이지 이동
 map <C-n> <C-e><down><Up><C-e><down><up><C-e>
