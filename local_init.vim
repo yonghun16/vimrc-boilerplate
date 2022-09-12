@@ -407,6 +407,9 @@ map <C-k> 3k
 map <C-l> $
 map <C-h> ^
 
+" 문서 자동 정렬
+nmap <silent><C-;> H=G''
+
 " 빠른 페이지 이동
 map <C-n> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
@@ -525,32 +528,32 @@ autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 "----------------------------------------------------------------------
 if exists("$HOME")
 
-    " 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가 붙어 있기 때문에, 그것들을 제거한다.	
-    let s:home_dir = $HOME	
-    let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)	
-    if s:temp == "/" || s:temp == "\\"	
-        let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)	
-    endif
+  " 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가 붙어 있기 때문에, 그것들을 제거한다.	
+  let s:home_dir = $HOME	
+  let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)	
+  if s:temp == "/" || s:temp == "\\"	
+    let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)	
+  endif
 
-    " 경로 설정
-    let s:dir_tmp = s:home_dir."/.vim/tmp"
-    let s:dir_backup = s:home_dir."/.vim/backup"
+  " 경로 설정
+  let s:dir_tmp = s:home_dir."/.vim/tmp"
+  let s:dir_backup = s:home_dir."/.vim/backup"
 
-    " 임시 디렉토리 설정
-    if isdirectory(s:dir_tmp)
-        set swf
-        let &dir = s:dir_tmp
-    else
-        set noswf
-        set dir=.
-    endif
+  " 임시 디렉토리 설정
+  if isdirectory(s:dir_tmp)
+    set swf
+    let &dir = s:dir_tmp
+  else
+    set noswf
+    set dir=.
+  endif
 
-    " 백업 디렉토리 설정
-    if isdirectory(s:dir_backup)
-        set bk
-        let &bdir = s:dir_backup
-        set bex=.bak
-    else
-        set nobk
-    endif
+  " 백업 디렉토리 설정
+  if isdirectory(s:dir_backup)
+    set bk
+    let &bdir = s:dir_backup
+    set bex=.bak
+  else
+    set nobk
+  endif
 endif
