@@ -529,6 +529,8 @@ nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
 " vuejs
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab 
 
+" css
+autocmd Filetype css setlocal ts=2 sw=2 expandtab
 
 "----------------------------------------------------------------------
 "" 홈 디렉토리가 존재할 때에만 사용할 수 있는 기능 정의
