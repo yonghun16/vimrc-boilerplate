@@ -517,6 +517,7 @@ nmap <silent><leader>C <Plug>(jsdoc)
 " Numberline
 map <silent><leader>R :call Numberline_remove_toggle()<CR>
 map <silent><leader>k :call Numberline_change_toggle()<CR>
+map <silent><leader>E ,R,R
 
 " Sidebar
 nmap <silent><leader>l :NERDTreeToggle<CR>      
@@ -535,6 +536,7 @@ autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 " css
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
+
 
 "----------------------------------------------------------------------
 "" 홈 디렉토리가 존재할 때에만 사용할 수 있는 기능 정의
