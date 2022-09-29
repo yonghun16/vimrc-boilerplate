@@ -448,10 +448,6 @@ vmap << <gv
 " 레지스터 보기
 nmap <silent> <leader>r :reg<cr>
 
-" 들여쓰기 정렬
-nmap <C-=> =G
-imap <C-=> <ESC>=Ga
-
 " 파일비교
 nmap <leader>v :vert diffsplit 
 
