@@ -373,6 +373,13 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+" vim-visual-multi 
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Up"]   = ''
+let g:VM_maps["Add Cursor Down"]   = ''
+let g:VM_maps["Find Under"]   = '<C-m>'
+let g:VM_maps["Find Subword Under"]   = '<C-m>'
+
 
 "*****************************************************************************
 "" Functions
@@ -416,7 +423,7 @@ map <C-l> $
 map <C-h> ^
 
 " 빠른 페이지 이동
-map <C-m> <C-e><down><Up><C-e><down><up><C-e>
+map <C-n> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 " 분할창 크기조절
@@ -460,7 +467,6 @@ map  <leader>W <ESC>:wq<CR>
 map  <leader>q <ESC>:q<CR>
 map  <leader>Q <ESC>:q!<CR>
 tmap <leader>q <C-\><C-n>:q<CR>
-
 
 "----------------------------------------------------------------------
 "" plugins & etc function mapping
