@@ -36,6 +36,7 @@ Plug 'vim-scripts/FuzzyFinder'
 Plug 'mhinz/vim-startify'
 Plug 'yegappan/mru'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mg979/vim-visual-multi'
 
 ""language
 Plug 'ap/vim-css-color'
@@ -269,7 +270,7 @@ augroup END
 
 
 "*****************************************************************************
-"" Plug setting
+""   setting
 "*****************************************************************************
 " NERD Tree
 let NERDTreeWinPos = "right"			
@@ -409,19 +410,19 @@ imap <C-k> <ESC><RIGHT>C
 imap <C-ENTER> <ESC>o
 
 " 빠른 커서 이동
-map <C-j> 3j
-map <C-k> 3k
+map <C-j> -1j
+map <C-k> -1k
 map <C-l> $
 map <C-h> ^
 
 " 빠른 페이지 이동
-map <C-n> <C-e><down><Up><C-e><down><up><C-e>
+map <C-m> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 " 분할창 크기조절
-map <C-Up> <C-W>2+
-map <C-Down> <C-W>2-
-map <C-Left> <C-W>2<
+map <C-Up> <C-W>0+
+map <C-Down> <C-W>0-
+map <C-Left> <C-W>0<
 map <C-Right> <C-W>2>
 
 " Buffer
