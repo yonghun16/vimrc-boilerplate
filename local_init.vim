@@ -270,7 +270,7 @@ augroup END
 
 
 "*****************************************************************************
-""   setting
+"" Plug setting
 "*****************************************************************************
 " NERD Tree
 let NERDTreeWinPos = "right"			
@@ -420,9 +420,9 @@ map <C-m> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 " 분할창 크기조절
-map <C-Up> <C-W>0+
-map <C-Down> <C-W>0-
-map <C-Left> <C-W>0<
+map <C-Up> <C-W>2+
+map <C-Down> <C-W>2-
+map <C-Left> <C-W>2<
 map <C-Right> <C-W>2>
 
 " Buffer
