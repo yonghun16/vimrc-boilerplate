@@ -375,8 +375,8 @@ endif
 
 " vim-visual-multi 
 let g:VM_maps = {}
-let g:VM_maps["Add Cursor Up"]   = ''
-let g:VM_maps["Add Cursor Down"]   = ''
+let g:VM_maps["Add Cursor Up"]   = '<A-Up>'
+let g:VM_maps["Add Cursor Down"]   = '<A-Down>'
 let g:VM_maps["Find Under"]   = '<C-m>'
 let g:VM_maps["Find Subword Under"]   = '<C-m>'
 
@@ -516,6 +516,9 @@ nmap <Leader>o   :GBrowse<CR>
 
 " JsDoc
 nmap <silent><leader>C <Plug>(jsdoc)
+
+" vim-visual-multi 
+nmap <C-,> <A-Down>Q
 
 " Numberline
 map <silent><leader>R :call Numberline_remove_toggle()<CR>
