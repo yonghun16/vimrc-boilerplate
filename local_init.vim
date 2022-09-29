@@ -410,8 +410,8 @@ imap <C-k> <ESC><RIGHT>C
 imap <C-ENTER> <ESC>o
 
 " 빠른 커서 이동
-map <C-j> -1j
-map <C-k> -1k
+map <C-j> 3j
+map <C-k> 3k
 map <C-l> $
 map <C-h> ^
 
