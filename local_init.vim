@@ -375,12 +375,10 @@ endif
 
 " vim-visual-multi 
 let g:VM_maps = {}
-let g:VM_maps["Find Under"]   = '<C-m>'
-let g:VM_maps["Find Subword Under"]   = '<C-m>'
+let g:VM_maps["Find Under"]   = '<C-/>'
+let g:VM_maps["Find Subword Under"]   = '<C-/>'
 let g:VM_maps["Add Cursor Up"]   = '<A-Up>'
 let g:VM_maps["Add Cursor Down"]   = '<A-Down>'
-let g:VM_maps["Seek Next"]   = '<A-Right>'
-let g:VM_maps["Seek Prev"]   = '<A-Left>'
 
 
 "*****************************************************************************
