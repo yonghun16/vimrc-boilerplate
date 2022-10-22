@@ -439,8 +439,6 @@ nmap <leader><tab> :ToggleBufExplorer<CR>
 nmap <leader>c :bd<CR>
 
 " Tab
-nmap <silent><S-q> gt
-nmap <silent><S-Tab> gT
 nmap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
