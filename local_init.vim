@@ -27,6 +27,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'preservim/nerdcommenter'
 
 ""etc
+Plug 'tomasr/molokai'
 Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tlib_vim'
@@ -112,6 +113,8 @@ set belloff=all         " Bell off
 set termguicolors       "터미널에서 24bit컬러(GUI컬러) 지원하기
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
+"colorscheme molokai
+"let g:airline_theme='molokai'
 let g:rehash256 = 1
 
 
