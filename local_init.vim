@@ -489,8 +489,8 @@ nmap <silent>tn :tnext<CR>
 nmap <silent>tp :tprevious<CR>
 
 " Easymotion
-map <C-s> <Plug>(easymotion-f)
-map <C-a> <Plug>(easymotion-F)
+map <leader>f <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-F)
 
 " FuzzyFinder
 nmap <silent>sf :FufFile **/<CR>
