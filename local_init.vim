@@ -534,7 +534,7 @@ nmap <C-,> <A-Down>Q
 " Numberline
 map <silent><leader>R :call Numberline_remove_toggle()<CR>
 map <silent><leader>k :call Numberline_change_toggle()<CR>
-map <silent><leader>E ,R,R
+map <silent><leader>E :IndentLinesToggle<CR>:IndentLinesToggle<CR>
 
 " Sidebar
 nmap <silent><leader>l :NERDTreeToggle<CR>      
