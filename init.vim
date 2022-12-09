@@ -274,7 +274,7 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+"nnoremap <silent> <leader>sh :terminal<CR>
 
 
 "*****************************************************************************
@@ -343,10 +343,10 @@ noremap <Leader>gd :Gvdiffsplit<CR>
 noremap <Leader>gr :GRemove<CR>
 
 " session management
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
+"nnoremap <leader>so :OpenSession<Space>
+"nnoremap <leader>ss :SaveSession<Space>
+"nnoremap <leader>sd :DeleteSession<CR>
+"nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <Tab> gt
@@ -455,7 +455,7 @@ nnoremap <Leader>o :.Gbrowse<CR>
 
 " html
 " for html files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 expandtab 
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1

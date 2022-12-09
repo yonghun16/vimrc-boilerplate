@@ -445,6 +445,16 @@ nmap <leader>c :bd<CR>
 nmap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" Split
+noremap <Leader>s :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+" session management
+nnoremap <leader>So :OpenSession<Space>
+nnoremap <leader>Ss :SaveSession<Space>
+nnoremap <leader>Sd :DeleteSession<CR>
+nnoremap <leader>Sc :CloseSession<CR>
+
 " 영역지정 된 행을 위아래로 이동
 vmap <S-j> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
@@ -457,7 +467,7 @@ vmap << <gv
 nmap <silent> <leader>r :reg<cr>
 
 " 파일비교
-nmap <leader>v :vert diffsplit 
+nmap <leader>d :vert diffsplit 
 
 " 현재 경로를 작업경로로 설정
 nmap <leader>. :lcd %:p:h<CR>
