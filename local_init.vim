@@ -38,6 +38,7 @@ Plug 'mhinz/vim-startify'
 Plug 'yegappan/mru'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mg979/vim-visual-multi'
+Plug 'antonk52/vim-tabber'
 
 ""language
 Plug 'ap/vim-css-color'
@@ -438,12 +439,12 @@ map <C-Right> <C-W>2>
 " Buffer
 nmap <leader>z :bp<CR>
 nmap <leader>x :bn<CR>
-nmap <leader><tab> :ToggleBufExplorer<CR>
 nmap <leader>c :bd<CR>
 
 " Tab
 nmap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader><tab> :tabs<CR>
 
 " Split
 noremap <Leader>s :<C-u>split<CR>
@@ -532,12 +533,13 @@ nmap <silent><leader>C <Plug>(jsdoc)
 nmap <C-,> <A-Down>Q
 
 " Numberline
-map <silent><leader>R :call Numberline_remove_toggle()<CR>
-map <silent><leader>k :call Numberline_change_toggle()<CR>
+map <silent><leader>N :call Numberline_remove_toggle()<CR>
+map <silent><leader>n :call Numberline_change_toggle()<CR>
 map <silent><leader>E :IndentLinesToggle<CR>:IndentLinesToggle<CR>
 
 " Sidebar
 nmap <silent><leader>l :NERDTreeToggle<CR>      
+nmap <silent><leader>k :ToggleBufExplorer<CR>
 nmap <silent><leader>h :TagbarToggle<CR>
 nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
