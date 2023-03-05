@@ -431,10 +431,10 @@ map <C-n> <C-e><down><Up><C-e><down><up><C-e>
 map <C-p> <C-y><up><down><C-y><up><down><C-y>
 
 " 분할창 크기조절
-map <C-Up> <C-W>2+
-map <C-Down> <C-W>2-
-map <C-Left> <C-W>2<
-map <C-Right> <C-W>2>
+map <C-{> <C-W>2+
+map <C-?> <C-W>2-
+map <C-:> <C-W>2<
+map <C-"> <C-W>2>
 
 " Buffer
 nmap <leader>z :bp<CR>
