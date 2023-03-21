@@ -529,9 +529,6 @@ nmap <Leader>o   :GBrowse<CR>
 " JsDoc
 nmap <silent><leader>C <Plug>(jsdoc)
 
-" vim-visual-multi 
-nmap <C-,> <A-Down>Q
-
 " Numberline
 map <silent><leader>N :call Numberline_remove_toggle()<CR>
 map <silent><leader>n :call Numberline_change_toggle()<CR>
