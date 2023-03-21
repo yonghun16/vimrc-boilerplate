@@ -381,8 +381,8 @@ endif
 let g:VM_maps = {}
 let g:VM_maps["Find Under"]   = '<C-/>'
 let g:VM_maps["Find Subword Under"]   = '<C-/>'
-let g:VM_maps["Add Cursor Up"]   = '<A-Up>'
-let g:VM_maps["Add Cursor Down"]   = '<A-Down>'
+let g:VM_maps["Add Cursor Up"]   = '<C-Up>'
+let g:VM_maps["Add Cursor Down"]   = '<C-Down>'
 
 
 "*****************************************************************************
