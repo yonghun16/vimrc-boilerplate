@@ -554,7 +554,7 @@ map <silent><leader>E :IndentLinesToggle<CR>:IndentLinesToggle<CR>
 nmap <silent><leader>l :NERDTreeToggle<CR>      
 nmap <silent><leader>k :ToggleBufExplorer<CR>
 nmap <silent><leader>h :TagbarToggle<CR>
-nmap <silent><leader>j :sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
+nmap <silent><leader>j :set nornu<CR>:sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
 
 " Tab change to 4 space
 nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
