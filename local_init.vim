@@ -549,7 +549,7 @@ map <silent><leader>n :call Numberline_change_toggle()<CR>
 map <silent><leader>E :IndentLinesToggle<CR>:IndentLinesToggle<CR>
 
 " Sidebar
-nmap <silent><leader>l :NERDTreeToggle<CR>      
+nmap <silent><leader>l :NERDTreeToggle<CR>
 nmap <silent><leader>k :ToggleBufExplorer<CR>
 nmap <silent><leader>h :TagbarToggle<CR>
 nmap <silent><leader>j :set nornu<CR>:sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
