@@ -396,8 +396,13 @@ let g:VM_maps["Add Cursor Down"]   = '<C-Down>'
 "" Autocmd Rules
 "*****************************************************************************
 " 활성화된 버퍼만 상대 번호 표시,  버퍼 비활성화는 일반 줄번호
-autocmd BufEnter \| set relativenumber
-autocmd BufLeave \| set norelativenumber
+autocmd BufEnter * if (&buftype != 'terminal')
+  \| set relativenumber
+\| endif
+
+autocmd BufLeave * if (&buftype != 'terminal')
+  \| set norelativenumber
+\| endif
 
 
 "*****************************************************************************
@@ -415,6 +420,12 @@ imap <C-f> <ESC>
 map  <ESC> <C-\><C-n>
 tmap <ESC> <C-\><C-n>
 imap <ESC> <C-\><C-n>
+
+" 터미널 모드 단축키
+tmap <C-w>k <C-\><C-n><C-w>k
+tmap <C-w>l <C-\><C-n><C-w>l
+tmap <C-w>j <C-\><C-n><C-w>j
+tmap <C-w>h <C-\><C-n><C-w>h
 
 " 입력모드에서 터미널 단축키 사용 및 기타
 imap <C-l> <RIGHT>
