@@ -259,7 +259,7 @@ function! Numberline_change_toggle()
     execute ':IndentLinesToggle'
   endif
   if(&relativenumber==1)
-    set norelativenumber!
+    set norelativenumber
   else
     set relativenumber
   endif
@@ -393,6 +393,9 @@ let g:VM_maps["Add Cursor Down"]   = '<C-Down>'
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
+" 활성화된 버퍼만 상대 번호 표시,  버퍼 비활성화는 일반 줄번호
+autocmd BufEnter \| set relativenumber
+autocmd BufLeave \| set norelativenumber
 
 
 "*****************************************************************************
