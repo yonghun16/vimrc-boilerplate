@@ -396,14 +396,12 @@ let g:VM_maps["Add Cursor Down"]   = '<C-Down>'
 "" Autocmd Rules
 "*****************************************************************************
 " 활성화된 버퍼만 상대 번호 표시,  버퍼 비활성화는 일반 줄번호
-autocmd BufEnter * if (&buftype != 'terminal')
-  \| set relativenumber
-\| endif
+autocmd BufEnter * if (&buftype != 'terminal') | set relativenumber   | endif
+autocmd BufLeave * if (&buftype != 'terminal') | set norelativenumber | endif
 
-autocmd BufLeave * if (&buftype != 'terminal')
-  \| set norelativenumber
-\| endif
-
+" 터미널 모드 들어갈 때 자동으로 삽입모드
+autocmd BufEnter * if &buftype == 'terminal' | startinsert | endif
+      
 
 "*****************************************************************************
 "" Mappings
