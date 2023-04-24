@@ -13,7 +13,8 @@
 "*****************************************************************************
 ""sidebar
 Plug 'jlanzarotta/bufexplorer'
-Plug 'majutsushi/tagbar'    "$sudo apt-get install ctags
+Plug 'majutsushi/tagbar'          "$sudo apt-get install ctags
+Plug 'wuelnerdotexe/nerdterm'
 
 ""syntax
 if has('nvim')
@@ -25,26 +26,22 @@ else
 endif
 Plug 'roxma/nvim-yarp'
 Plug 'preservim/nerdcommenter'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
 
 ""etc
-Plug 'tomasr/molokai'
-Plug 'junegunn/vim-easy-align'
-Plug 'easymotion/vim-easymotion'
-Plug 'tomtom/tlib_vim'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
-Plug 'vim-scripts/L9'
-Plug 'vim-scripts/FuzzyFinder'
 Plug 'mhinz/vim-startify'
-Plug 'yegappan/mru'
 Plug 'ryanoasis/vim-devicons'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/FuzzyFinder'
 Plug 'mg979/vim-visual-multi'
-Plug 'antonk52/vim-tabber'
+Plug 'tomtom/tlib_vim'
+Plug 'vim-scripts/L9'
 
 ""language
-Plug 'ap/vim-css-color'
-Plug 'eslint/eslint'
-Plug 'sheerun/vim-polyglot'
-Plug 'heavenshell/vim-jsdoc', {
+Plug 'sheerun/vim-polyglot'       "for All 
+Plug 'ap/vim-css-color'           "for HTML
+Plug 'eslint/eslint'              "for JS
+Plug 'heavenshell/vim-jsdoc', {   
       \ 'for': ['javascript', 'javascript.jsx','typescript'],
       \ 'do': 'make install'
       \}
@@ -399,9 +396,6 @@ let g:VM_maps["Add Cursor Down"]   = '<C-Down>'
 autocmd BufEnter * if (&buftype != 'terminal' && &buftype != 'nofile') | set relativenumber   | endif
 autocmd BufLeave * if (&buftype != 'terminal' && &buftype != 'nofile') | set norelativenumber | endif
 
-" 터미널 모드 들어갈 때 자동으로 삽입모드
-autocmd BufEnter * if &buftype == 'terminal' | startinsert | endif
-
 
 "*****************************************************************************
 "" Mappings
@@ -418,12 +412,6 @@ imap <C-f> <ESC>
 map  <ESC> <C-\><C-n>
 tmap <ESC> <C-\><C-n>
 imap <ESC> <C-\><C-n>
-
-" 터미널 모드 단축키
-tmap <C-w>k <C-\><C-n><C-w>k
-tmap <C-w>l <C-\><C-n><C-w>l
-tmap <C-w>j <C-\><C-n><C-w>j
-tmap <C-w>h <C-\><C-n><C-w>h
 
 " 입력모드에서 터미널 단축키 사용 및 기타
 imap <C-l> <RIGHT>
@@ -550,9 +538,9 @@ map <silent><leader>E :IndentLinesToggle<CR>:IndentLinesToggle<CR>
 
 " Sidebar
 nmap <silent><leader>l :NERDTreeToggle<CR>
-nmap <silent><leader>k :ToggleBufExplorer<CR>
+nmap <silent><leader>k :ToggleBufExplorer<CR><ESC>
 nmap <silent><leader>h :TagbarToggle<CR>
-nmap <silent><leader>j :set nornu<CR>:sp<CR><C-w>j<C-w>10_:terminal<CR>:set nonu nornu<CR>a
+nmap <silent><leader>j <Plug>(NERDTermToggle)
 
 " Tab change to 4 space
 nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
@@ -602,3 +590,4 @@ if exists("$HOME")
     set nobk
   endif
 endif
+
