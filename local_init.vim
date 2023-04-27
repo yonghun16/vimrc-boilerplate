@@ -536,7 +536,6 @@ nmap <silent><leader>C <Plug>(jsdoc)
 " Numberline
 map <silent><leader>N :call Numberline_remove_toggle()<CR>
 map <silent><leader>n :call Numberline_change_toggle()<CR>
-map <silent><leader>E :IndentLinesToggle<CR>:IndentLinesToggle<CR>
 
 " Sidebar
 nmap <silent><leader>l :NERDTreeToggle<CR>
