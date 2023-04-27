@@ -12,9 +12,10 @@
 "" Custom bundles
 "*****************************************************************************
 ""sidebar
-Plug 'jlanzarotta/bufexplorer'
-Plug 'majutsushi/tagbar'          "$sudo apt-get install ctags
-Plug 'wuelnerdotexe/nerdterm'
+Plug 'jlanzarotta/bufexplorer'  "up
+Plug 'preservim/tagbar'         "left (https://github.com/universal-ctags/ctags)
+Plug 'wuelnerdotexe/nerdterm'   "down
+Plug 'scrooloose/nerdtree'      "right
 
 ""syntax
 if has('nvim')
@@ -27,8 +28,10 @@ endif
 Plug 'roxma/nvim-yarp'
 Plug 'preservim/nerdcommenter'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} 
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 ""etc
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'easymotion/vim-easymotion'
@@ -113,8 +116,6 @@ set clipboard=unnamedplus "Vim과 OS클립보드 동기화
 set termguicolors         "터미널에서 24bit컬러(GUI컬러) 지원하기
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
-"colorscheme molokai
-"let g:airline_theme='molokai'
 let g:rehash256 = 1
 
 
@@ -271,6 +272,19 @@ augroup remember_folds
   au BufWinEnter ?* silent! loadview 1
 augroup END
 
+"풀스크린 터미널 토글
+let g:term_buf_nr = -1
+function! ToggleTerminal_full()
+    if g:term_buf_nr == -1
+        execute "bot term"
+        let g:term_buf_nr = bufnr("$")
+        set norelativenumber
+        set nonumber
+    else
+        execute "bd! " .g:term_buf_nr
+        let g:term_buf_nr = -1
+    endif
+endfunction
 
 "*****************************************************************************
 "" Plug setting
@@ -541,6 +555,7 @@ nmap <silent><leader>l :NERDTreeToggle<CR>
 nmap <silent><leader>k :ToggleBufExplorer<CR><ESC>
 nmap <silent><leader>h :TagbarToggle<CR>
 nmap <silent><leader>j <Plug>(NERDTermToggle)
+nmap <silent><leader>J :call ToggleTerminal_full()<CR>
 
 " Tab change to 4 space
 nmap <leader>T :if Tab_toggle()<Bar>set noexpandtab<Bar>endif<CR>
