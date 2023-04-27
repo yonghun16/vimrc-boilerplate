@@ -54,7 +54,7 @@ filetype plugin indent on
 
 
 "*****************************************************************************
-"" Basic Setup
+"" Basic options
 "*****************************************************************************
 " Encoding 
 set enc=utf-8               " editor의 인코딩
@@ -171,30 +171,18 @@ ab herf href
 function! Compile() range
   execute ':w'
   if &filetype =="c"
-    if has("unix")
-      execute ':! gcc -o ~/bin/%< %<.c'
-      execute ':! ~/bin/%<'
-    endif
+    execute ':! gcc -o ~/bin/%< %<.c'
+    execute ':! ~/bin/%<'
   elseif &filetype =="cpp"
-    if has("unix")
-      execute ':! g++ -o ~/bin/%< %<.cpp'
-      execute ':! ~/bin/%<'
-    endif
+    execute ':! g++ -o ~/bin/%< %<.cpp'
+    execute ':! ~/bin/%<'
   elseif &filetype == "java"
-    if has("unix")
-      execute ':! javac -encoding utf-8 -d ~/bin %<.java'
-      execute ':! java -cp ~/bin %<'
-    endif
+    execute ':! javac -encoding utf-8 -d ~/bin %<.java'
+    execute ':! java -cp ~/bin %<'
   elseif &filetype =="python"
-    if has("unix")
-      execute ':! cp ./%<.py ~/bin'
-      execute ':! python3 ./%<.py'
-    endif
+    execute ':! python3 ./%<.py'
   elseif &filetype =="javascript"
-    if has("unix")
-      execute ':! cp ./%<.js ~/bin'
-      execute ':! node ./%<.js'
-    endif
+    execute ':! node ./%<.js'
   endif
 endfunction
 
@@ -463,8 +451,8 @@ nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader><tab> :tabs<CR>
 
 " Split
-noremap <Leader>s :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <Leader>s :split<CR>
+noremap <Leader>v :vsplit<CR>
 
 " session management
 nnoremap <leader>So :OpenSession<Space>
