@@ -42,9 +42,9 @@ function Compile()
     vim.cmd('! javac -encoding utf-8 -d ~/bin %<.java')
     vim.cmd('! java -cp ~/bin %<')
   elseif filetype == "python" then
-    vim.cmd('! python3 ./%<.py')
+    vim.cmd('! python3 %<.py')
   elseif filetype == "javascript" then
-    vim.cmd('! node ./%<.js')
+    vim.cmd('! node %<.js')
   end
 end
 
