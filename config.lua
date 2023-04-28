@@ -52,7 +52,6 @@ end
 -- Autocmd Rules
 --------------------------------------------------------------------------------
 vim.cmd 'au BufEnter * call v:lua.BufEnter_f()'
--- vim.cmd 'au BufLeave * call v:lua.BufLeave_f()'
 
 function BufEnter_f()
   if (vim.bo.buftype == "terminal"
@@ -67,14 +66,6 @@ function BufEnter_f()
   end
 end
 
--- function BufLeave_f()
---   vim.cmd('set norelativenumber')
--- end
-
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.*" },
---   command = "set relativenumber",
--- })
 vim.api.nvim_create_autocmd("BufLeave", {
   pattern = { "*.*" },
   command = "set norelativenumber",
@@ -179,4 +170,4 @@ lvim.builtin.which_key.mappings["f"] = { '<Plug>(easymotion-f)', "easymotion-f" 
 lvim.builtin.which_key.mappings["F"] = { '<Plug>(easymotion-F)', "easymotion-F" }
 
 -- 현재 경로를 작업경로로 설정
-lvim.builtin.which_key.mappings["."] = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
+lvim.builtin.which_key.mappings[","] = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
