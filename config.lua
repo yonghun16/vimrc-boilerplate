@@ -176,3 +176,6 @@ lvim.builtin.which_key.mappings["r"] = { '<cmd>:reg<cr>', "Register" }
 -- Easymotion
 lvim.builtin.which_key.mappings["f"] = { '<Plug>(easymotion-f)', "easymotion-f" }
 lvim.builtin.which_key.mappings["F"] = { '<Plug>(easymotion-F)', "easymotion-F" }
+
+-- 현재 경로를 작업경로로 설정
+lvim.builtin.which_key.mappings["."] = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
