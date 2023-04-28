@@ -51,16 +51,31 @@ end
 --------------------------------------------------------------------------------
 -- Autocmd Rules
 --------------------------------------------------------------------------------
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.*" },
-  command = "set relativenumber",
-})
+vim.cmd 'au BufEnter * call v:lua.BufEnter_f()'
+-- vim.cmd 'au BufLeave * call v:lua.BufLeave_f()'
+
+function BufEnter_f()
+  if (vim.bo.buftype == "terminal"
+      or vim.o.filetype == "tagbar"
+      or vim.o.filetype == "NvimTree"
+      or vim.o.filetype == "dashboard"
+      ) then
+    vim.cmd('set norelativenumber')
+  else
+    vim.cmd('set relativenumber')
+  end
+end
+
+-- function BufLeave_f()
+--   vim.cmd('set norelativenumber')
+-- end
+
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = { "*.*" },
+--   command = "set relativenumber",
+-- })
 vim.api.nvim_create_autocmd("BufLeave", {
   pattern = { "*.*" },
-  command = "set norelativenumber",
-})
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { tagbar },
   command = "set norelativenumber",
 })
 
@@ -72,6 +87,7 @@ vim.opt.tabstop = 2
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
+
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -128,13 +144,14 @@ lvim.keys.normal_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffers" }
 lvim.builtin.which_key.mappings["h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["l"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
-lvim.builtin.which_key.mappings["j"] = { "<cmd>:ToggleTerm size=13 dir=./ direction=horizontal<CR>", "Terminal mini" }
-lvim.builtin.which_key.mappings["J"] = { "<cmd>:ToggleTerm dir=./ direction=float<CR>", "Terminal" }
+lvim.builtin.which_key.mappings["j"] = {
+  "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>",
+  "Terminal bottom" }
+lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
 
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
-
 
 -- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
 lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
