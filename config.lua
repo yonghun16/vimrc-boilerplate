@@ -30,6 +30,7 @@ vim.cmd([[ let g:VM_maps["Add Cursor Down"]   = '<C-Down>' ]])
 --------------------------------------------------------------------------------
 -- Function
 --------------------------------------------------------------------------------
+-- Compile
 function Compile()
   vim.cmd('w')
   local filetype = vim.bo.filetype
@@ -47,6 +48,11 @@ function Compile()
   elseif filetype == "javascript" then
     vim.cmd('! node %<.js')
   end
+end
+
+-- Auto Wrap
+function Toggle_wrap()
+  vim.cmd('set wrap!')
 end
 
 --------------------------------------------------------------------------------
@@ -157,6 +163,9 @@ lvim.builtin.which_key.mappings["<space>"] = { '<cmd>let @/=""<CR>', "No Highlig
 
 -- Compile
 lvim.builtin.which_key.mappings["a"] = { '<cmd>lua Compile()<CR>', "Compile" }
+
+-- Auto wrap
+lvim.builtin.which_key.mappings["z"] = { '<cmd>lua Toggle_wrap()<CR>', "Wrap" }
 
 -- 분할하기,  파일비교
 lvim.builtin.which_key.mappings["s"] = { '<cmd>:split<CR>', "split" }
