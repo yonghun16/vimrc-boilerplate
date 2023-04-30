@@ -9,6 +9,7 @@ lvim.plugins = {
     "easymotion/vim-easymotion",
     "farmergreg/vim-lastplace",
     "mg979/vim-visual-multi",
+    "Mofiqul/vscode.nvim",
   },
 }
 
@@ -80,7 +81,7 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 
-
+lvim.colorscheme = "vscode"
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
