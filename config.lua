@@ -156,6 +156,7 @@ lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>",
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
+lvim.builtin.which_key.mappings["bd"] = { ":bd<CR>", "Close" }
 
 -- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
 lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
