@@ -278,7 +278,7 @@ endfunction
 "" Plug setting
 "*****************************************************************************
 " NERD Tree
-let NERDTreeWinPos = "left"			
+let NERDTreeWinPos = "right"			
 set autochdir
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
@@ -299,7 +299,7 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_linters = {}
 
 " Tag bar
-let g:tagbar_right = 1				
+let g:tagbar_left = 1				
 let g:tagbar_width = 30	   
 let g:tagbar_sort = 0               " 파일 안의 태그 순서대로 태그정렬
 let g:tagbar_autoshowtag = 1
@@ -538,9 +538,9 @@ map <silent><leader>N :call Numberline_remove_toggle()<CR>
 map <silent><leader>n :call Numberline_change_toggle()<CR>
 
 " Sidebar
-nmap <silent><leader>h :NERDTreeToggle<CR>
+nmap <silent><leader>l :NERDTreeToggle<CR>
 nmap <silent><leader>k :ToggleBufExplorer<CR><ESC>
-nmap <silent><leader>l :TagbarToggle<CR>
+nmap <silent><leader>h :TagbarToggle<CR>
 nmap <silent><leader>j <Plug>(NERDTermToggle)
 nmap <silent><leader>J :call ToggleTerminal_full()<CR>
 

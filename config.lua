@@ -78,6 +78,7 @@ vim.api.nvim_create_autocmd("BufLeave", {
   command = "set norelativenumber",
 })
 
+
 --------------------------------------------------------------------------------
 -- Basic options
 --------------------------------------------------------------------------------
@@ -136,6 +137,10 @@ lvim.keys.normal_mode["<C-k>"] = "3k"
 lvim.keys.normal_mode["<C-j>"] = "3j"
 lvim.keys.normal_mode["<C-l>"] = "$"
 lvim.keys.normal_mode["<C-h>"] = "^"
+lvim.keys.visual_mode["<C-k>"] = "3k"
+lvim.keys.visual_mode["<C-j>"] = "3j"
+lvim.keys.visual_mode["<C-l>"] = "$"
+lvim.keys.visual_mode["<C-h>"] = "^"
 lvim.keys.normal_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.normal_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
