@@ -59,6 +59,8 @@ end
 -- Autocmd Rules
 --------------------------------------------------------------------------------
 vim.cmd 'au BufEnter * call v:lua.BufEnter_f()'
+vim.cmd 'au BufLeave * call v:lua.BufLeave_f()'
+
 
 function BufEnter_f()
   if (vim.bo.buftype == "terminal"
@@ -73,11 +75,9 @@ function BufEnter_f()
   end
 end
 
-vim.api.nvim_create_autocmd("BufLeave", {
-  pattern = { "*.*" },
-  command = "set norelativenumber",
-})
-
+function BufLeave_f()
+  vim.cmd('set norelativenumber')
+end
 
 --------------------------------------------------------------------------------
 -- Basic options
@@ -145,9 +145,9 @@ lvim.keys.normal_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.normal_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
 -- 사이드바
-lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffers" }
+lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
 lvim.builtin.which_key.mappings["h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
-lvim.builtin.which_key.mappings["l"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
+lvim.builtin.which_key.mappings["l"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
 lvim.builtin.which_key.mappings["j"] = {
   "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>",
   "Terminal bottom" }
@@ -156,7 +156,6 @@ lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>",
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
-lvim.builtin.which_key.mappings["bd"] = { ":bd<CR>", "Close" }
 
 -- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
 lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
@@ -173,9 +172,7 @@ lvim.builtin.which_key.mappings["a"] = { '<cmd>lua Compile()<CR>', "Compile" }
 -- Auto wrap
 lvim.builtin.which_key.mappings["z"] = { '<cmd>lua Toggle_wrap()<CR>', "Wrap" }
 
--- 분할하기,  파일비교
-lvim.builtin.which_key.mappings["s"] = { '<cmd>:split<CR>', "split" }
-lvim.builtin.which_key.mappings["v"] = { '<cmd>:vsplit<CR>', "vsplit" }
+-- 파일비교
 lvim.builtin.which_key.mappings["d"] = { ':vert diffsplit ', "diffsplit" }
 
 -- 레지스터 보기
