@@ -119,9 +119,8 @@ lvim.builtin.which_key.mappings["e"] = {}
 lvim.keys.normal_mode["<C-f>"] = "<ESC>"
 lvim.keys.term_mode["<C-f>"] = "<C-\\><C-n>"
 lvim.keys.insert_mode["<C-f>"] = "<ESC>"
-lvim.keys.normal_mode["<ESC>"] = "<C-\\><C-n>"
-lvim.keys.term_mode["ESC"] = "<C-\\><C-n>"
-lvim.keys.insert_mode["<ESC>"] = "<C-\\><C-n>"
+lvim.keys.visual_mode["<C-f>"] = "<ESC>"
+lvim.keys.command_mode["<C-f>"] = "<ESC>"
 
 -- 입력모드에서 터미널 단축키 사용 및 기타
 lvim.keys.insert_mode["<C-l>"] = "<RIGHT>"
