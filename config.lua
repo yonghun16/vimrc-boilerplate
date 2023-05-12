@@ -117,10 +117,10 @@ lvim.builtin.which_key.mappings["e"] = {}
 
 -- ESC 키를 편하게 <Ctrl+f>로 변경
 lvim.keys.normal_mode["<C-f>"] = "<ESC>"
-lvim.keys.term_mode["<C-f>"] = "<ESC>"
+lvim.keys.term_mode["<C-f>"] = "<C-\\><C-n>"
 lvim.keys.insert_mode["<C-f>"] = "<ESC>"
 lvim.keys.normal_mode["<ESC>"] = "<C-\\><C-n>"
-lvim.keys.term_mode["<ESC>"] = "<C-\\><C-n>"
+lvim.keys.term_mode["ESC"] = "<C-\\><C-n>"
 lvim.keys.insert_mode["<ESC>"] = "<C-\\><C-n>"
 
 -- 입력모드에서 터미널 단축키 사용 및 기타
