@@ -36,21 +36,27 @@ vim.cmd([[ let g:user_emmet_leader_key=',' ]])
 --------------------------------------------------------------------------------
 -- Compile
 function Compile()
-  vim.cmd('w')
   local filetype = vim.bo.filetype
   if filetype == "c" then
+    vim.cmd('w')
     vim.cmd('! gcc -o ~/bin/%< %<.c')
     vim.cmd('! ~/bin/%<')
   elseif filetype == "cpp" then
+    vim.cmd('w')
     vim.cmd('! g++ -o ~/bin/%< %<.cpp')
     vim.cmd('! ~/bin/%<')
   elseif filetype == "java" then
+    vim.cmd('w')
     vim.cmd('! javac -encoding utf-8 -d ~/bin %<.java')
     vim.cmd('! java -cp ~/bin %<')
   elseif filetype == "python" then
+    vim.cmd('w')
     vim.cmd('! python3 %<.py')
   elseif filetype == "javascript" then
+    vim.cmd('w')
     vim.cmd('! node %<.js')
+  else
+    vim.cmd(':echo "This file is not source"')
   end
 end
 
@@ -141,12 +147,14 @@ lvim.keys.normal_mode["<C-k>"] = "3k"
 lvim.keys.normal_mode["<C-j>"] = "3j"
 lvim.keys.normal_mode["<C-l>"] = "$"
 lvim.keys.normal_mode["<C-h>"] = "^"
+lvim.keys.normal_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
+lvim.keys.normal_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 lvim.keys.visual_mode["<C-k>"] = "3k"
 lvim.keys.visual_mode["<C-j>"] = "3j"
 lvim.keys.visual_mode["<C-l>"] = "$"
 lvim.keys.visual_mode["<C-h>"] = "^"
-lvim.keys.normal_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
-lvim.keys.normal_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
+lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
+lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
 -- 사이드바
 lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
