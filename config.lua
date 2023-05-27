@@ -39,9 +39,6 @@ require 'colorizer'.setup {
   'html',
   'javascript',
   css = { rgb_fn = true, },
-  html = {
-    mode = 'foreground',
-  }
 }
 
 
