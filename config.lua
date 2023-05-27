@@ -11,6 +11,7 @@ lvim.plugins = {
     "mg979/vim-visual-multi",
     "Mofiqul/vscode.nvim",
     "mattn/emmet-vim",
+    "norcalli/nvim-colorizer.lua",
   },
 }
 
@@ -30,6 +31,19 @@ vim.cmd([[ let g:VM_maps["Add Cursor Down"]   = '<C-Down>' ]])
 
 -- emmet-vim
 vim.cmd([[ let g:user_emmet_leader_key=',' ]])
+
+
+-- nvim-colorizer.lua
+require 'colorizer'.setup {
+  'css',
+  'html',
+  'javascript',
+  css = { rgb_fn = true, },
+  html = {
+    mode = 'foreground',
+  }
+}
+
 
 --------------------------------------------------------------------------------
 -- Function
@@ -70,8 +84,8 @@ end
 --------------------------------------------------------------------------------
 vim.cmd 'au BufEnter * call v:lua.BufEnter_f()'
 vim.cmd 'au BufLeave * call v:lua.BufLeave_f()'
-vim.cmd 'au BufWinEnter *.* loadview'
-vim.cmd 'au BufWinLeave *.* mkview'
+vim.cmd 'au BufWinEnter * silent! loadview'
+vim.cmd 'au BufWinLeave * mkview'
 
 
 function BufEnter_f()
