@@ -38,6 +38,7 @@ require 'colorizer'.setup {
   'css',
   'html',
   'javascript',
+  'scss',
   css = { rgb_fn = true, },
 }
 
@@ -183,8 +184,8 @@ lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
 
 -- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
-lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
-lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
+-- lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
+-- lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
 lvim.keys.visual_mode[">>"] = ">gv"
 lvim.keys.visual_mode["<<"] = "<gv"
 
