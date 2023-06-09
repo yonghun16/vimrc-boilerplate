@@ -82,9 +82,8 @@ end
 --------------------------------------------------------------------------------
 vim.cmd 'au BufEnter * call v:lua.BufEnter_f()'
 vim.cmd 'au BufLeave * call v:lua.BufLeave_f()'
-vim.cmd 'au BufWinEnter * silent! loadview'
-vim.cmd 'au BufWinLeave * mkview'
-
+-- vim.cmd 'au BufWinEnter * silent! loadview'
+-- vim.cmd 'au BufWinLeave * mkview'
 
 function BufEnter_f()
   if (vim.bo.buftype == "terminal"
