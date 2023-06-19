@@ -154,6 +154,8 @@ lvim.keys.insert_mode["<C-e>"] = "<ESC>$a"
 lvim.keys.insert_mode["<C-d>"] = "<DEL>"
 lvim.keys.insert_mode["<C-k>"] = "<ESC><RIGHT>C"
 lvim.keys.insert_mode["<C-ENTER>"] = "<ESC>o"
+lvim.keys.insert_mode["<A-f>"] = "<ESC><RIGHT>wi"
+lvim.keys.insert_mode["<A-b>"] = "<ESC>bi"
 
 -- 빠른 커서 이동,  페이지 이동
 lvim.keys.normal_mode["<C-k>"] = "3k"
