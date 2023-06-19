@@ -423,6 +423,8 @@ imap <C-e> <ESC>$a
 imap <C-d> <DEL>
 imap <C-k> <ESC><RIGHT>C
 imap <C-ENTER> <ESC>o
+imap <A-f> <ESC><RIGHT>wi
+imap <A-b> <ESC>bi
 
 " 빠른 커서 이동
 map <C-j> 3j
