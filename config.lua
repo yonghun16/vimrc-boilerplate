@@ -12,6 +12,9 @@ lvim.plugins = {
     "Mofiqul/vscode.nvim",
     "mattn/emmet-vim",
     "norcalli/nvim-colorizer.lua",
+    "digitaltoad/vim-pug",
+    "prettier/vim-prettier",
+    "sbdchd/neoformat",
   },
 }
 
