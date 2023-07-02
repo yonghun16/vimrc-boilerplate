@@ -131,6 +131,8 @@ lvim.format_on_save = {
 --------------------------------------------------------------------------------
 -- Mappings
 --------------------------------------------------------------------------------
+--  ~ .local/share/lunarvim/lvim/lua/lvim/core/which_key (기본 which키 셋팅 값)
+--------------------------------------------------------------------------------
 -- leader 키 설정
 lvim.leader = ","
 
@@ -174,6 +176,20 @@ lvim.keys.visual_mode["<C-h>"] = "^"
 lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
+-- Buffer
+lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
+
+-- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
+-- lvim.keys.visual_mode["<A-j>"] = ":m '>+1<CR>gv=gv"
+-- lvim.keys.visual_mode["<A-k>"] = ":m '<-2<CR>gv=gv"
+lvim.keys.visual_mode[">>"] = ">gv"
+lvim.keys.visual_mode["<<"] = "<gv"
+
+-- prettier
+lvim.keys.normal_mode["<A-f>"] = "<Plug>(Prettier)"
+lvim.builtin.which_key.mappings["p"] = { '<Plug>(Prettier)', "Prettier" }
+
 -- 사이드바
 lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
 lvim.builtin.which_key.mappings["h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
@@ -182,16 +198,6 @@ lvim.builtin.which_key.mappings["j"] = {
   "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>",
   "Terminal bottom" }
 lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
-
--- Buffer
-lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
-
--- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
--- lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
--- lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
-lvim.keys.visual_mode[">>"] = ">gv"
-lvim.keys.visual_mode["<<"] = "<gv"
 
 -- Clean search (highlight)
 lvim.builtin.which_key.mappings["<space>"] = { '<cmd>let @/=""<CR>', "No Highlight" }
