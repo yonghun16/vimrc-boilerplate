@@ -186,6 +186,7 @@ lvim.keys.visual_mode[">>"] = ">gv"
 lvim.keys.visual_mode["<<"] = "<gv"
 
 -- prettier
+-- npm install -g prettier
 lvim.keys.normal_mode["<A-f>"] = "<Plug>(Prettier)"
 lvim.builtin.which_key.mappings["p"] = { '<Plug>(Prettier)', "Prettier" }
 
@@ -194,8 +195,7 @@ lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false
 lvim.builtin.which_key.mappings["h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["l"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
 lvim.builtin.which_key.mappings["j"] = {
-  "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>",
-  "Terminal bottom" }
+  "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
 lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
 
 -- Clean search (highlight)
