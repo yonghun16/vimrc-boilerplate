@@ -30,8 +30,7 @@ vim.cmd([[ let g:tagbar_width = '30' ]])
 vim.cmd([[ let g:VM_maps = {} ]])
 vim.cmd([[ let g:VM_maps["Find Under"]   = '<C-/>' ]])
 vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Add Cursor Up"]   = '<C-Up>' ]])
-vim.cmd([[ let g:VM_maps["Add Cursor Down"]   = '<C-Down>' ]])
+vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-Right>' ]])
 
 -- emmet-vim
 vim.cmd([[ let g:user_emmet_leader_key=',' ]])
