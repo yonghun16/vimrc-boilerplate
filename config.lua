@@ -134,6 +134,8 @@ lvim.format_on_save = {
   timeout = 1000,
 }
 
+vim.cmd('set viewdir=~/.vim/view')
+
 
 --------------------------------------------------------------------------------
 -- Mappings
