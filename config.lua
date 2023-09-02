@@ -152,9 +152,9 @@ lvim.builtin.which_key.mappings["e"] = {}
 
 -- ESC 키를 편하게 <Ctrl+f>로 변경
 lvim.keys.normal_mode["<C-f>"] = "<ESC>"
-lvim.keys.term_mode["<C-f>"] = "<C-\\><C-n><RIGHT>"
-lvim.keys.term_mode["<ESC>"] = "<C-\\><C-n><RIGHT>"
-lvim.keys.insert_mode["<C-f>"] = "<RIGHT><ESC>"
+lvim.keys.term_mode["<C-f>"] = "<C-\\><C-n>"
+lvim.keys.term_mode["<ESC>"] = "<C-\\><C-n>"
+lvim.keys.insert_mode["<C-f>"] = "<ESC>"
 lvim.keys.visual_mode["<C-f>"] = "<ESC>"
 lvim.keys.command_mode["<C-f>"] = "<ESC>"
 
