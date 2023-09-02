@@ -14,7 +14,7 @@ lvim.plugins = {
     "norcalli/nvim-colorizer.lua",
     "digitaltoad/vim-pug",
     "prettier/vim-prettier",
-    "sbdchd/neoformat",
+    "sbdchd/neoformat"
   },
 }
 
@@ -34,7 +34,6 @@ vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-Right>' ]])
 
 -- emmet-vim
 vim.cmd([[ let g:user_emmet_leader_key=',' ]])
-
 
 -- nvim-colorizer.lua
 require 'colorizer'.setup {
@@ -153,9 +152,9 @@ lvim.builtin.which_key.mappings["e"] = {}
 
 -- ESC 키를 편하게 <Ctrl+f>로 변경
 lvim.keys.normal_mode["<C-f>"] = "<ESC>"
-lvim.keys.term_mode["<C-f>"] = "<C-\\><C-n>"
-lvim.keys.term_mode["<ESC>"] = "<C-\\><C-n>"
-lvim.keys.insert_mode["<C-f>"] = "<ESC>"
+lvim.keys.term_mode["<C-f>"] = "<C-\\><C-n><RIGHT>"
+lvim.keys.term_mode["<ESC>"] = "<C-\\><C-n><RIGHT>"
+lvim.keys.insert_mode["<C-f>"] = "<RIGHT><ESC>"
 lvim.keys.visual_mode["<C-f>"] = "<ESC>"
 lvim.keys.command_mode["<C-f>"] = "<ESC>"
 
@@ -166,6 +165,7 @@ lvim.keys.insert_mode["<C-a>"] = "<ESC>^i"
 lvim.keys.insert_mode["<C-e>"] = "<ESC>$a"
 lvim.keys.insert_mode["<C-d>"] = "<DEL>"
 lvim.keys.insert_mode["<C-k>"] = "<ESC><RIGHT>C"
+lvim.keys.insert_mode["<C-u>"] = "<ESC><RIGHT>d^i"
 lvim.keys.insert_mode["<C-ENTER>"] = "<ESC>o"
 lvim.keys.insert_mode["<A-f>"] = "<ESC><RIGHT>wi"
 lvim.keys.insert_mode["<A-b>"] = "<ESC>bi"
