@@ -184,6 +184,12 @@ lvim.keys.visual_mode["<C-h>"] = "^"
 lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
+-- 분할창 크기조절
+lvim.keys.visual_mode["<A-UP>"] = "<C-W>2+"
+lvim.keys.visual_mode["<A-DOWN>"] = "<C-W>2-"
+lvim.keys.visual_mode["<A-LEFT>"] = "<C-W>2<"
+lvim.keys.visual_mode["<A-RIGHT>"] = "<C-W>2>"
+
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
