@@ -141,14 +141,8 @@ vim.cmd('set viewdir=~/.vim/view')
 -- ~ .local/share/lunarvim/lvim/lua/lvim/core/which_key  ->  기본 which키 셋팅
 --------------------------------------------------------------------------------
 -- leader 키 설정
-lvim.leader = ","
-
--- 쓰지 않는 단축키 삭제
-lvim.keys.term_mode["<C-k>"] = false
-lvim.keys.term_mode["<C-j>"] = false
-lvim.keys.term_mode["<C-l>"] = false
-lvim.keys.term_mode["<C-h>"] = false
 lvim.builtin.which_key.mappings["e"] = {}
+lvim.leader = ","
 
 -- ESC 키를 편하게 <Ctrl+f>로 변경
 lvim.keys.normal_mode["<C-f>"] = "<ESC>"
@@ -158,7 +152,11 @@ lvim.keys.insert_mode["<C-f>"] = "<ESC>"
 lvim.keys.visual_mode["<C-f>"] = "<ESC>"
 lvim.keys.command_mode["<C-f>"] = "<ESC>"
 
--- 입력모드에서 터미널 단축키 사용 및 기타
+-- 터미널 단축키 사용 및 기타
+lvim.keys.term_mode["<C-k>"] = false
+lvim.keys.term_mode["<C-j>"] = false
+lvim.keys.term_mode["<C-l>"] = false
+lvim.keys.term_mode["<C-h>"] = false
 lvim.keys.insert_mode["<C-l>"] = "<RIGHT>"
 lvim.keys.insert_mode["<C-b>"] = "<LEFT>"
 lvim.keys.insert_mode["<C-a>"] = "<ESC>^i"
@@ -191,10 +189,14 @@ lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
 -- 분할창 크기조절
-lvim.keys.visual_mode["<A-UP>"] = "<C-W>2+"
-lvim.keys.visual_mode["<A-DOWN>"] = "<C-W>2-"
-lvim.keys.visual_mode["<A-LEFT>"] = "<C-W>2<"
-lvim.keys.visual_mode["<A-RIGHT>"] = "<C-W>2>"
+lvim.keys.normal_mode["<C-UP>"] = false
+lvim.keys.normal_mode["<C-DOWN>"] = false
+lvim.keys.normal_mode["<C-RIGHT>"] = false
+lvim.keys.normal_mode["<C-LEFT>"] = false
+lvim.keys.normal_mode["<A-UP>"] = "<C-W>2+"
+lvim.keys.normal_mode["<A-DOWN>"] = "<C-W>2-"
+lvim.keys.normal_mode["<A-RIGHT>"] = "<C-W>2>"
+lvim.keys.normal_mode["<A-LEFT>"] = "<C-W>2<"
 
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
