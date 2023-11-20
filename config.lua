@@ -11,7 +11,7 @@ lvim.plugins = {
     "mg979/vim-visual-multi",
     "Mofiqul/vscode.nvim",
     "mattn/emmet-vim",
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     "digitaltoad/vim-pug",
     "prettier/vim-prettier",
     "sbdchd/neoformat"
@@ -37,11 +37,11 @@ vim.cmd([[ let g:user_emmet_leader_key=',' ]])
 
 -- nvim-colorizer.lua
 require 'colorizer'.setup {
-  'css',
-  'html',
-  'javascript',
-  'scss',
-  css = { rgb_fn = true, },
+  user_default_options = {
+    css_fn = false,
+    css = true,
+    scss = true
+  }
 }
 
 
