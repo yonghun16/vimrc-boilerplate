@@ -11,7 +11,7 @@ lvim.plugins = {
     "mg979/vim-visual-multi",
     "Mofiqul/vscode.nvim",
     "mattn/emmet-vim",
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     "digitaltoad/vim-pug",
     "prettier/vim-prettier",
     "sbdchd/neoformat"
@@ -37,11 +37,11 @@ vim.cmd([[ let g:user_emmet_leader_key=',' ]])
 
 -- nvim-colorizer.lua
 require 'colorizer'.setup {
-  'css',
-  'html',
-  'javascript',
-  'scss',
-  css = { rgb_fn = true, },
+  user_default_options = {
+    css_fn = false,
+    css = true,
+    scss = true
+  }
 }
 
 
@@ -141,14 +141,8 @@ vim.cmd('set viewdir=~/.vim/view')
 -- ~ .local/share/lunarvim/lvim/lua/lvim/core/which_key  ->  기본 which키 셋팅
 --------------------------------------------------------------------------------
 -- leader 키 설정
-lvim.leader = ","
-
--- 쓰지 않는 단축키 삭제
-lvim.keys.term_mode["<C-k>"] = false
-lvim.keys.term_mode["<C-j>"] = false
-lvim.keys.term_mode["<C-l>"] = false
-lvim.keys.term_mode["<C-h>"] = false
 lvim.builtin.which_key.mappings["e"] = {}
+lvim.leader = ","
 
 -- ESC 키를 편하게 <Ctrl+f>로 변경
 lvim.keys.normal_mode["<C-f>"] = "<ESC>"
@@ -158,7 +152,11 @@ lvim.keys.insert_mode["<C-f>"] = "<ESC>"
 lvim.keys.visual_mode["<C-f>"] = "<ESC>"
 lvim.keys.command_mode["<C-f>"] = "<ESC>"
 
--- 입력모드에서 터미널 단축키 사용 및 기타
+-- 편집모드에서 터미널 단축키 사용 및 기타
+lvim.keys.term_mode["<C-k>"] = false
+lvim.keys.term_mode["<C-j>"] = false
+lvim.keys.term_mode["<C-l>"] = "<RIGHT>"
+lvim.keys.term_mode["<C-h>"] = false
 lvim.keys.insert_mode["<C-l>"] = "<RIGHT>"
 lvim.keys.insert_mode["<C-b>"] = "<LEFT>"
 lvim.keys.insert_mode["<C-a>"] = "<ESC>^i"
@@ -169,6 +167,12 @@ lvim.keys.insert_mode["<C-u>"] = "<ESC><RIGHT>d^i"
 lvim.keys.insert_mode["<C-ENTER>"] = "<ESC>o"
 lvim.keys.insert_mode["<A-f>"] = "<ESC><RIGHT>wi"
 lvim.keys.insert_mode["<A-b>"] = "<ESC>bi"
+
+-- 영역지정 된 행을 위아래로 이동
+lvim.keys.normal_mode["<A-k>"] = false
+lvim.keys.normal_mode["<A-j>"] = false
+lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
+lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
 
 -- 빠른 커서 이동,  페이지 이동
 lvim.keys.normal_mode["<C-k>"] = "3k"
@@ -185,10 +189,14 @@ lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
 -- 분할창 크기조절
-lvim.keys.visual_mode["<A-UP>"] = "<C-W>2+"
-lvim.keys.visual_mode["<A-DOWN>"] = "<C-W>2-"
-lvim.keys.visual_mode["<A-LEFT>"] = "<C-W>2<"
-lvim.keys.visual_mode["<A-RIGHT>"] = "<C-W>2>"
+lvim.keys.normal_mode["<C-UP>"] = false
+lvim.keys.normal_mode["<C-DOWN>"] = false
+lvim.keys.normal_mode["<C-RIGHT>"] = false
+lvim.keys.normal_mode["<C-LEFT>"] = false
+lvim.keys.normal_mode["<A-UP>"] = "<C-W>2-"
+lvim.keys.normal_mode["<A-DOWN>"] = "<C-W>2+"
+lvim.keys.normal_mode["<A-RIGHT>"] = "<C-W>2>"
+lvim.keys.normal_mode["<A-LEFT>"] = "<C-W>2<"
 
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
