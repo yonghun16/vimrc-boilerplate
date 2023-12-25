@@ -14,7 +14,8 @@ lvim.plugins = {
     "NvChad/nvim-colorizer.lua",
     "digitaltoad/vim-pug",
     "prettier/vim-prettier",
-    "sbdchd/neoformat"
+    "sbdchd/neoformat",
+    -- "github/copilot.vim"
   },
 }
 
@@ -54,21 +55,26 @@ function Compile()
   if filetype == "c" then
     vim.cmd('w')
     vim.cmd('! gcc -o ~/bin/%< %<.c')
-    vim.cmd('! ~/bin/%<')
+    vim.cmd('terminal ~/bin/%<')
+    vim.cmd('set norelativenumber nonu')
   elseif filetype == "cpp" then
     vim.cmd('w')
     vim.cmd('! g++ -o ~/bin/%< %<.cpp')
-    vim.cmd('! ~/bin/%<')
+    vim.cmd('terminal ~/bin/%<')
+    vim.cmd('set norelativenumber nonu')
   elseif filetype == "java" then
     vim.cmd('w')
     vim.cmd('! javac -encoding utf-8 -d ~/bin %<.java')
-    vim.cmd('! java -cp ~/bin %<')
+    vim.cmd('terminal java -cp ~/bin %<')
+    vim.cmd('set norelativenumber nonu')
   elseif filetype == "python" then
     vim.cmd('w')
-    vim.cmd('! python3 %<.py')
+    vim.cmd('terminal python3 %<.py')
+    vim.cmd('set norelativenumber nonu')
   elseif filetype == "javascript" then
     vim.cmd('w')
-    vim.cmd('! node %<.js')
+    vim.cmd('terminal node %<.js')
+    vim.cmd('set norelativenumber nonu')
   else
     vim.cmd(':echo "This file is not source"')
   end
