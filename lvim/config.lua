@@ -199,10 +199,10 @@ lvim.keys.normal_mode["<C-UP>"] = false
 lvim.keys.normal_mode["<C-DOWN>"] = false
 lvim.keys.normal_mode["<C-RIGHT>"] = false
 lvim.keys.normal_mode["<C-LEFT>"] = false
-lvim.keys.normal_mode["<A-UP>"] = "<C-W>2-"
-lvim.keys.normal_mode["<A-DOWN>"] = "<C-W>2+"
-lvim.keys.normal_mode["<A-RIGHT>"] = "<C-W>2>"
-lvim.keys.normal_mode["<A-LEFT>"] = "<C-W>2<"
+lvim.keys.normal_mode["<A-k>"] = "<C-W>2-"
+lvim.keys.normal_mode["<A-j>"] = "<C-W>2+"
+lvim.keys.normal_mode["<A-l>"] = "<C-W>2>"
+lvim.keys.normal_mode["<A-h>"] = "<C-W>2<"
 
 -- Buffer
 lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
