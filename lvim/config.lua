@@ -21,7 +21,7 @@ lvim.plugins = {
 
 
 --------------------------------------------------------------------------------
--- Plugins Setting
+-- Plugins Setting & Key mapping
 --------------------------------------------------------------------------------
 -- tagbar
 vim.cmd([[ let g:tagbar_position = 'topleft vertical' ]])
@@ -31,7 +31,7 @@ vim.cmd([[ let g:tagbar_width = '30' ]])
 vim.cmd([[ let g:VM_maps = {} ]])
 vim.cmd([[ let g:VM_maps["Find Under"]   = '<C-/>' ]])
 vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-Right>' ]])
+vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
 
 -- emmet-vim
 vim.cmd([[ let g:user_emmet_leader_key=',' ]])
@@ -45,9 +45,18 @@ require 'colorizer'.setup {
   }
 }
 
+-- prettier
+-- npm install -g prettier
+lvim.keys.normal_mode["<A-f>"] = "<Plug>(Prettier)"
+lvim.builtin.which_key.mappings["p"] = { '<Plug>(Prettier)', "Prettier" }
+
+-- Easymotion
+lvim.builtin.which_key.mappings["f"] = { '<Plug>(easymotion-f)', "easymotion-f" }
+lvim.builtin.which_key.mappings["F"] = { '<Plug>(easymotion-F)', "easymotion-F" }
+
 
 --------------------------------------------------------------------------------
--- Function
+-- Functions
 --------------------------------------------------------------------------------
 -- Compile
 function Compile()
@@ -144,7 +153,7 @@ vim.cmd('set viewdir=~/.vim/view')
 
 --------------------------------------------------------------------------------
 -- Mappings
--- ~ .local/share/lunarvim/lvim/lua/lvim/core/which_key  ->  기본 which키 셋팅
+-- (~/.local/share/lunarvim/lvim/lua/lvim/core/which_key  ->  기본 which키 셋팅)
 --------------------------------------------------------------------------------
 -- leader 키 설정
 lvim.builtin.which_key.mappings["e"] = {}
@@ -174,12 +183,6 @@ lvim.keys.insert_mode["<C-ENTER>"] = "<ESC>o"
 lvim.keys.insert_mode["<A-f>"] = "<ESC><RIGHT>wi"
 lvim.keys.insert_mode["<A-b>"] = "<ESC>bi"
 
--- 영역지정 된 행을 위아래로 이동
-lvim.keys.normal_mode["<A-k>"] = false
-lvim.keys.normal_mode["<A-j>"] = false
-lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
-lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
-
 -- 빠른 커서 이동,  페이지 이동
 lvim.keys.normal_mode["<C-k>"] = "3k"
 lvim.keys.normal_mode["<C-j>"] = "3j"
@@ -204,20 +207,25 @@ lvim.keys.normal_mode["<A-j>"] = "<C-W>2+"
 lvim.keys.normal_mode["<A-l>"] = "<C-W>2>"
 lvim.keys.normal_mode["<A-h>"] = "<C-W>2<"
 
--- Buffer
-lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
+-- 분할창 이동
+lvim.keys.normal_mode["<D-k>"] = "<C-W>k"
+lvim.keys.normal_mode["<D-j>"] = "<C-W>j"
+lvim.keys.normal_mode["<D-l>"] = "<C-W>l"
+lvim.keys.normal_mode["<D-h>"] = "<C-W>h"
 
--- 영역지정 된 행을 위아래로 이동,  들여쓰기/ 내어쓰기
--- lvim.keys.visual_mode["<A-j>"] = ":m '>+1<CR>gv=gv"
--- lvim.keys.visual_mode["<A-k>"] = ":m '<-2<CR>gv=gv"
+-- 영역지정 된 행을 위아래로 이동
+lvim.keys.normal_mode["<A-k>"] = false
+lvim.keys.normal_mode["<A-j>"] = false
+lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
+lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
+
+-- 들여쓰기/ 내어쓰기
 lvim.keys.visual_mode[">>"] = ">gv"
 lvim.keys.visual_mode["<<"] = "<gv"
 
--- prettier
--- npm install -g prettier
-lvim.keys.normal_mode["<A-f>"] = "<Plug>(Prettier)"
-lvim.builtin.which_key.mappings["p"] = { '<Plug>(Prettier)', "Prettier" }
+-- Buffer
+lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<s-tab>"] = ":BufferLineCyclePrev<CR>"
 
 -- 사이드바
 lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
@@ -225,6 +233,8 @@ lvim.builtin.which_key.mappings["h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["l"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
 lvim.builtin.which_key.mappings["j"] = {
   "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
+
+-- Terminal
 lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
 
 -- Clean search (highlight)
@@ -236,15 +246,11 @@ lvim.builtin.which_key.mappings["a"] = { '<cmd>lua Compile()<CR>', "Compile" }
 -- Auto wrap
 lvim.builtin.which_key.mappings["z"] = { '<cmd>lua Toggle_wrap()<CR>', "Wrap" }
 
--- 파일비교
+-- 파일비교(diffsplit)
 lvim.builtin.which_key.mappings["d"] = { ':vert diffsplit ', "diffsplit" }
 
 -- 레지스터 보기
 lvim.builtin.which_key.mappings["r"] = { '<cmd>:reg<cr>', "Register" }
-
--- Easymotion
-lvim.builtin.which_key.mappings["f"] = { '<Plug>(easymotion-f)', "easymotion-f" }
-lvim.builtin.which_key.mappings["F"] = { '<Plug>(easymotion-F)', "easymotion-F" }
 
 -- 현재 경로를 작업경로로 설정
 lvim.builtin.which_key.mappings[","] = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
