@@ -197,6 +197,12 @@ lvim.keys.visual_mode["<C-h>"] = "^"
 lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
 lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
 
+-- 영역지정 된 행을 위아래로 이동
+lvim.keys.normal_mode["<A-k>"] = false
+lvim.keys.normal_mode["<A-j>"] = false
+lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
+lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
+
 -- 분할창 크기조절
 lvim.keys.normal_mode["<C-UP>"] = false
 lvim.keys.normal_mode["<C-DOWN>"] = false
@@ -212,12 +218,6 @@ lvim.keys.normal_mode["<D-k>"] = "<C-W>k"
 lvim.keys.normal_mode["<D-j>"] = "<C-W>j"
 lvim.keys.normal_mode["<D-l>"] = "<C-W>l"
 lvim.keys.normal_mode["<D-h>"] = "<C-W>h"
-
--- 영역지정 된 행을 위아래로 이동
-lvim.keys.normal_mode["<A-k>"] = false
-lvim.keys.normal_mode["<A-j>"] = false
-lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
-lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
 
 -- 들여쓰기/ 내어쓰기
 lvim.keys.visual_mode[">>"] = ">gv"
