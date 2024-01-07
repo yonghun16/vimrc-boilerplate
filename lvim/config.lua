@@ -188,14 +188,14 @@ lvim.keys.normal_mode["<C-k>"] = "3k"
 lvim.keys.normal_mode["<C-j>"] = "3j"
 lvim.keys.normal_mode["<C-l>"] = "$"
 lvim.keys.normal_mode["<C-h>"] = "^"
-lvim.keys.normal_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
-lvim.keys.normal_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
+lvim.keys.normal_mode["<C-n>"] = "3<C-e>"
+lvim.keys.normal_mode["<C-p>"] = "3<C-y>"
 lvim.keys.visual_mode["<C-k>"] = "3k"
 lvim.keys.visual_mode["<C-j>"] = "3j"
 lvim.keys.visual_mode["<C-l>"] = "$"
 lvim.keys.visual_mode["<C-h>"] = "^"
-lvim.keys.visual_mode["<C-n>"] = "<C-e><down><Up><C-e><down><up><C-e>"
-lvim.keys.visual_mode["<C-p>"] = "<C-y><up><down><C-y><up><down><C-y>"
+lvim.keys.visual_mode["<C-n>"] = "3<C-e>"
+lvim.keys.visual_mode["<C-p>"] = "3<C-y>"
 
 -- 영역지정 된 행을 위아래로 이동
 lvim.keys.normal_mode["<A-k>"] = false
@@ -208,10 +208,12 @@ lvim.keys.normal_mode["<C-UP>"] = false
 lvim.keys.normal_mode["<C-DOWN>"] = false
 lvim.keys.normal_mode["<C-RIGHT>"] = false
 lvim.keys.normal_mode["<C-LEFT>"] = false
-lvim.keys.normal_mode["<A-k>"] = "<C-W>2-"
-lvim.keys.normal_mode["<A-j>"] = "<C-W>2+"
+lvim.keys.normal_mode["<A-k>"] = "<C-W>2+"
+lvim.keys.normal_mode["<A-j>"] = "<C-W>2-"
 lvim.keys.normal_mode["<A-l>"] = "<C-W>2>"
 lvim.keys.normal_mode["<A-h>"] = "<C-W>2<"
+lvim.keys.normal_mode["<A-K>"] = "<C-W>_"
+lvim.keys.normal_mode["<A-J>"] = "<C-W>="
 
 -- 분할창 이동
 lvim.keys.normal_mode["<D-k>"] = "<C-W>k"
