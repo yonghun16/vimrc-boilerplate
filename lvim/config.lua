@@ -203,23 +203,26 @@ lvim.keys.normal_mode["<A-j>"] = false
 lvim.keys.visual_mode["<S-j>"] = ":m '>+1<CR>gv=gv"
 lvim.keys.visual_mode["<S-k>"] = ":m '<-2<CR>gv=gv"
 
--- 분할창 크기조절
+-- 분할창 제어
+-- (lvim 기본 분할창 이동 단축키는 visual-multi 단축키로 대체))
 lvim.keys.normal_mode["<C-UP>"] = false
 lvim.keys.normal_mode["<C-DOWN>"] = false
 lvim.keys.normal_mode["<C-RIGHT>"] = false
 lvim.keys.normal_mode["<C-LEFT>"] = false
-lvim.keys.normal_mode["<A-k>"] = "<C-W>2+"
-lvim.keys.normal_mode["<A-j>"] = "<C-W>2-"
-lvim.keys.normal_mode["<A-l>"] = "<C-W>2>"
-lvim.keys.normal_mode["<A-h>"] = "<C-W>2<"
-lvim.keys.normal_mode["<A-K>"] = "<C-W>_"
-lvim.keys.normal_mode["<A-J>"] = "<C-W>="
-
--- 분할창 이동
-lvim.keys.normal_mode["<D-k>"] = "<C-W>k"
-lvim.keys.normal_mode["<D-j>"] = "<C-W>j"
-lvim.keys.normal_mode["<D-l>"] = "<C-W>l"
-lvim.keys.normal_mode["<D-h>"] = "<C-W>h"
+-- (분할창 크기조절)
+lvim.keys.normal_mode["<A-p>"] = "<C-W>2+"
+lvim.keys.normal_mode["<A-n>"] = "<C-W>2-"
+lvim.keys.normal_mode["<A-.>"] = "<C-W>2>"
+lvim.keys.normal_mode["<A-,>"] = "<C-W>2<"
+lvim.keys.normal_mode["<A-P>"] = "<C-W>_"
+lvim.keys.normal_mode["<A-N>"] = "<C-W>="
+lvim.keys.normal_mode["<A->>"] = "<C-W>|"
+lvim.keys.normal_mode["<A-<>"] = "<C-W>="
+-- (분할창 이동 후 최대크기)
+lvim.keys.normal_mode["<A-k>"] = "<C-W>k<C-W>_"
+lvim.keys.normal_mode["<A-j>"] = "<C-W>j<C-W>_"
+lvim.keys.normal_mode["<A-l>"] = "<C-W>l<C-W>|"
+lvim.keys.normal_mode["<A-h>"] = "<C-W>h<C-W>|"
 
 -- 들여쓰기/ 내어쓰기
 lvim.keys.visual_mode[">>"] = ">gv"
