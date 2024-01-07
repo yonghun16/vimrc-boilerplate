@@ -227,7 +227,7 @@ lvim.keys.normal_mode["<A-P>"] = "<C-W>_"
 lvim.keys.normal_mode["<A-N>"] = "<C-W>1000-"
 lvim.keys.normal_mode["<A->>"] = "<C-W>|"
 lvim.keys.normal_mode["<A-<>"] = "<C-W>1000<"
-lvim.keys.normal_mode["<A-m>"] = "<C-W>="
+lvim.keys.normal_mode["<A-z>"] = "<C-W>="
 
 -- 들여쓰기/ 내어쓰기
 lvim.keys.visual_mode[">>"] = ">gv"
@@ -242,10 +242,10 @@ lvim.builtin.which_key.mappings["k"] = { "<cmd>Telescope buffers previewer=false
 lvim.builtin.which_key.mappings["h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["l"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
 lvim.builtin.which_key.mappings["j"] = {
-  "<cmd>:ToggleTerm size=13 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
+  "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
 
 -- Terminal
-lvim.builtin.which_key.mappings["t"] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
+lvim.builtin.which_key.mappings[","] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
 
 -- Clean search (highlight)
 lvim.builtin.which_key.mappings["<space>"] = { '<cmd>let @/=""<CR>', "No Highlight" }
@@ -263,4 +263,4 @@ lvim.builtin.which_key.mappings["d"] = { ':vert diffsplit ', "diffsplit" }
 lvim.builtin.which_key.mappings["r"] = { '<cmd>:reg<cr>', "Register" }
 
 -- 현재 경로를 작업경로로 설정
-lvim.builtin.which_key.mappings[","] = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
+lvim.builtin.which_key.mappings["~"] = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
