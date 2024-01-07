@@ -159,7 +159,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : false,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "E12B54E7-DFD9-46E3-920C-45CAC9411F29",
+  "BTTPresetUUID" : "B9D52A65-0FAD-4A43-8FE6-E12B6EF15C99",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "com.googlecode.iterm2",
@@ -169,7 +169,7 @@
       "BTTAppProcessName" : "iTerm2",
       "BTTTriggers" : [
         {
-          "BTTLastUpdatedAt" : 1704615168.258862,
+          "BTTLastUpdatedAt" : 1704624275.1777101,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTLayoutIndependentActionChar" : "漡",
@@ -187,7 +187,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2588711,
+          "BTTLastUpdatedAt" : 1704624275.177717,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTLayoutIndependentActionChar" : "",
@@ -205,7 +205,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2588749,
+          "BTTLastUpdatedAt" : 1704624275.1777201,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -242,7 +242,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2588871,
+          "BTTLastUpdatedAt" : 1704624275.177731,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -279,7 +279,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615181.9837341,
+          "BTTLastUpdatedAt" : 1704624275.1777339,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -316,7 +316,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.258894,
+          "BTTLastUpdatedAt" : 1704624275.177737,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -353,7 +353,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.258918,
+          "BTTLastUpdatedAt" : 1704624275.1777658,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -390,7 +390,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.258898,
+          "BTTLastUpdatedAt" : 1704624275.1777401,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTLayoutIndependentActionChar" : "",
@@ -408,7 +408,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2589049,
+          "BTTLastUpdatedAt" : 1704624275.177748,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -445,7 +445,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2588902,
+          "BTTLastUpdatedAt" : 1704624275.1777461,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTLayoutIndependentActionChar" : "",
@@ -463,7 +463,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2589011,
+          "BTTLastUpdatedAt" : 1704624275.177743,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -500,7 +500,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.2589211,
+          "BTTLastUpdatedAt" : 1704624275.1777601,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTPredefinedActionType" : 366,
@@ -537,7 +537,7 @@
           ]
         },
         {
-          "BTTLastUpdatedAt" : 1704615168.258925,
+          "BTTLastUpdatedAt" : 1704624275.177763,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTLayoutIndependentActionChar" : "菀",
@@ -593,6 +593,43 @@
           "BTTTriggerConfig" : {
             "BTTKeyboardPreventRecursiveTriggers" : 1
           }
+        },
+        {
+          "BTTLastUpdatedAt" : 1704624301.0068491,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "Empty Placeholder",
+          "BTTAdditionalConfiguration" : "1048584",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTUUID" : "7028374B-4BEC-4846-A61A-DD11921BA4A9",
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 46,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 13,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTLastUpdatedAt" : 1704624304.5922019,
+              "BTTTriggerType" : -1,
+              "BTTTriggerParentUUID" : "7028374B-4BEC-4846-A61A-DD11921BA4A9",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTLayoutIndependentActionChar" : "",
+              "BTTShortcutToSend" : "58,46",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTUUID" : "34A02529-B4A4-403F-9516-89A8BB615172",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : -1,
+              "BTTOrder" : 75,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ]
         }
       ]
     },
