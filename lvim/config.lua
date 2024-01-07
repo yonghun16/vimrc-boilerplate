@@ -1,3 +1,13 @@
+--==============================================================================
+--
+--  File name   : config.lua
+--  Version     : 1.2
+--  Last update : 2024. 1. 8
+--  Maker       : yonghun16 (https://github.com/yonghun16/vimrc-boilerplate)
+--
+--==============================================================================
+
+
 --------------------------------------------------------------------------------
 -- Plugins
 --------------------------------------------------------------------------------
@@ -5,7 +15,7 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
-    "preservim/tagbar", -- https://github.com/universal-ctags/ctags
+    "preservim/tagbar", -- (https://github.com/universal-ctags/ctags)
     "easymotion/vim-easymotion",
     "farmergreg/vim-lastplace",
     "mg979/vim-visual-multi",
@@ -13,7 +23,7 @@ lvim.plugins = {
     "mattn/emmet-vim",
     "NvChad/nvim-colorizer.lua",
     "digitaltoad/vim-pug",
-    "prettier/vim-prettier",
+    "prettier/vim-prettier", -- (npm install -g prettier)
     "sbdchd/neoformat",
     -- "github/copilot.vim"
   },
@@ -46,7 +56,6 @@ require 'colorizer'.setup {
 }
 
 -- prettier
--- npm install -g prettier
 lvim.keys.normal_mode["<A-f>"] = "<Plug>(Prettier)"
 lvim.builtin.which_key.mappings["p"] = { '<Plug>(Prettier)', "Prettier" }
 
@@ -209,7 +218,6 @@ lvim.keys.normal_mode["<C-UP>"] = false
 lvim.keys.normal_mode["<C-DOWN>"] = false
 lvim.keys.normal_mode["<C-RIGHT>"] = false
 lvim.keys.normal_mode["<C-LEFT>"] = false
-lvim.keys.normal_mode["<C-w>n"] = "<C-W>j"
 -- (분할창 확대 이동)
 lvim.keys.normal_mode["<A-k>"] = "<C-W>k<C-W>_"
 lvim.keys.normal_mode["<A-j>"] = "<C-W>j<C-W>_"
