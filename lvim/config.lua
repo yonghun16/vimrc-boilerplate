@@ -12,7 +12,7 @@
 -- Plugins
 --------------------------------------------------------------------------------
 lvim.plugins = {
-  -- Plug
+  -- VimScript Plugins
   {
     "preservim/tagbar", -- https://github.com/universal-ctags/ctags
     "easymotion/vim-easymotion",
@@ -20,20 +20,19 @@ lvim.plugins = {
     "mg979/vim-visual-multi",
     "digitaltoad/vim-pug",
     "mattn/emmet-vim",
+    "tpope/vim-surround",
     "prettier/vim-prettier",   -- $npm install -g prettier)
     "sbdchd/neoformat",        -- for pretter
-    "Mofiqul/vscode.nvim",     -- colorscheme VScode
-    "NvChad/nvim-colorizer.lua",
     "Exafunction/codeium.vim", -- :Codeium Auth
   },
-  --lazy.nvim
+
+  -- Lua Plugins
+  { "Mofiqul/vscode.nvim" },
+  { "NvChad/nvim-colorizer.lua" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "tpope/vim-surround",
   },
   -- {  -- codeium nvim버젼이 작동이 안됨.. 이유는 아직 모르겠음 추후 해결
   --   "Exafunction/codeium.nvim", -- :Codeium Auth
