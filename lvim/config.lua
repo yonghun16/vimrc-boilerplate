@@ -1,6 +1,6 @@
 --==============================================================================
 --
---  File name   : config.lua
+--  File name   : config.lua for Lunarvim
 --  Version     : 1.2.1
 --  Last update : 2024. 1. 9
 --  Maker       : yonghun16 (https://github.com/yonghun16/vimrc-boilerplate)
@@ -12,22 +12,51 @@
 -- Plugins
 --------------------------------------------------------------------------------
 lvim.plugins = {
+  -- Plug
   {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-    "preservim/tagbar", -- (https://github.com/universal-ctags/ctags)
+    "preservim/tagbar", -- https://github.com/universal-ctags/ctags
     "easymotion/vim-easymotion",
     "farmergreg/vim-lastplace",
     "mg979/vim-visual-multi",
-    "Mofiqul/vscode.nvim",
-    "mattn/emmet-vim",
-    "NvChad/nvim-colorizer.lua",
     "digitaltoad/vim-pug",
-    "prettier/vim-prettier",  -- (npm install -g prettier)
-    "sbdchd/neoformat",
-    "Exafunction/codeium.vim" -- :Codeium Auth
-    -- "github/copilot.vim",    -- :Copilot setup
+    "mattn/emmet-vim",
+    "prettier/vim-prettier",   -- $npm install -g prettier)
+    "sbdchd/neoformat",        -- for pretter
+    "Mofiqul/vscode.nvim",     -- colorscheme VScode
+    "NvChad/nvim-colorizer.lua",
+    "Exafunction/codeium.vim", -- :Codeium Auth
   },
+  --lazy.nvim
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "tpope/vim-surround",
+  },
+  -- {  -- codeium nvim버젼이 작동이 안됨.. 이유는 아직 모르겠음 추후 해결
+  --   "Exafunction/codeium.nvim", -- :Codeium Auth
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     require("codeium").setup({
+  --     })
+  --   end
+  -- },
+  -- table.insert(lvim.plugins, {
+  --   "zbirenbaum/copilot-cmp", -- :Copilot setup
+  --   event = "InsertEnter",
+  --   dependencies = { "zbirenbaum/copilot.lua" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+  --       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+  --     end, 100)
+  --   end,
+  -- })
 }
 
 
@@ -63,7 +92,6 @@ lvim.builtin.which_key.mappings["p"] = { '<Plug>(Prettier)', "Prettier" }
 -- Easymotion
 lvim.builtin.which_key.mappings["f"] = { '<Plug>(easymotion-f)', "easymotion-f" }
 lvim.builtin.which_key.mappings["F"] = { '<Plug>(easymotion-F)', "easymotion-F" }
-
 
 
 --------------------------------------------------------------------------------
@@ -144,7 +172,6 @@ vim.opt.tabstop = 2
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
-
 lvim.colorscheme = "vscode"
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -158,7 +185,6 @@ lvim.format_on_save = {
   pattern = "*.lua",
   timeout = 1000,
 }
-
 vim.cmd('set viewdir=~/.vim/view')
 
 
@@ -179,29 +205,13 @@ vim.cmd('set viewdir=~/.vim/view')
 lvim.builtin.which_key.mappings["e"]       = {}
 lvim.leader                                = ","
 
--- ESC 키를 편하게 <Ctrl+f>로 변경
+-- ESC 키를 <Ctrl+f>로 변경
 lvim.keys.normal_mode["<C-f>"]             = "<ESC>"
 lvim.keys.term_mode["<C-f>"]               = "<C-\\><C-n>"
 lvim.keys.term_mode["<ESC>"]               = "<C-\\><C-n>"
 lvim.keys.insert_mode["<C-f>"]             = "<ESC>"
 lvim.keys.visual_mode["<C-f>"]             = "<ESC>"
 lvim.keys.command_mode["<C-f>"]            = "<ESC>"
-
--- 편집모드에서 터미널 단축키 사용 및 기타
-lvim.keys.term_mode["<C-k>"]               = false
-lvim.keys.term_mode["<C-j>"]               = false
-lvim.keys.term_mode["<C-l>"]               = "<RIGHT>"
-lvim.keys.term_mode["<C-h>"]               = false
-lvim.keys.insert_mode["<C-l>"]             = "<RIGHT>"
-lvim.keys.insert_mode["<C-b>"]             = "<LEFT>"
-lvim.keys.insert_mode["<C-a>"]             = "<ESC>^i"
-lvim.keys.insert_mode["<C-e>"]             = "<ESC>$a"
-lvim.keys.insert_mode["<C-d>"]             = "<DEL>"
-lvim.keys.insert_mode["<C-k>"]             = "<ESC><RIGHT>C"
-lvim.keys.insert_mode["<C-u>"]             = "<ESC><RIGHT>d^i"
-lvim.keys.insert_mode["<C-ENTER>"]         = "<ESC>o"
-lvim.keys.insert_mode["<A-f>"]             = "<ESC><RIGHT>wi"
-lvim.keys.insert_mode["<A-b>"]             = "<ESC>bi"
 
 -- 빠른 커서 이동,  페이지 이동
 lvim.keys.normal_mode["<C-k>"]             = "3k"
@@ -216,6 +226,18 @@ lvim.keys.visual_mode["<C-l>"]             = "$"
 lvim.keys.visual_mode["<C-h>"]             = "^"
 lvim.keys.visual_mode["<C-n>"]             = "3<C-e>"
 lvim.keys.visual_mode["<C-p>"]             = "3<C-y>"
+
+-- 편집모드에서 터미널 단축키 사용 및 기타
+lvim.keys.insert_mode["<C-l>"]             = "<RIGHT>"
+lvim.keys.insert_mode["<C-b>"]             = "<LEFT>"
+lvim.keys.insert_mode["<C-a>"]             = "<ESC>^i"
+lvim.keys.insert_mode["<C-e>"]             = "<ESC>$a"
+lvim.keys.insert_mode["<C-d>"]             = "<DEL>"
+lvim.keys.insert_mode["<C-k>"]             = "<ESC><RIGHT>C"
+lvim.keys.insert_mode["<C-u>"]             = "<ESC><RIGHT>d^i"
+lvim.keys.insert_mode["<C-CR>"]            = "<ESC>o"
+lvim.keys.insert_mode["<A-f>"]             = "<ESC><RIGHT>wi"
+lvim.keys.insert_mode["<A-b>"]             = "<ESC>bi"
 
 -- 영역지정 된 행을 위아래로 이동
 lvim.keys.normal_mode["<A-k>"]             = false
@@ -245,9 +267,17 @@ lvim.keys.normal_mode["<A-m>"]             = "<C-W>="
 lvim.keys.visual_mode[">>"]                = ">gv"
 lvim.keys.visual_mode["<<"]                = "<gv"
 
--- Buffer
+-- 버퍼
 lvim.keys.normal_mode["<tab>"]             = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"]           = ":BufferLineCyclePrev<CR>"
+
+-- 터미널 모드 단축키
+lvim.keys.term_mode["<C-k>"]               = false
+lvim.keys.term_mode["<C-j>"]               = false
+lvim.keys.term_mode["<C-l>"]               = "<RIGHT>"
+lvim.keys.term_mode["<C-h>"]               = false
+lvim.keys.term_mode["<leader>,"]           =
+"<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>"
 
 -- 사이드바
 lvim.builtin.which_key.mappings["k"]       = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
