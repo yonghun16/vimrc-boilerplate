@@ -14,16 +14,16 @@
 lvim.plugins = {
   -- VimScript Plugins
   {
-    "preservim/tagbar", -- https://github.com/universal-ctags/ctags
+    "preservim/tagbar",     -- https://github.com/universal-ctags/ctags
     "easymotion/vim-easymotion",
     "farmergreg/vim-lastplace",
     "mg979/vim-visual-multi",
     "digitaltoad/vim-pug",
     "mattn/emmet-vim",
     "tpope/vim-surround",
-    "prettier/vim-prettier",   -- $npm install -g prettier)
-    "sbdchd/neoformat",        -- for pretter
-    "Exafunction/codeium.vim", -- :Codeium Auth
+    "prettier/vim-prettier",       -- $npm install -g prettier)
+    "sbdchd/neoformat",            -- for pretter
+    "Exafunction/codeium.vim",     -- :Codeium Auth
   },
 
   -- Lua Plugins
@@ -34,7 +34,7 @@ lvim.plugins = {
     cmd = "TroubleToggle",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  -- {  -- codeium nvim버젼이 작동이 안됨.. 이유는 아직 모르겠음 추후 해결
+  -- {  -- codeium nvim 버전 작동 안됨... 이유는 아직 모르겠음... 추후 해결
   --   "Exafunction/codeium.nvim", -- :Codeium Auth
   --   dependencies = {
   --     "nvim-lua/plenary.nvim",
@@ -161,13 +161,16 @@ end
 -- Language Setting
 --------------------------------------------------------------------------------
 vim.cmd 'autocmd Filetype pug setlocal ts=4 sw=4 expandtab'
+vim.cmd 'autocmd Filetype c setlocal ts=4 sw=4 expandtab'
+vim.cmd 'autocmd Filetype java setlocal ts=4 sw=4 expandtab'
+vim.cmd 'autocmd Filetype py setlocal ts=4 sw=4 expandtab'
 
 
 --------------------------------------------------------------------------------
 -- Basic options
 --------------------------------------------------------------------------------
-vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
