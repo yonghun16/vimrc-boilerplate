@@ -14,16 +14,16 @@
 lvim.plugins = {
   -- VimScript Plugins
   {
-    "preservim/tagbar",     -- https://github.com/universal-ctags/ctags
+    "preservim/tagbar", -- https://github.com/universal-ctags/ctags
     "easymotion/vim-easymotion",
     "farmergreg/vim-lastplace",
     "mg979/vim-visual-multi",
     "digitaltoad/vim-pug",
     "mattn/emmet-vim",
     "tpope/vim-surround",
-    "prettier/vim-prettier",       -- $npm install -g prettier)
-    "sbdchd/neoformat",            -- for pretter
-    "Exafunction/codeium.vim",     -- :Codeium Auth
+    "prettier/vim-prettier",   -- $npm install -g prettier)
+    "sbdchd/neoformat",        -- for pretter
+    "Exafunction/codeium.vim", -- :Codeium Auth
   },
 
   -- Lua Plugins
@@ -101,17 +101,17 @@ function Compile()
   local filetype = vim.bo.filetype
   if filetype == "c" then
     vim.cmd('w')
-    vim.cmd('! gcc -o ~/bin/%< %<.c')
-    vim.cmd('terminal ~/bin/%<')
+    vim.cmd(':! gcc -o ~/bin/c_code %<.c')
+    vim.cmd('terminal ~/bin/c_code')
     vim.cmd('set norelativenumber nonu')
   elseif filetype == "cpp" then
     vim.cmd('w')
-    vim.cmd('! g++ -o ~/bin/%< %<.cpp')
-    vim.cmd('terminal ~/bin/%<')
+    vim.cmd(':! g++ -o ~/bin/cpp_code %<.cpp')
+    vim.cmd('terminal ~/bin/cpp_code')
     vim.cmd('set norelativenumber nonu')
   elseif filetype == "java" then
     vim.cmd('w')
-    vim.cmd('! javac -encoding utf-8 -d ~/bin %<.java')
+    vim.cmd(':! javac -encoding utf-8 -d ~/bin %<.java')
     vim.cmd('terminal java -cp ~/bin %<')
     vim.cmd('set norelativenumber nonu')
   elseif filetype == "python" then
