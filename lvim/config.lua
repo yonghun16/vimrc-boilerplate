@@ -112,7 +112,7 @@ function Compile()
   elseif filetype == "java" then
     vim.cmd('w')
     vim.cmd(':! javac -encoding utf-8 -d ~/bin %<.java')
-    vim.cmd('terminal java -cp ~/bin %<')
+    vim.cmd('terminal java -cp ~/bin %')
     vim.cmd('set norelativenumber nonu')
   elseif filetype == "python" then
     vim.cmd('w')
