@@ -1,8 +1,8 @@
 --==============================================================================
 --
 --  File name   : config.lua for Lunarvim
---  Version     : 1.2.1
---  Last update : 2024. 1. 9
+--  Version     : 1.2.3
+--  Last update : 2024. 2. 16
 --  Maker       : yonghun16 (https://github.com/yonghun16/vimrc-boilerplate)
 --
 --==============================================================================
@@ -200,20 +200,15 @@ vim.cmd('set viewdir=~/.vim/view')
 --
 --  2. codeium을 위해 자동완성의 '<Tab>'을 '<C-m>'으로 변경
 --    "~/.local/share/lunarvim/lvim/lua/lvim/core/cmp.lua"에서 수정
---    (<Tab>을 <C-m> 변경 후, cmp.select_next_item()와 <S-Tab>설정 전체 주석
+--    (<Tab>을 <C-m> 변경 후, cmp.select_next_item()와 <S-Tab>설정란 전체 주석)
 --
 --------------------------------------------------------------------------------
 -- leader 키 설정
-lvim.builtin.which_key.mappings["e"]       = {}
 lvim.leader                                = ","
 
--- ESC 키를 <Ctrl+f>로 변경
-lvim.keys.normal_mode["<C-f>"]             = "<ESC>"
-lvim.keys.term_mode["<C-f>"]               = "<C-\\><C-n>"
+-- ESC키 설정
+lvim.keys.normal_mode["<C-c>"]             = "<ESC>"
 lvim.keys.term_mode["<ESC>"]               = "<C-\\><C-n>"
-lvim.keys.insert_mode["<C-f>"]             = "<ESC>"
-lvim.keys.visual_mode["<C-f>"]             = "<ESC>"
-lvim.keys.command_mode["<C-f>"]            = "<ESC>"
 
 -- 빠른 커서 이동,  페이지 이동
 lvim.keys.normal_mode["<C-k>"]             = "3k"
@@ -230,7 +225,7 @@ lvim.keys.visual_mode["<C-n>"]             = "3<C-e>"
 lvim.keys.visual_mode["<C-p>"]             = "3<C-y>"
 
 -- 편집모드에서 터미널 단축키 사용 및 기타
-lvim.keys.insert_mode["<C-l>"]             = "<RIGHT>"
+lvim.keys.insert_mode["<C-f>"]             = "<RIGHT>"
 lvim.keys.insert_mode["<C-b>"]             = "<LEFT>"
 lvim.keys.insert_mode["<C-a>"]             = "<ESC>^i"
 lvim.keys.insert_mode["<C-e>"]             = "<ESC>$a"
@@ -238,14 +233,16 @@ lvim.keys.insert_mode["<C-d>"]             = "<DEL>"
 lvim.keys.insert_mode["<C-k>"]             = "<ESC><RIGHT>C"
 lvim.keys.insert_mode["<C-u>"]             = "<ESC><RIGHT>d^i"
 lvim.keys.insert_mode["<C-CR>"]            = "<ESC>o"
+lvim.keys.insert_mode["<C-l>"]             = "<ESC>ui"
+lvim.keys.insert_mode["<C-r>"]             = "<ESC><C-r>i"
 lvim.keys.insert_mode["<A-f>"]             = "<ESC><RIGHT>wi"
 lvim.keys.insert_mode["<A-b>"]             = "<ESC>bi"
 
 -- 영역지정 된 행을 위아래로 이동
 lvim.keys.normal_mode["<A-k>"]             = false
 lvim.keys.normal_mode["<A-j>"]             = false
-lvim.keys.visual_mode["<S-j>"]             = ":m '>+1<CR>gv=gv"
 lvim.keys.visual_mode["<S-k>"]             = ":m '<-2<CR>gv=gv"
+lvim.keys.visual_mode["<S-j>"]             = ":m '>+1<CR>gv=gv"
 
 -- 분할창 제어
 -- (visual-multi 위해 lvim 기본 분할창 이동 단축키 삭제)
@@ -274,14 +271,15 @@ lvim.keys.normal_mode["<tab>"]             = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"]           = ":BufferLineCyclePrev<CR>"
 
 -- 터미널 모드 단축키
+lvim.keys.term_mode["<C-h>"]               = false
 lvim.keys.term_mode["<C-k>"]               = false
 lvim.keys.term_mode["<C-j>"]               = false
-lvim.keys.term_mode["<C-l>"]               = "<RIGHT>"
-lvim.keys.term_mode["<C-h>"]               = false
+lvim.keys.term_mode["<C-l>"]               = false
 lvim.keys.term_mode["<leader>,"]           =
 "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>"
 
 -- 사이드바
+lvim.builtin.which_key.mappings["e"]       = {} -- disable File Explorer
 lvim.builtin.which_key.mappings["k"]       = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
 lvim.builtin.which_key.mappings["h"]       = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["l"]       = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
