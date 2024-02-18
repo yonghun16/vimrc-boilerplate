@@ -41,14 +41,14 @@ local plugins = {
   },
 
   {
+    "folke/lsp-colors.nvim", lazy = false
+  },
+
+  {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false
-  },
-
-  {
-    "folke/lsp-colors.nvim", lazy = false
   },
 
   {
@@ -72,11 +72,37 @@ local plugins = {
   },
 
   {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end, -- Override to setup mason-lspconfig
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
+  },
+
+  {
     "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    -- event = "BufWritePre"
     config = function()
       require "custom.configs.conform"
     end,
   },
+
 
   {
     "MunifTanjim/nui.nvim",
@@ -105,119 +131,81 @@ local plugins = {
         { "<leader>ag", desc = "generate git message" },
     },
     config = function()
-      require("neoai").setup({
-        ui = {
-          output_popup_text = "NeoAI",
-          input_popup_text = "Prompt",
-          width = 30,               -- As percentage eg. 30%
-          output_popup_height = 80, -- As percentage eg. 80%
-          submit = "<Enter>",       -- Key binding to submit the prompt
-        },
-        models = {
-          {
-            name = "openai",
-            model = "gpt-3.5-turbo",
-            params = nil,
+        require("neoai").setup({
+          ui = {
+            output_popup_text = "NeoAI",
+            input_popup_text = "Prompt",
+            width = 30,               -- As percentage eg. 30%
+            output_popup_height = 80, -- As percentage eg. 80%
+            submit = "<Enter>",       -- Key binding to submit the prompt
           },
-        },
-        register_output = {
-          ["g"] = function(output)
-            return output
-          end,
-          ["c"] = require("neoai.utils").extract_code_snippets,
-        },
-        inject = {
-          cutoff_width = 75,
-        },
-        prompts = {
-          context_prompt = function(context)
-            return "Hey, I'd like to provide some context for future "
-                .. "messages. Here is the code/text that I want to refer "
-                .. "to in our upcoming conversations:\n\n"
-                .. context
-          end,
-        },
-        mappings = {
-          ["select_up"] = "<C-k>",
-          ["select_down"] = "<C-j>",
-        },
-        open_ai = {
-          api_key = {
-            env = "OPENAI_API_KEY",
-            value = nil,
+          models = {
+            {
+              name = "openai",
+              model = "gpt-3.5-turbo",
+              params = nil,
+            },
           },
-        },
-        shortcuts = {
-          {
-            name = "textify",
-            key = "<leader>as",
-            desc = "fix text with AI",
-            use_context = true,
-            prompt = [[
-              Please rewrite the text to make it more readable, clear,
-              concise, and fix any grammatical, punctuation, or spelling
-              errors
-            ]],
-            modes = { "v" },
-            strip_function = nil,
-          },
-          {
-            name = "gitcommit",
-            key = "<leader>ag",
-            desc = "generate git commit message",
-            use_context = false,
-            prompt = function()
-              return [[
-                Using the following git diff generate a consise and
-                clear git commit message, with a short title summary
-                that is 75 characters or less:
-              ]] .. vim.fn.system("git diff --cached")
+          register_output = {
+            ["g"] = function(output)
+              return output
             end,
-            modes = { "n" },
-            strip_function = nil,
+            ["c"] = require("neoai.utils").extract_code_snippets,
           },
-        },
-      })
+          inject = {
+            cutoff_width = 75,
+          },
+          prompts = {
+            context_prompt = function(context)
+              return "Hey, I'd like to provide some context for future "
+                  .. "messages. Here is the code/text that I want to refer "
+                  .. "to in our upcoming conversations:\n\n"
+                  .. context
+            end,
+          },
+          mappings = {
+            ["select_up"] = "<C-k>",
+            ["select_down"] = "<C-j>",
+          },
+          open_ai = {
+            api_key = {
+              env = "OPENAI_API_KEY",
+              value = nil,
+            },
+          },
+          shortcuts = {
+            {
+              name = "textify",
+              key = "<leader>as",
+              desc = "fix text with AI",
+              use_context = true,
+              prompt = [[
+                Please rewrite the text to make it more readable, clear,
+                concise, and fix any grammatical, punctuation, or spelling
+                errors
+              ]],
+              modes = { "v" },
+              strip_function = nil,
+            },
+            {
+              name = "gitcommit",
+              key = "<leader>ag",
+              desc = "generate git commit message",
+              use_context = false,
+              prompt = function()
+                return [[
+                  Using the following git diff generate a consise and
+                  clear git commit message, with a short title summary
+                  that is 75 characters or less:
+                ]] .. vim.fn.system("git diff --cached")
+              end,
+              modes = { "n" },
+              strip_function = nil,
+            },
+          },
+        })
     end,
   },
-
-  -- {  -- codeium nvim 버전 작동 안됨... 이유는 아직 모르겠음... 추후 해결
-  --   "Exafunction/codeium.nvim", -- :Codeium Auth
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  --   config = function()
-  --     require("codeium").setup({
-  --     })
-  --   end
-  -- },
-  -- table.insert(lvim.plugins, {
-  --   "zbirenbaum/copilot-cmp", -- :Copilot setup
-  --   event = "InsertEnter",
-  --   dependencies = { "zbirenbaum/copilot.lua" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-  --       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-  --     end, 100)
-  --   end,
-  -- })
-
-
-  -- {"SmiteshP/nvim-navic"},
-  -- {
-  --   "utilyre/barbecue.nvim",
-  --   name = "barbecue",
-  --   version = "*",
-  --   dependencies = {
-  --     "SmiteshP/nvim-navic",
-  --     "nvim-tree/nvim-web-devicons", -- optional dependency
-  --   },
-  --   opts = {
-  --   },
-  --   lazy = false
-  -- },
 }
 
 return plugins
