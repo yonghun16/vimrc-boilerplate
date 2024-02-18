@@ -42,7 +42,7 @@ M.general = {
     -- Sidebar
     ["<leader>,"] = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" },
     ["<leader>l"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
-    ["<leader>k"] = { "<cmd>: Barbecue toggle<CR>", "context nav" },
+    -- ["<leader>k"] = { "<cmd>: Barbecue toggle<CR>", "context nav" },
     ["<leader><tab>"] = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" },
     ["<leader>h"] = { "<cmd>:TagbarToggle<CR>", "Tagbar" },
     ["<leader>j"] = { "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>a", "Terminal bottom" },

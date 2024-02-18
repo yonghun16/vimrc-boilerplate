@@ -20,7 +20,7 @@ vim.opt.sidescrolloff = 3
 
 
 --------------------------------------------------------------------------------
--- Plugins Setting & Key mapping
+-- Plugins Setting
 --------------------------------------------------------------------------------
 -- tagbar
 vim.cmd([[ let g:tagbar_position = 'topleft vertical' ]])
@@ -34,7 +34,6 @@ vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
 
 -- emmet-vim
 vim.cmd([[ let g:user_emmet_leader_key=',' ]])
-
 
 --------------------------------------------------------------------------------
 -- Functions
@@ -75,7 +74,6 @@ function Toggle_wrap()
   vim.cmd('set wrap!')
 end
 
-
 --------------------------------------------------------------------------------
 -- Autocmd Rules
 --------------------------------------------------------------------------------
@@ -99,7 +97,6 @@ function BufLeave_f()
   vim.cmd('set norelativenumber')
 end
 
-
 --------------------------------------------------------------------------------
 -- Language Setting
 --------------------------------------------------------------------------------
@@ -107,5 +104,3 @@ vim.cmd 'autocmd Filetype pug setlocal ts=4 sw=4 expandtab'
 vim.cmd 'autocmd Filetype c setlocal ts=4 sw=4 expandtab'
 vim.cmd 'autocmd Filetype java setlocal ts=4 sw=4 expandtab'
 vim.cmd 'autocmd Filetype py setlocal ts=4 sw=4 expandtab'
-
-
