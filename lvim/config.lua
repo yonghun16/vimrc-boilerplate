@@ -67,6 +67,11 @@ vim.cmd([[ let g:tagbar_position = 'topleft vertical' ]])
 vim.cmd([[ let g:tagbar_width = '30' ]])
 
 -- visual-multi
+-- (visual-multi 위해 lvim 기본 분할창 이동 단축키 삭제)
+lvim.keys.normal_mode["<C-UP>"]    = false
+lvim.keys.normal_mode["<C-DOWN>"]  = false
+lvim.keys.normal_mode["<C-RIGHT>"] = false
+lvim.keys.normal_mode["<C-LEFT>"]  = false
 vim.cmd([[ let g:VM_maps = {} ]])
 vim.cmd([[ let g:VM_maps["Find Under"]   = '<C-/>' ]])
 vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
@@ -227,10 +232,11 @@ lvim.keys.visual_mode["<C-p>"]             = "3<C-y>"
 -- 편집모드에서 터미널 단축키 사용 및 기타
 lvim.keys.insert_mode["<C-f>"]             = "<RIGHT>"
 lvim.keys.insert_mode["<C-b>"]             = "<LEFT>"
+lvim.keys.insert_mode["<C-k>"]             = "<UP>"
+lvim.keys.insert_mode["<C-j>"]             = "<DOWN>"
 lvim.keys.insert_mode["<C-a>"]             = "<ESC>^i"
 lvim.keys.insert_mode["<C-e>"]             = "<ESC>$a"
 lvim.keys.insert_mode["<C-d>"]             = "<DEL>"
-lvim.keys.insert_mode["<C-k>"]             = "<ESC><RIGHT>C"
 lvim.keys.insert_mode["<C-u>"]             = "<ESC><RIGHT>d^i"
 lvim.keys.insert_mode["<C-CR>"]            = "<ESC>o"
 lvim.keys.insert_mode["<C-l>"]             = "<ESC>ui"
@@ -245,11 +251,6 @@ lvim.keys.visual_mode["<S-k>"]             = ":m '<-2<CR>gv=gv"
 lvim.keys.visual_mode["<S-j>"]             = ":m '>+1<CR>gv=gv"
 
 -- 분할창 제어
--- (visual-multi 위해 lvim 기본 분할창 이동 단축키 삭제)
-lvim.keys.normal_mode["<C-UP>"]            = false
-lvim.keys.normal_mode["<C-DOWN>"]          = false
-lvim.keys.normal_mode["<C-RIGHT>"]         = false
-lvim.keys.normal_mode["<C-LEFT>"]          = false
 -- (분할창 확대 이동)
 lvim.keys.normal_mode["<A-k>"]             = "<C-W>k<C-W>_"
 lvim.keys.normal_mode["<A-j>"]             = "<C-W>j<C-W>_"
