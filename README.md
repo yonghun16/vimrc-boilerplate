@@ -1,36 +1,45 @@
 # vimrc-boilerplate 
-This is a boilerplate for using lunarvim in neovim.
 
-## Lunarvim install
-see https://www.lunarvim.org/docs/installation
+## 1. Nvchad & Neovide
+- Nvchad : https://nvchad.com
+- Neovide : https://neovide.dev
 
-## config file setting
-
+### config file setting
 ```shell
-$ cd vimrc/lvim
-$ cp .config ~/.config/lvim 
+$ cp -rf nvchad/custom ~/.config/nvim/lua/custom
+```
+### alias setting
+```shell
+$ vi ~/.zshrc
+
+alias vi="nvim"
+alias vid="neovide"
+```
+### Updating Nvchad
+* Inside Nvchad __:NvChadUpdate__
+
+
+
+## 2. Lunarvim
+- Lunarvim : https://www.lunarvim.org
+
+### config file setting
+```shell
+$ cp lvim/.config ~/.config/lvim 
 ```
 
-## alias setting
+### alias setting
 ```shell
 $ vi ~/.zshrc
 
 alias vi="lvim"
 ```
 
-## run Lunarvim
+### Updating LunarVim
+* Inside LunarVim __:LvimUpdate__
+
+
+## 3. Neovim(original)
 ```shell
-$ vi
-$ lvim
+$ cp -rf nvim/ ~/.config/nvim 
 ```
-
-## Updating LunarVim
-* Inside LunarVim ___:LvimUpdate___
-* From the command-line lvim +LvimUpdate +q
-
-## Update the plugins
-* Inside LunarVim ___:LvimSyncCorePlugins___
-
-
-
-
