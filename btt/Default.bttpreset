@@ -159,7 +159,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : false,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "B63CD615-4272-4393-AF10-4035C45233CB",
+  "BTTPresetUUID" : "8EBB7B29-5F88-4890-9421-B1223F30BE46",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "com.googlecode.iterm2",

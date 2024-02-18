@@ -243,6 +243,7 @@ lvim.keys.term_mode["<C-j>"]               = false
 lvim.keys.term_mode["<C-l>"]               = false
 lvim.keys.term_mode["<ESC>"]               = "<C-\\><C-n>"
 lvim.keys.term_mode["<leader>,"]           = "<cmd>:ToggleTerm<CR>"
+lvim.keys.term_mode["<leader>j"]           = "<cmd>:ToggleTerm<CR>"
 lvim.builtin.which_key.mappings[","]       = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
 
 -- Sidebar
@@ -251,7 +252,7 @@ lvim.builtin.which_key.mappings["l"]       = { "<cmd>NvimTreeToggle<CR>", "File 
 lvim.builtin.which_key.mappings["k"]       = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
 lvim.builtin.which_key.mappings["h"]       = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["j"]       = {
-  "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
+  "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>a", "Terminal bottom" }
 
 -- Split window control (move, resize)
 lvim.keys.normal_mode["<A-k>"]             = "<C-W>k<C-W>_"
