@@ -1,8 +1,8 @@
 --==============================================================================
 --
 --  File name   : config.lua for Lunarvim
---  Version     : 1.2.3
---  Last update : 2024. 2. 16
+--  Version     : 1.2.4
+--  Last update : 2024. 2. 17
 --  Maker       : yonghun16 (https://github.com/yonghun16/vimrc-boilerplate)
 --
 --==============================================================================
@@ -22,7 +22,7 @@ lvim.plugins = {
     "mattn/emmet-vim",
     "tpope/vim-surround",
     "prettier/vim-prettier",   -- $npm install -g prettier)
-    "sbdchd/neoformat",        -- for pretter
+    "sbdchd/neoformat",        -- for prettier
     "Exafunction/codeium.vim", -- :Codeium Auth
   },
 
@@ -67,7 +67,7 @@ vim.cmd([[ let g:tagbar_position = 'topleft vertical' ]])
 vim.cmd([[ let g:tagbar_width = '30' ]])
 
 -- visual-multi
--- (visual-multi 위해 lvim 기본 분할창 이동 단축키 삭제)
+-- (Removing lvim default shortcuts)
 lvim.keys.normal_mode["<C-UP>"]    = false
 lvim.keys.normal_mode["<C-DOWN>"]  = false
 lvim.keys.normal_mode["<C-RIGHT>"] = false
@@ -198,24 +198,18 @@ vim.cmd('set viewdir=~/.vim/view')
 --------------------------------------------------------------------------------
 -- Mappings
 --------------------------------------------------------------------------------
+--  1. Change which key 'p' to 'P' (to write p as prettier)
+--     Modified from "~/.local/share/lunarvim/lvim/lua/lvim/core/which_key.lua"
+--
+--  2. Change '<Tab>' in autocompletion to '<C-m>' (to use <Tab> in codeium)
+--     Modified from "~/.local/share/lunarvim/lvim/lua/lvim/core/cmp.lua"
+--     (After changing <Tab> to <C-m>, comment out cmp.select_next_item() and <S-Tab> settings)
 --------------------------------------------------------------------------------
---
---  1. prettier를 위해 which key 'p'를 'P'로 변경
---    "~/.local/share/lunarvim/lvim/lua/lvim/core/which_key.lua"에서 수정
---
---  2. codeium을 위해 자동완성의 '<Tab>'을 '<C-m>'으로 변경
---    "~/.local/share/lunarvim/lvim/lua/lvim/core/cmp.lua"에서 수정
---    (<Tab>을 <C-m> 변경 후, cmp.select_next_item()와 <S-Tab>설정란 전체 주석)
---
---------------------------------------------------------------------------------
--- leader 키 설정
+
 lvim.leader                                = ","
-
--- ESC키 설정
 lvim.keys.normal_mode["<C-c>"]             = "<ESC>"
-lvim.keys.term_mode["<ESC>"]               = "<C-\\><C-n>"
 
--- 빠른 커서 이동,  페이지 이동
+-- Quick integrated movement, page movement
 lvim.keys.normal_mode["<C-k>"]             = "3k"
 lvim.keys.normal_mode["<C-j>"]             = "3j"
 lvim.keys.normal_mode["<C-l>"]             = "$"
@@ -229,68 +223,58 @@ lvim.keys.visual_mode["<C-h>"]             = "^"
 lvim.keys.visual_mode["<C-n>"]             = "3<C-e>"
 lvim.keys.visual_mode["<C-p>"]             = "3<C-y>"
 
--- 편집모드에서 터미널 단축키 사용 및 기타
+-- Use terminal shortcuts in input mode
 lvim.keys.insert_mode["<C-f>"]             = "<RIGHT>"
 lvim.keys.insert_mode["<C-b>"]             = "<LEFT>"
-lvim.keys.insert_mode["<C-k>"]             = "<UP>"
-lvim.keys.insert_mode["<C-j>"]             = "<DOWN>"
 lvim.keys.insert_mode["<C-a>"]             = "<ESC>^i"
 lvim.keys.insert_mode["<C-e>"]             = "<ESC>$a"
 lvim.keys.insert_mode["<C-d>"]             = "<DEL>"
 lvim.keys.insert_mode["<C-u>"]             = "<ESC><RIGHT>d^i"
+lvim.keys.insert_mode["<C-k>"]             = "<ESC><RIGHT>C"
 lvim.keys.insert_mode["<C-CR>"]            = "<ESC>o"
-lvim.keys.insert_mode["<C-l>"]             = "<ESC>ui"
-lvim.keys.insert_mode["<C-r>"]             = "<ESC><C-r>i"
-lvim.keys.insert_mode["<A-f>"]             = "<ESC><RIGHT>wi"
-lvim.keys.insert_mode["<A-b>"]             = "<ESC>bi"
+lvim.keys.insert_mode["<C-i>"]             = "<ESC>ui"
+lvim.keys.insert_mode["<C-o>"]             = "<ESC><C-r>i"
+lvim.keys.insert_mode["<C-l>"]             = "<ESC>zza"
 
--- 영역지정 된 행을 위아래로 이동
-lvim.keys.normal_mode["<A-k>"]             = false
-lvim.keys.normal_mode["<A-j>"]             = false
-lvim.keys.visual_mode["<S-k>"]             = ":m '<-2<CR>gv=gv"
-lvim.keys.visual_mode["<S-j>"]             = ":m '>+1<CR>gv=gv"
+-- Terminal mode shortcut keys
+lvim.keys.term_mode["<C-h>"]               = false
+lvim.keys.term_mode["<C-k>"]               = false
+lvim.keys.term_mode["<C-j>"]               = false
+lvim.keys.term_mode["<C-l>"]               = false
+lvim.keys.term_mode["<ESC>"]               = "<C-\\><C-n>"
+lvim.keys.term_mode["<leader>,"]           = "<cmd>:ToggleTerm<CR>"
+lvim.builtin.which_key.mappings[","]       = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
 
--- 분할창 제어
--- (분할창 확대 이동)
+-- Sidebar
+lvim.builtin.which_key.mappings["e"]       = {} -- disable "File Explorer"
+lvim.builtin.which_key.mappings["l"]       = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
+lvim.builtin.which_key.mappings["k"]       = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
+lvim.builtin.which_key.mappings["h"]       = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
+lvim.builtin.which_key.mappings["j"]       = {
+  "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
+
+-- Split window control (move, resize)
 lvim.keys.normal_mode["<A-k>"]             = "<C-W>k<C-W>_"
 lvim.keys.normal_mode["<A-j>"]             = "<C-W>j<C-W>_"
 lvim.keys.normal_mode["<A-l>"]             = "<C-W>l<C-W>|"
 lvim.keys.normal_mode["<A-h>"]             = "<C-W>h<C-W>|"
--- (분할창 크기 조절)
 lvim.keys.normal_mode["<A-p>"]             = "<C-W>2+"
 lvim.keys.normal_mode["<A-n>"]             = "<C-W>2-"
 lvim.keys.normal_mode["<A-.>"]             = "<C-W>2>"
 lvim.keys.normal_mode["<A-,>"]             = "<C-W>2<"
 lvim.keys.normal_mode["<A-m>"]             = "<C-W>="
 
--- 들여쓰기/ 내어쓰기
-lvim.keys.visual_mode[">>"]                = ">gv"
-lvim.keys.visual_mode["<<"]                = "<gv"
+-- Move selected row up or down
+lvim.keys.normal_mode["<A-k>"]             = false
+lvim.keys.normal_mode["<A-j>"]             = false
+lvim.keys.visual_mode["<S-k>"]             = ":m '<-2<CR>gv=gv"
+lvim.keys.visual_mode["<S-j>"]             = ":m '>+1<CR>gv=gv"
 
--- 버퍼
+-- buffer
 lvim.keys.normal_mode["<tab>"]             = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<s-tab>"]           = ":BufferLineCyclePrev<CR>"
 
--- 터미널 모드 단축키
-lvim.keys.term_mode["<C-h>"]               = false
-lvim.keys.term_mode["<C-k>"]               = false
-lvim.keys.term_mode["<C-j>"]               = false
-lvim.keys.term_mode["<C-l>"]               = false
-lvim.keys.term_mode["<leader>,"]           =
-"<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>"
-
--- 사이드바
-lvim.builtin.which_key.mappings["e"]       = {} -- disable File Explorer
-lvim.builtin.which_key.mappings["k"]       = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
-lvim.builtin.which_key.mappings["h"]       = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
-lvim.builtin.which_key.mappings["l"]       = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
-lvim.builtin.which_key.mappings["j"]       = {
-  "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>", "Terminal bottom" }
-
--- Terminal
-lvim.builtin.which_key.mappings[","]       = { "<cmd>:ToggleTerm direction=float<CR>", "Terminal" }
-
--- Clean search (highlight)
+-- Clean search (highlight remove)
 lvim.builtin.which_key.mappings["<space>"] = { '<cmd>let @/=""<CR>', "No Highlight" }
 
 -- Compile
@@ -299,11 +283,11 @@ lvim.builtin.which_key.mappings["a"]       = { '<cmd>lua Compile()<CR>', "Compil
 -- Auto wrap
 lvim.builtin.which_key.mappings["z"]       = { '<cmd>lua Toggle_wrap()<CR>', "Wrap" }
 
--- 파일비교(diffsplit)
+-- Diffsplit
 lvim.builtin.which_key.mappings["d"]       = { ':vert diffsplit ', "diffsplit" }
 
--- 레지스터 보기
+-- Register
 lvim.builtin.which_key.mappings["r"]       = { '<cmd>:reg<cr>', "Register" }
 
--- 현재 경로를 작업경로로 설정
+-- Set the current path as the working path
 lvim.builtin.which_key.mappings["~"]       = { '<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>', "change workspace" }
