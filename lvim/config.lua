@@ -142,8 +142,6 @@ end
 --------------------------------------------------------------------------------
 vim.cmd 'au BufEnter * call v:lua.BufEnter_f()'
 vim.cmd 'au BufLeave * call v:lua.BufLeave_f()'
--- vim.cmd 'au BufWinEnter * silent! loadview'
--- vim.cmd 'au BufWinLeave * mkview'
 
 function BufEnter_f()
   if (vim.bo.buftype == "terminal"
@@ -206,8 +204,12 @@ vim.cmd('set viewdir=~/.vim/view')
 --     (After changing <Tab> to <C-m>, comment out cmp.select_next_item() and <S-Tab> settings)
 --------------------------------------------------------------------------------
 
+-- leader key and ESC key
 lvim.leader                                = ","
-lvim.keys.normal_mode["<C-c>"]             = "<ESC>"
+lvim.keys.normal_mode["<C-f>"]             = "<ESC>"
+lvim.keys.insert_mode["<C-f>"]             = "<ESC>"
+lvim.keys.visual_mode["<C-f>"]             = "<ESC>"
+lvim.keys.command_mode["<C-f>"]            = "<ESC>"
 
 -- Quick integrated movement, page movement
 lvim.keys.normal_mode["<C-k>"]             = "3k"
@@ -224,7 +226,7 @@ lvim.keys.visual_mode["<C-n>"]             = "3<C-e>"
 lvim.keys.visual_mode["<C-p>"]             = "3<C-y>"
 
 -- Use terminal shortcuts in input mode
-lvim.keys.insert_mode["<C-f>"]             = "<RIGHT>"
+lvim.keys.insert_mode["<C-l>"]             = "<RIGHT>"
 lvim.keys.insert_mode["<C-b>"]             = "<LEFT>"
 lvim.keys.insert_mode["<C-a>"]             = "<ESC>^i"
 lvim.keys.insert_mode["<C-e>"]             = "<ESC>$a"
@@ -234,7 +236,6 @@ lvim.keys.insert_mode["<C-k>"]             = "<ESC><RIGHT>C"
 lvim.keys.insert_mode["<C-CR>"]            = "<ESC>o"
 lvim.keys.insert_mode["<C-i>"]             = "<ESC>ui"
 lvim.keys.insert_mode["<C-o>"]             = "<ESC><C-r>i"
-lvim.keys.insert_mode["<C-l>"]             = "<ESC>zza"
 
 -- Terminal mode shortcut keys
 lvim.keys.term_mode["<C-h>"]               = false
@@ -266,8 +267,6 @@ lvim.keys.normal_mode["<A-,>"]             = "<C-W>2<"
 lvim.keys.normal_mode["<A-m>"]             = "<C-W>="
 
 -- Move selected row up or down
-lvim.keys.normal_mode["<A-k>"]             = false
-lvim.keys.normal_mode["<A-j>"]             = false
 lvim.keys.visual_mode["<S-k>"]             = ":m '<-2<CR>gv=gv"
 lvim.keys.visual_mode["<S-j>"]             = ":m '>+1<CR>gv=gv"
 
