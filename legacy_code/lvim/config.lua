@@ -65,7 +65,6 @@ lvim.plugins = {
 -- Plugins Setting & Key mapping
 --------------------------------------------------------------------------------
 -- tagbar
-vim.cmd([[ let g:tagbar_position = 'topleft vertical' ]])
 vim.cmd([[ let g:tagbar_width = '30' ]])
 
 -- visual-multi
@@ -269,7 +268,6 @@ lvim.colorscheme = "vscode"
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.auto_install = true
 lvim.log.level = "info"
@@ -336,9 +334,10 @@ lvim.builtin.which_key.mappings[","]       = { "<cmd>:ToggleTerm direction=float
 
 -- Sidebar
 lvim.builtin.which_key.mappings["e"]       = {} -- disable "File Explorer"
-lvim.builtin.which_key.mappings["l"]       = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
-lvim.builtin.which_key.mappings["k"]       = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
-lvim.builtin.which_key.mappings["h"]       = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
+lvim.builtin.which_key.mappings["h"]       = { "<cmd>NvimTreeToggle<CR>", "File Explorer" }
+lvim.builtin.which_key.mappings["k"]       = { "<cmd>TroubleToggle<CR>", "TroubleToggle" }
+lvim.builtin.which_key.mappings["<tab>"]   = { "<cmd>Telescope buffers previewer=false<cr>", "Buffer list" }
+lvim.builtin.which_key.mappings["l"]       = { "<cmd>:TagbarToggle<CR>", "Tagbar" }
 lvim.builtin.which_key.mappings["j"]       = {
   "<cmd>:ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>a", "Terminal bottom" }
 
