@@ -5,52 +5,77 @@ local plugins = {
   ---------------------------------------------------------------------------
   -- VimScript Plugins
   ---------------------------------------------------------------------------
-  {"farmergreg/vim-lastplace", lazy = false },
-  {"preservim/tagbar", lazy = false}, -- https://github.com/universal-ctags/ctags
-  {"mg979/vim-visual-multi", lazy = false},
-  {"digitaltoad/vim-pug", lazy = false},
-  {"mattn/emmet-vim", lazy = false},
-  {"tpope/vim-surround", lazy = false},
-  {"prettier/vim-prettier", lazy = false},   -- $npm install -g prettier)
-  {"sbdchd/neoformat", lazy = false},        -- for prettier
-  {"Exafunction/codeium.vim", lazy = false}, -- :Codeium Auth
+  { "farmergreg/vim-lastplace", lazy = false },
+  { "preservim/tagbar",         lazy = false }, -- https://github.com/universal-ctags/ctags
+  { "mg979/vim-visual-multi",   lazy = false },
+  { "digitaltoad/vim-pug",      lazy = false },
+  { "mattn/emmet-vim",          lazy = false },
+  { "tpope/vim-surround",       lazy = false },
+  { "prettier/vim-prettier",    lazy = false }, -- $npm install -g prettier)
+  { "sbdchd/neoformat",         lazy = false }, -- for prettier
+  { "Exafunction/codeium.vim",  lazy = false }, -- :Codeium Auth
 
   ---------------------------------------------------------------------------
   -- Lua Plugins
   ---------------------------------------------------------------------------
+  -- better-escape.nvim
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup {
+        mapping = {"jk", "jj"},
+        clear_empty_lines = false,
+        keys = "<Esc>",
+      }
+    end,
+  },
+  -- toggleterm.nvim
   {
     "akinsho/toggleterm.nvim",
+    config = function()
+      require("toggleterm").setup{
+        shade_terminals = true,
+        start_in_insert = true,
+        direction = "float",
+      }
+    end,
     version = "*",
-    config = true,
-    lazy = false
+    event = "VimEnter",
   },
 
+  -- vim-illuminate
   {
     "RRethy/vim-illuminate",
-    lazy = false
+    event = "VimEnter",
   },
 
+  -- structlog.nvim
   {
     "Tastyep/structlog.nvim",
-    lazy = false
+    event = "VimEnter",
   },
 
+  -- nvim-ts-context-commentstring
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
-    lazy = false
+    event = "VimEnter",
   },
 
+  -- lsp-colors.nvim
   {
-    "folke/lsp-colors.nvim", lazy = false
+    "folke/lsp-colors.nvim",
+    event = "VimEnter",
   },
 
+  -- trouble.nvim
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false
+    event = "VimEnter",
   },
 
+  -- nvim-tree
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
@@ -63,6 +88,7 @@ local plugins = {
     end,
   },
 
+  -- better-escape.nvim
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -71,6 +97,7 @@ local plugins = {
     end,
   },
 
+  -- nvim-lspconfig
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -79,21 +106,25 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
   },
 
+  -- mason.nvim
   {
     "williamboman/mason.nvim",
     opts = overrides.mason
   },
 
+  -- nvim-treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
 
+  -- nvim-tree
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
 
+  -- conform.nvim
   {
     "stevearc/conform.nvim",
     --  for users those who want auto-save conform + lazyloading!
@@ -103,11 +134,12 @@ local plugins = {
     end,
   },
 
-
+  -- nui.nvim
   {
     "MunifTanjim/nui.nvim",
   },
 
+  -- NeoAI
   {
     "Bryley/neoai.nvim",
     dependencies = {
@@ -164,8 +196,8 @@ local plugins = {
             end,
           },
           mappings = {
-            ["select_up"] = "<C-k>",
-            ["select_down"] = "<C-j>",
+            ["select_up"] = "<A-]>",
+            ["select_down"] = "<A-[]>",
           },
           open_ai = {
             api_key = {
