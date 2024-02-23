@@ -16,20 +16,14 @@ M.general = {
   -- NORMAL Mode
   ---------------------------------------------------------------
   n = {
-    --  format with conform
-    ["<leader>fm"] = {
-      function()
-        require("conform").format()
-      end,
-      "formatting",
-    },
+    -- ESC key
+    ["<C-f>"] = { "<ESC>" },
+    ["<C-c>"] = { "<ESC>" },
 
     -- Write, Quit
-    ["<leader>q"] = { ":q<CR>", "quit" },
-    ["<leader>w"] = { ":bd<CR>", "buffer delete" },
-
-    -- ESC key
-    ["<C-c>"] = { "<ESC>" },
+    ["<leader>w"] = { ":w<CR>", ":w" },
+    ["<leader>q"] = { ":q<CR>", ":q" },
+    ["<leader>Q"] = { ":q!<CR>", ":q!" },
 
     -- Quick integrated movement, page movement
     ["<C-k>"] = { "3k" },
@@ -39,6 +33,12 @@ M.general = {
     ["<C-n>"] = { "3<C-e>" },
     ["<C-p>"] = { "3<C-y>" },
 
+    -- Compile
+    ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
+
+    -- Auto wrap
+    ["<leader>z"] = { "<cmd>lua Toggle_wrap()<CR>", "Wrap" },
+
     -- Sidebar
     ["<leader>h"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
     ["<leader>j"] = { "<cmd>TroubleToggle<CR>", "Trouble" },
@@ -46,11 +46,12 @@ M.general = {
     ["<leader>l"] = { "<cmd>SymbolsOutline<CR>", "SymbolsOutline" },
     ["<leader>,"] = { "<cmd>ToggleTerm direction=float<CR>", "Terminal" },
     ["<leader><"] = {
-      "<cmd>ToggleTerm size=10 direction=horizontal <CR><C-\\><C-n>:call v:lua.BufEnter_f()<CR>a",
+      "<cmd>ToggleTerm size=10 direction=horizontal <CR>",
       "Terminal bottom",
     },
     ["<leader>."] = { "<cmd>NeoAIToggle<CR>", "NeoAI" },
-    ["<leader><tab>"] = { "<cmd>ToggleBufExplorer<CR>", "ToggleBufExplorer" },
+    ["<leader><tab>"] = { "<cmd>ToggleBufExplorer<CR>", "BufExplorer" },
+    ["<leader><ESC>"] = { "<cmd>Nvdash<CR>", "Nvdash" },
 
     -- Split window control (move, resize)
     ["<A-k>"] = { "<C-W>k<C-W>_" },
@@ -63,14 +64,16 @@ M.general = {
     ["<A-,>"] = { "<C-W>2<" },
     ["<A-m>"] = { "<C-W>=" },
 
+    -- Goto Preview
+    ["<leader>md"] = { ":lua require('goto-preview').goto_preview_definition()<CR>" },
+    ["<leader>mt"] = { ":lua require('goto-preview').goto_preview_type_definition()<CR>" },
+    ["<leader>mi"] = { ":lua require('goto-preview').goto_preview_implementation()<CR>" },
+    ["<leader>mD"] = { ":lua require('goto-preview').goto_preview_declaration()<CR>" },
+    ["<leader>mm"] = { ":lua require('goto-preview').close_all_win()<CR>"},
+    ["<leader>mr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
+
     -- Clean search (highlight remove)
     ["<leader><space>"] = { '<cmd>let @/=""<CR>', "No Highlight" },
-
-    -- Compile
-    ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
-
-    -- Auto wrap
-    ["<leader>z"] = { "<cmd>lua Toggle_wrap()<CR>", "Wrap" },
 
     -- Diffsplit
     ["<leader>d"] = { ":vert diffsplit ", "diffsplit" },
@@ -90,6 +93,9 @@ M.general = {
   -- V-LINE Mode
   ---------------------------------------------------------------
   v = {
+    -- ESC key
+    ["<C-f>"] = { "<ESC>" },
+
     -- Quick integrated movement, page movement
     ["<C-k>"] = { "3k" },
     ["<C-j>"] = { "3j" },
@@ -107,9 +113,12 @@ M.general = {
   -- INSERT Mode
   ---------------------------------------------------------------
   i = {
+    -- ESC key
+    ["<C-f>"] = { "<ESC>" },
+
     -- Use terminal shortcuts in input mode
     ["<C-h>"] = { "<BACKSPACE>" },
-    ["<C-f>"] = { "<RIGHT>" },
+    ["<C-l>"] = { "<RIGHT>" },
     ["<C-b>"] = { "<LEFT>" },
     ["<C-a>"] = { "<ESC>^i" },
     ["<C-e>"] = { "<ESC>$a" },
@@ -117,7 +126,6 @@ M.general = {
     ["<C-u>"] = { "<ESC><RIGHT>d^i" },
     ["<C-k>"] = { "<ESC><RIGHT>C" },
     ["<C-CR>"] = { "<ESC>o" },
-    ["<C-l>"] = { "<ESC>zza" },
     ["<C-i>"] = { "<ESC>ui" },
     ["<C-o>"] = { "<ESC><C-r>i" },
   },
@@ -125,15 +133,18 @@ M.general = {
   ---------------------------------------------------------------
   -- COMMAND Mode
   ---------------------------------------------------------------
-  c = {},
+  c = {
+    -- ESC key
+    ["<C-f>"] = { "<ESC>" },
+  },
 
   ---------------------------------------------------------------
   -- TERMINAL Mode
   ---------------------------------------------------------------
   t = {
-    ["<ESC>"] = { "<C-\\><C-n>" },
+    ["<C-q>"] = { "<C-\\><C-n>" },
+    ["<C-l>"] = { "<RIGHT>" },
     ["<leader>,"] = { "<cmd>:ToggleTerm<CR>" },
-    ["<leader>j"] = { "<cmd>:ToggleTerm<CR>" },
   },
 }
 

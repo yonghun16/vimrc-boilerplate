@@ -18,6 +18,15 @@ local plugins = {
   ---------------------------------------------------------------------------
   -- Lua Plugins
   ---------------------------------------------------------------------------
+  -- goto-preview
+  {
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup()
+    end,
+  },
+
+  -- symbols-outline
   {
     "simrat39/symbols-outline.nvim",
     config = function()
@@ -25,6 +34,8 @@ local plugins = {
     end,
     event = "VimEnter",
   },
+
+  -- nvim-navic
   {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig",
@@ -33,6 +44,8 @@ local plugins = {
       require("nvim-navic").setup()
     end
   },
+
+  -- nvim-navbuddy
   {
     "SmiteshP/nvim-navbuddy",
     requires = {
@@ -41,18 +54,6 @@ local plugins = {
     },
   },
 
-  -- better-escape.nvim
-  {
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup {
-        mapping = { "jk", "jj" },
-        clear_empty_lines = false,
-        keys = "<Esc>",
-      }
-    end,
-    event = "vimenter"
-  },
   -- toggleterm.nvim
   {
     "akinsho/toggleterm.nvim",
@@ -97,15 +98,6 @@ local plugins = {
     cmd = "TroubleToggle",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VimEnter",
-  },
-
-  -- better-escape.nvim
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
   },
 
   -- nvim-lspconfig
