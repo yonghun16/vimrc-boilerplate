@@ -6,7 +6,7 @@
 
 ### config file setting
 ```shell
-$ cp -rf nvchad/custom ~/.config/nvim/lua/custom
+$ cp -r nvim ~/.config
 ```
 ### alias setting
 ```shell
@@ -14,32 +14,44 @@ $ vi ~/.zshrc
 
 alias vi="nvim"
 alias vid="neovide"
+# OPENAI_API_KEY for NeoAI
+export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
+
 ```
 ### Updating Nvchad
 * Inside Nvchad __:NvChadUpdate__
 
+## 2. Custom plugin List 
+### vimscript plugins
+- farmergreg/vim-lastplace
+- mg979/vim-visual-multi   
+- digitaltoad/vim-pug      
+- mattn/emmet-vim          
+- tpope/vim-surround       
+- prettier/vim-prettier
+- sbdchd/neoformat  
+- Exafunction/codeium.vim
+- jlanzarotta/bufexplorer  
+
+### lua plugins
+- rmagatti/goto-preview
+- simrat39/symbols-outline.nvim
+- SmiteshP/nvim-navic
+- SmiteshP/nvim-navbuddy
+- akinsho/toggleterm.nvim
+- RRethy/vim-illuminate
+- Tastyep/structlog.nvim
+- JoosepAlviste/nvim-ts-context-commentstring
+- folke/lsp-colors.nvim
+- williamboman/mason.nvim
+- MunifTanjim/nui.nvim
+- Bryley/neoai.nvim
 
 
-## 2. Lunarvim
-- Lunarvim : https://www.lunarvim.org
+## 3. BetterTouchTool
+- BetterTouchTool : https://folivora.ai/ 
 
 ### config file setting
-```shell
-$ cp lvim/.config ~/.config/lvim 
-```
-
-### alias setting
-```shell
-$ vi ~/.zshrc
-
-alias vi="lvim"
-```
-
-### Updating LunarVim
-* Inside LunarVim __:LvimUpdate__
-
-
-## 3. Neovim(original)
-```shell
-$ cp -rf nvim/ ~/.config/nvim 
-```
+1. run btt configuragion
+2. preset import 
+3. select Default.bttpreset
