@@ -34,48 +34,42 @@ vim.opt.numberwidth = 4
 ------------------------------------------------------------------
 -- NeoVide Options 
 ------------------------------------------------------------------
-
--- font
-vim.o.guifont = "JetBrainsMono Nerd Font:style=Regular,Regular:h16"
-
--- alt key used
-vim.cmd([[ let g:neovide_input_macos_alt_is_meta=v:true ]])
-
--- popup window
 if vim.fn.exists("g:neovide")==1 then
-  vim.notify("This notification should only appear on neovide !")
-  -- your neovide specific config here
-  -- e.g. set the refresh rate
+  -- font
+  vim.o.guifont = "JetBrainsMono Nerd Font:style=Regular,Regular:h16"
+
+  -- alt key used
+  vim.cmd([[ let g:neovide_input_macos_alt_is_meta=v:true ]])
+
+  -- set the refresh rate
   vim.api.nvim_set_var( "neovide_refresh_rate", 75)
-  -- more config goes here
-  -- ...
-end
 
--- zoom
-vim.keymap.set("", "<C-=>",
-  function ()
-    -- find & get current font size
-    local _, _, font_size = vim.o.guifont:find(".*:h(%d+)$")
-    font_size = tostring( tonumber(font_size)+1 )
-    -- update the font size
-    vim.o.guifont =  string.gsub(vim.o.guifont, "%d+$",font_size)
-  end,
-  {noremap = true}
-)
-
--- dezoom
-vim.keymap.set("", "<C-->",
-  function ()
-    -- find & get current font size
-    local _, _, font_size = vim.o.guifont:find(".*:h(%d+)$")
-    if tonumber(font_size) > 1 then
-      font_size = tostring( tonumber(font_size)-1 )
+  -- zoom
+  vim.keymap.set("", "<C-=>",
+    function ()
+      -- find & get current font size
+      local _, _, font_size = vim.o.guifont:find(".*:h(%d+)$")
+      font_size = tostring( tonumber(font_size)+1 )
       -- update the font size
       vim.o.guifont =  string.gsub(vim.o.guifont, "%d+$",font_size)
-    end
-  end,
-  {noremap = true}
-)
+    end,
+    {noremap = true}
+  )
+
+  -- dezoom
+  vim.keymap.set("", "<C-->",
+    function ()
+      -- find & get current font size
+      local _, _, font_size = vim.o.guifont:find(".*:h(%d+)$")
+      if tonumber(font_size) > 1 then
+        font_size = tostring( tonumber(font_size)-1 )
+        -- update the font size
+        vim.o.guifont =  string.gsub(vim.o.guifont, "%d+$",font_size)
+      end
+    end,
+    {noremap = true}
+  )
+end
 
 -- detecting if the terminal colors are defined (the 0-th one at least)
 if (vim.fn.exists("g:neovide")==1 and vim.fn.exists("g:terminal_color_0")==0) then
