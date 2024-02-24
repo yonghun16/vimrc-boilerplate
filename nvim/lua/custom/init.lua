@@ -101,7 +101,7 @@ vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
 vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
 
 -- emmet-vim
-vim.g.user_emmet_leader_key = ','
+vim.g.user_emmet_leader_key = '<C-,>'
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
