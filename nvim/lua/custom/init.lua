@@ -91,7 +91,6 @@ if (vim.fn.exists("g:neovide")==1 and vim.fn.exists("g:terminal_color_0")==0) th
   vim.api.nvim_set_var( "terminal_color_15" , '#C1A78E')
 end
 
-
 ------------------------------------------------------------------
 -- Vimscript Plugins Setting
 ------------------------------------------------------------------
@@ -103,7 +102,6 @@ vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
 
 -- emmet-vim
 vim.g.user_emmet_leader_key = ','
-
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------

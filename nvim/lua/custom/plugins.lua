@@ -5,19 +5,71 @@ local plugins = {
   ---------------------------------------------------------------------------
   -- VimScript Plugins
   ---------------------------------------------------------------------------
-  { "farmergreg/vim-lastplace", lazy = false },
-  { "mg979/vim-visual-multi",   lazy = false },
-  { "digitaltoad/vim-pug",      lazy = false },
-  { "mattn/emmet-vim",          lazy = false },
-  { "tpope/vim-surround",       lazy = false },
-  { "prettier/vim-prettier",    lazy = false }, -- $npm install -g prettier)
-  { "sbdchd/neoformat",         lazy = false }, -- for prettier
-  { "Exafunction/codeium.vim",  lazy = false }, -- :Codeium Auth
-  { "jlanzarotta/bufexplorer",  lazy = false },
+  -- vim-lastplace
+  {
+    "farmergreg/vim-lastplace",
+    lazy = false
+  },
+
+  -- vim-pug
+  {
+    "digitaltoad/vim-pug",
+    event = "FileType pug",
+  },
+
+  -- emmet-vim
+  {
+    "mattn/emmet-vim",
+    event = "FileType html",
+  },
+
+  -- vim-surround
+  {
+    "tpope/vim-surround",
+    event = "VimEnter",
+  },
+
+  -- vim-codeium
+  {
+    "Exafunction/codeium.vim", -- :Codeium Auth
+    event = "VimEnter"
+  },
+
+  -- bufexplorer
+  {
+    "jlanzarotta/bufexplorer",
+    cmd = "ToggleBufExplorer"
+  },
+
+  -- vim-visual-multi
+  {
+    "mg979/vim-visual-multi",
+    event = "vimEnter",
+  },
 
   ---------------------------------------------------------------------------
   -- Lua Plugins
   ---------------------------------------------------------------------------
+  -- incline
+  {
+    'b0o/incline.nvim',
+    opts = {},
+    -- Optional: Lazy load Incline
+    event = 'VeryLazy',
+    config = function()
+      require('incline').setup {
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+          local icon = require('nvim-web-devicons').get_icon(filename)
+          if icon then
+            filename = icon .. ' ' .. filename
+          end
+          return filename
+        end
+      }
+    end,
+  },
+
   -- goto-preview
   {
     'rmagatti/goto-preview',
@@ -32,14 +84,13 @@ local plugins = {
     config = function()
       require("symbols-outline").setup()
     end,
-    event = "VimEnter",
+    cmd = "SymbolsOutline",
   },
 
   -- nvim-navic
   {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig",
-    lazy = false,
     config = function()
       require("nvim-navic").setup()
     end
@@ -141,7 +192,7 @@ local plugins = {
   {
     "stevearc/conform.nvim",
     --  for users those who want auto-save conform + lazyloading!
-    -- event = "BufWritePre"
+    event = "BufWritePre",
     config = function()
       require "custom.configs.conform"
     end,
@@ -180,9 +231,9 @@ local plugins = {
         ui = {
           output_popup_text = "NeoAI",
           input_popup_text = "Prompt",
-          width = 30,                 -- As percentage eg. 30%
-          output_popup_height = 80,   -- As percentage eg. 80%
-          submit = "<Enter>",         -- Key binding to submit the prompt
+          width = 30,               -- As percentage eg. 30%
+          output_popup_height = 80, -- As percentage eg. 80%
+          submit = "<Enter>",       -- Key binding to submit the prompt
         },
         models = {
           {

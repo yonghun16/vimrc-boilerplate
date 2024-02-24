@@ -33,6 +33,25 @@ M.general = {
     ["<C-n>"] = { "3<C-e>" },
     ["<C-p>"] = { "3<C-y>" },
 
+    -- Split window
+    ["ss"] = { "<cmd>split<CR>" },
+    ["sv"] = { "<cmd>vsplit<CR>" },
+    -- Move window
+    ["sh"] = { "<C-w>h" },
+    ["sk"] = { "<C-w>k" },
+    ["sj"] = { "<C-w>j" },
+    ["sl"] = { "<C-w>l" },
+    -- Resize window
+    ["<A-p>"] = { "<C-W>2+" },
+    ["<A-n>"] = { "<C-W>2-" },
+    ["<A-.>"] = { "<C-W>2>" },
+    ["<A-,>"] = { "<C-W>2<" },
+    ["<A-m>"] = { "<C-W>=" },
+    ["<A-k>"] = { "<C-W>k<C-W>_" },
+    ["<A-j>"] = { "<C-W>j<C-W>_" },
+    ["<A-l>"] = { "<C-W>l<C-W>|" },
+    ["<A-h>"] = { "<C-W>h<C-W>|" },
+
     -- Compile
     ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
 
@@ -53,26 +72,23 @@ M.general = {
     ["<leader><tab>"] = { "<cmd>ToggleBufExplorer<CR>", "BufExplorer" },
     ["<leader><ESC>"] = { "<cmd>Nvdash<CR>", "Nvdash" },
 
-    -- Split window control (move, resize)
-    ["<A-k>"] = { "<C-W>k<C-W>_" },
-    ["<A-j>"] = { "<C-W>j<C-W>_" },
-    ["<A-l>"] = { "<C-W>l<C-W>|" },
-    ["<A-h>"] = { "<C-W>h<C-W>|" },
-    ["<A-p>"] = { "<C-W>2+" },
-    ["<A-n>"] = { "<C-W>2-" },
-    ["<A-.>"] = { "<C-W>2>" },
-    ["<A-,>"] = { "<C-W>2<" },
-    ["<A-m>"] = { "<C-W>=" },
+    -- Goto Preview (plugin)
+    ["<leader>pd"] = { ":lua require('goto-preview').goto_preview_definition()<CR>" },
+    ["<leader>pt"] = { ":lua require('goto-preview').goto_preview_type_definition()<CR>" },
+    ["<leader>pi"] = { ":lua require('goto-preview').goto_preview_implementation()<CR>" },
+    ["<leader>pD"] = { ":lua require('goto-preview').goto_preview_declaration()<CR>" },
+    ["<leader>P"] = { ":lua require('goto-preview').close_all_win()<CR>"},
+    ["<leader>pr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
 
-    -- Goto Preview
-    ["<leader>md"] = { ":lua require('goto-preview').goto_preview_definition()<CR>" },
-    ["<leader>mt"] = { ":lua require('goto-preview').goto_preview_type_definition()<CR>" },
-    ["<leader>mi"] = { ":lua require('goto-preview').goto_preview_implementation()<CR>" },
-    ["<leader>mD"] = { ":lua require('goto-preview').goto_preview_declaration()<CR>" },
-    ["<leader>mm"] = { ":lua require('goto-preview').close_all_win()<CR>"},
-    ["<leader>mr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
+    -- noice (plugin)
+    ["<leader>mh"] = { "<cmd>Noice history<CR>", "Noice history" },
+    ["<leader>ml"] = { "<cmd>Noice last<CR>", "Noice last" },
+    ["<leader>mm"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
+    ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
+    ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
+    ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
 
-    -- Clean search (highlight remove)
+    -- Clean search
     ["<leader><space>"] = { '<cmd>let @/=""<CR>', "No Highlight" },
 
     -- Diffsplit
@@ -83,10 +99,6 @@ M.general = {
 
     -- Set the current path as the working path
     ["<leader>~"] = { "<cmd>:lcd %:p:h<CR>:echo expand('%:p:h')<CR>", "change workspace" },
-
-    -- prettier
-    ["<A-f>"] = { "<Plug>(Prettier)" },
-    ["<leader>p"] = { "<Plug>(Prettier)", "Prettier" },
   },
 
   ---------------------------------------------------------------

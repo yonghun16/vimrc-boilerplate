@@ -28,12 +28,11 @@ export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 - digitaltoad/vim-pug      
 - mattn/emmet-vim          
 - tpope/vim-surround       
-- prettier/vim-prettier
-- sbdchd/neoformat  
 - Exafunction/codeium.vim
 - jlanzarotta/bufexplorer  
 
 ### lua plugins
+- b0o/incline.nvim
 - rmagatti/goto-preview
 - simrat39/symbols-outline.nvim
 - SmiteshP/nvim-navic

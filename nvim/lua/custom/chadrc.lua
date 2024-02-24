@@ -8,7 +8,9 @@ M.ui = {
   theme = "gruvchad",
   theme_toggle = { "gruvchad", "one_light" },
 
-  hl_override = highlights.override,
+  hl_override = {
+    CursorLine = { bg = "#282a2e" },
+  },
 
   nvdash = {
     load_on_startup = true,
@@ -16,6 +18,7 @@ M.ui = {
 }
 
 M.plugins = "custom.plugins"
+
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
