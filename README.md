@@ -13,7 +13,7 @@ $ cp -r nvim ~/.config
 $ vi ~/.zshrc
 
 alias vi="nvim"
-alias vid="neovide"
+alias vide="neovide"
 # OPENAI_API_KEY for NeoAI
 export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 
@@ -22,7 +22,6 @@ export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 * Inside Nvchad __:NvChadUpdate__
 
 ## 2. Custom plugin List 
-### vimscript plugins
 - farmergreg/vim-lastplace
 - mg979/vim-visual-multi   
 - digitaltoad/vim-pug      
@@ -30,8 +29,6 @@ export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 - tpope/vim-surround       
 - Exafunction/codeium.vim
 - jlanzarotta/bufexplorer  
-
-### lua plugins
 - b0o/incline.nvim
 - rmagatti/goto-preview
 - simrat39/symbols-outline.nvim

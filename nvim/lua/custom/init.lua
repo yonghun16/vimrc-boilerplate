@@ -9,6 +9,8 @@
 --   command = "tabdo wincmd =",
 -- })
 
+-- vim.cmd 'autocmd BufEnter term://* startinsert'
+
 
 ------------------------------------------------------------------
 -- Language Setting
@@ -32,76 +34,73 @@ vim.opt.numberwidth = 4
 
 
 ------------------------------------------------------------------
--- NeoVide Options 
+-- NeoVide Options
 ------------------------------------------------------------------
-if vim.fn.exists("g:neovide")==1 then
+if vim.fn.exists("g:neovide") == 1 then
   -- font
   vim.o.guifont = "JetBrainsMono Nerd Font:style=Regular,Regular:h16"
 
   -- alt key used
   vim.cmd([[ let g:neovide_input_macos_alt_is_meta=v:true ]])
 
+  -- Allow clipboard copy paste in neovim
+  vim.g.neovide_input_use_logo = 1
+  vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
+  vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+  vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+  vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+
   -- set the refresh rate
-  vim.api.nvim_set_var( "neovide_refresh_rate", 75)
+  vim.api.nvim_set_var("neovide_refresh_rate", 75)
 
   -- zoom
   vim.keymap.set("", "<C-=>",
-    function ()
+    function()
       -- find & get current font size
       local _, _, font_size = vim.o.guifont:find(".*:h(%d+)$")
-      font_size = tostring( tonumber(font_size)+1 )
+      font_size = tostring(tonumber(font_size) + 1)
       -- update the font size
-      vim.o.guifont =  string.gsub(vim.o.guifont, "%d+$",font_size)
+      vim.o.guifont = string.gsub(vim.o.guifont, "%d+$", font_size)
     end,
-    {noremap = true}
+    { noremap = true }
   )
 
   -- dezoom
   vim.keymap.set("", "<C-->",
-    function ()
+    function()
       -- find & get current font size
       local _, _, font_size = vim.o.guifont:find(".*:h(%d+)$")
       if tonumber(font_size) > 1 then
-        font_size = tostring( tonumber(font_size)-1 )
+        font_size = tostring(tonumber(font_size) - 1)
         -- update the font size
-        vim.o.guifont =  string.gsub(vim.o.guifont, "%d+$",font_size)
+        vim.o.guifont = string.gsub(vim.o.guifont, "%d+$", font_size)
       end
     end,
-    {noremap = true}
+    { noremap = true }
   )
 end
 
 -- detecting if the terminal colors are defined (the 0-th one at least)
-if (vim.fn.exists("g:neovide")==1 and vim.fn.exists("g:terminal_color_0")==0) then
-  vim.api.nvim_set_var( "terminal_color_0"  , '#352F2A')
-  vim.api.nvim_set_var( "terminal_color_1"  , '#B65C60')
-  vim.api.nvim_set_var( "terminal_color_2"  , '#78997A')
-  vim.api.nvim_set_var( "terminal_color_3"  , '#EBC06D')
-  vim.api.nvim_set_var( "terminal_color_4"  , '#9AACCE')
-  vim.api.nvim_set_var( "terminal_color_5"  , '#B380B0')
-  vim.api.nvim_set_var( "terminal_color_6"  , '#86A3A3')
-  vim.api.nvim_set_var( "terminal_color_7"  , '#A38D78')
-  vim.api.nvim_set_var( "terminal_color_8"  , '#4D453E')
-  vim.api.nvim_set_var( "terminal_color_9"  , '#F17C64')
-  vim.api.nvim_set_var( "terminal_color_10" , '#99D59D')
-  vim.api.nvim_set_var( "terminal_color_11" , '#EBC06D')
-  vim.api.nvim_set_var( "terminal_color_12" , '#9AACCE')
-  vim.api.nvim_set_var( "terminal_color_13" , '#CE9BCB')
-  vim.api.nvim_set_var( "terminal_color_14" , '#88B3B2')
-  vim.api.nvim_set_var( "terminal_color_15" , '#C1A78E')
+if (vim.fn.exists("g:neovide") == 1 and vim.fn.exists("g:terminal_color_0") == 0) then
+  vim.api.nvim_set_var("terminal_color_0", '#352F2A')
+  vim.api.nvim_set_var("terminal_color_1", '#B65C60')
+  vim.api.nvim_set_var("terminal_color_2", '#78997A')
+  vim.api.nvim_set_var("terminal_color_3", '#EBC06D')
+  vim.api.nvim_set_var("terminal_color_4", '#9AACCE')
+  vim.api.nvim_set_var("terminal_color_5", '#B380B0')
+  vim.api.nvim_set_var("terminal_color_6", '#86A3A3')
+  vim.api.nvim_set_var("terminal_color_7", '#A38D78')
+  vim.api.nvim_set_var("terminal_color_8", '#4D453E')
+  vim.api.nvim_set_var("terminal_color_9", '#F17C64')
+  vim.api.nvim_set_var("terminal_color_10", '#99D59D')
+  vim.api.nvim_set_var("terminal_color_11", '#EBC06D')
+  vim.api.nvim_set_var("terminal_color_12", '#9AACCE')
+  vim.api.nvim_set_var("terminal_color_13", '#CE9BCB')
+  vim.api.nvim_set_var("terminal_color_14", '#88B3B2')
+  vim.api.nvim_set_var("terminal_color_15", '#C1A78E')
 end
 
-------------------------------------------------------------------
--- Vimscript Plugins Setting
-------------------------------------------------------------------
--- visual-multi
-vim.cmd([[ let g:VM_maps = {} ]])
-vim.cmd([[ let g:VM_maps["Find Under"]   = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
 
--- emmet-vim
-vim.g.user_emmet_leader_key = '<C-,>'
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------

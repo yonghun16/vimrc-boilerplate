@@ -1,6 +1,7 @@
 ---@type MappingsTable
 local M = {}
 
+
 -----------------------------------------------------------------
 -- Mappings
 -----------------------------------------------------------------
@@ -52,6 +53,16 @@ M.general = {
     ["<A-l>"] = { "<C-W>l<C-W>|" },
     ["<A-h>"] = { "<C-W>h<C-W>|" },
 
+    -- Tab
+    ["<A-t>"] = { "<cmd>tabnew<CR>" },
+    ["<A-w>"] = { "<cmd>tabclose<CR>" },
+    ["<C-q>"] = { "<cmd>tabnext<CR>" },
+    ["<C-Q>"] = { "<cmd>tabprevious<CR>" },
+    ["te"] = { ":tabedit " },
+    ["tc"] = { "<cmd>tabclose<CR>" },
+    ["tn"] = { "<cmd>tabnext<CR>" },
+    ["tp"] = { "<cmd>tabprevious<CR>" },
+
     -- Compile
     ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
 
@@ -63,6 +74,7 @@ M.general = {
     ["<leader>j"] = { "<cmd>TroubleToggle<CR>", "Trouble" },
     ["<leader>k"] = { "<cmd>Navbuddy<CR>", "Navbuddy" },
     ["<leader>l"] = { "<cmd>SymbolsOutline<CR>", "SymbolsOutline" },
+    ["<leader>L"] = { "<cmd>TagbarToggle<CR>", "Tagbar" },
     ["<leader>,"] = { "<cmd>ToggleTerm direction=float<CR>", "Terminal" },
     ["<leader><"] = {
       "<cmd>ToggleTerm size=10 direction=horizontal <CR>",
@@ -154,9 +166,13 @@ M.general = {
   -- TERMINAL Mode
   ---------------------------------------------------------------
   t = {
-    ["<C-q>"] = { "<C-\\><C-n>" },
+    ["<ESC>"] = { "<C-\\><C-n>" },
     ["<C-l>"] = { "<RIGHT>" },
     ["<leader>,"] = { "<cmd>:ToggleTerm<CR>" },
+    ["<c-w>h"] = { "<C-\\><C-n><C-w>h" },
+    ["<c-w>j"] = { "<C-\\><C-n><C-w>j" },
+    ["<c-w>k"] = { "<C-\\><C-n><C-w>k" },
+    ["<c-w>l"] = { "<C-\\><C-n><C-w>l" },
   },
 }
 

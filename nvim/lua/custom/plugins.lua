@@ -1,10 +1,44 @@
 local overrides = require("custom.configs.overrides")
 
+---------------------------------------------------------------------------
+-- plugin keymapping options
+---------------------------------------------------------------------------
+-- nvim-tree
+local function my_on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- OR use all default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- remove a default
+  vim.keymap.del('n', 's', { buffer = bufnr })
+
+  -- add your mappings
+  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+  ---
+end
+
+-- visual-multi
+vim.cmd([[ let g:VM_maps = {} ]])
+vim.cmd([[ let g:VM_maps["Find Under"]   = '<C-/>' ]])
+vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
+vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
+
+-- emmet-vim
+vim.g.user_emmet_leader_key = '<C-,>'
+
+-- tagbar
+vim.cmd([[ let g:tagbar_width = '30' ]])
+
+---------------------------------------------------------------------------
+-- Plugins
+---------------------------------------------------------------------------
 ---@type NvPluginSpec[]
 local plugins = {
-  ---------------------------------------------------------------------------
-  -- VimScript Plugins
-  ---------------------------------------------------------------------------
   -- vim-lastplace
   {
     "farmergreg/vim-lastplace",
@@ -47,9 +81,6 @@ local plugins = {
     event = "vimEnter",
   },
 
-  ---------------------------------------------------------------------------
-  -- Lua Plugins
-  ---------------------------------------------------------------------------
   -- incline
   {
     'b0o/incline.nvim',
@@ -81,10 +112,15 @@ local plugins = {
   -- symbols-outline
   {
     "simrat39/symbols-outline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("symbols-outline").setup()
     end,
     cmd = "SymbolsOutline",
+  },
+
+  { "preservim/tagbar", -- https://github.com/universal-ctags/ctags
+    cmd = "TagbarToggle"
   },
 
   -- nvim-navic
@@ -185,7 +221,11 @@ local plugins = {
   -- nvim-tree
   {
     "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    config = function()
+      require("nvim-tree").setup({
+        on_attach = my_on_attach,
+      })
+    end
   },
 
   -- conform.nvim
