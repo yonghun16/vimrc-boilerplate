@@ -9,8 +9,6 @@
 --   command = "tabdo wincmd =",
 -- })
 
--- vim.cmd 'autocmd BufEnter term://* startinsert'
-
 
 ------------------------------------------------------------------
 -- Language Setting
@@ -31,6 +29,7 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 vim.opt.numberwidth = 4
+vim.opt.updatetime = 200
 
 
 ------------------------------------------------------------------
