@@ -21,14 +21,15 @@ export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 ### Updating Nvchad
 * Inside Nvchad __:NvChadUpdate__
 
-## 2. Custom plugin List 
+## 2. Custom plugin setting List 
+- utilyre/barbecue.nvim
+- folke/noice.nvim
 - farmergreg/vim-lastplace
 - mg979/vim-visual-multi   
 - digitaltoad/vim-pug      
 - mattn/emmet-vim          
 - tpope/vim-surround       
 - Exafunction/codeium.vim
-- jlanzarotta/bufexplorer  
 - b0o/incline.nvim
 - rmagatti/goto-preview
 - simrat39/symbols-outline.nvim
@@ -42,6 +43,7 @@ export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 - williamboman/mason.nvim
 - MunifTanjim/nui.nvim
 - Bryley/neoai.nvim
+- jlanzarotta/bufexplorer  
 
 
 ## 3. BetterTouchTool
