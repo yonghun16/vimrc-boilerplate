@@ -4,11 +4,20 @@
 - Nvchad : https://nvchad.com
 - Neovide : https://neovide.dev
 
-### config file setting
+### Install
+```shell
+$ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+$ brew install --cask neovide
+```
+
+### Update
+* :NvChadUpdate
+
+### Config
 ```shell
 $ cp -r nvim ~/.config
 ```
-### alias setting
+
 ```shell
 $ vi ~/.zshrc
 
@@ -18,10 +27,8 @@ alias vide="neovide"
 export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 
 ```
-### Updating Nvchad
-* Inside Nvchad __:NvChadUpdate__
 
-## 2. Custom plugin setting List 
+## 2. Plugins 
 - utilyre/barbecue.nvim
 - folke/noice.nvim
 - farmergreg/vim-lastplace
@@ -46,10 +53,12 @@ export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
 - jlanzarotta/bufexplorer  
 
 
-## 3. BetterTouchTool
-- BetterTouchTool : https://folivora.ai/ 
+## 3. Other settings
 
-### config file setting
-1. run btt configuragion
-2. preset import 
-3. select Default.bttpreset
+### BetterTouchTool
+- BetterTouchTool : https://folivora.ai/ 
+- config file : Default.bttpreset
+
+### Iterm2
+- Iterm2 : https://iterm2.com/
+- config file : Default.json
