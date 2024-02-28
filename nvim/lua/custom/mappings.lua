@@ -99,7 +99,7 @@ M.general = {
     ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
     ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
     ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
-    ["<leader>mb"] = { "<cmd><CR>", "Babecue toggle" },
+    ["<leader>mb"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
 
     -- Clean search
     ["<leader><space>"] = { '<cmd>let @/=""<CR>', "No Highlight" },

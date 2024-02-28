@@ -35,7 +35,7 @@ vim.opt.updatetime = 200
 ------------------------------------------------------------------
 -- NeoVide Options
 ------------------------------------------------------------------
-if vim.fn.exists("g:neovide") == 1 then
+if vim.g.neovide then
   -- font
   vim.o.guifont = "JetBrainsMono Nerd Font:style=Regular,Regular:h16"
 
