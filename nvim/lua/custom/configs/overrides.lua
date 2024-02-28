@@ -8,15 +8,16 @@ vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
 vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
 
 -- emmet-vim
-vim.g.user_emmet_leader_key = '<C-,>'
+vim.g.user_emmet_leader_key = ','
 
 -- tagbar
 vim.cmd([[ let g:tagbar_width = '30' ]])
-local M = {}
 
 ---------------------------------------------------------------------------
 -- Lua plugins config
 ---------------------------------------------------------------------------
+local M = {}
+
 M.noice = {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
