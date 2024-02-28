@@ -167,6 +167,15 @@ local plugins = {
     },
   },
 
+  -- mason-lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end, -- Override to setup mason-lspconfig
+  },
+
   -- mason.nvim
   {
     "williamboman/mason.nvim",
