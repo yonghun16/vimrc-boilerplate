@@ -39,7 +39,79 @@ vim.cmd([[ let g:tagbar_width = '30' ]])
 ---------------------------------------------------------------------------
 ---@type NvPluginSpec[]
 local plugins = {
-  -- lazy.nvim
+  -- JABS.nvim
+  {
+    "matbme/JABS.nvim",
+    config = function()
+      require 'jabs'.setup {
+        -- Options for the main window
+        position = { 'center', 'top' }, -- position = {'<position_x>', '<position_y>'} | <position_x> left, center, right,
+
+        relative = 'editor', -- win, editor, cursor. Default win
+        clip_popup_size = false, -- clips the popup size to the win (or editor) size. Default true
+
+        width = 80,          -- default 50
+        height = 20,         -- default 10
+        border = 'single',   -- none, single, double, rounded, solid, shadow, (or an array or chars). Default shadow
+
+        offset = {           -- window position offset
+          top = 2,           -- default 0
+          bottom = 2,        -- default 0
+          left = 2,          -- default 0
+          right = 2,         -- default 0
+        },
+
+        sort_mru = true,            -- Sort buffers by most recently used (true or false). Default false
+        split_filename = true,      -- Split filename into separate components for name and path. Default false
+        split_filename_path_width = 20, -- If split_filename is true, how wide the column for the path is supposed to be, Default 0 (don't show path)
+
+        -- Options for preview window
+        preview_position = 'left', -- top, bottom, left, right. Default top
+        preview = {
+          width = 40,          -- default 70
+          height = 60,         -- default 30
+          border = 'single',   -- none, single, double, rounded, solid, shadow, (or an array or chars). Default double
+        },
+
+        -- Default highlights (must be a valid :highlight)
+        highlight = {
+          current = "Title",     -- default StatusLine
+          hidden = "StatusLineNC", -- default ModeMsg
+          split = "WarningMsg",  -- default StatusLine
+          alternate = "StatusLine" -- default WarningMsg
+        },
+
+        -- Default symbols
+        symbols = {
+          current = "C",       -- default 
+          split = "S",         -- default 
+          alternate = "A",     -- default 
+          hidden = "H",        -- default ﬘
+          locked = "L",        -- default 
+          ro = "R",            -- default 
+          edited = "E",        -- default 
+          terminal = "T",      -- default 
+          default_file = "D",  -- Filetype icon if not present in nvim-web-devicons. Default 
+          terminal_symbol = ">_" -- Filetype icon for a terminal split. Default 
+        },
+
+        -- Keymaps
+        keymap = {
+          close = "dd", -- Close buffer. Default D
+          jump = "<CR>", -- Jump to buffer. Default <cr>
+          h_split = "h",  -- Horizontally split buffer. Default s
+          v_split = "v",  -- Vertically split buffer. Default v
+          preview = "p",  -- Open buffer preview. Default P
+        },
+
+        -- Whether to use nvim-web-devicons next to filenames
+        use_devicons = false -- true or false. Default true
+      }
+    end,
+    cmd = "JABSOpen",
+  },
+
+  -- noice.nvim
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -47,13 +119,29 @@ local plugins = {
       -- add any options here
     },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
-      }
+    },
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true,         -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false,       -- add a border to hover docs and signature help
+        },
+      })
+    end
   },
 
   -- vim-lastplace
@@ -86,36 +174,10 @@ local plugins = {
     event = "VimEnter"
   },
 
-  -- bufexplorer
-  {
-    "jlanzarotta/bufexplorer",
-    cmd = "ToggleBufExplorer"
-  },
-
   -- vim-visual-multi
   {
     "mg979/vim-visual-multi",
     event = "vimEnter",
-  },
-
-  -- incline
-  {
-    'b0o/incline.nvim',
-    opts = {},
-    -- Optional: Lazy load Incline
-    event = 'VeryLazy',
-    config = function()
-      require('incline').setup {
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
-          local icon = require('nvim-web-devicons').get_icon(filename)
-          if icon then
-            filename = icon .. ' ' .. filename
-          end
-          return filename
-        end
-      }
-    end,
   },
 
   -- barbecue
@@ -151,7 +213,8 @@ local plugins = {
     cmd = "SymbolsOutline",
   },
 
-  { "preservim/tagbar", -- https://github.com/universal-ctags/ctags
+  {
+    "preservim/tagbar", -- https://github.com/universal-ctags/ctags
     cmd = "TagbarToggle"
   },
 
@@ -244,10 +307,15 @@ local plugins = {
     opts = overrides.mason
   },
 
-  -- nvim-treesitter
+  -- -- nvim-treesitter
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = overrides.treesitter,
+  -- },
+
+  -- nvim-treesitter-textobjects
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
 
   -- nvim-tree

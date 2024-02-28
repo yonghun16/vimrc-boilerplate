@@ -25,32 +25,30 @@ alias vi="nvim"
 alias vide="neovide"
 # OPENAI_API_KEY for NeoAI
 export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
-
 ```
 
 ## 2. Plugins 
 - utilyre/barbecue.nvim
+- SmiteshP/nvim-navic
 - folke/noice.nvim
+- matbme/JABS.nvim
+- akinsho/toggleterm.nvim
+- MunifTanjim/nui.nvim
 - farmergreg/vim-lastplace
 - mg979/vim-visual-multi   
+- simrat39/symbols-outline.nvim
 - digitaltoad/vim-pug      
 - mattn/emmet-vim          
 - tpope/vim-surround       
-- Exafunction/codeium.vim
-- b0o/incline.nvim
 - rmagatti/goto-preview
-- simrat39/symbols-outline.nvim
-- SmiteshP/nvim-navic
 - SmiteshP/nvim-navbuddy
-- akinsho/toggleterm.nvim
 - RRethy/vim-illuminate
 - Tastyep/structlog.nvim
 - JoosepAlviste/nvim-ts-context-commentstring
 - folke/lsp-colors.nvim
 - williamboman/mason.nvim
-- MunifTanjim/nui.nvim
+- Exafunction/codeium.vim
 - Bryley/neoai.nvim
-- jlanzarotta/bufexplorer  
 
 
 ## 3. Other settings

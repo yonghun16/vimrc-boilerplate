@@ -1,7 +1,6 @@
 ---@type MappingsTable
 local M = {}
 
-
 -----------------------------------------------------------------
 -- Mappings
 -----------------------------------------------------------------
@@ -81,7 +80,7 @@ M.general = {
       "Terminal bottom",
     },
     ["<leader>."] = { "<cmd>NeoAIToggle<CR>", "NeoAI" },
-    ["<leader><tab>"] = { "<cmd>ToggleBufExplorer<CR>", "BufExplorer" },
+    ["<leader><tab>"] = { "<cmd>JABSOpen<CR>", "Buffer Switcher" },
     ["<leader><ESC>"] = { "<cmd>Nvdash<CR>", "Nvdash" },
 
     -- Goto Preview (plugin)
@@ -176,7 +175,5 @@ M.general = {
     ["<c-w>l"] = { "<C-\\><C-n><C-w>l" },
   },
 }
-
--- more keybinds!
 
 return M
