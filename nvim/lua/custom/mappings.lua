@@ -92,13 +92,13 @@ M.general = {
     ["<leader>pr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
 
     -- noice and Babecue (plugin)
-    ["<leader>mh"] = { "<cmd>Noice history<CR>", "Noice history" },
-    ["<leader>ml"] = { "<cmd>Noice last<CR>", "Noice last" },
+    ["<leader>mm"] = { "<cmd>Noice history<CR>G", "Noice history" },
+    ["<leader>mb"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
     ["<C-m>"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
-    ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
     ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
     ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
-    ["<leader>mb"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
+    ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
+    ["<leader>ml"] = { "<cmd>Noice last<CR>", "Noice last" },
 
     -- Clean search
     ["<leader><space>"] = { '<cmd>let @/=""<CR>', "No Highlight" },
