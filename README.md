@@ -1,5 +1,9 @@
 # vimrc-boilerplate 
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yonghun16/yonghun16/main/images/nvim_preview.png" width=800px />
+</div>
+
 ## 1. Nvchad & Neovide
 - Nvchad : https://nvchad.com
 - Neovide : https://neovide.dev
