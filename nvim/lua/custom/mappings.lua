@@ -53,20 +53,14 @@ M.general = {
     ["<A-h>"] = { "<C-W>h<C-W>|" },
 
     -- Tab
+    ["te"] = { ":tabedit " },
+    ["tx"] = { "<cmd>tabclose<CR>" },
+    ["tn"] = { "<cmd>tabnext<CR>" },
+    ["tp"] = { "<cmd>tabprevious<CR>" },
     ["<A-t>"] = { "<cmd>tabnew<CR>" },
     ["<A-w>"] = { "<cmd>tabclose<CR>" },
     ["<C-q>"] = { "<cmd>tabnext<CR>" },
     ["<C-Q>"] = { "<cmd>tabprevious<CR>" },
-    ["te"] = { ":tabedit " },
-    ["tc"] = { "<cmd>tabclose<CR>" },
-    ["tn"] = { "<cmd>tabnext<CR>" },
-    ["tp"] = { "<cmd>tabprevious<CR>" },
-
-    -- Compile
-    ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
-
-    -- Auto wrap
-    ["<leader>z"] = { "<cmd>lua Toggle_wrap()<CR>", "Wrap" },
 
     -- Sidebar
     ["<leader>h"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
@@ -91,17 +85,21 @@ M.general = {
     ["<leader>P"] = { ":lua require('goto-preview').close_all_win()<CR>"},
     ["<leader>pr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
 
-    -- noice and Babecue (plugin)
+    -- Noice (plugin)
     ["<leader>mm"] = { "<cmd>Noice history<CR>G", "Noice history" },
-    ["<leader>mb"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
-    ["<C-m>"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
+    ["<leader>m<SPACE>"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
     ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
     ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
     ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
     ["<leader>ml"] = { "<cmd>Noice last<CR>", "Noice last" },
+    -- Barbecue (plugins)
+    ["<leader>mb"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
 
-    -- Clean search
-    ["<leader><space>"] = { '<cmd>let @/=""<CR>', "No Highlight" },
+    -- Compile
+    ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
+
+    -- Auto wrap
+    ["<leader>z"] = { "<cmd>lua Toggle_wrap()<CR>", "Wrap" },
 
     -- Diffsplit
     ["<leader>d"] = { ":vert diffsplit ", "diffsplit" },
