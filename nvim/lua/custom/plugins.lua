@@ -1,6 +1,14 @@
 local overrides = require("custom.configs.overrides")
 
 ---------------------------------------------------------------------------
+-- Addtional plugins
+---------------------------------------------------------------------------
+-- $ brew install fd
+-- $ brew install universal-ctags
+-- $ brew install ripgrep
+
+
+---------------------------------------------------------------------------
 -- Plugins
 ---------------------------------------------------------------------------
 ---@type NvPluginSpec[]
@@ -93,7 +101,7 @@ local plugins = {
   },
 
   {
-    "preservim/tagbar", -- https://github.com/universal-ctags/ctags
+    "preservim/tagbar",
     cmd = "TagbarToggle"
   },
 
@@ -167,7 +175,7 @@ local plugins = {
     },
   },
 
-  -- mason-lspconfig
+  -- lspconfig
   {
     "neovim/nvim-lspconfig",
     config = function()
