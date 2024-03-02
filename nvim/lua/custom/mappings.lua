@@ -28,8 +28,13 @@ M.general = {
     -- Quick integrated movement, page movement
     ["<C-k>"] = { "3k" },
     ["<C-j>"] = { "3j" },
-    ["<C-l>"] = { "$" },
-    ["<C-h>"] = { "^" },
+    ["<C-s-k>"] = { "10k" },
+    ["<C-s-j>"] = { "10j" },
+    ["<C-l>"] = { "L" },
+    ["<C-h>"] = { "H" },
+    ["<C-m>"] = { "M" },
+    ["<C-s-l>"] = { "$" },
+    ["<C-s-h>"] = { "^" },
     ["<C-n>"] = { "3<C-e>" },
     ["<C-p>"] = { "3<C-y>" },
 
@@ -60,7 +65,7 @@ M.general = {
     ["<A-t>"] = { "<cmd>tabnew<CR>" },
     ["<A-w>"] = { "<cmd>tabclose<CR>" },
     ["<C-q>"] = { "<cmd>tabnext<CR>" },
-    ["<C-Q>"] = { "<cmd>tabprevious<CR>" },
+    ["<C-S-q>"] = { "<cmd>tabprevious<CR>" },
 
     -- Sidebar
     ["<leader>h"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
@@ -87,7 +92,7 @@ M.general = {
 
     -- Noice (plugin)
     ["<leader>mm"] = { "<cmd>Noice history<CR>G", "Noice history" },
-    ["<leader>m<SPACE>"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
+    ["<leader><SPACE>"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
     ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
     ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
     ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
@@ -121,8 +126,13 @@ M.general = {
     -- Quick integrated movement, page movement
     ["<C-k>"] = { "3k" },
     ["<C-j>"] = { "3j" },
-    ["<C-l>"] = { "$" },
-    ["<C-h>"] = { "^" },
+    ["<C-s-k>"] = { "10k" },
+    ["<C-s-j>"] = { "10j" },
+    ["<C-l>"] = { "L" },
+    ["<C-h>"] = { "H" },
+    ["<C-m>"] = { "M" },
+    ["<C-s-l>"] = { "$" },
+    ["<C-s-h>"] = { "^" },
     ["<C-n>"] = { "3<C-e>" },
     ["<C-p>"] = { "3<C-y>" },
 
