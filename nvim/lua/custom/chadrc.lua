@@ -9,7 +9,7 @@ M.ui = {
   theme_toggle = { "gruvchad", "one_light" },
 
   hl_override = {
-    CursorLine = { bg = "#282a2e" },
+    CursorLine = { bg = "#272b2d" },
   },
 
   nvdash = {
