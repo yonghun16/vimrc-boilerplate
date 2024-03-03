@@ -92,7 +92,7 @@ M.general = {
 
     -- Noice (plugin)
     ["<leader>mm"] = { "<cmd>Noice history<CR>G", "Noice history" },
-    ["<leader><SPACE>"] = { "<cmd>Noice dismiss<CR>", "Noice dismiss" },
+    ["<leader><SPACE>"] = { '<cmd>Noice dismiss<CR><cmd>let @/=""<CR>', "Noice dismiss" },
     ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
     ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
     ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },

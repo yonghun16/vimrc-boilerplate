@@ -18,6 +18,15 @@ vim.cmd([[ let g:tagbar_width = '30' ]])
 ---------------------------------------------------------------------------
 local M = {}
 
+M.navbuddy = {
+  lsp = {
+    auto_attach = true
+  },
+  window = {
+    -- size = "80%",    -- Or table format example: { height = "40%", width = "100%"}
+  },
+}
+
 M.noice = {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
