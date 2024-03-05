@@ -4,12 +4,13 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 
+
 M.ui = {
   theme = "gruvchad",
   theme_toggle = { "gruvchad", "one_light" },
 
   hl_override = {
-    CursorLine = { bg = "#272a2d" },
+    CursorLine = { bg = "#282a2e" },
   },
 
   nvdash = {
