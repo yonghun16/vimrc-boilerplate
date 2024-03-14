@@ -160,7 +160,9 @@ M.mason = {
     "shfmt",
 
     --python
-    "pyright"
+    "pyright",
+    "python-lsp-server",
+    "mypy",
   },
 }
 
