@@ -16,16 +16,15 @@ M.general = {
   -- NORMAL Mode
   ---------------------------------------------------------------
   n = {
-    -- ESC key
+    -- <ESC> key
     ["<C-f>"] = { "<ESC>" },
     ["<C-c>"] = { "<ESC>" },
 
-    -- Write, Quit
-    ["<leader>w"] = { ":w<CR>", ":w" },
-    ["<leader>q"] = { ":q<CR>", ":q" },
-    ["<leader>Q"] = { ":q!<CR>", ":q!" },
+    -- Quit
+    ["<leader>q"] = { ":q<CR>", "Quit" },
+    ["<leader>Q"] = { ":q!<CR>", "Quit without save" },
 
-    -- Quick integrated movement, page movement
+    -- cursor movement
     ["<C-k>"] = { "3k" },
     ["<C-j>"] = { "3j" },
     ["<C-s-k>"] = { "10k" },
@@ -35,6 +34,7 @@ M.general = {
     ["<C-m>"] = { "M" },
     ["<C-s-l>"] = { "$" },
     ["<C-s-h>"] = { "^" },
+    -- page movement
     ["<C-n>"] = { "3<C-e>" },
     ["<C-p>"] = { "3<C-y>" },
 
@@ -89,7 +89,6 @@ M.general = {
     ["<leader>pD"] = { ":lua require('goto-preview').goto_preview_declaration()<CR>" },
     ["<leader>P"] = { ":lua require('goto-preview').close_all_win()<CR>"},
     ["<leader>pr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
-
     -- Noice (plugin)
     ["<leader>mm"] = { "<cmd>Noice history<CR>G", "Noice history" },
     ["<leader><SPACE>"] = { '<cmd>Noice dismiss<CR><cmd>let @/=""<CR>', "Noice dismiss" },
@@ -120,10 +119,10 @@ M.general = {
   -- V-LINE Mode
   ---------------------------------------------------------------
   v = {
-    -- ESC key
+    -- <ESC> key
     ["<C-f>"] = { "<ESC>" },
 
-    -- Quick integrated movement, page movement
+    -- cursor movement
     ["<C-k>"] = { "3k" },
     ["<C-j>"] = { "3j" },
     ["<C-s-k>"] = { "10k" },
@@ -133,6 +132,7 @@ M.general = {
     ["<C-m>"] = { "M" },
     ["<C-s-l>"] = { "$" },
     ["<C-s-h>"] = { "^" },
+    -- page movement
     ["<C-n>"] = { "3<C-e>" },
     ["<C-p>"] = { "3<C-y>" },
 
@@ -145,7 +145,7 @@ M.general = {
   -- INSERT Mode
   ---------------------------------------------------------------
   i = {
-    -- ESC key
+    -- <ESC> key
     ["<C-f>"] = { "<ESC>" },
 
     -- Use terminal shortcuts in input mode
@@ -166,7 +166,7 @@ M.general = {
   -- COMMAND Mode
   ---------------------------------------------------------------
   c = {
-    -- ESC key
+    -- <ESC> key
     ["<C-f>"] = { "<ESC>" },
   },
 
