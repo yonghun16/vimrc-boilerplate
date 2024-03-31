@@ -14,7 +14,7 @@ M.ui = {
 
 if M.ui.theme == string.lower("GRUVCHAD") then
   M.ui.hl_override = {
-    CursorLine = { bg = "#232728" }
+    CursorLine = { bg = "#242728" }
   }
 elseif M.ui.theme == string.lower("GRUVBOX") then
   M.ui.hl_override = {
