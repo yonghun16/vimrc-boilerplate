@@ -20,17 +20,6 @@ local plugins = {
     cmd = "JABSOpen",
   },
 
-  -- noice.nvim
-  {
-    "folke/noice.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    opts = overrides.noice,
-    event = "VeryLazy",
-  },
-
   -- vim-lastplace
   {
     "farmergreg/vim-lastplace",

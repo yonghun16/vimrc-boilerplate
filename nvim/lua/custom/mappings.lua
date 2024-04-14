@@ -4,12 +4,17 @@ local M = {}
 -----------------------------------------------------------------
 -- Mappings
 -----------------------------------------------------------------
--- 1. Comment out'<leader>ls', <leader>lf.
--- 2. Replace <leader>w -> <leader>e
---    ( Modified from "~/.config/nvim/lua/core/mappings.lua" )
--- 3. Comment out'<Tab>' and <S-Tab>  (to use <Tab> in codeium)
---    ( Modified from "~/.config/nvim/lua/plugins/configs/cmp.lua" )
+--
+-- 1. [ ~/.config/nvim/lua/core/mappings.lua ]
+--    1) Comment out'<leader>ls', <leader>lf.
+--    2) Replace <leader>ma to <leader>ta
+--    3) Replace <leader>w to <leader>e
+--
+-- 2. [ ~/.config/nvim/lua/plugins/configs/cmp.lua ]
+--    1) Comment out'<Tab>' and <S-Tab>  (to use <Tab> in codeium)
+--
 -----------------------------------------------------------------
+
 
 M.general = {
   ---------------------------------------------------------------
@@ -84,17 +89,16 @@ M.general = {
     ["<leader>pt"] = { ":lua require('goto-preview').goto_preview_type_definition()<CR>" },
     ["<leader>pi"] = { ":lua require('goto-preview').goto_preview_implementation()<CR>" },
     ["<leader>pD"] = { ":lua require('goto-preview').goto_preview_declaration()<CR>" },
-    ["<leader>P"] = { ":lua require('goto-preview').close_all_win()<CR>"},
+    ["<leader>P"] = { ":lua require('goto-preview').close_all_win()<CR>" },
     ["<leader>pr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
-    -- Noice (plugin)
-    ["<leader>mm"] = { "<cmd>Noice history<CR>G", "Noice history" },
-    ["<leader><SPACE>"] = { '<cmd>Noice dismiss<CR><cmd>let @/=""<CR>', "Noice dismiss" },
-    ["<leader>me"] = { "<cmd>Noice enable<CR>", "Noice enable" },
-    ["<leader>md"] = { "<cmd>Noice disable<CR>", "Noice disable" },
-    ["<leader>mr"] = { "<cmd>Noice reset<CR>", "Noice reset" },
-    ["<leader>ml"] = { "<cmd>Noice last<CR>", "Noice last" },
     -- Barbecue (plugins)
-    ["<leader>mb"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
+    ["<leader>b"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
+
+    -- highlight clear
+    ["<leader><SPACE>"] = { '<cmd>let @/=""<CR>', "Highlight clear" },
+
+    -- Message
+    ["<leader>m"] = { "<cmd>:messages<CR>", "Messages" },
 
     -- Compile
     ["<leader>a"] = { "<cmd>lua Compile()<CR>", "Compile" },
@@ -152,8 +156,8 @@ M.general = {
     ["<C-u>"] = { "<ESC><RIGHT>d^i" },
     ["<C-k>"] = { "<ESC><RIGHT>C" },
     ["<C-CR>"] = { "<ESC>o" },
-    ["<C-i>"] = { "<ESC>ui" },        -- undo
-    ["<C-o>"] = { "<ESC><C-r>i" },    -- redo
+    ["<C-i>"] = { "<ESC>ui" },     -- undo
+    ["<C-o>"] = { "<ESC><C-r>i" }, -- redo
   },
 
   ---------------------------------------------------------------
