@@ -25,8 +25,9 @@ M.general = {
     ["<C-f>"] = { "<ESC>" },
     ["<C-c>"] = { "<ESC>" },
 
-    -- Quit
+    -- Quit, Save, Quit without save
     ["<leader>q"] = { ":q<CR>", "Quit" },
+    ["<leader>w"] = { ":w<CR>", "Save" },
     ["<leader>Q"] = { ":q!<CR>", "Quit without save" },
 
     -- cursor movement
