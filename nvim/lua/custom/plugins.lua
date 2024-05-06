@@ -7,6 +7,7 @@ local overrides = require("custom.configs.overrides")
 -- $ brew install universal-ctags
 -- $ brew install ripgrep
 -- $ brew install pyright
+-- $ brew install black
 
 ---------------------------------------------------------------------------
 -- Plugins
