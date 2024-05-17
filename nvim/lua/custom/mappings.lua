@@ -5,9 +5,8 @@ local M = {}
 -- Mappings
 -----------------------------------------------------------------
 --
--- 1. [ ~/.config/nvim/lua/core/mappings.lua ]
---    1) Comment out'<leader>ls', <leader>lf.
---    2) Replace <leader>w to <leader>e
+-- Comment out'<leader>ls', <leader>lf.
+-- [ ~/.config/nvim/lua/core/mappings.lua ]
 --
 -----------------------------------------------------------------
 
@@ -21,9 +20,8 @@ M.general = {
     ["<C-f>"] = { "<ESC>" },
     ["<C-c>"] = { "<ESC>" },
 
-    -- Quit, Save, Quit without save
+    -- Quit, Quit without save
     ["<leader>q"] = { ":q<CR>", "Quit" },
-    ["<leader>w"] = { ":w<CR>", "Save" },
     ["<leader>Q"] = { ":q!<CR>", "Quit without save" },
 
     -- cursor movement
