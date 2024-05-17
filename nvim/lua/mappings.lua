@@ -7,7 +7,11 @@ local M = {}
 --
 -- 1. [ ~/.config/nvim/lua/core/mappings.lua ]
 --    1) Comment out'<leader>ls', <leader>lf.
---    2) Replace <leader>w to <leader>e
+--    2) Replace <leader>ma to <leader>ta
+--    3) Replace <leader>w to <leader>e
+--
+-- 2. [ ~/.config/nvim/lua/plugins/configs/cmp.lua ]
+--    1) Comment out'<Tab>' and <S-Tab>  (to use <Tab> in codeium)
 --
 -----------------------------------------------------------------
 
@@ -46,11 +50,15 @@ M.general = {
     ["sj"] = { "<C-w>j" },
     ["sl"] = { "<C-w>l" },
     -- Resize window
-    ["<A-k>"] = { "<C-w>2+" },
-    ["<A-j>"] = { "<C-w>2-" },
-    ["<A-l>"] = { "<C-w>2>" },
-    ["<A-h>"] = { "<C-w>2<" },
-    ["<A-m>"] = { "<C-w>=" },
+    ["<A-p>"] = { "<C-W>2+" },
+    ["<A-n>"] = { "<C-W>2-" },
+    ["<A-.>"] = { "<C-W>2>" },
+    ["<A-,>"] = { "<C-W>2<" },
+    ["<A-m>"] = { "<C-W>=" },
+    ["<A-k>"] = { "<C-W>k<C-W>_" },
+    ["<A-j>"] = { "<C-W>j<C-W>_" },
+    ["<A-l>"] = { "<C-W>l<C-W>|" },
+    ["<A-h>"] = { "<C-W>h<C-W>|" },
 
     -- Tab
     ["te"] = { ":tabedit " },
@@ -149,6 +157,8 @@ M.general = {
     ["<C-u>"] = { "<ESC><RIGHT>d^i" },
     ["<C-k>"] = { "<ESC><RIGHT>C" },
     ["<C-CR>"] = { "<ESC>o" },
+    ["<C-i>"] = { "<ESC>ui" },     -- undo
+    ["<C-o>"] = { "<ESC><C-r>i" }, -- redo
   },
 
   ---------------------------------------------------------------

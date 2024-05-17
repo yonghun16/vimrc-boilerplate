@@ -8,7 +8,6 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
---
 
 
 ------------------------------------------------------------------
@@ -31,7 +30,7 @@ vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 vim.opt.numberwidth = 4
 vim.opt.updatetime = 200
-vim.g.codeium_enabled = false -- Codeium Off
+
 
 ------------------------------------------------------------------
 -- NeoVide Options

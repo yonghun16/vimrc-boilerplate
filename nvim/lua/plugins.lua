@@ -14,19 +14,6 @@ local overrides = require("custom.configs.overrides")
 ---------------------------------------------------------------------------
 ---@type NvPluginSpec[]
 local plugins = {
-  -- vim-codeium
-  {
-    "Exafunction/codeium.vim", -- :Codeium Auth
-    event = "VimEnter",
-    config = function ()
-      -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set('i', '<RIGHT>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-s-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-s-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
-    end
-  },
-
   -- JABS.nvim
   {
     "matbme/JABS.nvim",
@@ -56,6 +43,12 @@ local plugins = {
   {
     "tpope/vim-surround",
     event = "VimEnter",
+  },
+
+  -- vim-codeium
+  {
+    "Exafunction/codeium.vim", -- :Codeium Auth
+    event = "VimEnter"
   },
 
   -- vim-visual-multi
