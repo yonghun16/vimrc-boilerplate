@@ -69,21 +69,22 @@ M.general = {
     ["<leader>,"] = { "<cmd>ToggleTerm direction=float<CR>", "Terminal" },
     ["<leader><"] = {
       "<cmd>ToggleTerm size=10 direction=horizontal <CR>",
-      "Terminal bottom",
+      "Terminal(bottom)",
     },
     ["<leader>."] = { "<cmd>NeoAIToggle<CR>", "NeoAI" },
+    ["<leader>>"] = { "<cmd>CodeiumToggle<CR>", "Codeium" },
     ["<leader><tab>"] = { "<cmd>JABSOpen<CR>", "Buffer Switcher" },
     ["<leader><ESC>"] = { "<cmd>Nvdash<CR>", "Nvdash" },
 
     -- Goto Preview (plugin)
-    ["<leader>pd"] = { ":lua require('goto-preview').goto_preview_definition()<CR>" },
-    ["<leader>pt"] = { ":lua require('goto-preview').goto_preview_type_definition()<CR>" },
-    ["<leader>pi"] = { ":lua require('goto-preview').goto_preview_implementation()<CR>" },
-    ["<leader>pD"] = { ":lua require('goto-preview').goto_preview_declaration()<CR>" },
-    ["<leader>P"] = { ":lua require('goto-preview').close_all_win()<CR>" },
-    ["<leader>pr"] = { ":lua require('goto-preview').goto_preview_references()<CR>" },
+    ["<leader>pd"] = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>" },
+    ["<leader>pt"] = { "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>" },
+    ["<leader>pi"] = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>" },
+    ["<leader>pD"] = { "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>" },
+    ["<leader>P"] = { "<cmd>lua require('goto-preview').close_all_win()<CR>" },
+    ["<leader>pr"] = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>" },
     -- Barbecue (plugins)
-    ["<leader>b"] = { "<cmd>Barbecue toggle<CR>", "Barbecue toggle" },
+    ["<leader>b"] = { "<cmd>Barbecue toggle<CR>", "Barbecue" },
 
     -- highlight clear
     ["<leader><SPACE>"] = { '<cmd>let @/=""<CR>', "Highlight clear" },

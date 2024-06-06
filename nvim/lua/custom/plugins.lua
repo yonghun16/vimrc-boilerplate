@@ -17,7 +17,7 @@ local plugins = {
   -- vim-codeium
   {
     "Exafunction/codeium.vim", -- :Codeium Auth
-    event = "VimEnter",
+    event = "BufReadPre",
     config = function ()
       -- Change '<C-g>' here to any keycode you like.
       vim.keymap.set('i', '<RIGHT>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })

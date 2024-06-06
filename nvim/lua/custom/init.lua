@@ -23,8 +23,7 @@ vim.cmd 'autocmd Filetype py setlocal ts=4 sw=4 expandtab'
 ------------------------------------------------------------------
 -- Basic options
 ------------------------------------------------------------------
-vim.g.codeium_enabled = false -- Codeium Off
-
+-- vim.g.codeium_enabled = false -- Codeium Off
 vim.g.mapleader = ","
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
