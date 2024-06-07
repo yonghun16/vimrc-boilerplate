@@ -97,6 +97,7 @@ M.treesitter = {
     "lua",
     "html",
     "css",
+    "java",
     "javascript",
     "typescript",
     "tsx",
@@ -134,10 +135,13 @@ M.mason = {
     -- shell stuff
     "shfmt",
 
-    --python
+    -- python stuff
     "pyright",
     "python-lsp-server",
     "mypy",
+
+    -- java stuff
+    "jdtls",
   },
 }
 
