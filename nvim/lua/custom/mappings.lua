@@ -145,8 +145,8 @@ M.general = {
     ["<C-a>"] = { "<ESC>^i" },
     ["<C-e>"] = { "<ESC>$a" },
     ["<C-d>"] = { "<DEL>" },
-    ["<C-u>"] = { "<ESC><RIGHT>d^i" },
-    ["<C-k>"] = { "<ESC><RIGHT>C" },
+    ["<C-u>"] = { "<ESC>d^xi" },
+    ["<C-k>"] = { "<ESC><Right>C" },
     ["<C-CR>"] = { "<ESC>o" },
   },
 

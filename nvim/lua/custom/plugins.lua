@@ -8,6 +8,7 @@ local overrides = require("custom.configs.overrides")
 -- $ brew install ripgrep
 -- $ brew install pyright
 -- $ brew install black
+-- $ brew install jdtls
 
 ---------------------------------------------------------------------------
 -- Plugins
@@ -17,7 +18,7 @@ local plugins = {
   -- vim-codeium
   {
     "Exafunction/codeium.vim", -- :Codeium Auth
-    event = "BufReadPre",
+    event = "BufEnter",
     config = function ()
       -- Change '<C-g>' here to any keycode you like.
       vim.keymap.set('i', '<RIGHT>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
