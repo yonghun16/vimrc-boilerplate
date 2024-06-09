@@ -17,6 +17,18 @@ local plugins = {
     end
   },
 
+  -- vim-pug (pug문법 사용)
+  {
+    "digitaltoad/vim-pug",
+    event = "FileType pug",
+  },
+
+  -- emmet-vim (emmet 문법 사용)
+  {
+    "mattn/emmet-vim",
+    event = "FileType html",
+  },
+
   -- vim-illuminate (단어 하이라이트)
   {
     "RRethy/vim-illuminate",
@@ -29,16 +41,10 @@ local plugins = {
     lazy = false
   },
 
-  -- vim-pug (pug문법 사용)
+  -- vim-visual-multi (멀티 커서)
   {
-    "digitaltoad/vim-pug",
-    event = "FileType pug",
-  },
-
-  -- emmet-vim (emmet 문법 사용)
-  {
-    "mattn/emmet-vim",
-    event = "FileType html",
+    "mg979/vim-visual-multi",
+    event = "vimEnter",
   },
 
 

@@ -6,53 +6,35 @@
 
 ## 1. Nvchad & Neovide
 - Nvchad : https://nvchad.com
-- Neovide : https://neovide.dev
 
 ### Install
 ```shell
 $ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-$ brew install --cask neovide
 ```
 
 ### Update
-* :NvChadUpdate
+* :Lazy
 
 ### Config
 ```shell
 $ cp -r nvim ~/.config
 ```
 
-```shell
-$ vi ~/.zshrc
-
-alias vi="nvim"
-alias vide="neovide"
-# OPENAI_API_KEY for NeoAI
-export OPENAI_API_KEY='sk-xeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx'
-```
 
 ## 2. Plugins 
-- utilyre/barbecue.nvim
-- SmiteshP/nvim-navic
-- folke/noice.nvim
-- matbme/JABS.nvim
-- akinsho/toggleterm.nvim
-- MunifTanjim/nui.nvim
-- farmergreg/vim-lastplace
-- mg979/vim-visual-multi   
-- simrat39/symbols-outline.nvim
-- digitaltoad/vim-pug      
-- mattn/emmet-vim          
-- tpope/vim-surround       
-- rmagatti/goto-preview
-- SmiteshP/nvim-navbuddy
-- RRethy/vim-illuminate
-- Tastyep/structlog.nvim
-- JoosepAlviste/nvim-ts-context-commentstring
-- folke/lsp-colors.nvim
-- williamboman/mason.nvim
-- Exafunction/codeium.vim
-- Bryley/neoai.nvim
+- vim-codeium (AI 자동완성)
+- vim-illuminate (단어 하이라이트)
+- vim-lastplace (커서 마지막 위치 저장)
+- vim-pug (pug문법 사용)
+- emmet-vim (emmet 문법 사용)
+- symbols-outline (코드 아웃라인 보기)
+- tagbar (코드 아웃라인 보기)
+- JABS.nvim (버퍼 리스트 보기)
+- toggleterm.nvim (터미널 보기)
+- nvim-navbuddy (코드 네비게이터 보기)
+- barbecue (상단 요소 정보 표시)
+- nvim-navic (for barbecue, navbuddy)
+- nui.nvim (for navbuddy)
 
 
 ## 3. Other settings
