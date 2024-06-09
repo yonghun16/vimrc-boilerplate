@@ -1,22 +1,71 @@
 ---------------------------------------------------------------------------
 -- VimScript plugins config
 ---------------------------------------------------------------------------
--- visual-multi
-vim.cmd([[ let g:VM_maps = {} ]])
-vim.cmd([[ let g:VM_maps["Find Under"]   = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Find Subword Under"]   = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Add Cursor At Pos"]   = '<C-RIGHT>' ]])
-
 -- emmet-vim
 vim.g.user_emmet_leader_key = ','
 
 -- tagbar
 vim.cmd([[ let g:tagbar_width = '30' ]])
 
+
 ---------------------------------------------------------------------------
 -- Lua plugins config
 ---------------------------------------------------------------------------
 local M = {}
+
+M.mason = {
+  ensure_installed = {
+    -- lua stuff
+    "lua-language-server",
+    "stylua",
+
+    -- web dev stuff
+    "css-lsp",
+    "html-lsp",
+    "typescript-language-server",
+    "deno",
+    "prettier",
+
+    -- c/cpp stuff
+    "clangd",
+    "clang-format",
+
+    -- shell stuff
+    "shfmt",
+
+    -- python stuff
+    "pyright",
+    "python-lsp-server",
+    "mypy",
+
+    -- java stuff
+    "jdtls",
+  },
+}
+
+M.treesitter = {
+  ensure_installed = {
+    "vim",
+    "lua",
+    "html",
+    "css",
+    "java",
+    "javascript",
+    "typescript",
+    "tsx",
+    "c",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "json",
+  },
+  indent = {
+    enable = true,
+    -- disable = {
+    --   "python"
+    -- },
+  },
+}
 
 M.navbuddy = {
   lsp = {
@@ -88,96 +137,7 @@ M.jabs = {
   },
 
   -- Whether to use nvim-web-devicons next to filenames
-  use_devicons = false -- true or false. Default true
-}
-
-M.treesitter = {
-  ensure_installed = {
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "java",
-    "javascript",
-    "typescript",
-    "tsx",
-    "c",
-    "markdown",
-    "markdown_inline",
-    "python",
-    "json",
-  },
-  indent = {
-    enable = true,
-    -- disable = {
-    --   "python"
-    -- },
-  },
-}
-
-M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
-
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier",
-
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
-
-    -- shell stuff
-    "shfmt",
-
-    -- python stuff
-    "pyright",
-    "python-lsp-server",
-    "mypy",
-
-    -- java stuff
-    "jdtls",
-  },
-}
-
--- git support in nvimtree
-local function my_on_attach(bufnr)
-  local api = require('nvim-tree.api')
-
-  local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
-
-  -- OR use all default mappings
-  api.config.mappings.default_on_attach(bufnr)
-
-  -- remove a default
-  vim.keymap.del('n', 's', { buffer = bufnr })
-
-  -- add your mappings
-  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-  ---
-end
-
-M.nvimtree = {
-  on_attach = my_on_attach,
-  git = {
-    enable = true,
-  },
-
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
-  },
+  use_devicons = true -- true or false. Default true
 }
 
 
