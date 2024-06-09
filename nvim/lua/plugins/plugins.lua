@@ -1,5 +1,16 @@
 local overrides = require("configs.overrides")
 
+
+---------------------------------------------------------------------------
+-- Addtional plugins
+---------------------------------------------------------------------------
+-- $ brew install fd
+-- $ brew install universal-ctags
+-- $ brew install ripgrep
+-- $ brew install pyright
+-- $ brew install black
+
+
 local plugins = {
   -------------------------------------------
   -- 문법 플러그인

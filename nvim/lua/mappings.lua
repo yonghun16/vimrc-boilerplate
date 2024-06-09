@@ -16,7 +16,7 @@ map({"n", "v", "c"}, "<C-f>", "<ESC>")
 
 -- Quit, Quit without save
 map("n", "<leader>q", ":q<CR>", {desc = "Quit"})
-map("n", "<leader>Q", ":q!<CR>", {desc = "Quit"})
+map("n", "<leader>Q", ":q!<CR>", {desc = "Quit with save"})
 
 -- cursor movement
 map("n", "<C-k>", "3k")
