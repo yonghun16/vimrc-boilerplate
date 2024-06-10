@@ -2,8 +2,6 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
--- ESC
-map({"n", "v", "c"}, "<C-f>", "<ESC>")
 
 -- Quit, Quit without save
 map("n", "<leader>q", ":q<CR>", {desc = "Quit"})
@@ -12,14 +10,16 @@ map("n", "<leader>Q", ":q!<CR>", {desc = "Quit with save"})
 -- cursor movement
 map({"n", "v"}, "<C-k>", "3k")
 map({"n", "v"}, "<C-j>", "3j")
-map({"n", "v"}, "<C-s-k>", "10k")
-map({"n", "v"}, "<C-s-j>", "10j")
 map({"n", "v"}, "<C-l>", "$")
 map({"n", "v"}, "<C-h>", "^")
+map({"n", "v"}, "<C-s-k>", "10k")
+map({"n", "v"}, "<C-s-j>", "10j")
 
 -- page movement
 map({"n", "v"}, "<C-n>", "3<C-e>")
 map({"n", "v"}, "<C-p>", "3<C-y>")
+map({"n", "v"}, "<C-f>", "<C-d>")
+map({"n", "v"}, "<C-d>", "<C-u>")
 
 -- Sidebar
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvim Tree"})
