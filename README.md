@@ -15,7 +15,7 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 - Delete the .git folder from nvim folder.
 
 ### Update
-- RUN :Lazy  and sync command
+- Run :Lazy then sync command
 
 ### Config
 ```shell
