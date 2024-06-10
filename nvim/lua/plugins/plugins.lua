@@ -1,5 +1,4 @@
-local overrides = require("configs.overrides")
-
+local overrides = require "configs.overrides"
 
 ---------------------------------------------------------------------------
 -- Addtional plugins
@@ -10,7 +9,6 @@ local overrides = require("configs.overrides")
 -- $ brew install pyright
 -- $ brew install black
 
-
 local plugins = {
   -------------------------------------------
   -- 문법 플러그인
@@ -19,13 +17,13 @@ local plugins = {
   {
     "Exafunction/codeium.vim", -- :Codeium Auth
     event = "VimEnter",
-    config = function ()
+    config = function()
       -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set('i', '<Tab>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-s-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-s-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
-      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
-    end
+      vim.keymap.set("i", "<Tab>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set("i", "<c-s-n>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
+      vim.keymap.set("i", "<c-s-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
+      vim.keymap.set("i", "<c-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true, silent = true })
+    end,
   },
 
   -- vim-pug (pug문법 사용)
@@ -49,7 +47,7 @@ local plugins = {
   -- vim-lastplace (커서 마지막 위치 저장)
   {
     "farmergreg/vim-lastplace",
-    lazy = false
+    lazy = false,
   },
 
   -- vim-visual-multi (멀티 커서)
@@ -58,10 +56,42 @@ local plugins = {
     event = "vimEnter",
   },
 
-
   -------------------------------------------
   -- 사이드 바 출력 플러그인
   -------------------------------------------
+  -- fzf (fzf 파일 탐색기 보기)
+ {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup {
+        keymap = {
+          builtin = {
+            ["<C-f>"] = "preview-page-down",
+            ["<C-d>"] = "preview-page-up",
+          },
+        },
+      }
+    end,
+  },
+
+  -- nvim-navbuddy (코드 네비게이터 보기)
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = overrides.navbuddy,
+      },
+    },
+  },
+
   -- symbols-outline (코드 아웃라인 보기)
   {
     "simrat39/symbols-outline.nvim",
@@ -71,10 +101,10 @@ local plugins = {
     end,
     cmd = "SymbolsOutline",
   },
-  -- tagbar (코드 아웃라인 보기)
+  -- tagbar (코드 태그 보기)
   {
     "preservim/tagbar",
-    cmd = "TagbarToggle"
+    cmd = "TagbarToggle",
   },
 
   -- JABS.nvim (버퍼 리스트 보기)
@@ -98,22 +128,6 @@ local plugins = {
     event = "VimEnter",
   },
 
-  -- nvim-navbuddy (코드 네비게이터 보기)
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "SmiteshP/nvim-navbuddy",
-        dependencies = {
-          "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim"
-        },
-        opts = overrides.navbuddy
-      }
-    },
-  },
-
-
   -------------------------------------------
   -- 상태 표시 플러그인
   -------------------------------------------
@@ -132,7 +146,6 @@ local plugins = {
     event = "BufReadPre",
   },
 
-
   -------------------------------------------
   -- 의존성 플러그인
   -------------------------------------------
@@ -142,11 +155,10 @@ local plugins = {
     requires = "neovim/nvim-lspconfig",
     config = function()
       require("nvim-navic").setup()
-    end
+    end,
   },
   -- nui.nvim (for navbuddy)
-  { "MunifTanjim/nui.nvim", },
-
+  { "MunifTanjim/nui.nvim" },
 }
 
 return plugins

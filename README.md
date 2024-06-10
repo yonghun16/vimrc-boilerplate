@@ -27,6 +27,7 @@ $ cp -r nvim ~/.config
 - vim-lastplace (커서 마지막 위치 저장)
 - vim-pug (pug문법 사용)
 - emmet-vim (emmet 문법 사용)
+- fzf-lua (fzf 파일 탐색기 보기)
 - symbols-outline (코드 아웃라인 보기)
 - tagbar (코드 아웃라인 보기)
 - JABS.nvim (버퍼 리스트 보기)

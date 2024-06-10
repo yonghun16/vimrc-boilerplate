@@ -12,8 +12,6 @@ o.cursorlineopt ='both' -- to enable cursorline!
 vim.cmd 'autocmd Filetype c setlocal ts=4 sw=4 expandtab'
 vim.cmd 'autocmd Filetype java setlocal ts=4 sw=4 expandtab'
 vim.cmd 'autocmd Filetype py setlocal ts=4 sw=4 expandtab'
-vim.cmd 'autocmd Filetype js setlocal ts=2 sw=2 expandtab'
-vim.cmd 'autocmd Filetype ts setlocal ts=2 sw=2 expandtab'
 vim.cmd 'autocmd Filetype pug setlocal ts=4 sw=4 expandtab'
 
 
