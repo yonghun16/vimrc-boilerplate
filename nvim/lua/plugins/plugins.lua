@@ -15,10 +15,9 @@ local plugins = {
     event = "VimEnter",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set("i", "<Tab>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set("i", "<s-space>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
       vim.keymap.set("i", "<c-s-n>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
       vim.keymap.set("i", "<c-s-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true, silent = true })
     end,
   },
 
@@ -56,7 +55,7 @@ local plugins = {
   -- 사이드 바 출력 플러그인
   -------------------------------------------
   -- fzf (fzf 파일 탐색기 보기)
- {
+  {
     "ibhagwan/fzf-lua",
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },

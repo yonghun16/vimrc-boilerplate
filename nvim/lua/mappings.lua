@@ -27,10 +27,10 @@ map("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal <CR>", {desc
 map("n", "<leader>k", "<cmd>Navbuddy<CR>")
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "Tagbar"})
+map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc="FZF file explorer" })
 map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "Terminal floating"})
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "Buffers"})
 map("n", "<leader><ESC>", "<cmd>Nvdash<CR>")
-map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc="FZF file explorer" })
 
 -- Terminal keymap on INSERT Mode
 map("i", "<C-h>", "<BACKSPACE>")
