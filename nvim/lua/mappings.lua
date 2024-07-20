@@ -22,12 +22,12 @@ map({"n", "v"}, "<C-f>", "<C-d>")
 map({"n", "v"}, "<C-d>", "<C-u>")
 
 -- Sidebar
-map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvim Tree"})
+map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvimtree"})
 map("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal <CR>", {desc = "Terminal bottom"})
 map("n", "<leader>k", "<cmd>Navbuddy<CR>")
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "Tagbar"})
-map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc="FZF file explorer" })
+map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", {silent = true, desc="FZF file explorer"})
 map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "Terminal floating"})
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "Buffers"})
 map("n", "<leader><ESC>", "<cmd>Nvdash<CR>")
@@ -59,7 +59,7 @@ map("n", "<A-h>", "<C-w>2<")
 map("n", "<A-m>", "<C-w>=" )
 
 -- Tab
-map("n", "te", ":tabedit ")
+map("n", "te", "<cmd>tabedit<CR>")
 map("n", "tx", "<cmd>tabclose<CR>")
 map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
@@ -70,18 +70,20 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
--- highlight clear
+-- Highlight clear
 map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
 
 -- Diffsplit
-map("n", "<leader>d", ":vert diffsplit ", {desc = "diffsplit"})
+map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
 
--- show Message
-map("n", "<leader>m", "<cmd>:messages<CR>", {desc = "Messages"})
+-- Show message
+map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
 
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 
--- Toggle wrap
-map("n", "<leader>z", "<cmd>lua Toggle_wrap()<CR>", {desc = "Wrap"})
+-- Toggle code wrap
+map("n", "<leader>z", "<cmd>lua Toggle_wrap()<CR>", {desc = "Toggle code wrap"})
 
+-- Toggle Codeium
+map("n", "<leader>.", "<cmd>CodeiumToggle<CR>", {desc = "Toggle Codeium"})
