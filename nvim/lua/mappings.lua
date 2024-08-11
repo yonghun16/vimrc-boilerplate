@@ -79,6 +79,8 @@ map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
 -- Show message
 map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
 
+map("n", "<leader>n", '<cmd>set rnu! nu!<CR>', {desc = "No Numberline"})
+
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 
