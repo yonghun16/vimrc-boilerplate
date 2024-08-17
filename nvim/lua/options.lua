@@ -5,16 +5,6 @@ require "nvchad.options"
 local o = vim.o
 o.cursorlineopt ='both' -- to enable cursorline!
 
-
-------------------------------------------------------------------
--- Language Setting
-------------------------------------------------------------------
-vim.cmd 'autocmd Filetype c setlocal ts=4 sw=4 expandtab'
-vim.cmd 'autocmd Filetype java setlocal ts=4 sw=4 expandtab'
-vim.cmd 'autocmd Filetype py setlocal ts=4 sw=4 expandtab'
-vim.cmd 'autocmd Filetype pug setlocal ts=4 sw=4 expandtab'
-
-
 ------------------------------------------------------------------
 -- Basic options
 ------------------------------------------------------------------
