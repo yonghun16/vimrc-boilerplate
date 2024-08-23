@@ -4,8 +4,8 @@ local map = vim.keymap.set
 
 
 -- Quit, Quit without save
-map("n", "<leader>q", ":q<CR>", {desc = "Quit"})
-map("n", "<leader>Q", ":q!<CR>", {desc = "Quit with save"})
+map("n", "<leader>q", "<cmd>q<CR>", {desc = "Quit"})
+map("n", "<leader>Q", "<cmd>q!<CR>", {desc = "Quit with save"})
 
 -- cursor movement
 map({"n", "v"}, "<C-k>", "3k")
@@ -65,8 +65,8 @@ map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
 
 -- 블록 위, 아래로 이동, 들여쓰기, 내어쓰기
-map("v", "<S-k>", ":m '<-2<CR>gv=gv")
-map("v", "<S-j>", ":m '>+1<CR>gv=gv")
+map("v", "<S-k>", "<cmd>m '<-2<CR>gv=gv")
+map("v", "<S-j>", "<cmd>m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
@@ -74,7 +74,7 @@ map("v", "<", "<gv")
 map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
 
 -- Diffsplit
-map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
+map("n", "<leader>d", "<cmd>vert diffsplit ", {desc = "Diffsplit"})
 
 -- Show message
 map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
@@ -83,7 +83,7 @@ map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
 map("n", "<leader>n", '<cmd>set rnu! nu!<CR>', {desc = "No Numberline"})
 
 -- git push
-map("n", "<leader>g", ':w<CR> :!git add * && git commit -m "update" && git push<CR>', {desc = "No Numberline"})
+map("n", "<leader>g", '<cmd>w<CR><cmd>!git add * && git commit -m "update" && git push<CR>', {desc = "git commit & push"})
 
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
@@ -92,4 +92,4 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 map("n", "<leader>z", "<cmd>lua Toggle_wrap()<CR>", {desc = "Toggle code wrap"})
 
 -- Toggle Codeium
-map("n", "<leader>.", "<cmd>CodeiumToggle<CR>", {desc = "Toggle Codeium"})
+map("n", "<leader>.", "<cmd>CodeiumToggle<CR><cmd>echo \"Codeium is toggled\"<CR>", {desc = "Toggle Codeium"})
