@@ -92,4 +92,4 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 map("n", "<leader>z", "<cmd>lua Toggle_wrap()<CR>", {desc = "Toggle code wrap"})
 
 -- Toggle Codeium
-map("n", "<leader>.", "<cmd>CodeiumToggle<CR><cmd>echo \"Codeium is toggled\"<CR>", {desc = "Toggle Codeium"})
+map("n", "<leader><SPACE>", "<cmd>CodeiumToggle<CR><cmd>echo \"Codeium is toggled\"<CR>", {desc = "Toggle Codeium"})
