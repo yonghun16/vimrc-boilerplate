@@ -3,7 +3,7 @@ local overrides = require "configs.overrides"
 ---------------------------------------------------------------------------
 -- Addtional plugins
 ---------------------------------------------------------------------------
--- $ brew install fd universal-ctags fzf ripgrep pyright black
+-- $ brew install fd universal-ctags luarocks fzf ripgrep pyright black
 
 local plugins = {
   -------------------------------------------

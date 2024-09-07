@@ -1,7 +1,8 @@
 require "nvchad.mappings"
 
-local map = vim.keymap.set
+-- add yours here
 
+local map = vim.keymap.set
 
 -- Quit, Quit without save
 map("n", "<leader>q", "<cmd>q<CR>", {desc = "Quit"})
@@ -74,7 +75,7 @@ map("v", "<", "<gv")
 map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
 
 -- Diffsplit
-map("n", "<leader>d", "<cmd>vert diffsplit ", {desc = "Diffsplit"})
+map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
 
 -- Show message
 map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
