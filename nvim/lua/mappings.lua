@@ -71,6 +71,9 @@ map("v", "<S-j>", "<cmd>m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
+-- Toggle Codeium
+map("n", "<S-SPACE>", "<cmd>CodeiumToggle<CR><cmd>echo \"Codeium is toggled\"<CR>", {desc = "Toggle Codeium"})
+
 -- Highlight clear
 map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
 
@@ -91,6 +94,3 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 
 -- Toggle code wrap
 map("n", "<leader>z", "<cmd>lua Toggle_wrap()<CR>", {desc = "Toggle code wrap"})
-
--- Toggle Codeium
-map("n", "<leader><SPACE>", "<cmd>CodeiumToggle<CR><cmd>echo \"Codeium is toggled\"<CR>", {desc = "Toggle Codeium"})

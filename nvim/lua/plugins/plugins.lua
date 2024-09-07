@@ -58,7 +58,7 @@ local plugins = {
   {
     "ibhagwan/fzf-lua",
     -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "echasnovski/mini.nvim" },
     config = function()
       -- calling `setup` is optional for customization
       require("fzf-lua").setup {
@@ -90,7 +90,7 @@ local plugins = {
   -- symbols-outline (코드 아웃라인 보기)
   {
     "simrat39/symbols-outline.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "echasnovski/mini.nvim" },
     config = function()
       require("symbols-outline").setup()
     end,
@@ -134,6 +134,7 @@ local plugins = {
     dependencies = {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
+      "echasnovski/mini.nvim",
     },
     opts = {
       -- configurations go here
