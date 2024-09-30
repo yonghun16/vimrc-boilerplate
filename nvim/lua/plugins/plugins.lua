@@ -15,9 +15,10 @@ local plugins = {
     event = "VimEnter",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set("i", "<s-space>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-s-n>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-s-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-S-f>",   function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set("i", "<S-Space>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-S-n>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-S-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
     end,
   },
 
