@@ -4,7 +4,10 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
--- Quit, Quit without save
+-- Quick ESC
+map("i", "<C-C>", "<ESC>")
+
+-- Quit
 map("n", "<leader>q", "<cmd>q<CR>", {desc = "Quit"})
 map("n", "<leader>Q", "<cmd>q!<CR>", {desc = "Quit with save"})
 
@@ -16,7 +19,7 @@ map({"n", "v"}, "<C-h>", "^")
 map({"n", "v"}, "<C-s-k>", "10k")
 map({"n", "v"}, "<C-s-j>", "10j")
 
--- Page movement
+-- Screen movement
 map({"n", "v"}, "<C-n>", "3<C-e>")
 map({"n", "v"}, "<C-p>", "3<C-y>")
 map({"n", "v"}, "<C-f>", "<C-d>")
@@ -28,7 +31,7 @@ map("n", "<D-j>", "<C-w>j")
 map("n", "<D-l>", "<C-w>l")
 map("n", "<D-h>", "<C-w>h")
 
--- Resize window
+-- Window resize
 map("n", "<D-p>", "<C-w>2+")
 map("n", "<D-n>", "<C-w>2-")
 map("n", "<D-.>", "<C-w>2>")
@@ -47,7 +50,7 @@ map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "Terminal f
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "Buffers"})
 map("n", "<leader><ESC>", "<cmd>Nvdash<CR>")
 
--- Terminal keymap on INSERT Mode
+-- Terminal keymap using on <INSERT> Mode
 map("i", "<C-h>", "<BACKSPACE>")
 map("i", "<C-f>", "<RIGHT>")
 map("i", "<C-b>", "<LEFT>")
@@ -58,7 +61,7 @@ map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><Right>C")
 map("i", "<C-CR>", "<ESC>o")
 
--- Terminal Mode keymap
+-- <TERMINAL> Mode keymap
 map("t", "<leader>,", "<cmd>:ToggleTerm<CR>")
 map("t", "<ESC>", "<C-\\><C-n>")
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
