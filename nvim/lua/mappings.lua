@@ -5,7 +5,7 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 -- Quick ESC
-map("i", "<C-C>", "<ESC>")
+map({"n", "v", "i"}, "<C-C>", "<ESC>")
 
 -- Quit
 map("n", "<leader>q", "<cmd>q<CR>", {desc = "Quit"})
