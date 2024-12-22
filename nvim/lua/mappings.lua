@@ -76,8 +76,8 @@ map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
 
 -- 블록 위, 아래로 이동, 들여쓰기, 내어쓰기
-map("v", "<S-k>", "<cmd>m '<-2<CR>gv=gv")
-map("v", "<S-j>", "<cmd>m '>+1<CR>gv=gv")
+map("v", "<S-k>", ":m '<-2<CR>gv=gv")
+map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
