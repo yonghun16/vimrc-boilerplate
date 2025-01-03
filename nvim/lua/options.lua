@@ -17,6 +17,7 @@ vim.opt.sidescrolloff = 3
 vim.opt.numberwidth = 4
 vim.opt.updatetime = 200
 vim.cmd('set rtp+=/opt/homebrew/opt/fzf')
+vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 
 ------------------------------------------------------------------
 -- Functions
