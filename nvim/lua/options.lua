@@ -29,25 +29,24 @@ function Compile()
     vim.cmd('w')
     vim.cmd(':! gcc -o ~/bin/c_code %<.c')
     vim.cmd('TermExec cmd="~/bin/c_code"')
-    vim.cmd('set norelativenumber nonu')
+    -- vim.cmd('set norelativenumber nonu')
   elseif filetype == "cpp" then
     vim.cmd('w')
     vim.cmd(':! g++ -o ~/bin/cpp_code %<.cpp')
     vim.cmd('TermExec cmd="~/bin/cpp_code"')
-    vim.cmd('set norelativenumber nonu')
   elseif filetype == "java" then
     vim.cmd('w')
     vim.cmd(':! javac -encoding utf-8 -d ~/bin %<.java')
     vim.cmd('TermExec cmd="java -cp ~/bin %"')
-    vim.cmd('set norelativenumber nonu')
   elseif filetype == "python" then
     vim.cmd('w')
     vim.cmd('TermExec cmd="python3 %<.py"')
-    vim.cmd('set norelativenumber nonu')
   elseif filetype == "javascript" then
     vim.cmd('w')
     vim.cmd('TermExec cmd="node %<.js"')
-    vim.cmd('set norelativenumber nonu')
+  elseif filetype == "typescript" then
+    vim.cmd('w')
+    vim.cmd('TermExec cmd="tsc %<.ts && node %<.js && rm -f %<.js"')
   else
     vim.cmd(':echo "This file is not source"')
   end
