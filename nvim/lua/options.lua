@@ -16,6 +16,7 @@ vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 vim.opt.numberwidth = 4
 vim.opt.updatetime = 200
+vim.opt.wrap = false
 vim.cmd('set rtp+=/opt/homebrew/opt/fzf')
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 
@@ -52,7 +53,7 @@ function Compile()
   end
 end
 
--- Auto Wrap
+-- Toggle Wrap
 function Toggle_wrap()
   vim.cmd('set wrap!')
 end

@@ -79,6 +79,7 @@ M.navbuddy = {
   },
   window = {
     -- size = "80%",    -- Or table format example: { height = "40%", width = "100%"}
+    size = "90%"
   },
 }
 
