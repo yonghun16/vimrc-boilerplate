@@ -9,21 +9,27 @@ local o = vim.o
 ------------------------------------------------------------------
 -- Basic options
 ------------------------------------------------------------------
+vim.opt.syntax = 'enable'
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 vim.opt.numberwidth = 4
-vim.opt.updatetime = 200
 vim.opt.wrap = false
+vim.opt.foldcolumn = '1'
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
+vim.opt.updatetime = 200
+vim.cmd('autocmd FileType c,cpp,java,python,javascript,typescript,html,css,pug setlocal foldmethod=indent')
 vim.cmd('set rtp+=/opt/homebrew/opt/fzf')
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
+
 
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
--- Compile
+-- Compile & Run
 function Compile()
   local filetype = vim.bo.filetype
   if filetype == "c" then
@@ -49,7 +55,7 @@ function Compile()
     vim.cmd('w')
     vim.cmd('TermExec cmd="tsc %<.ts && node %<.js && rm -f %<.js"')
   else
-    vim.cmd(':echo "This file is not source"')
+    vim.cmd(':echo "This file is not a source file."')
   end
 end
 
