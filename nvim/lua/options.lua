@@ -20,10 +20,10 @@ vim.opt.wrap = false
 vim.opt.foldcolumn = '1'
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
-vim.opt.updatetime = 200
-vim.cmd('autocmd FileType c,cpp,java,python,javascript,typescript,html,css,pug setlocal foldmethod=indent')
+vim.cmd('autocmd FileType python,javascript,typescript,c,cpp,java,html,css,pug setlocal foldmethod=syntax')
 vim.cmd('set rtp+=/opt/homebrew/opt/fzf')
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
+vim.opt.updatetime = 200
 
 
 ------------------------------------------------------------------
@@ -32,28 +32,30 @@ vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 -- Compile & Run
 function Compile()
   local filetype = vim.bo.filetype
-  if filetype == "c" then
-    vim.cmd('w')
-    vim.cmd(':! gcc -o ~/bin/c_code %<.c')
-    vim.cmd('TermExec cmd="~/bin/c_code"')
-    -- vim.cmd('set norelativenumber nonu')
-  elseif filetype == "cpp" then
-    vim.cmd('w')
-    vim.cmd(':! g++ -o ~/bin/cpp_code %<.cpp')
-    vim.cmd('TermExec cmd="~/bin/cpp_code"')
-  elseif filetype == "java" then
-    vim.cmd('w')
-    vim.cmd(':! javac -encoding utf-8 -d ~/bin %<.java')
-    vim.cmd('TermExec cmd="java -cp ~/bin %"')
-  elseif filetype == "python" then
+
+  if filetype == "python" then
     vim.cmd('w')
     vim.cmd('TermExec cmd="python3 %<.py"')
+    -- vim.cmd('set norelativenumber nonu')
   elseif filetype == "javascript" then
     vim.cmd('w')
     vim.cmd('TermExec cmd="node %<.js"')
   elseif filetype == "typescript" then
     vim.cmd('w')
-    vim.cmd('TermExec cmd="tsc %<.ts && node %<.js && rm -f %<.js"')
+    vim.cmd(':! tsc %<.ts --outDir ~/bin')
+    vim.cmd('TermExec cmd="node ~/bin/%<.js"')
+  elseif filetype == "c" then
+    vim.cmd('w')
+    vim.cmd(':! gcc -o ~/bin/% %<.c')
+    vim.cmd('TermExec cmd="~/bin/%"')
+  elseif filetype == "cpp" then
+    vim.cmd('w')
+    vim.cmd(':! g++ -o ~/bin/% %<.cpp')
+    vim.cmd('TermExec cmd="~/bin/%"')
+  elseif filetype == "java" then
+    vim.cmd('w')
+    vim.cmd(':! javac -encoding utf-8 -d ~/bin %<.java')
+    vim.cmd('TermExec cmd="java -cp ~/bin %"')
   else
     vim.cmd(':echo "This file is not a source file."')
   end
