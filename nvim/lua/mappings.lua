@@ -62,7 +62,7 @@ map("i", "<C-k>", "<ESC><Right>C")
 map("i", "<C-CR>", "<ESC>o")
 
 -- <TERMINAL> Mode keymap
-map("t", "<leader>,", "<cmd>:ToggleTerm<CR>")
+map("t", "<leader>,", "<cmd>ToggleTerm<CR>")
 map("t", "<ESC>", "<C-\\><C-n>")
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
@@ -75,11 +75,19 @@ map("n", "tx", "<cmd>tabclose<CR>")
 map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
 
--- 블록 위, 아래로 이동, 들여쓰기, 내어쓰기
+-- Move Visual block up, down, indent and outdent
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
 map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
+
+-- Compile
+map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
+
+-- Toggle
+map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>", {noremap = true, silent = true})
+map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>", {noremap = true, silent = true})
+map("n", "tc", "<cmd>lua ToggleCodeium()<CR>", {noremap = true, silent = true})
 
 -- Highlight clear
 map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
@@ -90,14 +98,5 @@ map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
 -- Show message
 map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
 
--- Show numberline
-map("n", "<leader>n", '<cmd>set rnu! nu!<CR>', {desc = "No Numberline"})
-
 -- git push
 map("n", "<leader>g", '<cmd>w<CR><cmd>!git add * && git commit -m "update" && git push<CR>', {desc = "git commit & push"})
-
--- Compile
-map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
-
--- Toggle code wrap
-map("n", "<leader>z", "<cmd>lua Toggle_wrap()<CR>", {desc = "Toggle code wrap"})
