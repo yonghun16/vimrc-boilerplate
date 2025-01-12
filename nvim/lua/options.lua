@@ -2,12 +2,13 @@ require "nvchad.options"
 
 -- add yours here!
 
-local o = vim.o
-o.cursorlineopt ='both' -- to enable cursorline!
-
 ------------------------------------------------------------------
 -- Basic options
 ------------------------------------------------------------------
+--- cursorline
+local o = vim.o
+o.cursorlineopt = "both" -- to enable cursorline!
+
 -- tab size
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -38,11 +39,21 @@ vim.opt.wrap = false
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 vim.opt.updatetime = 200
 
+
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
+-- [fzf]
 vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
+
+-- [Codeium]
 vim.g.codeium_enabled = true
+
+-- [indent-blankline] : Change highlight to underline
+require("ibl").update {
+  vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }),
+}
+
 
 ------------------------------------------------------------------
 -- Functions
