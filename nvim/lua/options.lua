@@ -39,19 +39,34 @@ vim.opt.wrap = false
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 vim.opt.updatetime = 200
 
+
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
--- [fzf]
+-- fzf
 vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
--- [Codeium]
+-- Codeium
 vim.g.codeium_enabled = true
 
--- [indent-blankline] : Change highlight to underline
+-- indent-blankline
 require("ibl").update {
   vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }),
 }
+
+-- nim-navbuddy
+require("nvim-navbuddy").setup {
+  lsp = {
+    auto_attach = true
+  },
+  window = {
+    size = "90%"   -- Or table format example: { height = "40%", width = "100%"}
+  },
+  mappings = {
+    ["<leader>k"] = require("nvim-navbuddy.actions").close(),
+  }
+}
+
 
 ------------------------------------------------------------------
 -- Functions

@@ -73,16 +73,6 @@ M.treesitter = {
   },
 }
 
-M.navbuddy = {
-  lsp = {
-    auto_attach = true
-  },
-  window = {
-    -- size = "80%",    -- Or table format example: { height = "40%", width = "100%"}
-    size = "90%"
-  },
-}
-
 M.jabs = {
   position = { 'center', 'center' }, -- position = {'<position_x>', '<position_y>'} | <position_x> left, center, right,
 
