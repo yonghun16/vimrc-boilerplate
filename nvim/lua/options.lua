@@ -39,7 +39,6 @@ vim.opt.wrap = false
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 vim.opt.updatetime = 200
 
-
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
@@ -53,7 +52,6 @@ vim.g.codeium_enabled = true
 require("ibl").update {
   vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }),
 }
-
 
 ------------------------------------------------------------------
 -- Functions
