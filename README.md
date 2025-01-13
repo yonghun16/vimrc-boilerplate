@@ -55,8 +55,8 @@ rm -rf ~/.local/state/nvim
 
 ### BetterTouchTool
 - BetterTouchTool : https://folivora.ai/ 
-- config file : Default.bttpreset
+- config file : yonghun16_btt.bttpreset
 
 ### Iterm2
 - Iterm2 : https://iterm2.com/
-- config file : Default.json
+- config file : yonghun16_iterm.json
