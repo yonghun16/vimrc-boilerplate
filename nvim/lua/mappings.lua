@@ -40,18 +40,33 @@ map("n", "<D-,>", "<C-w>2<")
 map("n", "<D-m>", "<C-w>=" )
 map("n", "<D-S-c>", "<C-w>c" )
 
--- Sidebar
-map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvimtree"})
-map("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal <CR>", {desc = "Terminal bottom"})
-map("n", "<leader>k", "<cmd>Navbuddy<CR>", {desc = "Navbuddy"})
+-- Sidebar function
+map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvimtree"}) vim.api.nvim_del_keymap("n", "<leader>e")
+map("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal <CR>", {desc = "Terminal(bottom)"})
+map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>" , { desc = "Diagnostics list" }) vim.api.nvim_del_keymap("n", "<leader>ds")
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "Tagbar"})
-map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", {silent = true, desc="FZF file explorer"})
-map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "Terminal floating"})
-map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "Buffers"})
-map("n", "<leader><ESC>", "<cmd>Nvdash<CR>", {desc = "Nvdash"})
 
--- Terminal keymap using on <INSERT> Mode
+-- Floting window function
+map("n", "<leader>k", "<cmd>Navbuddy<CR>", {desc = "Navbuddy"})
+map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", {desc="FZF file explorer"})
+map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "Terminal(floating)"})
+map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "Buffers"})
+
+-- Show information
+map("n", "s", "")
+map("n", "ss", "<cmd>Nvdash<CR>") -- Nvdash
+map("n", "sm", "<cmd>message<CR>") -- Message
+map("n", "sd", "<cmd>lua vim.diagnostic.open_float()<CR>") -- Diagnostic
+map("n", "sk", "<cmd>lua vim.lsp.buf.hover()<CR>") -- Keyword manpage
+map("n", "sl", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- Lsp signature help 
+
+-- Toggle function
+map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")  -- Wrap
+map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>") -- Foldcolumn
+map("n", "tc", "<cmd>lua ToggleCodeium()<CR>")  -- Codeium
+
+-- Using Terminal keymap on <Insert> mode
 map("i", "<C-h>", "<BACKSPACE>")
 map("i", "<C-f>", "<RIGHT>")
 map("i", "<C-b>", "<LEFT>")
@@ -62,13 +77,13 @@ map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><Right>C")
 map("i", "<C-CR>", "<ESC>o")
 
--- <TERMINAL> Mode keymap
-map("t", "<leader>,", "<cmd>ToggleTerm<CR>")
-map("t", "<ESC>", "<C-\\><C-n>")
+-- Using Terminal keymap on <Terminal> mode
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
+map("t", "<leader>,", "<cmd>ToggleTerm<CR>")
+map("t", "<ESC>", "<C-\\><C-n>")
 
 -- Tab
 map("n", "te", "<cmd>tabedit<CR>")
@@ -85,21 +100,11 @@ map("v", "<", "<gv")
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 
--- Toggle (Wrap, Foldcolumn, Codeium)
-map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")
-map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>")
-map("n", "tc", "<cmd>lua ToggleCodeium()<CR>")
-
--- Message (Message, Diagnostic, Keyword Manpage)
-map("n", "mm", "<cmd>message<CR>")
-map("n", "md", "<cmd>lua vim.diagnostic.open_float()<CR>")
-map("n", "mk", "<cmd>lua vim.lsp.buf.hover()<CR>")
-
 -- Highlight clear
 map("n", "<leader><SPACE>", "<cmd>noh<CR>", {desc = "Highlight clear"})
 
--- Diffsplit
-map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
+-- Vert Diffsplit
+map("n", "<leader>v", ":vert diffsplit ", {desc = "Diffsplit"})
 
 -- Git push
 map("n", "<leader>g", "<cmd>w<CR><cmd>!git add * && git commit -m 'update' && git push<CR>", {desc = "git commit & push"})

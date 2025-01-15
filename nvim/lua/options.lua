@@ -135,3 +135,22 @@ function ToggleCodeium()
     print "Codeium disabled"
   end
 end
+
+-- Toogle Diagnostic quickfix list
+function ToggleDiagnostics_qflist()
+    local qf_open = false
+    for _, win in ipairs(vim.fn.getwininfo()) do
+        if win.quickfix == 1 then
+            qf_open = true
+            break
+        end
+    end
+
+    if qf_open then
+        vim.cmd("cclose")
+    else
+        vim.diagnostic.setqflist() -- LSP 진단 정보를 quickfix list에 설정
+        vim.cmd("copen")
+    end
+end
+

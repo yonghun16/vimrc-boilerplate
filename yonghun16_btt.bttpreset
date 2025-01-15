@@ -160,7 +160,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : false,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "3137A56A-E600-4C16-83C9-7303DB10F384",
+  "BTTPresetUUID" : "C4F94DFE-0973-4BB9-882B-B62728075230",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "com.apple.finder",
@@ -352,21 +352,21 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676461,
+          "BTTLastUpdatedAt" : 1736965038.5737071,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "B4A7850D-BF59-4E62-84EB-D85A48809ECB",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1179658",
+          "BTTAdditionalConfiguration" : "1048584",
           "BTTKeyboardShortcutScope" : 0,
           "BTTKeyboardShortcutKeyboardType" : 1279,
           "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "✛",
+          "BTTLayoutIndependentChar" : "邊",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
           "BTTShortcutKeyCode" : 8,
-          "BTTShortcutModifierKeys" : 1179648,
+          "BTTShortcutModifierKeys" : 1048576,
           "BTTOrder" : 12,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [
@@ -803,7 +803,7 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676429,
+          "BTTLastUpdatedAt" : 1736963483.4094682,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "CFB9C732-5831-468F-937F-FA7D762520C0",
