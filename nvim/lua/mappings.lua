@@ -89,15 +89,16 @@ map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")
 map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>")
 map("n", "tc", "<cmd>lua ToggleCodeium()<CR>")
 
--- Message (Diagnostic, Message)
-map("n", "md", '<cmd>lua vim.diagnostic.open_float()<CR>')
-map("n", "mm", '<cmd>message<CR>')
+-- Message (Message, Diagnostic, Keyword Manpage)
+map("n", "mm", "<cmd>message<CR>")
+map("n", "md", "<cmd>lua vim.diagnostic.open_float()<CR>")
+map("n", "mk", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
 -- Highlight clear
-map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
+map("n", "<leader><SPACE>", "<cmd>noh<CR>", {desc = "Highlight clear"})
 
 -- Diffsplit
 map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
 
 -- Git push
-map("n", "<leader>g", '<cmd>w<CR><cmd>!git add * && git commit -m "update" && git push<CR>', {desc = "git commit & push"})
+map("n", "<leader>g", "<cmd>w<CR><cmd>!git add * && git commit -m 'update' && git push<CR>", {desc = "git commit & push"})
