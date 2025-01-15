@@ -107,10 +107,8 @@ end
 function ToggleWrapCodes()
   if vim.wo.wrap then
     vim.wo.wrap = false
-    print "Line wrapping disabled"
   else
     vim.wo.wrap = true
-    print "Line wrapping enabled"
   end
 end
 
@@ -119,11 +117,9 @@ function ToggleFoldColumn()
   if vim.wo.foldcolumn == "0" then
     vim.wo.foldcolumn = "3"
     vim.wo.relativenumber = false
-    print "Foldcolumn enabled"
   else
     vim.wo.foldcolumn = "0"
     vim.wo.relativenumber = true
-    print "Foldcolumn disabled"
   end
 end
 

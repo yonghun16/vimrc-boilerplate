@@ -42,13 +42,13 @@ map("n", "<D-S-c>", "<C-w>c" )
 -- Sidebar
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvimtree"})
 map("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal <CR>", {desc = "Terminal bottom"})
-map("n", "<leader>k", "<cmd>Navbuddy<CR>")
+map("n", "<leader>k", "<cmd>Navbuddy<CR>", {desc = "Navbuddy"})
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "Tagbar"})
 map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", {silent = true, desc="FZF file explorer"})
 map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "Terminal floating"})
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "Buffers"})
-map("n", "<leader><ESC>", "<cmd>Nvdash<CR>")
+map("n", "<leader><ESC>", "<cmd>Nvdash<CR>", {desc = "Nvdash"})
 
 -- Terminal keymap using on <INSERT> Mode
 map("i", "<C-h>", "<BACKSPACE>")
@@ -75,7 +75,7 @@ map("n", "tx", "<cmd>tabclose<CR>")
 map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
 
--- Move Visual block up, down, indent and outdent
+-- Move Visual block (Up, Down, Indent, Outdent)
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
 map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
@@ -84,10 +84,14 @@ map("v", "<", "<gv")
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "Compile"})
 
--- Toggle
-map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>", {noremap = true, silent = true})
-map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>", {noremap = true, silent = true})
-map("n", "tc", "<cmd>lua ToggleCodeium()<CR>", {noremap = true, silent = true})
+-- Toggle (Wrap, Foldcolumn, Codeium)
+map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")
+map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>")
+map("n", "tc", "<cmd>lua ToggleCodeium()<CR>")
+
+-- Message (Diagnostic, Message)
+map("n", "md", '<cmd>lua vim.diagnostic.open_float()<CR>')
+map("n", "mm", '<cmd>message<CR>')
 
 -- Highlight clear
 map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
@@ -95,8 +99,5 @@ map("n", "<leader><SPACE>", '<cmd>noh<CR>', {desc = "Highlight clear"})
 -- Diffsplit
 map("n", "<leader>d", ":vert diffsplit ", {desc = "Diffsplit"})
 
--- Show message
-map("n", "<leader>m", '<cmd>message<CR>', {desc = "Messages"})
-
--- git push
+-- Git push
 map("n", "<leader>g", '<cmd>w<CR><cmd>!git add * && git commit -m "update" && git push<CR>', {desc = "git commit & push"})
