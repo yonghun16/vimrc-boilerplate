@@ -84,7 +84,7 @@ function Compile()
     vim.cmd 'TermExec cmd="node %<.js"'
   elseif filetype == "typescript" then
     vim.cmd "w"
-    vim.cmd ":! tsc %<.ts --outDir ~/bin"
+    vim.cmd ":! tsc % --outDir ~/bin"
     vim.cmd 'TermExec cmd="node ~/bin/%<.js"'
   elseif filetype == "c" then
     vim.cmd "w"
