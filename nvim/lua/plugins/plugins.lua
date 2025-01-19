@@ -139,7 +139,7 @@ local plugins = {
     opts = {
       -- configurations go here
     },
-    event = "BufReadPre",
+    event = "FileType",
   },
 
   -------------------------------------------

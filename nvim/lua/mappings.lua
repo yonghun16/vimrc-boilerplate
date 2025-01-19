@@ -5,7 +5,8 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 -- ESC
-map({"n", "v", "i"}, "<C-C>", "<ESC>")
+map({"n", "v", "i"}, "<C-c>", "<ESC>")
+map("t", "<ESC>", "<C-\\><C-n>")
 
 -- Quit
 map("n", "<C-q>", "<cmd>q<CR>")
@@ -42,7 +43,7 @@ map("n", "<D-S-c>", "<C-w>c" )
 
 -- Sidebar function
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvimtree"}) vim.api.nvim_del_keymap("n", "<leader>e")
-map("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal <CR>", {desc = "Terminal(bottom)"})
+map("n", "<leader>j", "<cmd>ToggleTerm size=13 direction=horizontal<CR>", {desc = "Terminal(bottom)"})
 map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>" , { desc = "Diagnostics list" }) vim.api.nvim_del_keymap("n", "<leader>ds")
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "Tagbar"})
@@ -83,7 +84,6 @@ map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 map("t", "<leader>,", "<cmd>ToggleTerm<CR>")
-map("t", "<ESC>", "<C-\\><C-n>")
 
 -- Tab
 map("n", "te", "<cmd>tabedit<CR>")
