@@ -43,7 +43,7 @@ map("n", "<D-S-c>", "<C-w>c" )
 
 -- Sidebar function
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "Nvimtree"}) vim.api.nvim_del_keymap("n", "<leader>e")
-map("n", "<leader>j", "<cmd>ToggleTerm size=13 direction=horizontal<CR>", {desc = "Terminal(bottom)"})
+map("n", "<leader>j", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", {desc = "Terminal(bottom)"})
 map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>" , { desc = "Diagnostics list" }) vim.api.nvim_del_keymap("n", "<leader>ds")
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "Tagbar"})
