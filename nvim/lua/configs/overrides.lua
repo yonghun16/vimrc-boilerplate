@@ -25,27 +25,29 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
+    -- javascript/typescript stuff
     "typescript-language-server",
+    "html-lsp",
+    "css-lsp",
     "deno",
     "prettier",
-
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
-
-    -- shell stuff
-    "shfmt",
 
     -- python stuff
     "pyright",
     "python-lsp-server",
     "mypy",
+    "black",
+    "ruff",
+
+    -- c/cpp stuff
+    "clangd",
+    "clang-format",
 
     -- java stuff
     "jdtls",
+
+    -- shell stuff
+    "shfmt",
   },
 }
 
