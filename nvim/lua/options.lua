@@ -84,8 +84,13 @@ function Compile()
     vim.cmd 'TermExec cmd="node %<.js"'
   elseif filetype == "typescript" then
     vim.cmd "w"
-    vim.cmd ":! tsc % --outDir ~/bin"
-    vim.cmd 'TermExec cmd="node ~/bin/%<.js"'
+    local tsconfig_exists = vim.fn.filereadable("tsconfig.json") == 1
+    if not tsconfig_exists then
+      vim.fn.writefile({ }, "tsconfig.json")
+    end
+    vim.cmd 'TermExec cmd="ts-node %<.ts"'
+    -- vim.cmd ":! tsc % --outDir ~/bin"
+    -- vim.cmd 'TermExec cmd="node ~/bin/%<.js"'
   elseif filetype == "c" then
     vim.cmd "w"
     vim.cmd ":! gcc -o ~/bin/% %<.c"
