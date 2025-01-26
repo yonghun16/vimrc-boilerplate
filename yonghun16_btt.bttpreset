@@ -1,7 +1,7 @@
 {
   "BTTPresetCreatorNotes" : "",
   "BTTPresetInfoURL" : "",
-  "BTTPresetName" : "Frontend16",
+  "BTTPresetName" : "yonghun16",
   "BTTPresetColor" : "244.800000, 227.664000, 97.920000, 255.000000",
   "BTTGeneralSettings" : {
     "BTTPathSampleSize" : 100,
@@ -53,7 +53,7 @@
     "BTTTpFourFingerSwipeSensitivity" : 0.40000000000000002,
     "BSTMoveTreshold" : 2,
     "BTTHideFomControlStripWhenOpen" : false,
-    "BTTNumberOfStarts" : 17965,
+    "BTTNumberOfStarts" : 17969,
     "BTTForceNormalClickPressure3F" : 150,
     "showSiriRemoteTab" : true,
     "SIRIScrollSpeed" : 1,
@@ -160,11 +160,11 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : false,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "C4F94DFE-0973-4BB9-882B-B62728075230",
+  "BTTPresetUUID" : "319339F8-E395-43CE-A325-97BAF9C72B83",
   "BTTPresetContent" : [
     {
-      "BTTAppBundleIdentifier" : "com.apple.finder",
-      "BTTAppName" : "Finder",
+      "BTTAppBundleIdentifier" : "BT.L",
+      "BTTAppName" : "Recently Used",
       "BTTAppAutoInvertIcon" : 1,
       "BTTTriggers" : [
 
@@ -226,64 +226,6 @@
       ]
     },
     {
-      "BTTAppBundleIdentifier" : "BT.G",
-      "BTTAppName" : "Global",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTAppSpecificSettings" : {
-        "BTTDisableGlobalTriggers" : false
-      },
-      "BTTTriggers" : [
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1713797568.388782,
-          "BTTTriggerType" : 624,
-          "BTTTriggerTypeDescriptionReadOnly" : "트리거를 선택해 주세요",
-          "BTTTriggerTypeDescription" : "Please Select a Trigger ",
-          "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
-          "BTTUUID" : "089B0CF2-E9DC-4525-90C7-10D31E94F1E7",
-          "BTTShortcutToSend" : "56,49",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTOrder" : 0,
-          "BTTGestureNotes" : "Please Select a Trigger ",
-          "BTTKeySequence" : {
-            "BTTPauseBetween" : 0.29999999999999999,
-            "BTTKeyCount" : 2,
-            "BTTKeySequenceDownKeys" : [
-              {
-                "BTTKEYCode" : 54,
-                "BTTKEYDown" : 1,
-                "BTTKEYOrderRelevant" : 1,
-                "BTTKEYRequired" : 1,
-                "BTTKEYTime" : 675400256
-              }
-            ],
-            "BTTKeySequenceMixedKeys" : [
-              {
-                "BTTKEYCode" : 54,
-                "BTTKEYDown" : 1,
-                "BTTKEYOrderRelevant" : 1,
-                "BTTKEYRequired" : 1,
-                "BTTKEYTime" : 675400256
-              },
-              {
-                "BTTKEYCode" : 54,
-                "BTTKEYRequired" : 1,
-                "BTTKEYTime" : 675400256
-              }
-            ],
-            "BTTKeySequenceUpKeys" : [
-              {
-                "BTTKEYCode" : 54,
-                "BTTKEYRequired" : 1,
-                "BTTKEYTime" : 675400256
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
       "BTTAppBundleIdentifier" : "com.googlecode.iterm2",
       "BTTAppName" : "iTerm2",
       "BTTAppAutoInvertIcon" : 1,
@@ -292,7 +234,61 @@
       "BTTTriggers" : [
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1735106938.3656301,
+          "BTTLastUpdatedAt" : 1737929074.536309,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "C92FC513-9245-4C10-AFB7-567086424D17",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1310729",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 45,
+          "BTTShortcutModifierKeys" : 1310720,
+          "BTTOrder" : 5,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1737926884.5884061,
+              "BTTTriggerParentUUID" : "C92FC513-9245-4C10-AFB7-567086424D17",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "9C883444-821F-4C0F-975C-7A0D9EA3D31A",
+              "BTTLayoutIndependentActionChar" : "뼰",
+              "BTTShortcutToSend" : "56,28",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 101,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1737926888.9749651,
+              "BTTTriggerParentUUID" : "C92FC513-9245-4C10-AFB7-567086424D17",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "E324F0A2-A60F-49D9-97C1-8EEFC2B5046F",
+              "BTTLayoutIndependentActionChar" : "",
+              "BTTShortcutToSend" : "56,45",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 102,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "하이라이트 검색"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.536231,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "44E55B9E-F60F-47C2-9751-BC81E77C08F5",
@@ -328,11 +324,11 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1735106468.727855,
+              "BTTLastUpdatedAt" : 1737275773.106117,
               "BTTTriggerParentUUID" : "44E55B9E-F60F-47C2-9751-BC81E77C08F5",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "0D4454A7-3C85-4B01-A74F-970A6CE846BA",
+              "BTTUUID" : "D52896A9-6BBD-4446-8831-266604B546C9",
               "BTTLayoutIndependentActionChar" : "ESCAPE",
               "BTTShortcutToSend" : "53",
               "BTTKeyboardShortcutKeyboardType" : 0,
@@ -352,67 +348,86 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1736965038.5737071,
+          "BTTLastUpdatedAt" : 1737929074.536299,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "B4A7850D-BF59-4E62-84EB-D85A48809ECB",
+          "BTTUUID" : "F5671175-4620-4FA3-B4F2-C6B2E90FF595",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutScope" : 0,
+          "BTTAdditionalConfiguration" : "1179658",
           "BTTKeyboardShortcutKeyboardType" : 1279,
           "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "邊",
+          "BTTLayoutIndependentChar" : "",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 8,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 12,
+          "BTTShortcutKeyCode" : 45,
+          "BTTShortcutModifierKeys" : 1179648,
+          "BTTOrder" : 3,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727750267.201602,
-              "BTTTriggerParentUUID" : "B4A7850D-BF59-4E62-84EB-D85A48809ECB",
+              "BTTLastUpdatedAt" : 1737928981.6239429,
+              "BTTTriggerParentUUID" : "F5671175-4620-4FA3-B4F2-C6B2E90FF595",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "317801EB-6F6B-4E38-8153-A792A05B19C5",
-              "BTTShortcutToSend" : "59,13",
+              "BTTUUID" : "9D8D9814-D6DB-49AF-9F8F-2CC55E8EFFC3",
+              "BTTLayoutIndependentActionChar" : "嚰",
+              "BTTShortcutToSend" : "59,56,45",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 100,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "Codium 다음 문장"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.5362101,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "DA0CB34A-1527-4C10-868C-D73EA21B1E24",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1179658",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 35,
+          "BTTShortcutModifierKeys" : 1179648,
+          "BTTOrder" : 4,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1737928429.6414552,
+              "BTTTriggerParentUUID" : "DA0CB34A-1527-4C10-868C-D73EA21B1E24",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "6261B45E-EE44-498C-A288-3933DD310ED1",
+              "BTTLayoutIndependentActionChar" : "춀",
+              "BTTShortcutToSend" : "59,56,35",
               "BTTKeyboardShortcutKeyboardType" : 0,
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTShortcutKeyCode" : -1,
               "BTTOrder" : 99,
               "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727750289.5783639,
-              "BTTTriggerParentUUID" : "B4A7850D-BF59-4E62-84EB-D85A48809ECB",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "E1DD5D44-6225-4CD1-8ECF-054093784590",
-              "BTTLayoutIndependentActionChar" : "㬎",
-              "BTTShortcutToSend" : "8",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 103,
-              "BTTAutoAdaptToKeyboardLayout" : 0
             }
           ],
-          "BTTGestureNotes" : "분할창  닫기",
-          "BTTTriggerConfig" : {
-            "BTTKeyboardPreventRecursiveTriggers" : 1
-          }
+          "BTTGestureNotes" : "Codium 이전 문장"
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676455,
+          "BTTLastUpdatedAt" : 1737929074.5363421,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "5D228F98-0F5A-431F-B5B1-0A957667EE73",
+          "BTTUUID" : "B4D5F72B-1F20-4953-BA85-26B488CD8344",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "빈 자리 표시자",
           "BTTAdditionalConfiguration" : "1048584",
@@ -421,15 +436,101 @@
           "BTTLayoutIndependentChar" : "✛",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 15,
+          "BTTShortcutKeyCode" : 4,
           "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 1,
+          "BTTOrder" : 8,
           "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTGestureNotes" : "새로고침 없에기"
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727748155.407907,
+              "BTTTriggerParentUUID" : "B4D5F72B-1F20-4953-BA85-26B488CD8344",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "64AD189D-7048-4611-8B7C-BB5117D11881",
+              "BTTShortcutToSend" : "59,13",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 100,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727748169.719065,
+              "BTTTriggerParentUUID" : "B4D5F72B-1F20-4953-BA85-26B488CD8344",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "A1D59A35-3C67-4021-B35B-879CC020D9A6",
+              "BTTLayoutIndependentActionChar" : "㴎",
+              "BTTShortcutToSend" : "4",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 101,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "왼쪽 분할창 이동"
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.6764851,
+          "BTTLastUpdatedAt" : 1737929074.5363531,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "86DB58CD-A439-466C-B29F-7031E82160A0",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1048584",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "✛",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 37,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 9,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727748184.0478401,
+              "BTTTriggerParentUUID" : "86DB58CD-A439-466C-B29F-7031E82160A0",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "E232C097-5656-451A-9816-B6D375A11B2A",
+              "BTTShortcutToSend" : "59,13",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 100,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727748201.345825,
+              "BTTTriggerParentUUID" : "86DB58CD-A439-466C-B29F-7031E82160A0",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "0CE8EC0F-0583-4803-B45A-427726496200",
+              "BTTLayoutIndependentActionChar" : "뺖",
+              "BTTShortcutToSend" : "37",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 101,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "오른쪽 분할창 이동"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.53632,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "F72144B8-9C4A-4F6B-853A-6CD7FCBEABAA",
@@ -443,7 +544,7 @@
           "BTTEnabled2" : 1,
           "BTTShortcutKeyCode" : 47,
           "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 9,
+          "BTTOrder" : 12,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [
             {
@@ -497,10 +598,10 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676419,
+          "BTTLastUpdatedAt" : 1737929074.5363321,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "86DB58CD-A439-466C-B29F-7031E82160A0",
+          "BTTUUID" : "0A99BAF9-02C3-4FF1-B6E9-6C32D15EBBFF",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "빈 자리 표시자",
           "BTTAdditionalConfiguration" : "1048584",
@@ -509,18 +610,18 @@
           "BTTLayoutIndependentChar" : "✛",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 37,
+          "BTTShortcutKeyCode" : 38,
           "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 6,
+          "BTTOrder" : 7,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727748184.0478401,
-              "BTTTriggerParentUUID" : "86DB58CD-A439-466C-B29F-7031E82160A0",
+              "BTTLastUpdatedAt" : 1727748112.9421999,
+              "BTTTriggerParentUUID" : "0A99BAF9-02C3-4FF1-B6E9-6C32D15EBBFF",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "E232C097-5656-451A-9816-B6D375A11B2A",
+              "BTTUUID" : "8E6F9C1B-288F-4257-BBD9-CCAA023B907E",
               "BTTShortcutToSend" : "59,13",
               "BTTKeyboardShortcutKeyboardType" : 0,
               "BTTEnabled" : 1,
@@ -531,13 +632,13 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727748201.345825,
-              "BTTTriggerParentUUID" : "86DB58CD-A439-466C-B29F-7031E82160A0",
+              "BTTLastUpdatedAt" : 1727748129.1970658,
+              "BTTTriggerParentUUID" : "0A99BAF9-02C3-4FF1-B6E9-6C32D15EBBFF",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "0CE8EC0F-0583-4803-B45A-427726496200",
-              "BTTLayoutIndependentActionChar" : "뺖",
-              "BTTShortcutToSend" : "37",
+              "BTTUUID" : "E12171F1-9B3B-4BFF-8817-BAE155BB1322",
+              "BTTLayoutIndependentActionChar" : "㺖",
+              "BTTShortcutToSend" : "38",
               "BTTKeyboardShortcutKeyboardType" : 0,
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
@@ -546,11 +647,248 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             }
           ],
-          "BTTGestureNotes" : "오른쪽 분할창 이동"
+          "BTTGestureNotes" : "아래쪽 분할창 이동"
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676441,
+          "BTTLastUpdatedAt" : 1737929074.536243,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "7BD5DBE8-193E-40C8-8F98-2EA699E105DC",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1048584",
+          "BTTKeyboardShortcutScope" : 0,
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "✛",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 46,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 14,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727749564.441283,
+              "BTTTriggerParentUUID" : "7BD5DBE8-193E-40C8-8F98-2EA699E105DC",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "4B4943B2-5041-41D6-B669-5E2D1C8F1A12",
+              "BTTShortcutToSend" : "59,13",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 99,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727749676.0397558,
+              "BTTTriggerParentUUID" : "7BD5DBE8-193E-40C8-8F98-2EA699E105DC",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "685A6CE0-E6E7-4B63-A8F1-14A43694AFCF",
+              "BTTLayoutIndependentActionChar" : "㸖",
+              "BTTShortcutToSend" : "24",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 103,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "분할창 균일하게",
+          "BTTTriggerConfig" : {
+            "BTTKeyboardPreventRecursiveTriggers" : 1
+          }
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.5361929,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "5D228F98-0F5A-431F-B5B1-0A957667EE73",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1048584",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "✛",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 15,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 1,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTGestureNotes" : "새로고침 없에기"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.536221,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "CFB9C732-5831-468F-937F-FA7D762520C0",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "131074",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "SPACE",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 49,
+          "BTTShortcutModifierKeys" : 131072,
+          "BTTOrder" : 2,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727723415.488652,
+              "BTTTriggerParentUUID" : "CFB9C732-5831-468F-937F-FA7D762520C0",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "E7092889-A3B3-42F1-AADC-8F0E05D58853",
+              "BTTLayoutIndependentActionChar" : "析",
+              "BTTShortcutToSend" : "59,56,3",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 98,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "Codium 문장 선택"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.5362649,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1048584",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "✛",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 45,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 11,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727747385.673115,
+              "BTTTriggerParentUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "BB4DD29D-AB75-4A81-899A-12193DC08391",
+              "BTTShortcutToSend" : "59,13",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 99,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727747385.673594,
+              "BTTTriggerParentUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "A92FC5F5-A5D4-4635-9E9C-73C4BEC5DEEB",
+              "BTTShortcutToSend" : "19",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 100,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727747553.6249571,
+              "BTTTriggerParentUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "381F2C0E-37D5-4C6E-B83C-2637520D1F52",
+              "BTTLayoutIndependentActionChar" : "븖",
+              "BTTShortcutToSend" : "27",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 102,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "분할창 세로폭 감소"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.536288,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "B7AB20CC-84AC-4A7F-B3CF-01435D1F6E32",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "빈 자리 표시자",
+          "BTTAdditionalConfiguration" : "1048584",
+          "BTTKeyboardShortcutKeyboardType" : 1279,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "✛",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTShortcutKeyCode" : 40,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 6,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727747815.5910292,
+              "BTTTriggerParentUUID" : "B7AB20CC-84AC-4A7F-B3CF-01435D1F6E32",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "D01578A4-5BF3-42B3-ABDC-58B91EF4BB6A",
+              "BTTLayoutIndependentActionChar" : "뼰",
+              "BTTShortcutToSend" : "59,13",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 100,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1727747821.449228,
+              "BTTTriggerParentUUID" : "B7AB20CC-84AC-4A7F-B3CF-01435D1F6E32",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "B60D360F-EAC2-4221-8696-292467BCCF8E",
+              "BTTLayoutIndependentActionChar" : "㴖",
+              "BTTShortcutToSend" : "40",
+              "BTTKeyboardShortcutKeyboardType" : 0,
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 101,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ],
+          "BTTGestureNotes" : "위쪽 분할창 이동"
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1737929074.5362539,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "1006934A-E7BD-4667-9539-81B3E7C72267",
@@ -565,7 +903,7 @@
           "BTTEnabled2" : 1,
           "BTTShortcutKeyCode" : 43,
           "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 10,
+          "BTTOrder" : 13,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [
             {
@@ -622,7 +960,7 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676435,
+          "BTTLastUpdatedAt" : 1737929074.5362771,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "BA3CF463-1B39-456E-80FC-774E7F41ED76",
@@ -636,7 +974,7 @@
           "BTTEnabled2" : 1,
           "BTTShortcutKeyCode" : 35,
           "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 7,
+          "BTTOrder" : 10,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [
             {
@@ -689,338 +1027,73 @@
             }
           ],
           "BTTGestureNotes" : "분할창 세로폭 증가"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.6764951,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "7BD5DBE8-193E-40C8-8F98-2EA699E105DC",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutScope" : 0,
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "✛",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 46,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 11,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727749564.441283,
-              "BTTTriggerParentUUID" : "7BD5DBE8-193E-40C8-8F98-2EA699E105DC",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "4B4943B2-5041-41D6-B669-5E2D1C8F1A12",
-              "BTTShortcutToSend" : "59,13",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 99,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727749676.0397558,
-              "BTTTriggerParentUUID" : "7BD5DBE8-193E-40C8-8F98-2EA699E105DC",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "685A6CE0-E6E7-4B63-A8F1-14A43694AFCF",
-              "BTTLayoutIndependentActionChar" : "㸖",
-              "BTTShortcutToSend" : "24",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 103,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "분할창 균일하게",
-          "BTTTriggerConfig" : {
-            "BTTKeyboardPreventRecursiveTriggers" : 1
-          }
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.6764669,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "B7AB20CC-84AC-4A7F-B3CF-01435D1F6E32",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "✛",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 40,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 3,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727747815.5910292,
-              "BTTTriggerParentUUID" : "B7AB20CC-84AC-4A7F-B3CF-01435D1F6E32",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "D01578A4-5BF3-42B3-ABDC-58B91EF4BB6A",
-              "BTTLayoutIndependentActionChar" : "뼰",
-              "BTTShortcutToSend" : "59,13",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 100,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727747821.449228,
-              "BTTTriggerParentUUID" : "B7AB20CC-84AC-4A7F-B3CF-01435D1F6E32",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "B60D360F-EAC2-4221-8696-292467BCCF8E",
-              "BTTLayoutIndependentActionChar" : "㴖",
-              "BTTShortcutToSend" : "40",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 101,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "위쪽 분할창 이동"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1736963483.4094682,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "CFB9C732-5831-468F-937F-FA7D762520C0",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "131074",
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "SPACE",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 49,
-          "BTTShortcutModifierKeys" : 131072,
-          "BTTOrder" : 2,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727723415.488652,
-              "BTTTriggerParentUUID" : "CFB9C732-5831-468F-937F-FA7D762520C0",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "E7092889-A3B3-42F1-AADC-8F0E05D58853",
-              "BTTLayoutIndependentActionChar" : "析",
-              "BTTShortcutToSend" : "59,56,3",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 98,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "AI 자동완성 선택"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.676502,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "B4D5F72B-1F20-4953-BA85-26B488CD8344",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "✛",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 4,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 5,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727748155.407907,
-              "BTTTriggerParentUUID" : "B4D5F72B-1F20-4953-BA85-26B488CD8344",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "64AD189D-7048-4611-8B7C-BB5117D11881",
-              "BTTShortcutToSend" : "59,13",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 100,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727748169.719065,
-              "BTTTriggerParentUUID" : "B4D5F72B-1F20-4953-BA85-26B488CD8344",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "A1D59A35-3C67-4021-B35B-879CC020D9A6",
-              "BTTLayoutIndependentActionChar" : "㴎",
-              "BTTShortcutToSend" : "4",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 101,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "왼쪽 분할창 이동"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.6764731,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "0A99BAF9-02C3-4FF1-B6E9-6C32D15EBBFF",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "✛",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 38,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 4,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727748112.9421999,
-              "BTTTriggerParentUUID" : "0A99BAF9-02C3-4FF1-B6E9-6C32D15EBBFF",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "8E6F9C1B-288F-4257-BBD9-CCAA023B907E",
-              "BTTShortcutToSend" : "59,13",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 100,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727748129.1970658,
-              "BTTTriggerParentUUID" : "0A99BAF9-02C3-4FF1-B6E9-6C32D15EBBFF",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "E12171F1-9B3B-4BFF-8817-BAE155BB1322",
-              "BTTLayoutIndependentActionChar" : "㺖",
-              "BTTShortcutToSend" : "38",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 101,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "아래쪽 분할창 이동"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1733577253.6764789,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "✛",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 45,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 8,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727747385.673115,
-              "BTTTriggerParentUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "BB4DD29D-AB75-4A81-899A-12193DC08391",
-              "BTTShortcutToSend" : "59,13",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 99,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727747385.673594,
-              "BTTTriggerParentUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "A92FC5F5-A5D4-4635-9E9C-73C4BEC5DEEB",
-              "BTTShortcutToSend" : "19",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 100,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1727747553.6249571,
-              "BTTTriggerParentUUID" : "537A1182-50BA-465B-B3C7-A08043D25401",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "381F2C0E-37D5-4C6E-B83C-2637520D1F52",
-              "BTTLayoutIndependentActionChar" : "븖",
-              "BTTShortcutToSend" : "27",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 102,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "분할창 세로폭 감소"
         }
       ]
     },
     {
-      "BTTAppBundleIdentifier" : "BT.L",
-      "BTTAppName" : "Recently Used",
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
       "BTTAppAutoInvertIcon" : 1,
       "BTTTriggers" : [
 
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTAppSpecificSettings" : {
+        "BTTDisableGlobalTriggers" : false
+      },
+      "BTTTriggers" : [
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1713797568.388782,
+          "BTTTriggerType" : 624,
+          "BTTTriggerTypeDescriptionReadOnly" : "트리거를 선택해 주세요",
+          "BTTTriggerTypeDescription" : "Please Select a Trigger ",
+          "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+          "BTTUUID" : "089B0CF2-E9DC-4525-90C7-10D31E94F1E7",
+          "BTTShortcutToSend" : "56,49",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTOrder" : 0,
+          "BTTGestureNotes" : "Please Select a Trigger ",
+          "BTTKeySequence" : {
+            "BTTPauseBetween" : 0.29999999999999999,
+            "BTTKeyCount" : 2,
+            "BTTKeySequenceDownKeys" : [
+              {
+                "BTTKEYCode" : 54,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 675400256
+              }
+            ],
+            "BTTKeySequenceMixedKeys" : [
+              {
+                "BTTKEYCode" : 54,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 675400256
+              },
+              {
+                "BTTKEYCode" : 54,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 675400256
+              }
+            ],
+            "BTTKeySequenceUpKeys" : [
+              {
+                "BTTKEYCode" : 54,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 675400256
+              }
+            ]
+          }
+        }
       ]
     }
   ],
