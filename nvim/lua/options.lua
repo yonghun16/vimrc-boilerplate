@@ -108,6 +108,19 @@ function Compile()
   end
 end
 
+-- Git commit and push
+function Commit_and_push()
+  local commit_message = vim.fn.input("Commit message: ") -- 사용자로부터 커밋 메시지 입력받기
+  if commit_message == "" then
+    print("Commit aborted: No message provided.") -- 메시지가 비어 있으면 커밋 중단
+    return
+  end
+
+  vim.cmd("write") -- 현재 파일 저장
+  local git_command = string.format("!git add * && git commit -m '%s' && git push", commit_message)
+  vim.cmd(git_command) -- Git 명령 실행
+end
+
 -- Toggle Wrap codes
 function ToggleWrapCodes()
   if vim.wo.wrap then
