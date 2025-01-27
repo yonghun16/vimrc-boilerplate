@@ -117,7 +117,7 @@ function Commit_and_push()
   end
 
   vim.cmd("write") -- 현재 파일 저장
-  local git_command = string.format("!git add * && git commit -m '%s' && git push", commit_message)
+  local git_command = string.format("!git add -u && git commit -m '%s' && git push", commit_message)
   vim.cmd(git_command) -- Git 명령 실행
 end
 
