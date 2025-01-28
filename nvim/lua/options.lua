@@ -39,7 +39,6 @@ vim.opt.wrap = false
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 vim.opt.updatetime = 200
 
-
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
@@ -57,16 +56,15 @@ require("ibl").update {
 -- nim-navbuddy
 require("nvim-navbuddy").setup {
   lsp = {
-    auto_attach = true
+    auto_attach = true,
   },
   window = {
-    size = "90%"   -- Or table format example: { height = "40%", width = "100%"}
+    size = "90%", -- Or table format example: { height = "40%", width = "100%"}
   },
   mappings = {
     ["<leader>k"] = require("nvim-navbuddy.actions").close(),
-  }
+  },
 }
-
 
 ------------------------------------------------------------------
 -- Functions
@@ -84,9 +82,9 @@ function Compile()
     vim.cmd 'TermExec cmd="node %<.js"'
   elseif filetype == "typescript" then
     vim.cmd "w"
-    local tsconfig_exists = vim.fn.filereadable("tsconfig.json") == 1
+    local tsconfig_exists = vim.fn.filereadable "tsconfig.json" == 1
     if not tsconfig_exists then
-      vim.fn.writefile({ }, "tsconfig.json")
+      vim.fn.writefile({}, "tsconfig.json")
     end
     vim.cmd 'TermExec cmd="ts-node %<.ts"'
     -- vim.cmd ":! tsc % --outDir ~/bin"
@@ -110,13 +108,13 @@ end
 
 -- Git commit and push
 function Commit_and_push()
-  local commit_message = vim.fn.input("Commit message: ") -- 사용자로부터 커밋 메시지 입력받기
+  local commit_message = vim.fn.input "Commit message: " -- 사용자로부터 커밋 메시지 입력받기
   if commit_message == "" then
-    print("Commit aborted: No message provided.") -- 메시지가 비어 있으면 커밋 중단
+    print "Commit aborted: No message provided." -- 메시지가 비어 있으면 커밋 중단
     return
   end
 
-  vim.cmd("write") -- 현재 파일 저장
+  vim.cmd "write" -- 현재 파일 저장
   local git_command = string.format("!git add -u && git commit -m '%s' && git push", commit_message)
   vim.cmd(git_command) -- Git 명령 실행
 end
@@ -156,19 +154,18 @@ end
 
 -- Toogle Diagnostic quickfix list
 function ToggleDiagnostics_qflist()
-    local qf_open = false
-    for _, win in ipairs(vim.fn.getwininfo()) do
-        if win.quickfix == 1 then
-            qf_open = true
-            break
-        end
+  local qf_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      qf_open = true
+      break
     end
+  end
 
-    if qf_open then
-        vim.cmd("cclose")
-    else
-        vim.diagnostic.setqflist() -- LSP 진단 정보를 quickfix list에 설정
-        vim.cmd("copen")
-    end
+  if qf_open then
+    vim.cmd "cclose"
+  else
+    vim.diagnostic.setqflist() -- LSP 진단 정보를 quickfix list에 설정
+    vim.cmd "copen"
+  end
 end
-

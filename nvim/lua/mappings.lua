@@ -62,6 +62,7 @@ map("n", "sr", "<cmd>reg<CR>") -- Register
 map("n", "sd", "<cmd>lua vim.diagnostic.open_float()<CR>") -- Diagnostic
 map("n", "sk", "<cmd>lua vim.lsp.buf.hover()<CR>") -- Keyword manpage
 map("n", "sl", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- Lsp signature help 
+map("n", "s<leader>", "<cmd>WhichKey ,<CR>") -- leader key info
 
 -- Toggle function
 map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")  -- Wrap
@@ -99,6 +100,9 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
+-- clear leader ekey
+map("n", "<leader>", "" )
+
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "compile"})
 
@@ -106,7 +110,7 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "compile"})
 map("n", "<leader>g", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
 
 -- Clean search item (highlight remove)
-map("n", "<leader><SPACE>", "<cmd>let @/=''<CR>", {desc = "clean search item"})
+map("n", "<leader><SPACE>", "<cmd>noh<CR>", {desc = "clean search item"})
 
 -- Vert Diffsplit
 map("n", "<leader>v", ":vert diffsplit ", {desc = "diffsplit"})
