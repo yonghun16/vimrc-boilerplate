@@ -79,6 +79,20 @@ require("nvim-navbuddy").setup {
   },
 }
 
+-- visual-multi
+vim.cmd([[ let g:VM_maps = {} ]])
+vim.cmd([[ let g:VM_maps["Find Under"] = '<C-/>' ]])
+vim.cmd([[ let g:VM_maps["Find Subword Under"] = '<C-/>' ]])
+vim.cmd([[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]])
+vim.cmd([[ let g:VM_maps["Remove Region"] = '<C-LEFT>' ]])
+
+-- emmet-vim
+vim.g.user_emmet_leader_key = ','
+
+-- tagbar
+vim.cmd([[ let g:tagbar_width = '30' ]])
+
+
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
