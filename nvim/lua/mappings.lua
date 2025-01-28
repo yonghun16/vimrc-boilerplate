@@ -79,12 +79,13 @@ map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><Right>C")
 map("i", "<C-CR>", "<ESC>o")
 
--- Using Terminal keymap on <Terminal> mode
+-- <Terminal> mode key mappings
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 map("t", "<leader>,", "<cmd>ToggleTerm<CR>")
+map("t", "<leader>j", "<cmd>ToggleTerm<CR>")
 
 -- Tab
 map("n", "te", "<cmd>tabedit<CR>")
@@ -110,6 +111,8 @@ map("n", "<leader><SPACE>", "<cmd>let @/=''<CR>", {desc = "clean search item"})
 -- Vert Diffsplit
 map("n", "<leader>v", ":vert diffsplit ", {desc = "diffsplit"})
 
-
 -- Set the current path as the working path
 map("n", "<leader>~", "<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>", {desc = "change the current path" })
+
+-- Separate <Tab>key and <C-i>key
+map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
