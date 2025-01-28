@@ -7,7 +7,19 @@ require "nvchad.options"
 ------------------------------------------------------------------
 --- cursorline
 local o = vim.o
-o.cursorlineopt = "both" -- to enable cursorline!
+vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
+  callback = function()
+    o.cursorlineopt = "both" -- 또는 "number" / "line" 선택 가능
+    o.cursorline = true
+  end
+})
+
+vim.api.nvim_create_autocmd({"WinLeave"}, {
+  callback = function()
+    o.cursorlineopt = "both" -- 설정을 초기화할 값으로 변경
+    o.cursorline = false
+  end
+})
 
 -- tab size
 vim.opt.tabstop = 2
@@ -38,6 +50,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.wrap = false
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 vim.opt.updatetime = 200
+
 
 ------------------------------------------------------------------
 -- Plugin options
@@ -165,7 +178,8 @@ function ToggleDiagnostics_qflist()
   if qf_open then
     vim.cmd "cclose"
   else
-    vim.diagnostic.setqflist() -- LSP 진단 정보를 quickfix list에 설정
+    vim.fn.setqflist({})  -- 기존 Quickfix 리스트 초기화
+    vim.diagnostic.setqflist() -- 새로운 LSP 진단 정보 추가
     vim.cmd "copen"
   end
 end

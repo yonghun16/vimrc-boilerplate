@@ -10,8 +10,8 @@ map("t", "<ESC>", "<C-\\><C-n>")
 
 -- Quit
 map("n", "<C-q>", "<cmd>q<CR>")
-map("n", "<leader>q", "<cmd>q<CR>", {desc = "quit"})
-map("n", "<leader>Q", "<cmd>q!<CR>", {desc = "quit with save"})
+map("n", "<leader>q", "<cmd>q<CR>", { desc = "quit" })
+map("n", "<leader>Q", "<cmd>q!<CR>", { desc = "quit with save" })
 
 -- Cursor movement
 map({"n", "v"}, "<C-k>", "3k")
@@ -33,7 +33,7 @@ map("n", "<D-j>", "<C-w>j")
 map("n", "<D-l>", "<C-w>l")
 map("n", "<D-h>", "<C-w>h")
 
--- Window resize
+-- Window resizing
 map("n", "<D-p>", "<C-w>2+")
 map("n", "<D-n>", "<C-w>2-")
 map("n", "<D-.>", "<C-w>2>")
@@ -41,20 +41,29 @@ map("n", "<D-,>", "<C-w>2<")
 map("n", "<D-m>", "<C-w>=" )
 map("n", "<D-S-c>", "<C-w>c" )
 
--- Sidebar function
-map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", {desc = "nvimtree"}) vim.api.nvim_del_keymap("n", "<leader>e")
-map("n", "<leader>j", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", {desc = "terminal(bottom)"})
-map("n", "<leader>J", "<cmd>lua ToggleDiagnostics_qflist()<CR>" , { desc = "diagnostics list" }) vim.api.nvim_del_keymap("n", "<leader>ds")
-map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", {desc = "symbols outline"})
-map("n", "<leader>L", "<cmd>TagbarToggle<CR>", {desc = "tagbar"})
+-- Tab
+map("n", "te", "<cmd>tabedit<CR>")
+map("n", "tx", "<cmd>tabclose<CR>")
+map("n", "tn", "<cmd>tabnext<CR>")
+map("n", "tp", "<cmd>tabprevious<CR>")
 
--- Floting window function
-map("n", "<leader>k", "<cmd>Navbuddy<CR>", {desc = "navbuddy"})
-map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", {desc="FZF file explorer"})
-map("n", "<leader>,", "<cmd>ToggleTerm direction=float<CR>", {desc = "terminal(floating)"})
-map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", {desc = "buffers"})
+-- Remove existing <leader>key mappings
+vim.api.nvim_del_keymap("n", "<leader>e")  -- for nvimtree
+vim.api.nvim_del_keymap("n", "<leader>ds")  -- for diagnostics list
 
--- Show information
+-- Sidebar functions
+map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree" })
+map("n", "<leader>j", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "terminal(bottom)" })
+map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", { desc = "symbols outline" })
+map("n", "<leader>L", "<cmd>TagbarToggle<CR>", { desc = "tagbar" })
+
+-- Floating window functions
+map("n", "<leader>k", "<cmd>Navbuddy<CR>", { desc = "navbuddy" })
+map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { desc="FZF file explorer" })
+map("n", "<leader><leader>", "<cmd>ToggleTerm direction=float<CR>", { desc = "terminal(floating)" })
+map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", { desc = "show buffers" })
+
+-- Show informations
 map("n", "s", "")
 map("n", "ss", "<cmd>Nvdash<CR>") -- Nvdash
 map("n", "sm", "<cmd>message<CR>") -- Message
@@ -62,9 +71,10 @@ map("n", "sr", "<cmd>reg<CR>") -- Register
 map("n", "sd", "<cmd>lua vim.diagnostic.open_float()<CR>") -- Diagnostic
 map("n", "sk", "<cmd>lua vim.lsp.buf.hover()<CR>") -- Keyword manpage
 map("n", "sl", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- Lsp signature help 
-map("n", "s<leader>", "<cmd>WhichKey ,<CR>") -- leader key info
+map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>" , { desc = "diagnostics list" })
+map("n", "s<leader>", "<cmd>WhichKey <leader><CR>") -- leader key info
 
--- Toggle function
+-- Toggle functions
 map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")  -- Wrap
 map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>") -- Foldcolumn
 map("n", "tc", "<cmd>lua ToggleCodeium()<CR>")  -- Codeium
@@ -85,14 +95,8 @@ map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
-map("t", "<leader>,", "<cmd>ToggleTerm<CR>")
+map("t", "<leader><leader>", "<cmd>ToggleTerm<CR>")
 map("t", "<leader>j", "<cmd>ToggleTerm<CR>")
-
--- Tab
-map("n", "te", "<cmd>tabedit<CR>")
-map("n", "tx", "<cmd>tabclose<CR>")
-map("n", "tn", "<cmd>tabnext<CR>")
-map("n", "tp", "<cmd>tabprevious<CR>")
 
 -- Move visual block (Up, Down, Indent, Outdent)
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
@@ -100,23 +104,20 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
--- clear leader ekey
-map("n", "<leader>", "" )
-
 -- Compile
-map("n", "<leader>a", "<cmd>lua Compile()<CR>", {desc = "compile"})
+map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
 
 -- Git push
 map("n", "<leader>g", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
 
--- Clean search item (highlight remove)
-map("n", "<leader><SPACE>", "<cmd>noh<CR>", {desc = "clean search item"})
-
--- Vert Diffsplit
-map("n", "<leader>v", ":vert diffsplit ", {desc = "diffsplit"})
-
--- Set the current path as the working path
-map("n", "<leader>~", "<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>", {desc = "change the current path" })
-
 -- Separate <Tab>key and <C-i>key
 map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
+
+-- Clean search item (highlight remove)
+map("n", "<leader><SPACE>", "<cmd>noh<CR>", { desc = "clean search item" })
+
+-- Vert Diffsplit
+map("n", "<leader>v", ":vert diffsplit ", { desc = "diffsplit" })
+
+-- Set the current path as the working path
+map("n", "<leader>~", "<cmd>:lcd %:p:h<CR>:echo expand(\'%:p:h\')<CR>", { desc = "change the current path" })

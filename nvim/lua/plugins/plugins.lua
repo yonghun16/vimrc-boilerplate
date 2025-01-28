@@ -52,7 +52,7 @@ local plugins = {
   },
 
   -------------------------------------------
-  -- 사이드 바 출력 플러그인
+  -- 사이드 바 플러그인
   -------------------------------------------
   -- fzf (fzf 파일 탐색기 보기)
   {
@@ -120,12 +120,38 @@ local plugins = {
       }
     end,
     version = "*",
-    event = "VimEnter",
+    event = "VeryLazy",
   },
 
   -------------------------------------------
   -- 상태 표시 플러그인
   -------------------------------------------
+  -- which-key.nvim (Key Mapping 정보 보기)
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    triggers = {
+      { "<leader>", mode = { "n", "v" } },
+    },
+    keys = {
+      {
+        "<leader>", function() end,
+      },
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
+
   -- barbecue (상단 요소 정보 표시)
   {
     "utilyre/barbecue.nvim",
@@ -139,7 +165,7 @@ local plugins = {
     opts = {
       -- configurations go here
     },
-    event = "FileType",
+    event = "VimEnter",
   },
 
   -------------------------------------------
