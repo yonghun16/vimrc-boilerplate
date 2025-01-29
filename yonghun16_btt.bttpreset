@@ -160,7 +160,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : false,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "F9BBEC61-E528-4F47-A2FF-D9A410D68919",
+  "BTTPresetUUID" : "B4C592FE-ECB5-4BBE-8308-09F5F0EC5426",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.L",
@@ -332,20 +332,20 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1738029652.7261128,
+          "BTTLastUpdatedAt" : 1738134972.6585479,
           "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTUUID" : "C92FC513-9245-4C10-AFB7-567086424D17",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "262145",
+          "BTTAdditionalConfiguration" : "393219",
           "BTTKeyboardShortcutKeyboardType" : 1279,
           "BTTTriggerOnDown" : 1,
           "BTTLayoutIndependentChar" : "",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 43,
-          "BTTShortcutModifierKeys" : 262144,
+          "BTTShortcutKeyCode" : 45,
+          "BTTShortcutModifierKeys" : 393216,
           "BTTOrder" : 2,
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTAdditionalActions" : [

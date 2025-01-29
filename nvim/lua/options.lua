@@ -9,14 +9,14 @@ require "nvchad.options"
 local o = vim.o
 vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
   callback = function()
-    o.cursorlineopt = "both" -- 또는 "number" / "line" 선택 가능
+    o.cursorlineopt = "both"
     o.cursorline = true
   end
 })
 
 vim.api.nvim_create_autocmd({"WinLeave"}, {
   callback = function()
-    o.cursorlineopt = "both" -- 설정을 초기화할 값으로 변경
+    o.cursorlineopt = "both"
     o.cursorline = false
   end
 })
@@ -63,7 +63,7 @@ vim.g.codeium_enabled = true
 
 -- indent-blankline
 require("ibl").update {
-  vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }),
+  vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }), -- function definitions (height -> underline)
 }
 
 -- nim-navbuddy
@@ -80,11 +80,11 @@ require("nvim-navbuddy").setup {
 }
 
 -- visual-multi
+-- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
 vim.cmd([[ let g:VM_maps = {} ]])
 vim.cmd([[ let g:VM_maps["Find Under"] = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Find Subword Under"] = '<C-/>' ]])
+vim.cmd([[ let g:VM_maps["Find Subword Under"] = '<C-/>' ]])   -- used in Visual Mode
 vim.cmd([[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]])
-vim.cmd([[ let g:VM_maps["Remove Region"] = '<C-LEFT>' ]])
 
 -- emmet-vim
 vim.g.user_emmet_leader_key = ','
@@ -96,7 +96,7 @@ vim.cmd([[ let g:tagbar_width = '30' ]])
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
--- Compile & Run
+-- Compile and Run
 function Compile()
   local filetype = vim.bo.filetype
 
@@ -133,7 +133,7 @@ function Compile()
   end
 end
 
--- Git commit and push
+-- Git Commit and Push
 function Commit_and_push()
   local commit_message = vim.fn.input "Commit message: " -- 사용자로부터 커밋 메시지 입력받기
   if commit_message == "" then
