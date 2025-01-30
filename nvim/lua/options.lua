@@ -7,18 +7,18 @@ require "nvchad.options"
 ------------------------------------------------------------------
 --- cursorline
 local o = vim.o
-vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   callback = function()
     o.cursorlineopt = "both"
     o.cursorline = true
-  end
+  end,
 })
 
-vim.api.nvim_create_autocmd({"WinLeave"}, {
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
   callback = function()
     o.cursorlineopt = "both"
     o.cursorline = false
-  end
+  end,
 })
 
 -- tab size
@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4
+    vim.bo.expandtab = true
   end,
 })
 
@@ -60,37 +61,27 @@ vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
 -- Codeium
 vim.g.codeium_enabled = true
+vim.keymap.set("i", "<C-S-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-S-n>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-S-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
+
+-- visual-multi
+vim.cmd [[ let g:VM_maps = {} ]]
+vim.cmd [[ let g:VM_maps["Find Under"] = '<C-S-/>' ]]
+vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-S-/>' ]] -- used in Visual Mode
+vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]]
+-- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
+
+-- emmet-vim
+vim.g.user_emmet_leader_key = ","
+
+-- tagbar
+vim.cmd [[ let g:tagbar_width = '30' ]]
 
 -- indent-blankline
 require("ibl").update {
   vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }), -- function definitions (height -> underline)
 }
-
--- nim-navbuddy
-require("nvim-navbuddy").setup {
-  lsp = {
-    auto_attach = true,
-  },
-  window = {
-    size = "90%", -- Or table format example: { height = "40%", width = "100%"}
-  },
-  mappings = {
-    ["<leader>k"] = require("nvim-navbuddy.actions").close(),
-  },
-}
-
--- visual-multi
--- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
-vim.cmd([[ let g:VM_maps = {} ]])
-vim.cmd([[ let g:VM_maps["Find Under"] = '<C-/>' ]])
-vim.cmd([[ let g:VM_maps["Find Subword Under"] = '<C-/>' ]])   -- used in Visual Mode
-vim.cmd([[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]])
-
--- emmet-vim
-vim.g.user_emmet_leader_key = ','
-
--- tagbar
-vim.cmd([[ let g:tagbar_width = '30' ]])
 
 
 ------------------------------------------------------------------
@@ -192,7 +183,7 @@ function ToggleDiagnostics_qflist()
   if qf_open then
     vim.cmd "cclose"
   else
-    vim.fn.setqflist({})  -- 기존 Quickfix 리스트 초기화
+    vim.fn.setqflist {} -- 기존 Quickfix 리스트 초기화
     vim.diagnostic.setqflist() -- 새로운 LSP 진단 정보 추가
     vim.cmd "copen"
   end

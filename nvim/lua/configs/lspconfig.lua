@@ -5,13 +5,13 @@ local lspconfig = require "lspconfig"
 
 -- EXAMPLE
 local servers = {
+  "pyright",
+  "ts_ls",
   "html",
   "cssls",
-  "ts_ls",
   "clangd",
-  "pyright",
   "jdtls",
-  -- "sqlls",
+  "sqlls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -24,9 +24,3 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- configuring single server, example: typescript
-lspconfig.ts_ls.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-}
