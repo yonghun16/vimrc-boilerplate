@@ -32,12 +32,11 @@ rm -rf ~/.local/state/nvim
 
 
 ## 2. Plugins 
-- **문법 플러그인**
+- **문법 및 편집 플러그인**
   - [formatter.nvim](https://github.com/mhartington/formatter.nvim) (코드 포맷팅)
   - [vim-codeium](https://github.com/Exafunction/codeium.vim) (AI 자동완성)
   - [vim-pug](https://github.com/digitaltoad/vim-pug) (pug문법 사용)
   - [emmet-vim](https://github.com/mattn/emmet-vim) (emmet 문법 사용)
-- **편집 플러그인**
   - [vim-illuminate](https://github.com/RRethy/vim-illuminate) (단어 하이라이트)
   - [vim-lastplace](https://github.com/farmergreg/vim-lastplace) (커서 마지막 위치 저장)
   - [vim-visual-multi](https://github.com/mg979/vim-visual-multi) (멀티 커서)
@@ -48,7 +47,6 @@ rm -rf ~/.local/state/nvim
   - [tagbar](https://github.com/preservim/tagbar) (코드 태그 보기)
   - [JABS.nvim](https://github.com/matbme/JABS.nvim) (버퍼 리스트 보기)
   - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (터미널 보기)
-- **상태 표시 플러그인**
   - [barbecue.nvim](https://github.com/utilyre/barbecue.nvim) (상단 요소 정보 표시)
 - **의존성 플러그인**
   - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (for barbecue, navbuddy)
