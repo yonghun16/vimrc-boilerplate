@@ -1,3 +1,7 @@
+"---------------------------------------------------------
+" Keymaps for Other Editors in nvim
+"---------------------------------------------------------
+
 " Cursor movement
 nmap <C-k> 3k
 xmap <C-k> 3k
@@ -25,4 +29,3 @@ vnoremap <C-d> <C-u>
 " Move Visual block (Indent, Outdent)
 vmap > >gv
 vmap < <gv
-
