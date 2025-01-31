@@ -83,6 +83,9 @@ require("ibl").update {
   vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }), -- function definitions (height -> underline)
 }
 
+-- snippets
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+
 
 ------------------------------------------------------------------
 -- Functions
