@@ -4,6 +4,12 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+-- Modify existing keymap
+vim.api.nvim_del_keymap("n", "<leader>e")  -- for nvimtree
+vim.api.nvim_del_keymap("n", "<leader>ds")  -- for diagnostics list
+vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { noremap = true, expr = true })  -- for Codeium(Disable Autocomplete)
+vim.api.nvim_set_keymap("n", "<C-i>", "<C-i>", { noremap = true, silent = true })  -- Separate <Tab>and <C-i>
+
 -- ESC
 map({"n", "v", "i"}, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
@@ -27,13 +33,13 @@ map({"n", "v"}, "<C-p>", "3<C-y>")
 map({"n", "v"}, "<C-f>", "<C-d>")
 map({"n", "v"}, "<C-d>", "<C-u>")
 
--- Window movement
+-- Split window movement
 map("n", "<D-k>", "<C-w>k")
 map("n", "<D-j>", "<C-w>j")
 map("n", "<D-l>", "<C-w>l")
 map("n", "<D-h>", "<C-w>h")
 
--- Window resizing
+-- Split Window resizing
 map("n", "<D-p>", "<C-w>2+")
 map("n", "<D-n>", "<C-w>2-")
 map("n", "<D-.>", "<C-w>2>")
@@ -41,15 +47,11 @@ map("n", "<D-,>", "<C-w>2<")
 map("n", "<D-m>", "<C-w>=" )
 map("n", "<D-S-c>", "<C-w>c" )
 
--- Tab
+-- Tab page
 map("n", "te", "<cmd>tabedit<CR>")
 map("n", "tx", "<cmd>tabclose<CR>")
 map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
-
--- Remove existing <leader>key mappings
-vim.api.nvim_del_keymap("n", "<leader>e")  -- for nvimtree
-vim.api.nvim_del_keymap("n", "<leader>ds")  -- for diagnostics list
 
 -- Sidebar functions
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree" })
@@ -110,8 +112,6 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
 -- Git push
 map("n", "<leader>g", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
 
--- Separate <Tab>key and <C-i>key
-map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
 
 -- Clean search item (highlight remove)
 map("n", "<leader><SPACE>", "<cmd>noh<CR>", { desc = "clean search item" })
