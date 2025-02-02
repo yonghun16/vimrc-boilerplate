@@ -1,15 +1,11 @@
 {
-  "Non-ASCII Anti Aliased" : true,
+  "Close Sessions On End" : true,
   "Ansi 15 Color (Dark)" : {
     "Green Component" : 0.95794391632080078,
     "Red Component" : 0.98943418264389038,
     "Blue Component" : 0.86405980587005615
   },
-  "Foreground Color (Dark)" : {
-    "Green Component" : 0.75921261310577393,
-    "Red Component" : 0.61000990867614746,
-    "Blue Component" : 0.7630731463432312
-  },
+  "Non-ASCII Anti Aliased" : true,
   "Cursor Text Color" : {
     "Green Component" : 0.15575926005840302,
     "Blue Component" : 0.19370138645172119,
@@ -134,7 +130,7 @@
     "Red Component" : 0,
     "Blue Component" : 0.15170273184776306
   },
-  "Guid" : "AC62AC68-F61B-44AA-9421-49A296F90272",
+  "Guid" : "FE9369FE-2A27-4703-9191-37DC3422FB33",
   "Cursor Color (Dark)" : {
     "Green Component" : 0.29334646463394165,
     "Red Component" : 0.95475113391876221,
@@ -324,7 +320,7 @@
     "Red Component" : 0,
     "Blue Component" : 0.53505516052246094
   },
-  "Name" : "Frontend16",
+  "Name" : "yonghun16",
   "Ansi 11 Color (Dark)" : {
     "Green Component" : 0.49430075287818909,
     "Red Component" : 0.69710838794708252,
@@ -831,10 +827,14 @@
     "Red Component" : 0.091996639966964722,
     "Blue Component" : 0.78393226861953735
   },
-  "Close Sessions On End" : true,
   "Ansi 0 Color" : {
     "Green Component" : 0.15575926005840302,
     "Blue Component" : 0.19370138645172119,
     "Red Component" : 0
+  },
+  "Foreground Color (Dark)" : {
+    "Green Component" : 0.75921261310577393,
+    "Red Component" : 0.61000990867614746,
+    "Blue Component" : 0.7630731463432312
   }
 }
