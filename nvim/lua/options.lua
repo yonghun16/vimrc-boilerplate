@@ -136,7 +136,7 @@ function Commit_and_push()
   end
 
   vim.cmd "write" -- 현재 파일 저장
-  local git_command = string.format("!git add -u && git commit -m '%s' && git push", commit_message)
+  local git_command = string.format("!git add -A && git commit -m '%s' && git push", commit_message)
   vim.cmd(git_command) -- Git 명령 실행
 end
 
@@ -152,7 +152,7 @@ end
 -- Toggle Foldcolumn
 function ToggleFoldColumn()
   if vim.wo.foldcolumn == "0" then
-    vim.wo.foldcolumn = "3"
+    vim.wo.foldcolumn = "4"
     vim.wo.relativenumber = false
   else
     vim.wo.foldcolumn = "0"
@@ -161,7 +161,7 @@ function ToggleFoldColumn()
 end
 
 -- Toggle Codeium
-function ToggleCodeium()
+function ToggleAIAutoComplete()
   if vim.g.codeium_enabled == nil or vim.g.codeium_enabled == false then
     vim.g.codeium_enabled = true
     vim.cmd "CodeiumEnable"

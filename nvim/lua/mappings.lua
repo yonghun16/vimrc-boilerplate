@@ -78,8 +78,8 @@ map("n", "s<leader>", "<cmd>WhichKey <leader><CR>") -- leader key info
 
 -- Toggle functions
 map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")  -- Wrap
-map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>") -- Foldcolumn
-map("n", "tc", "<cmd>lua ToggleCodeium()<CR>")  -- Codeium
+map("n", "tz", "<cmd>lua ToggleFoldColumn()<CR>") -- Foldcolumn
+map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")  -- AI Auto complete
 
 -- Using Terminal keymap on <Insert> mode
 map("i", "<C-h>", "<BACKSPACE>")
