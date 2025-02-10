@@ -24,8 +24,6 @@ map({"n", "v"}, "<C-k>", "3k")
 map({"n", "v"}, "<C-j>", "3j")
 map({"n", "v"}, "<C-l>", "$")
 map({"n", "v"}, "<C-h>", "^")
-map({"n", "v"}, "<C-s-k>", "10k")
-map({"n", "v"}, "<C-s-j>", "10j")
 
 -- Screen movement
 map({"n", "v"}, "<C-n>", "3<C-e>")

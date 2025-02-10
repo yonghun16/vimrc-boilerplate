@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
     o.cursorline = true
   end,
 })
-
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
   callback = function()
     o.cursorlineopt = "both"
@@ -43,9 +42,9 @@ vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 
 -- folding
-vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
 
 -- etc
 vim.opt.wrap = false
