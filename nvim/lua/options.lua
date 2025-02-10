@@ -93,7 +93,6 @@ require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets"
 -- Compile and Run
 function Compile()
   local filetype = vim.bo.filetype
-
   if filetype == "python" then
     vim.cmd "w"
     vim.cmd 'TermExec cmd="python3 %<.py"'
@@ -134,7 +133,6 @@ function Commit_and_push()
     print "Commit aborted: No message provided." -- 메시지가 비어 있으면 커밋 중단
     return
   end
-
   vim.cmd "write" -- 현재 파일 저장
   local git_command = string.format("!git add -A && git commit -m '%s' && git push", commit_message)
   vim.cmd(git_command) -- Git 명령 실행
@@ -149,18 +147,7 @@ function ToggleWrapCodes()
   end
 end
 
--- Toggle Foldcolumn
-function ToggleFoldColumn()
-  if vim.wo.foldcolumn == "0" then
-    vim.wo.foldcolumn = "4"
-    vim.wo.relativenumber = false
-  else
-    vim.wo.foldcolumn = "0"
-    vim.wo.relativenumber = true
-  end
-end
-
--- Toggle Codeium
+-- Toggle AI Auto Complete (using Codium)
 function ToggleAIAutoComplete()
   if vim.g.codeium_enabled == nil or vim.g.codeium_enabled == false then
     vim.g.codeium_enabled = true
@@ -173,6 +160,26 @@ function ToggleAIAutoComplete()
   end
 end
 
+-- Toggle Foldcolumn
+function ToggleFoldColumn()
+  if vim.wo.foldcolumn == "0" then
+    vim.wo.foldcolumn = "3"
+    vim.wo.relativenumber = false
+  else
+    vim.wo.foldcolumn = "0"
+    vim.wo.relativenumber = true
+  end
+end
+
+-- Foldcolumn Expands
+function FoldColumnExpands()
+  if vim.wo.foldcolumn == "3" then
+    vim.wo.foldcolumn = "6"
+  elseif vim.wo.foldcolumn == "6" then
+    vim.wo.foldcolumn = "3"
+  end
+end
+
 -- Toogle Diagnostic quickfix list
 function ToggleDiagnostics_qflist()
   local qf_open = false
@@ -182,7 +189,6 @@ function ToggleDiagnostics_qflist()
       break
     end
   end
-
   if qf_open then
     vim.cmd "cclose"
   else

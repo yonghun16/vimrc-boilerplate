@@ -32,6 +32,8 @@ map({"n", "v"}, "<C-n>", "3<C-e>")
 map({"n", "v"}, "<C-p>", "3<C-y>")
 map({"n", "v"}, "<C-f>", "<C-d>")
 map({"n", "v"}, "<C-d>", "<C-u>")
+map({"n", "v"}, "<C-S-l>", "3zl")
+map({"n", "v"}, "<C-S-h>", "3zh")
 
 -- Split window movement
 map("n", "<D-k>", "<C-w>k")
@@ -65,6 +67,12 @@ map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { desc="FZF fil
 map("n", "<leader><leader>", "<cmd>ToggleTerm direction=float<CR>", { desc = "terminal(floating)" })
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", { desc = "show buffers" })
 
+-- Toggle functions
+map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")  -- Wrap codes
+map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")  -- AI Auto complete
+map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>") -- Foldcolumn
+map('n', 'z.', "<cmd>lua FoldColumnExpands()<CR>", { noremap = true, silent = true }) -- Foldcolumn expends
+
 -- Show informations
 map("n", "s", "")
 map("n", "ss", "<cmd>Nvdash<CR>") -- Nvdash
@@ -76,10 +84,13 @@ map("n", "sl", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- Lsp signature hel
 map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>" , { desc = "diagnostics list" })
 map("n", "s<leader>", "<cmd>WhichKey <leader><CR>") -- leader key info
 
--- Toggle functions
-map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")  -- Wrap
-map("n", "tz", "<cmd>lua ToggleFoldColumn()<CR>") -- Foldcolumn
-map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")  -- AI Auto complete
+-- <Terminal> mode key mappings
+map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
+map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
+map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
+map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
+map("t", "<leader><leader>", "<cmd>ToggleTerm<CR>")
+map("t", "<leader>j", "<cmd>ToggleTerm<CR>")
 
 -- Using Terminal keymap on <Insert> mode
 map("i", "<C-h>", "<BACKSPACE>")
@@ -92,14 +103,6 @@ map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><Right>C")
 map("i", "<C-CR>", "<ESC>o")
 
--- <Terminal> mode key mappings
-map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
-map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
-map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
-map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
-map("t", "<leader><leader>", "<cmd>ToggleTerm<CR>")
-map("t", "<leader>j", "<cmd>ToggleTerm<CR>")
-
 -- Move visual block (Up, Down, Indent, Outdent)
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
 map("v", "<S-j>", ":m '>+1<CR>gv=gv")
@@ -111,7 +114,6 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
 
 -- Git push
 map("n", "<leader>g", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
-
 
 -- Clean search item (highlight remove)
 map("n", "<leader><SPACE>", "<cmd>noh<CR>", { desc = "clean search item" })
