@@ -162,7 +162,7 @@ end
 -- Toggle Foldcolumn
 function ToggleFoldColumn()
   if vim.wo.foldcolumn == "0" then
-    vim.wo.foldcolumn = "3"
+    vim.wo.foldcolumn = "4"
     vim.wo.relativenumber = false
   else
     vim.wo.foldcolumn = "0"
@@ -172,10 +172,10 @@ end
 
 -- Foldcolumn Expands
 function FoldColumnExpands()
-  if vim.wo.foldcolumn == "3" then
-    vim.wo.foldcolumn = "6"
-  elseif vim.wo.foldcolumn == "6" then
-    vim.wo.foldcolumn = "3"
+  if vim.wo.foldcolumn == "4" then
+    vim.wo.foldcolumn = "7"
+  elseif vim.wo.foldcolumn == "7" then
+    vim.wo.foldcolumn = "4"
   end
 end
 
