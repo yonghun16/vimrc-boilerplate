@@ -56,8 +56,8 @@ rm -rf ~/.local/state/nvim
 
 ### BetterTouchTool
 - BetterTouchTool : https://folivora.ai/ 
-- config file : yonghun16_btt.bttpreset
+- config file : btt_for_vim_and_wrap.bttpreset
 
 ### Iterm2
-- Iterm2 : https://iterm2.com/
-- config file : yonghun16_iterm.json
+- wrap : https://www.warp.dev/
+- theme file : base16_solarized_dark.yaml
