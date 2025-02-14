@@ -180,7 +180,7 @@
     "BSTSnapAreaDefaultShowPictogram" : false,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "8EE12BE3-1CEF-4830-8677-66D01285ECCB",
+  "BTTPresetUUID" : "F2585AFD-C196-4FDB-83A8-DDFD7F278FD7",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "com.apple.finder",
@@ -602,42 +602,6 @@
             }
           ],
           "BTTGestureNotes" : "(Visual-multi)find word under cursor"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1739537370.7408628,
-          "BTTTriggerType" : 0,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "3A3C04C5-1CA5-4EA0-8DC9-87B88F7D5571",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "빈 자리 표시자",
-          "BTTAdditionalConfiguration" : "1048584",
-          "BTTKeyboardShortcutKeyboardType" : 1279,
-          "BTTTriggerOnDown" : 1,
-          "BTTLayoutIndependentChar" : "",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : 15,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 1,
-          "BTTAutoAdaptToKeyboardLayout" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1739526655.452316,
-              "BTTTriggerParentUUID" : "3A3C04C5-1CA5-4EA0-8DC9-87B88F7D5571",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-              "BTTUUID" : "F90EC7B3-6673-432F-A3B8-C788CB3205C7",
-              "BTTKeyboardShortcutKeyboardType" : 0,
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTShortcutKeyCode" : -1,
-              "BTTOrder" : 105,
-              "BTTAutoAdaptToKeyboardLayout" : 0
-            }
-          ],
-          "BTTGestureNotes" : "Prevent reflash"
         },
         {
           "BTTActionCategory" : 0,
