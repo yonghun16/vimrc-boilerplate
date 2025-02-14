@@ -58,6 +58,10 @@ rm -rf ~/.local/state/nvim
 - BetterTouchTool : https://folivora.ai/ 
 - config file : btt_for_vim_and_wrap.bttpreset
 
-### Iterm2
+### Wrap terminal
 - wrap : https://www.warp.dev/
 - theme file : base16_solarized_dark.yaml
+
+### CursorAI editor
+- Cursor : https://www.cursor.com/
+- key mapping file : keymap_for_cursorAI.vim
