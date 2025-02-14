@@ -21,7 +21,7 @@ imap <C-l> <ESC>$a
 imap <C-a> <ESC>^i
 imap <C-e> <ESC>$a
 imap <C-d> <DEL>
-imap <C-k> <ESC><Right>c
+imap <C-k> <ESC><Right>C
 imap <C-CR> <ESC>o
 
 " Screen movement
