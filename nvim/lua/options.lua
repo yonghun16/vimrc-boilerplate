@@ -60,14 +60,14 @@ vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
 -- Codeium
 vim.g.codeium_enabled = true
-vim.keymap.set("i", "<C-S-f>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-vim.keymap.set("i", "<C-S-n>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
-vim.keymap.set("i", "<C-S-p>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-g>l", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-g>n", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-g>p", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
 
 -- visual-multi
 vim.cmd [[ let g:VM_maps = {} ]]
-vim.cmd [[ let g:VM_maps["Find Under"] = '<C-S-/>' ]]
-vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-S-/>' ]] -- used in Visual Mode
+vim.cmd [[ let g:VM_maps["Find Under"] = '<C-g>/' ]]
+vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-g>/' ]] -- used in Visual Mode
 vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]]
 -- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
 
