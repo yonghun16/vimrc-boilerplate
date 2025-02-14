@@ -173,8 +173,8 @@ end
 -- Foldcolumn Expands
 function FoldColumnExpands()
   if vim.wo.foldcolumn == "4" then
-    vim.wo.foldcolumn = "7"
-  elseif vim.wo.foldcolumn == "7" then
+    vim.wo.foldcolumn = "8"
+  elseif vim.wo.foldcolumn == "8" then
     vim.wo.foldcolumn = "4"
   end
 end
