@@ -60,9 +60,9 @@ vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
 -- Codeium
 vim.g.codeium_enabled = true
-vim.keymap.set("i", "<C-g>l", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-vim.keymap.set("i", "<C-g>n", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
-vim.keymap.set("i", "<C-g>p", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-g>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-v>n", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
+vim.keymap.set("i", "<C-v>p", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
 
 -- visual-multi
 vim.cmd [[ let g:VM_maps = {} ]]

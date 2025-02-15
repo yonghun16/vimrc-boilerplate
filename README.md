@@ -24,7 +24,7 @@ cp -r nvim ~/.config
 ```
 
 ### Uninstall
-```
+```shell
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
@@ -52,16 +52,21 @@ rm -rf ~/.local/state/nvim
   - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (for barbecue, navbuddy)
   - [nui.nvim](https://github.com/MunifTanjim/nui.nvim) (for navbuddy)
 
+
 ## 3. Other settings
 
 ### BetterTouchTool
 - BetterTouchTool : https://folivora.ai/ 
-- config file : btt_for_vim_and_wrap.bttpreset
+- config file : btt_for_vim.bttpreset
 
 ### Wrap terminal
 - wrap : https://www.warp.dev/
 - theme file : base16_solarized_dark.yaml
 
-### CursorAI editor
+### iterm2 terminal
+- iterm2 : https://iterm2.com/
+- config file : iterm_for_vim.json 
+
+### Cursor editor
 - Cursor : https://www.cursor.com/
-- key mapping file : keymap_for_cursorAI.vim
+- key-mapping file : keymap_for_cursorAI.vim
