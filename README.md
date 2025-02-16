@@ -24,12 +24,34 @@ rm -rf ~/.local/state/nvim
 ```
 
 
-## 2. Config
+## 2. Appyly settings
+#### nvim(nvchad)
 ```shell
 git clone https://github.com/yonghun16/vimrc-boilerplate ~
 cd ~/vimrc-boilerplate
 cp -r nvim ~/.config
 ```
+#### BetterTouchTool
+  - BetterTouchTool : https://folivora.ai/
+  - preset file : <code>btt_for_vim.bttpreset</code>
+  - [Configuration] → [preset] → [import]
+#### Wrap terminal
+  - wrap : https://www.warp.dev/
+  - theme file : <code>base16_solarized_dark.yaml</code>
+  - ```shell
+    mkdir -p $HOME/.warp
+    cd $HOME/.warp/
+    git clone https://github.com/warpdotdev/themes.git
+    cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
+    ```
+#### iterm2 terminal
+  - iterm2 : https://iterm2.com/
+  - json config file : <code>iterm_for_vim.json</code>
+  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
+#### Cursor editor
+  - Cursor : https://www.cursor.com/
+  - Vimscript file : <code>keymap_for_cursorAI.vim</code>
+  - Vim emulation install → (Commend ,) → (vim search) → Vim>vimrc:Path
 
 
 ## 3. Plugins 
@@ -53,18 +75,3 @@ cp -r nvim ~/.config
   - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (for barbecue, navbuddy)
   - [nui.nvim](https://github.com/MunifTanjim/nui.nvim) (for navbuddy)
 
-
-
-## 4. Other settings
-#### BetterTouchTool
-  - BetterTouchTool : https://folivora.ai/ 
-  - config file : btt_for_vim.bttpreset
-#### Wrap terminal
-  - wrap : https://www.warp.dev/
-  - theme file : base16_solarized_dark.yaml
-#### iterm2 terminal
-  - iterm2 : https://iterm2.com/
-  - config file : iterm_for_vim.json 
-#### Cursor editor
-  - Cursor : https://www.cursor.com/
-  - key-mapping file : keymap_for_cursorAI.vim
