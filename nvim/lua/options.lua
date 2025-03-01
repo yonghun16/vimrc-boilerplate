@@ -25,7 +25,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python", "c", "cpp", "java" },
+  pattern = { "pug", "python", "c", "cpp", "java" },
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4
