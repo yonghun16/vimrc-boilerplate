@@ -20,7 +20,7 @@ map("n", "<leader>Q", "<cmd>q!<CR>", { desc = "quit with save" })
 -- Using Terminal keymap on <Insert> mode
 map("i", "<C-h>", "<BACKSPACE>")
 map("i", "<C-f>", "<RIGHT>")
-map("i", "<C-l>", "<ESC>$a")
+map("i", "<C-l>", "<RIGHT>")
 map("i", "<C-b>", "<LEFT>")
 map("i", "<C-a>", "<ESC>^i")
 map("i", "<C-e>", "<ESC>$a")
@@ -28,6 +28,7 @@ map("i", "<C-d>", "<DEL>")
 map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><Right>C")
 map("i", "<C-CR>", "<ESC>o")
+map("i", "<C-;>", "<ESC>$a;")
 
 -- Cursor movement
 map({ "n", "v" }, "<C-k>", "3k")
