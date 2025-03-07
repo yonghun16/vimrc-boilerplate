@@ -29,7 +29,7 @@ cd ~/vimrc-boilerplate
 cp -r nvim ~/.config
 ```
 
-## 2. Other App Settings settings
+## 2. Other App Settings
 #### iTerm2
   - iterm2 : https://iterm2.com/
   - json config file : <code>iterm_for_vim.json</code>
