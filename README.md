@@ -22,20 +22,19 @@ rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
 ```
-
-
-## 2. Appyly settings
-#### nvim(nvchad)
+#### Setting
 ```shell
 git clone https://github.com/yonghun16/vimrc-boilerplate ~
 cd ~/vimrc-boilerplate
 cp -r nvim ~/.config
 ```
-#### BetterTouchTool
-  - BetterTouchTool : https://folivora.ai/
-  - preset file : <code>btt_for_vim.bttpreset</code>
-  - [Configuration] → [preset] → [import]
-#### Wrap terminal
+
+## 2. Other App Settings settings
+#### iTerm2
+  - iterm2 : https://iterm2.com/
+  - json config file : <code>iterm_for_vim.json</code>
+  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
+#### Wrap
   - wrap : https://www.warp.dev/
   - theme file : <code>base16_solarized_dark.yaml</code>
   - ```shell
@@ -44,15 +43,14 @@ cp -r nvim ~/.config
     git clone https://github.com/warpdotdev/themes.git
     cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
     ```
-#### iterm2 terminal
-  - iterm2 : https://iterm2.com/
-  - json config file : <code>iterm_for_vim.json</code>
-  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
-#### Cursor editor
+#### BetterTouchTool
+  - BetterTouchTool : https://folivora.ai/
+  - preset file : <code>btt_for_vim.bttpreset</code>
+  - [Configuration] → [preset] → [import]
+#### Cursor
   - Cursor : https://www.cursor.com/
   - Vimscript file : <code>keymap_for_cursorAI.vim</code>
   - Vim emulation install → (Commend ,) → (vim search) → Vim>vimrc:Path
-
 
 ## 3. Plugins 
 #### 문법 및 편집 플러그인
