@@ -6,7 +6,62 @@
 
 local plugins = {
   -------------------------------------------
-  -- 문법 및 편집 플러그인
+  -- 편집 보조 플러그인
+  -------------------------------------------
+  -- vim-codeium (AI 자동완성)
+  {
+    "Exafunction/codeium.vim", -- :Codeium Auth
+    event = "VimEnter",
+  },
+
+  -- vim-snippets (코드 스니펫) https://github.com/honza/vim-snippets/tree/master/snippets
+  {
+    "honza/vim-snippets",
+    event = "BufRead",
+  },
+
+  -- vim-visual-multi (멀티 커서)
+  {
+    "mg979/vim-visual-multi",
+    event = "vimEnter",
+  },
+
+  -- vim-illuminate (단어 하이라이트)
+  {
+    "RRethy/vim-illuminate",
+    event = "VimEnter",
+  },
+
+  -- vim-lastplace (커서 마지막 위치 저장)
+  {
+    "farmergreg/vim-lastplace",
+    lazy = false,
+  },
+
+  -- which-key.nvim (키 맵핑 보기)
+  {
+    "folke/which-key.nvim",
+    triggers = {
+      { "<leader>", mode = { "n", "v" } },
+    },
+    keys = {
+      {
+        "<leader>",
+        function() end,
+      },
+      {
+        "<leader>?",
+        function()
+          require("which-key").show { global = false }
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+    event = "VeryLazy",
+  },
+
+  -------------------------------------------
+  -- 문법 플러그인
   -------------------------------------------
   -- formatter.nvim (코드 포맷팅)
   {
@@ -33,12 +88,6 @@ local plugins = {
     event = "BufWritePre",
   },
 
-  -- vim-codeium (AI 자동완성)
-  {
-    "Exafunction/codeium.vim", -- :Codeium Auth
-    event = "VimEnter",
-  },
-
   -- vim-pug (pug문법 사용)
   {
     "digitaltoad/vim-pug",
@@ -51,45 +100,6 @@ local plugins = {
     event = "FileType html",
   },
 
-  -- which-key.nvim (키 맵핑 정보 보기)
-  {
-    "folke/which-key.nvim",
-    triggers = {
-      { "<leader>", mode = { "n", "v" } },
-    },
-    keys = {
-      {
-        "<leader>",
-        function() end,
-      },
-      {
-        "<leader>?",
-        function()
-          require("which-key").show { global = false }
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
-    event = "VeryLazy",
-  },
-
-  -- vim-illuminate (단어 하이라이트)
-  {
-    "RRethy/vim-illuminate",
-    event = "VimEnter",
-  },
-
-  -- vim-lastplace (커서 마지막 위치 저장)
-  {
-    "farmergreg/vim-lastplace",
-    lazy = false,
-  },
-
-  -- vim-visual-multi (멀티 커서)
-  {
-    "mg979/vim-visual-multi",
-    event = "vimEnter",
-  },
 
   -------------------------------------------
   -- 사이드 바 플러그인
