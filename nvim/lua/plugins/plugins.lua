@@ -97,7 +97,7 @@ local plugins = {
   -- emmet-vim (emmet 문법 사용)
   {
     "mattn/emmet-vim",
-    event = "FileType html",
+    event = "FileType html,javascriptreact",
   },
 
 
