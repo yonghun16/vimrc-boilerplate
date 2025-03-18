@@ -20,15 +20,18 @@ map("n", "<leader>Q", "<cmd>q!<CR>", { desc = "quit with save" })
 -- Using Terminal keymap on <Insert> mode
 map("i", "<C-h>", "<BACKSPACE>")
 map("i", "<C-f>", "<RIGHT>")
-map("i", "<C-l>", "<RIGHT>")
 map("i", "<C-b>", "<LEFT>")
 map("i", "<C-a>", "<ESC>^i")
 map("i", "<C-e>", "<ESC>$a")
 map("i", "<C-d>", "<DEL>")
 map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><Right>C")
+
+-- Additional key on <Insert> mode
+map("i", "<C-l>", "<RIGHT>")
 map("i", "<C-CR>", "<ESC>o")
 map("i", "<C-;>", "<ESC>$a;")
+map("i", "<C-s>", "<ESC><C-s>")
 
 -- Cursor movement
 map({ "n", "v" }, "<C-k>", "3k")
@@ -44,7 +47,7 @@ map({ "n", "v" }, "<C-d>", "<C-u>")
 map({ "n", "v" }, "<C-S-l>", "6zl")
 map({ "n", "v" }, "<C-S-h>", "6zh")
 
--- Split window movement & resizing
+-- Split window movement
 map("n", "<D-k>", "<C-w>k")
 map("n", "<D-j>", "<C-w>j")
 map("n", "<D-l>", "<C-w>l")
@@ -53,6 +56,8 @@ map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
+
+-- Split window resizing
 map("n", "<D-p>", "<C-w>2+")
 map("n", "<D-n>", "<C-w>2-")
 map("n", "<D-.>", "<C-w>2>")
@@ -65,7 +70,7 @@ map("n", "tx", "<cmd>tabclose<CR>")
 map("n", "tn", "<cmd>tabnext<CR>")
 map("n", "tp", "<cmd>tabprevious<CR>")
 
--- information displayed
+-- information displayed functions
 map("n", "s", "")
 map("n", "ss", "<cmd>Nvdash<CR>") -- Nvdash
 map("n", "sm", "<cmd>message<CR>") -- Message
@@ -75,14 +80,14 @@ map("n", "sk", "<cmd>lua vim.lsp.buf.hover()<CR>") -- Keyword manpage
 map("n", "sl", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- Lsp signature help
 map("n", "s<leader>", "<cmd>WhichKey <leader><CR>") -- leader key info
 
--- Sidebars
+-- Sidebars funtions
 map({ "n", "t" }, "<leader>j", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "terminal(bottom)" })
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree" })
 map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>", { desc = "diagnostics list" })
 map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", { desc = "symbols outline" })
 map("n", "<leader>L", "<cmd>TagbarToggle<CR>", { desc = "tagbar" })
 
--- Floating windows
+-- Floating windows functions
 map({ "n", "t" }, "<leader><leader>", "<cmd>ToggleTerm direction=float<CR>", { desc = "terminal(floating)" })
 map("n", "<leader>k", "<cmd>Navbuddy<CR>", { desc = "navbuddy" })
 map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { desc = "FZF file explorer" })
