@@ -91,6 +91,7 @@ map("n", "<leader>L", "<cmd>TagbarToggle<CR>", { desc = "tagbar" })
 map({ "n", "t" }, "<leader><leader>", "<cmd>ToggleTerm direction=float<CR>", { desc = "terminal(floating)" })
 map("n", "<leader>k", "<cmd>Navbuddy<CR>", { desc = "navbuddy" })
 map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { desc = "FZF file explorer" })
+map("n", "<leader>g", "<cmd>lua require('fzf-lua').grep()<CR>", { desc = "FZF grep explorer" })
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", { desc = "show buffers" })
 
 -- Folding
@@ -115,7 +116,7 @@ map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")
 map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")
 
 -- Git push
-map("n", "<leader>g", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
+map("n", "<leader>p", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
 
 -- Clean search item (highlight remove)
 map("n", "<leader><SPACE>", "<cmd>noh<CR>", { desc = "clean search item" })
