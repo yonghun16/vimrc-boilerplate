@@ -43,14 +43,14 @@ cp -r nvim ~/.config
     git clone https://github.com/warpdotdev/themes.git
     cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
     ```
-#### BetterTouchTool
-  - BetterTouchTool : https://folivora.ai/
-  - preset file : <code>btt_for_vim.bttpreset</code>
-  - [Configuration] → [preset] → [import]
 #### Cursor
   - Cursor : https://www.cursor.com/
   - Vimscript file : <code>keymap_for_cursorAI.vim</code>
   - Vim emulation install → (Commend ,) → (vim search) → Vim>vimrc:Path
+#### BetterTouchTool
+  - BetterTouchTool : https://folivora.ai/
+  - preset file : <code>btt_for_vim.bttpreset</code>
+  - [Configuration] → [preset] → [import]
 #### Gureum
   - Gureum : https://gureum.io/
   - Config
