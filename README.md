@@ -51,6 +51,12 @@ cp -r nvim ~/.config
   - Cursor : https://www.cursor.com/
   - Vimscript file : <code>keymap_for_cursorAI.vim</code>
   - Vim emulation install → (Commend ,) → (vim search) → Vim>vimrc:Path
+#### Gureum
+  - Gureum : https://gureum.io/
+  - Config
+    - 로마자로만 바꾸기 단축키 : ^C (ESC 단축키)
+    - 오른쪽 키로 언어 전환 : Command
+    - 한글 입력기 설정 : 모아치기, MS윈도호환, JDK호환, vi모드, 
 
 ## 3. Plugins 
 #### 편집 보조 플러그인
