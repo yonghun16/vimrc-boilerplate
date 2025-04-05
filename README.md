@@ -61,12 +61,12 @@ cp -r nvim ~/.config
 ## 3. Plugins 
 #### 편집 보조 플러그인
   - [vim-codeium](https://github.com/Exafunction/codeium.vim) (AI 자동완성)
-  - [vim-snippets](https://github.com/honza/vim-snippets) (코드 스니펫)
   - [vim-visual-multi](https://github.com/mg979/vim-visual-multi) (멀티 커서)
   - [vim-illuminate](https://github.com/RRethy/vim-illuminate) (단어 하이라이트)
   - [vim-lastplace](https://github.com/farmergreg/vim-lastplace) (커서 마지막 위치 저장)
 #### 문법 플러그인
   - [formatter.nvim](https://github.com/mhartington/formatter.nvim) (코드 포맷팅)
+  - [vim-snippets](https://github.com/honza/vim-snippets) (코드 스니펫)
   - [vim-pug](https://github.com/digitaltoad/vim-pug) (pug문법 사용)
   - [emmet-vim](https://github.com/mattn/emmet-vim) (emmet 문법 사용)
 #### 사이드바 플러그인

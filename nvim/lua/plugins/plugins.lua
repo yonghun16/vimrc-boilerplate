@@ -14,12 +14,6 @@ local plugins = {
     event = "VimEnter",
   },
 
-  -- vim-snippets (코드 스니펫) https://github.com/honza/vim-snippets/tree/master/snippets
-  {
-    "honza/vim-snippets",
-    event = "BufRead",
-  },
-
   -- vim-visual-multi (멀티 커서)
   {
     "mg979/vim-visual-multi",
@@ -88,6 +82,12 @@ local plugins = {
     event = "BufWritePre",
   },
 
+  -- vim-snippets (코드 스니펫) https://github.com/honza/vim-snippets/tree/master/snippets
+  {
+    "honza/vim-snippets",
+    event = "BufRead",
+  },
+
   -- vim-pug (pug문법 사용)
   {
     "digitaltoad/vim-pug",
@@ -97,7 +97,7 @@ local plugins = {
   -- emmet-vim (emmet 문법 사용)
   {
     "mattn/emmet-vim",
-    event = "FileType html,javascriptreact",
+    event = "FileType html,javascript,javascriptreact",
   },
 
 
