@@ -24,12 +24,14 @@ map("i", "<C-b>", "<LEFT>")
 map("i", "<C-a>", "<ESC>^i")
 map("i", "<C-e>", "<ESC>$a")
 map("i", "<C-d>", "<DEL>")
+map("i", "<C-j>", "<ENTER>")
 map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><RIGHT>C")
 
 -- Additional key on <Insert> mode
 map("i", "<C-CR>", "<ESC>o")
-map("i", "<C-;>", "<ESC>$a;")
+map("i", "<C-;>", "<ESC>$a;");
+map("i", "<C-,>", "<ESC>$a,")
 map("i", "<C-s>", "<ESC><C-s>")
 
 -- Cursor movement
