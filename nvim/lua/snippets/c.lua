@@ -21,4 +21,23 @@ return {
       "}",
     })
   }),
+
+  s("programmers_comment", {
+    t({
+      "/*-----------------------------------------------------",
+      "Sub  : [Programmers] ",
+      "Link : https://school.programmers.co.kr/learn/courses/30/lessons/",
+      "Level: ",
+      "Tag  : C, ",
+      "Memo",
+      "-----------------------------------------------------*/",
+      "",
+      "#include <stdio.h>",
+      "",
+      "int main() {",
+      "",
+      "    return 0;",
+      "}",
+    })
+  }),
 }
