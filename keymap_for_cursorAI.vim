@@ -12,12 +12,6 @@ vmap <C-l> $
 nmap <C-h> ^
 vmap <C-h> ^
 
-" Screen movement
-nmap <C-n> 3<C-e>
-vmap <C-n> 3<C-e>
-nmap <C-p> 3<C-y>
-vmap <C-p> 3<C-y>
-
 " Using Terminal keymap on <Insert> mode
 imap <C-a> <ESC>^i
 imap <C-e> <ESC>$a
