@@ -60,14 +60,7 @@ vim.opt.updatetime = 200
 -- fzf
 vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
--- Codeium
-vim.g.codeium_enabled = true
-vim.keymap.set("i", "<C-g>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-vim.keymap.set("i", "<C-x>n", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true, silent = true })
-vim.keymap.set("i", "<C-x>p", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true, silent = true })
-
 -- visual-multi
---
 vim.cmd [[ let g:VM_maps = {} ]]
 vim.cmd [[ let g:VM_maps["Find Under"] = '<C-x>/' ]]
 vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-x>/' ]] -- used in Visual Mode
@@ -78,7 +71,7 @@ vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]]
 vim.g.user_emmet_leader_key = ","
 
 -- tagbar
-vim.cmd [[ let g:tagbar_width = '30' ]]
+vim.g.tagbar_width = 30
 
 -- indent-blankline
 require("ibl").update {

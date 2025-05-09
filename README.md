@@ -60,7 +60,7 @@ cp -r nvim ~/.config
 
 ## 3. Plugins 
 #### 편집 보조 플러그인
-  - [vim-codeium](https://github.com/Exafunction/codeium.vim) (AI 자동완성)
+  - [vim-windserf](https://github.com/Exafunction/windserf.vim) (AI 자동완성)
   - [vim-visual-multi](https://github.com/mg979/vim-visual-multi) (멀티 커서)
   - [vim-illuminate](https://github.com/RRethy/vim-illuminate) (단어 하이라이트)
   - [vim-lastplace](https://github.com/farmergreg/vim-lastplace) (커서 마지막 위치 저장)

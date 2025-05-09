@@ -10,7 +10,7 @@ local plugins = {
   -------------------------------------------
   -- vim-codeium (AI 자동완성)
   {
-    "Exafunction/codeium.vim", -- :Codeium Auth
+    "Exafunction/windsurf.vim", -- :Codeium Auth
     event = "VimEnter",
   },
 
@@ -40,6 +40,7 @@ local plugins = {
     },
     keys = {
       {
+        -- <leader> 단독 키맵 제거
         "<leader>",
         function() end,
       },
@@ -52,6 +53,16 @@ local plugins = {
       },
     },
     event = "VeryLazy",
+  },
+
+  -- nvim-cmp (자동완성)
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      -- Tab 관련 키맵 제거
+      opts.mapping["<Tab>"] = nil
+      opts.mapping["<S-Tab>"] = nil
+    end,
   },
 
   -------------------------------------------

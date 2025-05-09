@@ -31,7 +31,7 @@ map("i", "<C-k>", "<ESC><RIGHT>C")
 map("i", "<C-f>", "<C-RIGHT>")
 map("i", "<C-v>", "<C-LEFT>")
 map("i", "<C-CR>", "<ESC>o")
-map("i", "<C-;>", "<ESC>$a;");
+map("i", "<C-;>", "<ESC>$a;")
 map("i", "<C-,>", "<ESC>$a,")
 map("i", "<C-s>", "<ESC><C-s>")
 
@@ -108,14 +108,22 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
+-- AI Auto complete
+map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")
+
+-- Codeium(windserf) keymap
+map("i", "<Tab>", "codeium#Accept()", { expr = true, silent = true, nowait = true, desc = "Accept Codeium suggestion" })
+map("i", "<C-x>l", "codeium#AcceptNextWord()", { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium", })
+map("i", "<C-x><CR>", "codeium#AcceptNextLine()", { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium", })
+map("i", "<C-x>n", "<Cmd>call codeium#CycleCompletions(1)<CR>", { silent = true, desc = "Cycle Codeium completions forward", })
+map("i", "<C-x>p", "<Cmd>call codeium#CycleCompletions(-1)<CR>", { silent = true, desc = "Cycle Codeium completions backward", })
+map("i", "<C-x>x", "<Cmd>call codeium#Clear()<CR>", { silent = true, desc = "Clear Codeium suggestion", })
+
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
 
 -- Wrap codes
 map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")
-
--- AI Auto complete
-map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")
 
 -- Git push
 map("n", "<leader>p", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
@@ -128,4 +136,3 @@ map("n", "<leader>v", ":vert diffsplit ", { desc = "diffsplit" })
 
 -- Set the current path as the working path
 map("n", "<leader>~", "<cmd>:lcd %:p:h<CR>:echo expand('%:p:h')<CR>", { desc = "change the current path" })
-
