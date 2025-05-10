@@ -31,8 +31,6 @@ map("i", "<C-k>", "<ESC><RIGHT>C")
 map("i", "<C-f>", "<C-RIGHT>")
 map("i", "<C-v>", "<C-LEFT>")
 map("i", "<C-CR>", "<ESC>o")
-map("i", "<C-;>", "<ESC>$a;")
-map("i", "<C-,>", "<ESC>$a,")
 map("i", "<C-s>", "<ESC><C-s>")
 
 -- Cursor movement
@@ -113,11 +111,11 @@ map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")
 
 -- Codeium(windserf) keymap
 map("i", "<Tab>", "codeium#Accept()", { expr = true, silent = true, nowait = true, desc = "Accept Codeium suggestion" })
-map("i", "<C-x>l", "codeium#AcceptNextWord()", { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium", })
-map("i", "<C-x><CR>", "codeium#AcceptNextLine()", { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium", })
-map("i", "<C-x>n", "<Cmd>call codeium#CycleCompletions(1)<CR>", { silent = true, desc = "Cycle Codeium completions forward", })
-map("i", "<C-x>p", "<Cmd>call codeium#CycleCompletions(-1)<CR>", { silent = true, desc = "Cycle Codeium completions backward", })
-map("i", "<C-x>x", "<Cmd>call codeium#Clear()<CR>", { silent = true, desc = "Clear Codeium suggestion", })
+map("i", "<C-;>", "codeium#AcceptNextLine()", { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium", })
+map("i", "<C-'>", "codeium#AcceptNextWord()", { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium", })
+map("i", "<C-.>", "<Cmd>call codeium#CycleCompletions(1)<CR>", { silent = true, desc = "Cycle Codeium completions forward", })
+map("i", "<C-,>", "<Cmd>call codeium#CycleCompletions(-1)<CR>", { silent = true, desc = "Cycle Codeium completions backward", })
+map("i", "<C-x>", "<Cmd>call codeium#Clear()<CR>", { silent = true, desc = "Clear Codeium suggestion", })
 
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
