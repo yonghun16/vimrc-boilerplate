@@ -67,6 +67,9 @@ vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-x>/' ]] -- used in Visual M
 vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]]
 -- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
 
+-- Codium(Windserf)
+vim.g.codeium_enabled = true
+
 -- emmet-vim
 vim.g.user_emmet_leader_key = ","
 
