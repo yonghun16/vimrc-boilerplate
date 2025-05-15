@@ -125,7 +125,7 @@ local plugins = {
       require("fzf-lua").setup {
         keymap = {
           builtin = {
-            ["<C-f>"] = "preview-page-up",
+            ["<C-u>"] = "preview-page-up",
             ["<C-d>"] = "preview-page-down",
           },
         },
