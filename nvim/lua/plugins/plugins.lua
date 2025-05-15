@@ -125,8 +125,8 @@ local plugins = {
       require("fzf-lua").setup {
         keymap = {
           builtin = {
-            ["<C-f>"] = "preview-page-down",
-            ["<C-d>"] = "preview-page-up",
+            ["<C-f>"] = "preview-page-up",
+            ["<C-d>"] = "preview-page-down",
           },
         },
       }
@@ -252,8 +252,13 @@ local plugins = {
       require("nvim-navic").setup()
     end,
   },
+
   -- nui.nvim (for navbuddy)
   { "MunifTanjim/nui.nvim" },
+
+  -- nvchad.blink.lazyspec (for Lazy)
+  -- { import = "nvchad.blink.lazyspec" }
+
 }
 
 return plugins
