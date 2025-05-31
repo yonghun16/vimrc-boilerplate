@@ -2,7 +2,8 @@
 -- Manually install additional plugins
 -------------------------------------------
 -- $ brew install fd universal-ctags luarocks fzf ripgrep
--- :MasonInstall stylua black prettier clang-format google-java-format shfmt
+-- :MasonInstall stylua black prettier pyright clang-format clangd css-lsp google-java-format jdtls sqlls
+-- :MasonInstall tailwindcss-language-server typescript-language-server
 
 local plugins = {
   -------------------------------------------
