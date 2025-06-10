@@ -72,6 +72,7 @@ cp -r nvim ~/.config
     - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
     - <code>karabiner-vim.json</code>
   - [Complex Modifications] → [Add your own rule]
+  - [Devices] → 외장키보드 사용 시 추가
 
 
 ## 3. Plugins 
