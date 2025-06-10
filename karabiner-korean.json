@@ -1,0 +1,35 @@
+{
+    "description": "오른쪽 커맨드키 → 한/영, 오른쪽 옵션키 → 한자",
+    "manipulators": [
+        {
+            "description": "오른쪽 커맨드키로 한/영 전환",
+            "from": {
+                "key_code": "right_gui",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "spacebar",
+                    "lazy": true,
+                    "modifiers": ["left_control", "left_shift"],
+                    "repeat": false
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "description": "오른쪽 옵션키로 한자 입력",
+            "from": {
+                "key_code": "right_option",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "key_code": "spacebar",
+                    "modifiers": ["left_control", "left_option"]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
