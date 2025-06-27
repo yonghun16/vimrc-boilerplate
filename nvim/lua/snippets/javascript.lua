@@ -16,6 +16,7 @@ return {
       "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');",
       "// const filePath = require('path').join(__dirname, 'input.txt');",
       "// const inputs = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');",
+      "",
     })
   }),
 
@@ -32,6 +33,7 @@ return {
       "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');",
       "// const filePath = require('path').join(__dirname, 'input.txt');",
       "// const inputs = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');",
+      "",
     })
   }),
 
@@ -48,6 +50,7 @@ return {
       "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');",
       "// const filePath = require('path').join(__dirname, 'input.txt');",
       "// const inputs = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');",
+      "",
     })
   }),
 }
