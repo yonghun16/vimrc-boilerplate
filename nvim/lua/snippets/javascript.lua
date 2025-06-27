@@ -13,11 +13,13 @@ return {
       "Memo",
       "-----------------------------------------------------*/",
       "",
-      "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');"
+      "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');",
+      "const filePath = require('path').join(__dirname, 'input.txt');",
+      "const inputs = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');",
     })
   }),
 
-  s("programmers_comment", {
+  s("poj_comment", {
     t({
       "/*-----------------------------------------------------",
       "Sub  : [Programmers] ",
@@ -27,11 +29,13 @@ return {
       "Memo",
       "-----------------------------------------------------*/",
       "",
-      "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');"
+      "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');",
+      "const filePath = require('path').join(__dirname, 'input.txt');",
+      "const inputs = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');",
     })
   }),
 
-  s("goorm_comment", {
+  s("goj_comment", {
     t({
       "/*-----------------------------------------------------",
       "Sub  : [Goorm] ",
@@ -41,7 +45,9 @@ return {
       "Memo",
       "-----------------------------------------------------*/",
       "",
-      "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');"
+      "const input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');",
+      "const filePath = require('path').join(__dirname, 'input.txt');",
+      "const inputs = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');",
     })
   }),
 }

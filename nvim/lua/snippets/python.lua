@@ -15,10 +15,14 @@ return {
       "",
       "import sys",
       "input = sys.stdin.readline",
+      "# file = open(\"input.txt\", \"r\")",
+      "# inputs = file.readlines()",
+      "",
+      "# file.close()",
     })
   }),
 
-  s("programmers_comment", {
+  s("poj_comment", {
     t({
       "'''----------------------------------------------------",
       "Sub  : [Programmers] ",
@@ -30,10 +34,14 @@ return {
       "",
       "import sys",
       "input = sys.stdin.readline",
+      "# file = open(\"input.txt\", \"r\")",
+      "# inputs = file.readlines()",
+      "",
+      "# file.close()",
     })
   }),
 
-  s("goorm", {
+  s("goj_comment", {
     t({
       "'''----------------------------------------------------",
       "Sub  : [Goorm] ",
@@ -45,6 +53,10 @@ return {
       "",
       "import sys",
       "input = sys.stdin.readline",
+      "# file = open(\"input.txt\", \"r\")",
+      "# inputs = file.readlines()",
+      "",
+      "# file.close()",
     })
   }),
 }
