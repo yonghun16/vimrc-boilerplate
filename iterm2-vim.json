@@ -277,6 +277,11 @@
     "Red Component" : 0.64746475219726562
   },
   "Title Components" : 3,
+  "Semantic History" : {
+    "action" : "best editor",
+    "text" : "",
+    "editor" : "com.github.atom"
+  },
   "Ansi 9 Color (Dark)" : {
     "Green Component" : 0.084504462778568296,
     "Blue Component" : 0.23225757479667664,
@@ -312,7 +317,7 @@
     "telnet"
   ],
   "Use Non-ASCII Font" : true,
-  "Custom Directory" : "No",
+  "Enable Triggers in Interactive Apps" : true,
   "Use Selected Text Color (Light)" : true,
   "Bold Color (Light)" : {
     "Green Component" : 0.83450067043304443,
@@ -320,12 +325,14 @@
     "Red Component" : 0.70913255214691162
   },
   "Brighten Bold Text (Dark)" : true,
+  "Custom Directory" : "No",
+  "Name" : "yonghun16",
+  "Space" : 1,
   "Ansi 8 Color (Light)" : {
     "Green Component" : 0.39142724871635437,
     "Blue Component" : 0.53505516052246094,
     "Red Component" : 0
   },
-  "Name" : "yonghun16",
   "Ansi 11 Color (Dark)" : {
     "Green Component" : 0.49430075287818909,
     "Blue Component" : 0.1584954559803009,
@@ -390,7 +397,7 @@
     "Blue Component" : 0.51931029558181763,
     "Red Component" : 0.31744870543479919
   },
-  "Normal Font" : "JetBrainsMonoNFM-Regular 16",
+  "Normal Font" : "JetBrainsMonoNFM-Regular 18",
   "Use Selected Text Color (Dark)" : true,
   "Foreground Color" : {
     "Green Component" : 0.75921261310577393,

@@ -36,7 +36,7 @@ cp -r nvim ~/.config
 ## 2. Other App Settings
 #### iTerm2
   - iterm2 : https://iterm2.com/
-  - json config file : <code>iterm-vim.json</code>
+  - json config file : <code>iterm2-vim.json</code>
   - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
 
 #### Wrap
