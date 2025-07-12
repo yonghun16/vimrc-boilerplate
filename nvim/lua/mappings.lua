@@ -70,7 +70,7 @@ map("n", "tp", "<cmd>tabprevious<CR>")
 
 -- information displayed functions
 map("n", "s", "")
-map("n", "ss", "<cmd>Nvdash<CR>") -- Nvdash
+map("n", "ss", "<cmd>lua ToggleNvDash()<CR>", { desc = "Toggle NvDash screen", noremap = true, silent = true })
 map("n", "sm", "<cmd>message<CR>") -- Message
 map("n", "sr", "<cmd>reg<CR>") -- Register
 map("n", "sd", "<cmd>lua vim.diagnostic.open_float()<CR>") -- Diagnostic

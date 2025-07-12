@@ -195,3 +195,17 @@ function ToggleDiagnostics_qflist()
     vim.cmd "copen"
   end
 end
+
+-- Toggle NvDash
+function ToggleNvDash()
+  local current_buf = vim.api.nvim_get_current_buf()
+  local current_name = vim.api.nvim_buf_get_name(current_buf)
+  local filetype = vim.bo[current_buf].filetype
+
+  -- NvDash 화면인지 판별: 파일 이름이 없거나 특정 filetype인 경우
+  if current_name == "" or filetype == "alpha" or filetype == "dashboard" or filetype == "starter" then
+    vim.cmd("b#")  -- 이전 버퍼로 이동
+  else
+    vim.cmd("Nvdash")  -- NvDash 열기
+  end
+end
