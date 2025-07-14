@@ -121,8 +121,11 @@ map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
 -- Wrap codes
 map("n", "tw", "<cmd>lua ToggleWrapCodes()<CR>")
 
+-- Reload and LSP restart
+map("n", "<Leader>r", "<cmd>lua ReloadAndLSPRestart()<CR>", { desc = "Reload file and restart LSP" })
+
 -- Git push
-map("n", "<leader>p", "<cmd>lua Commit_and_push()<CR>", { desc = "Git commit and push" })
+map("n", "<leader>p", "<cmd>lua CommitAndPush()<CR>", { desc = "Git commit and push" })
 
 -- Clean search item (highlight remove)
 map("n", "<leader><SPACE>", "<cmd>noh<CR>", { desc = "clean search item" })

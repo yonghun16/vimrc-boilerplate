@@ -23,7 +23,6 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
 -- Lsp ts_ls 설정(js에서 ts로 파일변경 시 적용)
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.ts",
-  once = true, -- 이 버퍼에서 한 번만 실행
   callback = function()
     local bufnr = vim.api.nvim_get_current_buf()
 
@@ -117,7 +116,6 @@ require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets"
 -- Functions
 ------------------------------------------------------------------
 -- Compile and Run
---
 local tsconfig = {
   '{',
   '  "compilerOptions": {',
@@ -169,8 +167,19 @@ function Compile()
   end
 end
 
+-- Reload and LSP Restart
+function ReloadAndLSPRestart()
+  local bufnr = vim.api.nvim_get_current_buf()
+  for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+    client:stop(true)
+  end
+  vim.defer_fn(function()
+    vim.cmd("edit") -- 버퍼를 다시 로드하여 LSP 자동 attach 유도
+  end, 100)
+end
+
 -- Git Commit and Push
-function Commit_and_push()
+function CommitAndPush()
   local commit_message = vim.fn.input "Commit message: " -- 사용자로부터 커밋 메시지 입력받기
   if commit_message == "" then
     print "Commit aborted: No message provided." -- 메시지가 비어 있으면 커밋 중단
