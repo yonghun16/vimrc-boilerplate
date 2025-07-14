@@ -89,12 +89,29 @@ require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets"
 -- Functions
 ------------------------------------------------------------------
 -- Compile and Run
+--
+local tsconfig = {
+  '{',
+  '  "compilerOptions": {',
+  '    "target": "ES2020",',
+  '    "module": "ESNext",',
+  '    "moduleResolution": "node",',
+  '    "lib": ["ESNext", "Dom"],',
+  '    "strict": true,',
+  '    "skipLibCheck": true,',
+  '    "esModuleInterop": true,',
+  '    "forceConsistentCasingInFileNames": true',
+  '  },',
+  '  "include": ["src/**/*"],',
+  '  "exclude": ["node_modules"]',
+  '}'
+}
+
 function Compile()
   local filetype = vim.bo.filetype
   if filetype == "python" then
     vim.cmd "w"
     vim.cmd 'TermExec cmd="python3 %<.py"'
-    -- vim.cmd('set norelativenumber nonu')
   elseif filetype == "javascript" then
     vim.cmd "w"
     vim.cmd 'TermExec cmd="node %<.js"'
@@ -102,7 +119,7 @@ function Compile()
     vim.cmd "w"
     local tsconfig_exists = vim.fn.filereadable "tsconfig.json" == 1
     if not tsconfig_exists then
-      vim.fn.writefile({}, "tsconfig.json")
+      vim.fn.writefile(tsconfig, "tsconfig.json")
     end
     vim.cmd 'TermExec cmd="ts-node %<.ts"'
     -- vim.cmd ":! tsc % --outDir ~/bin"
