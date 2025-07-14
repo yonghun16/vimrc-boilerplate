@@ -5,7 +5,7 @@ require "nvchad.options"
 ------------------------------------------------------------------
 -- Basic options
 ------------------------------------------------------------------
---- cursorline
+-- cursorline
 local o = vim.o
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   callback = function()
@@ -17,6 +17,34 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   callback = function()
     o.cursorlineopt = "both"
     o.cursorline = false
+  end,
+})
+
+-- Lsp ts_ls 설정(js에서 ts로 파일변경 시 적용)
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.ts",
+  once = true, -- 이 버퍼에서 한 번만 실행
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+
+    -- filetype이 잘못되었으면 typescript로 설정
+    if vim.bo.filetype ~= "typescript" then
+      vim.bo.filetype = "typescript"
+    end
+
+    -- ts_ls 클라이언트가 연결되어 있는지 확인
+    local has_tsclient = false
+    for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+      if client.name == "ts_ls" then
+        has_tsclient = true
+        break
+      end
+    end
+
+    -- 없으면 ts_ls 시작
+    if not has_tsclient then
+      vim.cmd("LspStart ts_ls")
+    end
   end,
 })
 
