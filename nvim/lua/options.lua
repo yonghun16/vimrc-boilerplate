@@ -53,7 +53,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "html", "css", "lua", "dart", "R" },
+  pattern = { "javascript", "typescript", "json", "html", "css", "lua", "dart", "R" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
@@ -99,6 +99,24 @@ vim.g.codeium_enabled = true
 
 -- emmet-vim
 vim.g.user_emmet_leader_key = ","
+
+-- nvim-Tree
+require("nvim-tree").setup({
+  hijack_cursor = true,
+
+  on_attach = function(bufnr)
+    local api = require("nvim-tree.api")
+
+    api.config.mappings.default_on_attach(bufnr) -- 기본 키맵 적용
+
+    local function opts(desc)
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    vim.keymap.del("n", "<C-k>", { buffer = bufnr })  -- Ctrl+k 제거
+    vim.keymap.set("n", "K", api.node.show_info_popup, opts("Show Info")) -- Shift+k 로 파일 정보 보기
+  end,
+})
 
 -- tagbar
 vim.g.tagbar_width = 30
