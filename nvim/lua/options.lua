@@ -53,7 +53,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "json", "html", "css", "lua", "dart", "R" },
+  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "html", "css", "lua", "dart", "R" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
