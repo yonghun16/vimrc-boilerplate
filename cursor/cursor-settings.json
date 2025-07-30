@@ -1,0 +1,11 @@
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>", "a"],
+        "commands": ["code-runner.run"]
+      },
+      {
+        "before": ["<leader>", "l"],
+        "commands": ["cursor.launchAIAssistant"]
+      }
+    ]

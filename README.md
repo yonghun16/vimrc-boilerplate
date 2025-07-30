@@ -34,10 +34,25 @@ cp -r nvim ~/.config
 
 
 ## 2. Other App Settings
+#### Cursor
+  - Cursor : https://www.cursor.com/
+  - Vim Mode 설정 : 확장 → Vim emulation install 
+  - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → <code>cursor-vimkeymap.vim</code> 적용
+  - Key binding file : <code>cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json</code>
+  - settings : (Commend ,) → 설정열기(JSON) → 여기에 <code>cursor-seetings.json</code> 내용 추가
+
 #### iTerm2
   - iterm2 : https://iterm2.com/
   - json config file : <code>iterm2-vim.json</code>
   - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
+
+#### Karabiner
+  - BetterTouchTool : https://karabiner-elements.pqrs.org/
+  - preset file
+    - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
+    - <code>karabiner-vim.json</code>
+  - [Complex Modifications] → [Add your own rule]
+  - [Devices] → 외장키보드 사용 시 추가
 
 #### Wrap
   - wrap : https://www.warp.dev/
@@ -48,11 +63,6 @@ cp -r nvim ~/.config
     git clone https://github.com/warpdotdev/themes.git
     cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
     ```
-
-#### Cursor
-  - Cursor : https://www.cursor.com/
-  - Vimscript file : <code>keymap-cursor.vim</code>
-  - Vim emulation install → (Commend ,) → (vim search) → Vim>vimrc:Path
 
 #### Gureum 및 한글 설정
   - Gureum : https://gureum.io/
@@ -65,14 +75,6 @@ cp -r nvim ~/.config
     - [설정] → [키보드] → [키보드 단축키] → [입력소스]
     - 이전 입력 소스 선택 : contrl + shift + spacebar 
     - 입력 메뉴에서 다음 소스 선택 : 체크해제
-
-#### Karabiner
-  - BetterTouchTool : https://karabiner-elements.pqrs.org/
-  - preset file
-    - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
-    - <code>karabiner-vim.json</code>
-  - [Complex Modifications] → [Add your own rule]
-  - [Devices] → 외장키보드 사용 시 추가
 
 
 ## 3. Plugins 
