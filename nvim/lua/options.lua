@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
     -- ts_ls 클라이언트가 연결되어 있는지 확인
     local has_tsclient = false
-    for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+    for _, client in pairs(vim.lsp.get_clients { bufnr = bufnr }) do
       if client.name == "ts_ls" then
         has_tsclient = true
         break
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
     -- 없으면 ts_ls 시작
     if not has_tsclient then
-      vim.cmd("LspStart ts_ls")
+      vim.cmd "LspStart ts_ls"
     end
   end,
 })
@@ -53,7 +53,18 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "html", "css", "lua", "dart", "R" },
+  pattern = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "css",
+    "lua",
+    "dart",
+    "R",
+  },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
@@ -80,7 +91,6 @@ vim.opt.wrap = false
 vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
 vim.opt.updatetime = 200
 
-
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
@@ -101,11 +111,11 @@ vim.g.codeium_enabled = true
 vim.g.user_emmet_leader_key = ","
 
 -- nvim-Tree
-require("nvim-tree").setup({
+require("nvim-tree").setup {
   hijack_cursor = true,
 
   on_attach = function(bufnr)
-    local api = require("nvim-tree.api")
+    local api = require "nvim-tree.api"
 
     api.config.mappings.default_on_attach(bufnr) -- 기본 키맵 적용
 
@@ -113,10 +123,10 @@ require("nvim-tree").setup({
       return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
-    vim.keymap.del("n", "<C-k>", { buffer = bufnr })  -- Ctrl+k 제거
-    vim.keymap.set("n", "K", api.node.show_info_popup, opts("Show Info")) -- Shift+k 로 파일 정보 보기
+    vim.keymap.del("n", "<C-k>", { buffer = bufnr }) -- Ctrl+k 제거
+    vim.keymap.set("n", "K", api.node.show_info_popup, opts "Show Info") -- Shift+k 로 파일 정보 보기
   end,
-})
+}
 
 -- tagbar
 vim.g.tagbar_width = 30
@@ -127,15 +137,14 @@ require("ibl").update {
 }
 
 -- snippets
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
-
+require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/snippets" }
 
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
 -- Compile and Run
 local tsconfig = {
-  '{',
+  "{",
   '  "compilerOptions": {',
   '    "target": "ES2020",',
   '    "module": "ESNext",',
@@ -145,10 +154,10 @@ local tsconfig = {
   '    "skipLibCheck": true,',
   '    "esModuleInterop": true,',
   '    "forceConsistentCasingInFileNames": true',
-  '  },',
+  "  },",
   '  "include": ["src/**/*"],',
   '  "exclude": ["node_modules"]',
-  '}'
+  "}",
 }
 
 function Compile()
@@ -188,11 +197,11 @@ end
 -- Reload and LSP Restart
 function ReloadAndLSPRestart()
   local bufnr = vim.api.nvim_get_current_buf()
-  for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+  for _, client in pairs(vim.lsp.get_clients { bufnr = bufnr }) do
     client:stop(true)
   end
   vim.defer_fn(function()
-    vim.cmd("edit") -- 버퍼를 다시 로드하여 LSP 자동 attach 유도
+    vim.cmd "edit" -- 버퍼를 다시 로드하여 LSP 자동 attach 유도
   end, 100)
 end
 
@@ -271,13 +280,36 @@ end
 -- Toggle NvDash
 function ToggleNvDash()
   local current_buf = vim.api.nvim_get_current_buf()
-  local current_name = vim.api.nvim_buf_get_name(current_buf)
   local filetype = vim.bo[current_buf].filetype
 
   -- NvDash 화면인지 판별: 파일 이름이 없거나 특정 filetype인 경우
-  if current_name == "" or filetype == "alpha" or filetype == "dashboard" or filetype == "starter" then
-    vim.cmd("b#")  -- 이전 버퍼로 이동
+  if filetype == "alpha" or filetype == "dashboard" or filetype == "starter" then
+    vim.cmd "b#" -- 이전 버퍼로 이동
   else
-    vim.cmd("Nvdash")  -- NvDash 열기
+    vim.cmd "Nvdash" -- NvDash 열기
   end
+end
+
+-- 현재 버퍼 파일 경로 기준으로 NvimTree 위치 맞추는 함수
+function Sync_nvimtree_to_current_buffer()
+  local api = require("nvim-tree.api")
+  local filepath = vim.api.nvim_buf_get_name(0)
+  local ft = vim.bo.filetype
+
+  if filepath == "" or ft == "NvimTree" or ft == "nvimtree" then
+    print("빈 버퍼거나 NvimTree 버퍼라서 리턴됨")
+    return
+  end
+
+  local dir = vim.fn.fnamemodify(filepath, ":h")
+
+  -- Neovim 현재 작업 디렉터리 변경
+  vim.cmd("lcd " .. dir)
+  print("작업 디렉터리 변경됨: " .. dir)
+
+  if api.tree.is_visible() then
+    -- NvimTree가 열려 있으면 트리 루트만 변경
+    api.tree.change_root(dir)
+  end
+  -- NvimTree가 닫혀있으면 열지 않고, 사용자가 수동으로 열도록 놔둠
 end

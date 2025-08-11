@@ -134,4 +134,5 @@ map("n", "<leader><SPACE>", "<cmd>noh<CR>", { desc = "clean search item" })
 map("n", "<leader>v", ":vert diffsplit ", { desc = "diffsplit" })
 
 -- Set the current path as the working path
-map("n", "<leader>~", "<cmd>:lcd %:p:h<CR>:echo expand('%:p:h')<CR>", { desc = "change the current path" })
+map("n", "<leader>.", Sync_nvimtree_to_current_buffer, { desc = "Sync NvimTree to current buffer path" })
+
