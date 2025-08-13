@@ -1,4 +1,5 @@
     "vim.leader": ",",
+    "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
       {
         "before": ["<leader>", "a"],
