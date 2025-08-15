@@ -9,7 +9,7 @@ local plugins = {
   -------------------------------------------
   -- 편집 보조 플러그인
   -------------------------------------------
-  -- vim-codeium (AI 자동완성)
+  -- vim-windsurf (windsurf AI 자동완성)
   {
     "Exafunction/windsurf.vim", -- :Codeium Auth
     event = "VimEnter",
@@ -112,7 +112,6 @@ local plugins = {
     event = "FileType html,javascript,javascriptreact,typescript,typescriptreact",
   },
 
-
   -------------------------------------------
   -- 사이드 바 플러그인
   -------------------------------------------
@@ -161,14 +160,21 @@ local plugins = {
     },
   },
 
-  -- symbols-outline (코드 아웃라인 보기)
+  -- outline (코드 아웃라인 보기)
   {
-    "simrat39/symbols-outline.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "echasnovski/mini.nvim" },
+    "hedyhli/outline.nvim",
     config = function()
-      require("symbols-outline").setup()
+      require("outline").setup {
+        outline_window = {
+          position = "left", -- 사이드바 위치
+          width = 20 -- 사이드바 가로 길이
+        },
+        show_numbers = false, -- 라인 번호 표시 여부
+        show_relative_numbers = false,
+        show_guides = true, -- 트리 가이드 표시
+      }
     end,
-    cmd = "SymbolsOutline",
+    cmd = "Outline",
   },
 
   -- tagbar (코드 태그 보기)
@@ -259,7 +265,6 @@ local plugins = {
 
   -- nvchad.blink.lazyspec (for Lazy)
   -- { import = "nvchad.blink.lazyspec" }
-
 }
 
 return plugins

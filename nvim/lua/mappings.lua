@@ -78,16 +78,15 @@ map("n", "sk", "<cmd>lua vim.lsp.buf.hover()<CR>") -- Keyword manpage
 map("n", "sl", "<cmd>lua vim.lsp.buf.signature_help()<CR>") -- Lsp signature help
 map("n", "s<leader>", "<cmd>WhichKey <leader><CR>") -- leader key info
 
--- Sidebars funtions
-map({ "n", "t" }, "<leader>j", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "terminal(bottom)" })
+-- Sidebar, Floating funtions
 map("n", "<leader>h", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree" })
-map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>", { desc = "diagnostics list" })
-map("n", "<leader>l", "<cmd>SymbolsOutline<CR>", { desc = "symbols outline" })
-map("n", "<leader>L", "<cmd>TagbarToggle<CR>", { desc = "tagbar" })
-
--- Floating windows functions
+map("n", "<leader>H", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
 map({ "n", "t" }, "<leader><leader>", "<cmd>ToggleTerm direction=float<CR>", { desc = "terminal(floating)" })
+map({ "n", "t" }, "<leader>j", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "terminal(bottom)" })
 map("n", "<leader>k", "<cmd>Navbuddy<CR>", { desc = "navbuddy" })
+map("n", "<leader>t", "<cmd>TagbarToggle<CR>", { desc = "tagbar" })
+map("n", "<leader>l", ':lua require("custom.gemini").toggle()<CR>', { noremap = true, silent = true })
+map("n", "<leader>d", "<cmd>lua ToggleDiagnostics_qflist()<CR>", { desc = "diagnostics list" })
 map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { desc = "FZF file explorer" })
 map("n", "<leader>g", "<cmd>lua require('fzf-lua').grep()<CR>", { desc = "FZF grep explorer" })
 map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", { desc = "show buffers" })
@@ -95,8 +94,8 @@ map("n", "<leader><tab>", "<cmd>JABSOpen<CR>", { desc = "show buffers" })
 -- Folding
 map("n", "tf", "<cmd>lua ToggleFoldColumn()<CR>")
 map("n", "z.", "<cmd>lua FoldColumnExpands()<CR>", { noremap = true, silent = true })
-map("n", "zvm", "<cmd>mkview<CR>", { noremap = true, silent = true })
-map("n", "zvl", "<cmd>loadview<CR>", { noremap = true, silent = true })
+map("n", "zmv", "<cmd>mkview<CR>", { noremap = true, silent = true })
+map("n", "zlv", "<cmd>loadview<CR>", { noremap = true, silent = true })
 
 -- Move visual block (Up, Down, Indent, Outdent)
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
@@ -109,11 +108,31 @@ map("n", "ta", "<cmd>lua ToggleAIAutoComplete()<CR>")
 
 -- Codeium(windserf) keymap
 map("i", "<Tab>", "codeium#Accept()", { expr = true, silent = true, nowait = true, desc = "Accept Codeium suggestion" })
-map("i", "<C-;>", "codeium#AcceptNextLine()", { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium", })
-map("i", "<C-'>", "codeium#AcceptNextWord()", { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium", })
-map("i", "<C-.>", "<Cmd>call codeium#CycleCompletions(1)<CR>", { silent = true, desc = "Cycle Codeium completions forward", })
-map("i", "<C-,>", "<Cmd>call codeium#CycleCompletions(-1)<CR>", { silent = true, desc = "Cycle Codeium completions backward", })
-map("i", "<C-x>", "<Cmd>call codeium#Clear()<CR>", { silent = true, desc = "Clear Codeium suggestion", })
+map(
+  "i",
+  "<C-;>",
+  "codeium#AcceptNextLine()",
+  { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" }
+)
+map(
+  "i",
+  "<C-'>",
+  "codeium#AcceptNextWord()",
+  { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" }
+)
+map(
+  "i",
+  "<C-.>",
+  "<Cmd>call codeium#CycleCompletions(1)<CR>",
+  { silent = true, desc = "Cycle Codeium completions forward" }
+)
+map(
+  "i",
+  "<C-,>",
+  "<Cmd>call codeium#CycleCompletions(-1)<CR>",
+  { silent = true, desc = "Cycle Codeium completions backward" }
+)
+map("i", "<C-x>", "<Cmd>call codeium#Clear()<CR>", { silent = true, desc = "Clear Codeium suggestion" })
 
 -- Compile
 map("n", "<leader>a", "<cmd>lua Compile()<CR>", { desc = "compile" })
@@ -135,4 +154,3 @@ map("n", "<leader>v", ":vert diffsplit ", { desc = "diffsplit" })
 
 -- Set the current path as the working path
 map("n", "<leader>.", Sync_nvimtree_to_current_buffer, { desc = "Sync NvimTree to current buffer path" })
-
