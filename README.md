@@ -34,14 +34,14 @@ cp -r nvim ~/.config
 
 
 ## 2. Other App Settings (for nvim)
-#### Cursor
+### Cursor
   - Cursor : https://www.cursor.com/
   - Vim Mode 설정 : 확장 → Vim emulation install 
   - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → <code>cursor-vimkeymap.vim</code> 적용
   - Key binding file : <code>cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json</code>
   - settings : (Commend ,) → 설정열기(JSON) → 여기에 <code>cursor-seetings.json</code> 내용 추가
 
-#### Wrap
+### Wrap
   - wrap : https://www.warp.dev/
   - theme file : <code>base16_solarized_dark.yaml</code>
   - ```shell
@@ -52,7 +52,7 @@ cp -r nvim ~/.config
     ```
   - Apperance : `wrap_apperance.png`
 
-#### Karabiner
+### Karabiner
   - BetterTouchTool : https://karabiner-elements.pqrs.org/
   - preset file
     - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
@@ -60,7 +60,7 @@ cp -r nvim ~/.config
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
 
-#### Gureum 및 한글 설정
+### Gureum 및 한글 설정
   - Gureum : https://gureum.io/
   - Config
     - 로마자로만 바꾸기 단축키 : ^C (ESC 단축키)
