@@ -80,7 +80,7 @@ cp -r nvim ~/.config
 
 ## 3. Plugins 
 #### 편집 보조 플러그인
-  - [vim-windserf](https://github.com/Exafunction/windserf.vim) (AI 자동완성)
+  - [vim-windsurf](https://github.com/Exafunction/windsurf.vim) (windsurf AI)
   - [vim-visual-multi](https://github.com/mg979/vim-visual-multi) (멀티 커서)
   - [vim-illuminate](https://github.com/RRethy/vim-illuminate) (단어 하이라이트)
   - [vim-lastplace](https://github.com/farmergreg/vim-lastplace) (커서 마지막 위치 저장)
@@ -94,7 +94,7 @@ cp -r nvim ~/.config
 #### 사이드바 플러그인
   - [fzf-lua](https://github.com/ibhagwan/fzf-lua) (fzf 파일 탐색기 보기)
   - [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy) (코드 네비게이터 보기)
-  - [symbols-outline](https://github.com/simrat39/symbols-outline.nvim) (코드 아웃라인 보기)
+  - [outline](https://github.com/hedyhli/outline.nvim) (코드 아웃라인 보기)
   - [tagbar](https://github.com/preservim/tagbar) (코드 태그 보기)
   - [JABS.nvim](https://github.com/matbme/JABS.nvim) (버퍼 리스트 보기)
   - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) (터미널 보기)
