@@ -33,26 +33,13 @@ cp -r nvim ~/.config
 ```
 
 
-## 2. Other App Settings
+## 2. Other App Settings (for nvim)
 #### Cursor
   - Cursor : https://www.cursor.com/
   - Vim Mode 설정 : 확장 → Vim emulation install 
   - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → <code>cursor-vimkeymap.vim</code> 적용
   - Key binding file : <code>cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json</code>
   - settings : (Commend ,) → 설정열기(JSON) → 여기에 <code>cursor-seetings.json</code> 내용 추가
-
-#### iTerm2
-  - iterm2 : https://iterm2.com/
-  - json config file : <code>iterm2-vim.json</code>
-  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
-
-#### Karabiner
-  - BetterTouchTool : https://karabiner-elements.pqrs.org/
-  - preset file
-    - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
-    - <code>karabiner-vim.json</code>
-  - [Complex Modifications] → [Add your own rule]
-  - [Devices] → 외장키보드 사용 시 추가
 
 #### Wrap
   - wrap : https://www.warp.dev/
@@ -63,6 +50,15 @@ cp -r nvim ~/.config
     git clone https://github.com/warpdotdev/themes.git
     cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
     ```
+  - Apperance : `wrap_apperance.png`
+
+#### Karabiner
+  - BetterTouchTool : https://karabiner-elements.pqrs.org/
+  - preset file
+    - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
+    - <code>karabiner-vim.json</code>
+  - [Complex Modifications] → [Add your own rule]
+  - [Devices] → 외장키보드 사용 시 추가
 
 #### Gureum 및 한글 설정
   - Gureum : https://gureum.io/
@@ -103,3 +99,19 @@ cp -r nvim ~/.config
   - [nvim-navic](https://github.com/SmiteshP/nvim-navic) (for barbecue, navbuddy)
   - [nui.nvim](https://github.com/MunifTanjim/nui.nvim) (for navbuddy)
 
+
+<!--
+
+### 4. legacy setting
+
+#### BetterTouchTool
+  - BetterTouchTool : https://folivora.ai/
+  - preset file : <code>btt_for_vim.bttpreset</code>
+  - [Configuration] → [preset] → [import]
+
+#### iTerm2
+  - iterm2 : https://iterm2.com/
+  - json config file : <code>iterm2-vim.json</code>
+  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
+
+-->
