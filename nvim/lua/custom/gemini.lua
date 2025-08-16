@@ -14,20 +14,22 @@ function M.toggle()
     if not M.buf or not vim.api.nvim_buf_is_valid(M.buf) then
       -- 터미널 버퍼가 없으면 새로 생성
       M.buf = vim.api.nvim_create_buf(false, true)
-      vim.cmd("rightbelow vsplit")
+      vim.cmd("vsplit")
       M.win = vim.api.nvim_get_current_win()
       vim.api.nvim_win_set_buf(M.win, M.buf)
       vim.api.nvim_win_set_width(M.win, 60)
       vim.api.nvim_win_set_option(M.win, "winfixwidth", true)
+      vim.cmd("wincmd L") -- 맨 오른쪽으로 이동
       vim.fn.termopen("gemini")
       vim.cmd("startinsert")
     else
       -- 이미 존재하는 터미널 재사용
-      vim.cmd("rightbelow vsplit")
+      vim.cmd("vsplit")
       M.win = vim.api.nvim_get_current_win()
       vim.api.nvim_win_set_buf(M.win, M.buf)
       vim.api.nvim_win_set_width(M.win, 60)
       vim.api.nvim_win_set_option(M.win, "winfixwidth", true)
+      vim.cmd("wincmd L") -- 맨 오른쪽으로 이동
       vim.cmd("startinsert")
     end
     M.is_open = true
