@@ -6,7 +6,7 @@
         "commands": ["code-runner.run"]
       },
       {
-        "before": ["<leader>", "l"],
-        "commands": ["cursor.launchAIAssistant"]
+        "before": ["<leader>", "/"],
+        "after": ["*", "N"]
       }
     ]
