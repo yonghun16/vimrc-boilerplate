@@ -3,18 +3,18 @@
 "---------------------------------------------------------
 
 " Cursor movement
-nmap <C-k> 3k
-vmap <C-k> 3k
-nmap <C-j> 3j
-vmap <C-j> 3j
+nmap <C-k> kkk
+vmap <C-k> kkk
+nmap <C-j> jjj
+vmap <C-j> jjj
 nmap <C-l> $
 vmap <C-l> $
 nmap <C-h> ^
 vmap <C-h> ^
 
 " Screen movement
-nmap <C-p> 3<C-y>
-nmap <C-n> 3<C-e>
+nmap <C-p> <C-y><C-y><C-y>
+nmap <C-n> <C-e><C-e><C-e>
 
 " Using Terminal keymap on <Insert> mode
 imap <C-a> <ESC>^i
