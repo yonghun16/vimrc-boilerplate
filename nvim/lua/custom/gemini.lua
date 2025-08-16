@@ -16,7 +16,7 @@ function M.toggle()
       M.win = vim.api.nvim_get_current_win()
       vim.api.nvim_win_set_buf(M.win, M.buf)
       vim.api.nvim_win_set_width(M.win, 60)
-      vim.api.nvim_win_set_option(M.win, "winfixwidth", true)
+      vim.wo[M.win].winfixwidth = true
       vim.fn.termopen("gemini")
       vim.cmd("startinsert")
     else
@@ -24,7 +24,7 @@ function M.toggle()
       M.win = vim.api.nvim_get_current_win()
       vim.api.nvim_win_set_buf(M.win, M.buf)
       vim.api.nvim_win_set_width(M.win, 60)
-      vim.api.nvim_win_set_option(M.win, "winfixwidth", true)
+      vim.wo[M.win].winfixwidth = true
       vim.cmd("startinsert")
     end
     M.is_open = true
