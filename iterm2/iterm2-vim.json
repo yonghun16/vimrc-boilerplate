@@ -227,7 +227,7 @@
   "Vertical Spacing" : 1.02,
   "Use Tab Color (Light)" : false,
   "Cursor Type" : 2,
-  "Columns" : 110,
+  "Columns" : 120,
   "Ansi 2 Color (Light)" : {
     "Green Component" : 0.7455558180809021,
     "Red Component" : 0.42339208722114563,
