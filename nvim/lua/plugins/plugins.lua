@@ -133,33 +133,6 @@ local plugins = {
     end,
   },
 
-  -- nvim-navbuddy (코드 네비게이터 보기)
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "SmiteshP/nvim-navbuddy",
-        dependencies = {
-          "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim",
-        },
-        config = function()
-          require("nvim-navbuddy").setup {
-            lsp = {
-              auto_attach = true,
-            },
-            window = {
-              size = "90%", -- Or table format example: { height = "40%", width = "100%"}
-            },
-            mappings = {
-              ["<leader>k"] = require("nvim-navbuddy.actions").close(),
-            },
-          }
-        end,
-      },
-    },
-  },
-
   -- outline (코드 아웃라인 보기)
   {
     "hedyhli/outline.nvim",
@@ -236,32 +209,34 @@ local plugins = {
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    version = "*",
     dependencies = {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
       "echasnovski/mini.nvim",
     },
     opts = {
-      -- configurations go here
+      attach_navic = true,
+      show_dirname = true,
+      show_basename = true,
+      show_modified = true,
+      create_autocmd = true,
     },
-    event = "VimEnter",
-  },
-
-  -------------------------------------------
-  -- 의존성 플러그인
-  -------------------------------------------
-  -- nvim-navic (for barbecue, navbuddy)
-  {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig",
-    config = function()
-      require("nvim-navic").setup()
+    event = "BufReadPost",
+    config = function(_, opts)
+      local barbecue = require("barbecue")
+      barbecue.setup(opts)
+      local navic = require("nvim-navic")
+      vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile"}, {
+        callback = function()
+          vim.defer_fn(function()
+            if navic.is_available() then
+              pcall(navic.attach)
+            end
+          end, 100)
+        end,
+      })
     end,
   },
-
-  -- nui.nvim (for navbuddy)
-  { "MunifTanjim/nui.nvim" },
 
   -- nvchad.blink.lazyspec (for Lazy)
   -- { import = "nvchad.blink.lazyspec" }

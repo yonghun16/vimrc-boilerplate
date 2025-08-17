@@ -105,10 +105,9 @@ map("n", "s<leader>", function() vim.cmd("WhichKey <leader>") end)
 -- Sidebar / Floating / Terminal
 -- =====================================
 map("n", "<leader>h", vim.cmd.NvimTreeToggle, { desc = "nvimtree" })
-map("n", "<leader>H", vim.cmd.Outline, { desc = "outline" })
 map({ "n", "t" }, "<leader><leader>", function() vim.cmd("ToggleTerm direction=float") end, { desc = "terminal(floating)" })
 map({ "n", "t" }, "<leader>j", function() vim.cmd("ToggleTerm size=10 direction=horizontal") end, { desc = "terminal(bottom)" })
-map("n", "<leader>k", vim.cmd.Navbuddy, { desc = "navbuddy" })
+map("n", "<leader>k", vim.cmd.Outline, { desc = "outline" })
 map("n", "<leader>t", vim.cmd.TagbarToggle, { desc = "tagbar" })
 map("n", "<leader>l", function() require("custom.gemini").toggle() end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
 map("n", "<leader>d", ToggleDiagnostics_qflist, { desc = "diagnostics list" })

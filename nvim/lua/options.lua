@@ -125,11 +125,18 @@ require("nvim-tree").setup {
 
     vim.keymap.del("n", "<C-k>", { buffer = bufnr }) -- Ctrl+k 제거
     vim.keymap.set("n", "K", api.node.show_info_popup, opts "Show Info") -- Shift+k 로 파일 정보 보기
+    vim.keymap.set("n", "i", api.node.open.vertical, opts("Open: Vertical Split"))
+    vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
+    vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
   end,
 }
 
 -- tagbar
 vim.g.tagbar_width = 30
+vim.g.tagbar_left = 1
+
+-- Tagbar를 왼쪽에 열기
+vim.g.tagbar_left = 1
 
 -- indent-blankline
 require("ibl").update {
@@ -312,4 +319,25 @@ function Sync_nvimtree_to_current_buffer()
     api.tree.change_root(dir)
   end
   -- NvimTree가 닫혀있으면 열지 않고, 사용자가 수동으로 열도록 놔둠
+end
+
+
+-- 사이드바 터미널용 변수
+local gemini_term = nil
+
+-- 토글 함수
+function ToggleGemini()
+  if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
+    vim.api.nvim_win_close(gemini_term, true) -- 닫기
+    gemini_term = nil
+  else
+    -- 오른쪽 vertical split에 터미널 열기
+    vim.cmd("vsplit")
+    vim.cmd("wincmd l")        -- 오른쪽으로 이동
+    vim.cmd("resize 45")       -- 너비 조정
+
+    -- 터미널 실행
+    vim.cmd("terminal gemini chat")
+    gemini_term = vim.api.nvim_get_current_win()
+  end
 end
