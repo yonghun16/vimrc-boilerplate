@@ -104,7 +104,7 @@ vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-x>/' ]] -- used in Visual M
 vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]]
 -- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
 
--- Codium(Windserf)
+-- Codium(Windsurf)
 vim.g.codeium_enabled = true
 
 -- emmet-vim
@@ -149,6 +149,52 @@ require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/snippets"
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
+
+-- Safe Buffer Close
+function SafeBufferClose()
+  local buf = vim.api.nvim_get_current_buf()
+  if vim.bo[buf].modified then
+    -- 변경사항이 있으면 확인 메시지
+    local choice = vim.fn.confirm( "There are unsaved changes. Save before closing?", "&Yes\n&No\n&Cancel", 3)
+    if choice == 1 then
+      vim.cmd("write")   -- 저장
+      vim.cmd("bdelete") -- 버퍼 닫기
+    elseif choice == 2 then
+      vim.cmd("bdelete!") -- 저장하지 않고 강제 닫기
+    else
+      -- Cancel: 아무 것도 안 함
+      return
+    end
+  else
+    vim.cmd("bdelete") -- 변경사항 없으면 그냥 닫기
+  end
+end
+
+-- Safe Quit
+function SafeQuitAll()
+  -- 저장되지 않은 버퍼가 있는지 확인
+  local modified_bufs = {}
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.bo[buf].modified then
+      table.insert(modified_bufs, buf)
+    end
+  end
+
+  if #modified_bufs > 0 then
+    local choice = vim.fn.confirm( "There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 3)
+    if choice == 1 then
+      vim.cmd("wa")   -- 모든 버퍼 저장
+      vim.cmd("qa")   -- 종료
+    elseif choice == 2 then
+      vim.cmd("qa!")  -- 저장하지 않고 종료
+    else
+      return         -- Cancel: 종료 안 함
+    end
+  else
+    vim.cmd("qa")     -- 변경사항 없으면 그냥 종료
+  end
+end
+
 -- Compile and Run
 local tsconfig = {
   "{",
@@ -233,7 +279,7 @@ function ToggleWrapCodes()
   end
 end
 
--- Toggle AI Auto Complete (using Codium)
+-- Toggle Codium(Windsurf) 토글 함수
 function ToggleAIAutoComplete()
   if vim.g.codeium_enabled == nil or vim.g.codeium_enabled == false then
     vim.g.codeium_enabled = true
@@ -243,6 +289,24 @@ function ToggleAIAutoComplete()
     vim.g.codeium_enabled = false
     vim.cmd "CodeiumDisable"
     print "Codeium disabled"
+  end
+end
+
+-- Gemini CLI 토글 함수
+local gemini_term = nil  -- 사이드바 터미널용 변수
+function ToggleGemini()
+  if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
+    vim.api.nvim_win_close(gemini_term, true) -- 닫기
+    gemini_term = nil
+  else
+    -- 오른쪽 vertical split에 터미널 열기
+    vim.cmd("vsplit")
+    vim.cmd("wincmd l")        -- 오른쪽으로 이동
+    vim.cmd("resize 45")       -- 너비 조정
+
+    -- 터미널 실행
+    vim.cmd("terminal gemini chat")
+    gemini_term = vim.api.nvim_get_current_win()
   end
 end
 
@@ -297,7 +361,7 @@ function ToggleNvDash()
   end
 end
 
--- 현재 버퍼 파일 경로 기준으로 NvimTree 위치 맞추는 함수
+-- NvimTree 현재 버퍼 파일 경로 기준으로 위치 맞추는 함수
 function Sync_nvimtree_to_current_buffer()
   local api = require("nvim-tree.api")
   local filepath = vim.api.nvim_buf_get_name(0)
@@ -310,9 +374,9 @@ function Sync_nvimtree_to_current_buffer()
 
   local dir = vim.fn.fnamemodify(filepath, ":h")
 
-  -- Neovim 현재 작업 디렉터리 변경
+  -- Neovim 현재 작업 디렉토리 변경
   vim.cmd("lcd " .. dir)
-  print("작업 디렉터리 변경됨: " .. dir)
+  print("Working directory changed: " .. dir)
 
   if api.tree.is_visible() then
     -- NvimTree가 열려 있으면 트리 루트만 변경
@@ -321,23 +385,3 @@ function Sync_nvimtree_to_current_buffer()
   -- NvimTree가 닫혀있으면 열지 않고, 사용자가 수동으로 열도록 놔둠
 end
 
-
--- 사이드바 터미널용 변수
-local gemini_term = nil
-
--- 토글 함수
-function ToggleGemini()
-  if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
-    vim.api.nvim_win_close(gemini_term, true) -- 닫기
-    gemini_term = nil
-  else
-    -- 오른쪽 vertical split에 터미널 열기
-    vim.cmd("vsplit")
-    vim.cmd("wincmd l")        -- 오른쪽으로 이동
-    vim.cmd("resize 45")       -- 너비 조정
-
-    -- 터미널 실행
-    vim.cmd("terminal gemini chat")
-    gemini_term = vim.api.nvim_get_current_win()
-  end
-end
