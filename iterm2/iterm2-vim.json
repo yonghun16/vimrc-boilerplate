@@ -401,7 +401,7 @@
     "Red Component" : 0.31744870543479919,
     "Blue Component" : 0.51931029558181763
   },
-  "Normal Font" : "JetBrainsMonoNF-Regular 17",
+  "Normal Font" : "JetBrainsMonoNF-Regular 18",
   "Use Selected Text Color (Dark)" : true,
   "Foreground Color" : {
     "Green Component" : 0.75921261310577393,
@@ -447,7 +447,7 @@
   },
   "Flashing Bell" : false,
   "Brighten Bold Text (Light)" : true,
-  "Non Ascii Font" : "D2CodingLigatureNF 16",
+  "Non Ascii Font" : "D2CodingLigatureNF 18",
   "Ansi 7 Color (Dark)" : {
     "Green Component" : 0.89001238346099854,
     "Red Component" : 0.91611063480377197,
