@@ -76,7 +76,7 @@ cp -r nvim ~/.config
     - [설정] → [키보드] → [키보드 단축키] → [입력소스]
     - 이전 입력 소스 선택 : `contrl + shift + spacebar`
     - 입력 메뉴에서 다음 소스 선택 : 체크해제
-  - Detail : `gureum_setting.png`, `keyboard_inputsource_setting`
+  - Detail : `gureum_setting.png`, `keyboard_inputsource_setting.png`
 
 
 ## 3. Plugins 
