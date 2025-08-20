@@ -7,13 +7,13 @@ $ cp -rf nvim/ ~/.config/nvim
 ```
 
 
-## 2. Lunarvim
+## 2. Neovim(Lunarvim)
 - Lunarvim : https://www.lunarvim.org
 - config file setting
 ```shell
 $ cp lvim/.config ~/.config/lvim 
 ```
-- Updating LunarVim : `:LvimUpdate`__
+- Updating LunarVim : `:LvimUpdate`
 
 
 ## 3. BetterTouchTool

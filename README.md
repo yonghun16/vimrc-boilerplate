@@ -4,19 +4,19 @@
 </div>
 
 
-## 1. Nvchad
-Nvchad : https://nvchad.com
+## 1. Neovim(Nvchad)
+> Nvchad : https://nvchad.com
 
 #### Install
 ```shell
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 ```
-  - Run <code>:MasonInstallAll</code> command after lazy.nvim finishes downloading plugins.
-  - Delete the <code>.git</code> folder from nvim folder.
-  - Learn customization of ui & base46 from <code>:h nvui</code>.
+  - Run `:MasonInstallAll` command after lazy.nvim finishes downloading plugins.
+  - Delete the `.git` folder from nvim folder.
+  - Learn customization of ui & base46 from `:h nvui`.
 
 #### Update
-  - Run <code>:Lazy sync</code>
+  - Run `:Lazy sync`
 
 #### Uninstall
 ```shell
@@ -35,15 +35,15 @@ cp -r nvim ~/.config
 
 ## 2. Other App Settings (for nvim)
 ### 1) Cursor
-  - Cursor : https://www.cursor.com/
+> Cursor : https://www.cursor.com/
   - Vim Mode 설정 : 확장 → Vim emulation install 
   - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → `cursor-vimkeymap.vim` 적용
-  - Key binding file : <code>cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json</code>
-  - settings : (Commend ,) → 설정열기(JSON) → 여기에 <code>cursor-seetings.json</code> 내용 추가
+  - Key binding file : `cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json`
+  - settings : (Commend ,) → 설정열기(JSON) → 여기에 `cursor-seetings.json` 내용 추가
 
 ### 2) Wrap
-  - wrap : https://www.warp.dev/
-  - theme file : <code>base16_solarized_dark.yaml</code>
+> wrap : https://www.warp.dev/
+  - theme file : `base16_solarized_dark.yaml`
   - ```shell
     mkdir -p $HOME/.warp
     cd $HOME/.warp/
@@ -53,20 +53,20 @@ cp -r nvim ~/.config
   - Apperance : `wrap_apperance.png`
 
 ### 3) iTerm2
-  - iterm2 : https://iterm2.com/
+> iterm2 : https://iterm2.com/
   - json config file : `iterm2-vim.json`
   - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
 
 ### 4) Karabiner
-  - BetterTouchTool : https://karabiner-elements.pqrs.org/
+> karabiner : https://karabiner-elements.pqrs.org/
   - preset file
-    - <code>karabiner-korean.json</code>  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
-    - <code>karabiner-vim.json</code>
+    - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
+    - `karabiner-vim.json`
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
 
 ### 5) Gureum
-  - Gureum : https://gureum.io/
+> Gureum : https://gureum.io/
   - Config
     - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)
     - 오른쪽 키로 언어 전환 : `Command` (한/영 키 대체)
