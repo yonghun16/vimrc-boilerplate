@@ -37,7 +37,7 @@ cp -r nvim ~/.config
 ### 1) Cursor
   - Cursor : https://www.cursor.com/
   - Vim Mode 설정 : 확장 → Vim emulation install 
-  - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → <code>cursor-vimkeymap.vim</code> 적용
+  - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → `cursor-vimkeymap.vim` 적용
   - Key binding file : <code>cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json</code>
   - settings : (Commend ,) → 설정열기(JSON) → 여기에 <code>cursor-seetings.json</code> 내용 추가
 
@@ -54,7 +54,7 @@ cp -r nvim ~/.config
 
 ### 3) iTerm2
   - iterm2 : https://iterm2.com/
-  - json config file : <code>iterm2-vim.json</code>
+  - json config file : `iterm2-vim.json`
   - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
 
 ### 4) Karabiner
@@ -68,14 +68,15 @@ cp -r nvim ~/.config
 ### 5) Gureum
   - Gureum : https://gureum.io/
   - Config
-    - 로마자로만 바꾸기 단축키 : ^C (ESC 단축키)
-    - 오른쪽 키로 언어 전환 : Command
-    - 한자 및 이모지 바꾸기 : control + shift + spacebar
+    - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)
+    - 오른쪽 키로 언어 전환 : `Command` (한/영 키 대체)
+    - 한자 및 이모지 바꾸기 : `control + shift + spacebar`
     - 한글 입력기 설정 : 모아치기, MS윈도호환, JDK호환, vi모드 
   - Mac 입력 소스 설정
     - [설정] → [키보드] → [키보드 단축키] → [입력소스]
-    - 이전 입력 소스 선택 : contrl + shift + spacebar 
+    - 이전 입력 소스 선택 : `contrl + shift + spacebar`
     - 입력 메뉴에서 다음 소스 선택 : 체크해제
+  - Detail : `gureum_setting.png`, `keyboard_inputsource_setting`
 
 
 ## 3. Plugins 
