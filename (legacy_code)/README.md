@@ -1,25 +1,22 @@
 # Legacy setting files
 
-## 1. Lunarvim
-- Lunarvim : https://www.lunarvim.org
 
-### config file setting
-```shell
-$ cp lvim/.config ~/.config/lvim 
-```
-
-### alias setting
-```shell
-$ vi ~/.zshrc
-
-alias vi="lvim"
-```
-
-### Updating LunarVim
-* Inside LunarVim __:LvimUpdate__
-
-
-## 2. Neovim(original)
+## 1. Neovim(no framwork)
 ```shell
 $ cp -rf nvim/ ~/.config/nvim 
 ```
+
+
+## 2. Lunarvim
+- Lunarvim : https://www.lunarvim.org
+- config file setting
+```shell
+$ cp lvim/.config ~/.config/lvim 
+```
+- Updating LunarVim : `:LvimUpdate`__
+
+
+## 3. BetterTouchTool
+- BetterTouchTool : https://folivora.ai/
+- preset file : `btt_for_vim.bttpreset`
+- [Configuration] → [preset] → [import]

@@ -101,10 +101,3 @@ cp -r nvim ~/.config
   - [barbecue.nvim](https://github.com/utilyre/barbecue.nvim) (상단에 파일 및 요소 정보 표시)
 
 
-<!--
-### 4. legacy setting
-#### BetterTouchTool
-  - BetterTouchTool : https://folivora.ai/
-  - preset file : <code>btt_for_vim.bttpreset</code>
-  - [Configuration] → [preset] → [import]
--->
