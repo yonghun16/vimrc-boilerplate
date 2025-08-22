@@ -125,9 +125,9 @@ require("nvim-tree").setup {
 
     vim.keymap.del("n", "<C-k>", { buffer = bufnr }) -- Ctrl+k 제거
     vim.keymap.set("n", "K", api.node.show_info_popup, opts "Show Info") -- Shift+k 로 파일 정보 보기
-    vim.keymap.set("n", "i", api.node.open.vertical, opts("Open: Vertical Split"))
-    vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
-    vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
+    vim.keymap.set("n", "i", api.node.open.vertical, opts "Open: Vertical Split")
+    vim.keymap.set("n", "s", api.node.open.horizontal, opts "Open: Horizontal Split")
+    vim.keymap.set("n", "t", api.node.open.tab, opts "Open: New Tab")
   end,
 }
 
@@ -155,18 +155,18 @@ function SafeBufferClose()
   local buf = vim.api.nvim_get_current_buf()
   if vim.bo[buf].modified then
     -- 변경사항이 있으면 확인 메시지
-    local choice = vim.fn.confirm( "There are unsaved changes. Save before closing?", "&Yes\n&No\n&Cancel", 3)
+    local choice = vim.fn.confirm("There are unsaved changes. Save before closing?", "&Yes\n&No\n&Cancel", 3)
     if choice == 1 then
-      vim.cmd("write")   -- 저장
-      vim.cmd("bdelete") -- 버퍼 닫기
+      vim.cmd "write" -- 저장
+      vim.cmd "bdelete" -- 버퍼 닫기
     elseif choice == 2 then
-      vim.cmd("bdelete!") -- 저장하지 않고 강제 닫기
+      vim.cmd "bdelete!" -- 저장하지 않고 강제 닫기
     else
       -- Cancel: 아무 것도 안 함
       return
     end
   else
-    vim.cmd("bdelete") -- 변경사항 없으면 그냥 닫기
+    vim.cmd "bdelete" -- 변경사항 없으면 그냥 닫기
   end
 end
 
@@ -181,67 +181,67 @@ function SafeQuitAll()
   end
 
   if #modified_bufs > 0 then
-    local choice = vim.fn.confirm( "There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 3)
+    local choice = vim.fn.confirm("There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 3)
     if choice == 1 then
-      vim.cmd("wa")   -- 모든 버퍼 저장
-      vim.cmd("qa")   -- 종료
+      vim.cmd "wa" -- 모든 버퍼 저장
+      vim.cmd "qa" -- 종료
     elseif choice == 2 then
-      vim.cmd("qa!")  -- 저장하지 않고 종료
+      vim.cmd "qa!" -- 저장하지 않고 종료
     else
-      return         -- Cancel: 종료 안 함
+      return -- Cancel: 종료 안 함
     end
   else
-    vim.cmd("qa")     -- 변경사항 없으면 그냥 종료
+    vim.cmd "qa" -- 변경사항 없으면 그냥 종료
   end
 end
 
 -- Compile and Run
-local tsconfig = {
-  "{",
-  '  "compilerOptions": {',
-  '    "target": "ES2020",',
-  '    "module": "ESNext",',
-  '    "moduleResolution": "node",',
-  '    "lib": ["ESNext", "Dom"],',
-  '    "strict": true,',
-  '    "skipLibCheck": true,',
-  '    "esModuleInterop": true,',
-  '    "forceConsistentCasingInFileNames": true',
-  "  },",
-  '  "include": ["src/**/*"],',
-  '  "exclude": ["node_modules"]',
-  "}",
-}
-
 function Compile()
   local filetype = vim.bo.filetype
   if filetype == "python" then
     vim.cmd "w"
-    vim.cmd 'TermExec cmd="python3 %<.py"'
+    vim.cmd 'TermExec cmd="python3 %"'
   elseif filetype == "javascript" then
     vim.cmd "w"
-    vim.cmd 'TermExec cmd="node %<.js"'
+    local filename = vim.fn.expand "%"
+    vim.cmd('TermExec cmd="node ' .. filename .. '"')
   elseif filetype == "typescript" then
     vim.cmd "w"
     local tsconfig_exists = vim.fn.filereadable "tsconfig.json" == 1
     if not tsconfig_exists then
-      vim.fn.writefile(tsconfig, "tsconfig.json")
+      local tsconfig_content = {
+        "{",
+        '  "compilerOptions": {',
+        '    "target": "ES2020",',
+        '    "module": "ESNext",',
+        '    "moduleResolution": "node",',
+        '    "lib": ["ESNext", "Dom"],',
+        '    "strict": true,',
+        '    "skipLibCheck": true,',
+        '    "esModuleInterop": true,',
+        '    "forceConsistentCasingInFileNames": true',
+        "  },",
+        '  "include": ["src/**/*"],',
+        '  "exclude": ["node_modules"]',
+        "}",
+      }
+      vim.fn.writefile(tsconfig_content, "tsconfig.json")
     end
-    vim.cmd 'TermExec cmd="ts-node %<.ts"'
+    vim.cmd 'TermExec cmd="ts-node %"'
     -- vim.cmd ":! tsc % --outDir ~/bin"
     -- vim.cmd 'TermExec cmd="node ~/bin/%<.js"'
   elseif filetype == "c" then
     vim.cmd "w"
-    vim.cmd ":! gcc -o ~/bin/% %<.c"
-    vim.cmd 'TermExec cmd="~/bin/%"'
+    vim.cmd ":! gcc -o %< %"
+    vim.cmd 'TermExec cmd="./%<"'
   elseif filetype == "cpp" then
     vim.cmd "w"
-    vim.cmd ":! g++ -o ~/bin/% %<.cpp"
-    vim.cmd 'TermExec cmd="~/bin/%"'
+    vim.cmd ":! g++ -o %< %"
+    vim.cmd 'TermExec cmd="./%<"'
   elseif filetype == "java" then
     vim.cmd "w"
-    vim.cmd ":! javac -encoding utf-8 -d ~/bin %<.java"
-    vim.cmd 'TermExec cmd="java -cp ~/bin %"'
+    vim.cmd ":! javac -encoding utf-8 -d . %"
+    vim.cmd 'TermExec cmd="java %<"'
   else
     vim.cmd ':echo "This file is not a source file."'
   end
@@ -293,19 +293,19 @@ function ToggleAIAutoComplete()
 end
 
 -- Gemini CLI 토글 함수
-local gemini_term = nil  -- 사이드바 터미널용 변수
+local gemini_term = nil -- 사이드바 터미널용 변수
 function ToggleGemini()
   if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
     vim.api.nvim_win_close(gemini_term, true) -- 닫기
     gemini_term = nil
   else
     -- 오른쪽 vertical split에 터미널 열기
-    vim.cmd("vsplit")
-    vim.cmd("wincmd l")        -- 오른쪽으로 이동
-    vim.cmd("resize 45")       -- 너비 조정
+    vim.cmd "vsplit"
+    vim.cmd "wincmd l" -- 오른쪽으로 이동
+    vim.cmd "resize 45" -- 너비 조정
 
     -- 터미널 실행
-    vim.cmd("terminal gemini chat")
+    vim.cmd "terminal gemini chat"
     gemini_term = vim.api.nvim_get_current_win()
   end
 end
@@ -363,12 +363,12 @@ end
 
 -- NvimTree 현재 버퍼 파일 경로 기준으로 위치 맞추는 함수
 function Sync_nvimtree_to_current_buffer()
-  local api = require("nvim-tree.api")
+  local api = require "nvim-tree.api"
   local filepath = vim.api.nvim_buf_get_name(0)
   local ft = vim.bo.filetype
 
   if filepath == "" or ft == "NvimTree" or ft == "nvimtree" then
-    print("빈 버퍼거나 NvimTree 버퍼라서 리턴됨")
+    print "빈 버퍼거나 NvimTree 버퍼라서 리턴됨"
     return
   end
 
@@ -384,4 +384,3 @@ function Sync_nvimtree_to_current_buffer()
   end
   -- NvimTree가 닫혀있으면 열지 않고, 사용자가 수동으로 열도록 놔둠
 end
-
