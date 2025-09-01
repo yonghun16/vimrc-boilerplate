@@ -52,12 +52,7 @@ cp -r nvim ~/.config
     ```
   - Apperance : `wrap_apperance.png`
 
-### 3) iTerm2
-> iterm2 : https://iterm2.com/
-  - json config file : `iterm2-vim.json`
-  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
-
-### 4) Karabiner
+### 3) Karabiner
 > karabiner : https://karabiner-elements.pqrs.org/
   - preset file
     - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
@@ -65,7 +60,7 @@ cp -r nvim ~/.config
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
 
-### 5) Gureum
+### 4) Gureum
 > Gureum : https://gureum.io/
   - Config
     - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)
