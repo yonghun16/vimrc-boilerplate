@@ -43,14 +43,16 @@ cp -r nvim ~/.config
 
 ### 2) Wrap
 > wrap : https://www.warp.dev/
-  - theme file : `base16_solarized_dark.yaml`
-  - ```shell
-    mkdir -p $HOME/.warp
-    cd $HOME/.warp/
-    git clone https://github.com/warpdotdev/themes.git
-    cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
-    ```
+  - theme : `base16_solarized_dark.yaml`
+    - ```shell
+      mkdir -p $HOME/.warp
+      cd $HOME/.warp/
+      git clone https://github.com/warpdotdev/themes.git
+      cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
+      ```
+  - Ctrl+Tab behavior : [settings] → [settings] → Ctrl+Tab behavior = circle most recent session
   - Apperance : `wrap_apperance.png`
+    - input type : classic
 
 ### 3) Karabiner
 > karabiner : https://karabiner-elements.pqrs.org/
