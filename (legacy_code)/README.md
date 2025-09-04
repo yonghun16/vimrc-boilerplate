@@ -20,10 +20,3 @@
 > BetterTouchTool : https://folivora.ai/
   - preset file : `btt_for_vim.bttpreset`
   - [Configuration] → [preset] → [import]
-
-
-## 4. iTerm2
-> iterm2 : https://iterm2.com/
-  - json config file : `iterm2-vim.json`
-  - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
-
