@@ -1,101 +1,84 @@
-local ls = require("luasnip")
+local ls = require "luasnip"
 local s = ls.snippet
-local t = ls.text_node
+local i = ls.insert_node
+local c = ls.choice_node
+local f = ls.function_node
+local fmt = require("luasnip.extras.fmt").fmt
 
 return {
-  s("boj_comment", {
-    t({
-      "'''----------------------------------------------------",
-      "Sub  : [BOJ] ",
-      "Link : https://www.acmicpc.net/problem/",
-      "Level: ",
-      "Tag  : Python, ",
-      "Memo",
-      "----------------------------------------------------'''",
-      "",
-      "import sys",
-      "",
-      "TEST_MODE = True",
-      "",
-      "def get_inputs():",
-      "    if TEST_MODE:",
-      "        with open('input.txt', 'r') as f:",
-      "            for line in f:",
-      "                yield line.rstrip('\\n')",
-      "    else:",
-      "        for line in sys.stdin:",
-      "            yield line.rstrip('\\n')",
-      "",
-      "input_gen = get_inputs()",
-      "",
-      "def input():",
-      "    return next(input_gen)",
-      "",
-      ""
-    })
-  }),
+  -- Online judge용 주석 Header (Python)
+  s(
+    "header-comment_oj",
+    fmt(
+      [[
+# ------------------------------------------------------------
+# Sub       : [{}]
+# Link      : {}
+# Level     :   
+# Tag       : Python, 
+# Memo
+# ------------------------------------------------------------
 
-  s("poj_comment", {
-    t({
-      "'''----------------------------------------------------",
-      "Sub  : [Programmers] ",
-      "Link : https://school.programmers.co.kr/learn/courses/30/lessons/",
-      "Level: ",
-      "Tag  : Python, ",
-      "Memo",
-      "----------------------------------------------------'''",
-      "",
-      "import sys",
-      "",
-      "TEST_MODE = True",
-      "",
-      "def get_inputs():",
-      "    if TEST_MODE:",
-      "        with open('input.txt', 'r') as f:",
-      "            for line in f:",
-      "                yield line.rstrip('\\n')",
-      "    else:",
-      "        for line in sys.stdin:",
-      "            yield line.rstrip('\\n')",
-      "",
-      "input_gen = get_inputs()",
-      "",
-      "def input():",
-      "    return next(input_gen)",
-      "",
-      ""
-    })
-  }),
+import sys
 
-  s("goj_comment", {
-    t({
-      "'''----------------------------------------------------",
-      "Sub  : [Goorm] ",
-      "Link : https://level.goorm.io/exam/문제번호/문제제목/quiz/1",
-      "Level: ",
-      "Tag  : Python, ",
-      "Memo",
-      "----------------------------------------------------'''",
-      "",
-      "import sys",
-      "",
-      "TEST_MODE = True",
-      "",
-      "def get_inputs():",
-      "    if TEST_MODE:",
-      "        with open('input.txt', 'r') as f:",
-      "            for line in f:",
-      "                yield line.rstrip('\\n')",
-      "    else:",
-      "        for line in sys.stdin:",
-      "            yield line.rstrip('\\n')",
-      "",
-      "input_gen = get_inputs()",
-      "",
-      "def input():",
-      "    return next(input_gen)",
-      "",
-      ""
-    })
-  }),
+TEST_MODE = True
+
+def get_inputs():
+    if TEST_MODE:
+        with open('input.txt', 'r') as f:
+            for line in f:
+                yield line.rstrip('\n')
+    else:
+        for line in sys.stdin:
+            yield line.rstrip('\n')
+
+input_gen = get_inputs()
+
+def input():
+    return next(input_gen)
+
+
+]],
+      {
+        -- 1. 플랫폼 선택
+        c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
+
+        -- 2. 플랫폼 선택 후 링크 자동 생성
+        f(function(args)
+          local platform = args[1][1]
+          if platform == "BOJ" then
+            return "https://www.acmicpc.net/problem/"
+          elseif platform == "Programmers" then
+            return "https://school.programmers.co.kr/learn/courses/30/lessons/"
+          else
+            return ""
+          end
+        end, { 1 }),
+      }
+    )
+  ),
+
+  -- 일반 파일용 주석 Header
+  s(
+    "header-comment_file",
+    fmt(
+      [[
+# ------------------------------------------------------------
+# File      : {}
+# Brief     : 
+# Author    : {}
+# Date      : {}
+# Version   : 
+# History
+# ------------------------------------------------------------
+]],
+      {
+        i(1, "current_file"),
+        i(2, "송용훈"),
+        f(function()
+          return os.date "%Y-%m-%d"
+        end, {}),
+      }
+    )
+  ),
 }

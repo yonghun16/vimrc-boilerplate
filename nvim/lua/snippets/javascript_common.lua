@@ -1,3 +1,4 @@
+-- ~/.config/nvim/lua/snippets/javascript_common.lua
 local ls = require "luasnip"
 local s = ls.snippet
 local i = ls.insert_node
@@ -15,16 +16,21 @@ return {
  * Sub       : [{}]
  * Link      : {}
  * Level     :   
- * Tag       : C, 
+ * Tag       : JS, 
  * Memo
  * -----------------------------------------------------------*/
 
-#include <stdio.h>
+const TEST_MODE = true;
 
-int main() {{
+let input;
 
-    return 0;
+if (TEST_MODE) {{
+  const filePath = require('path').join(__dirname, 'input.txt');
+  input = require('fs').readFileSync(filePath, 'utf-8').trim().split('\\n');
+}} else {{
+  input = require('fs').readFileSync(0, 'utf-8').trim().split('\\n');
 }}
+
 ]],
       {
         -- 1. 플랫폼 선택
