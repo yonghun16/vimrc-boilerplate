@@ -288,7 +288,7 @@
                     "key_code": "w",
                     "modifiers": ["control"]
                 },
-                { "key_code": "2" },
+                { "key_code": "3" },
                 {
                     "key_code": "equal_sign",
                     "modifiers": ["shift"]
@@ -316,7 +316,7 @@
                     "key_code": "w",
                     "modifiers": ["control"]
                 },
-                { "key_code": "2" },
+                { "key_code": "3" },
                 { "key_code": "hyphen" }
             ],
             "type": "basic"
@@ -341,7 +341,8 @@
                     "key_code": "w",
                     "modifiers": ["control"]
                 },
-                { "key_code": "2" },
+                { "key_code": "1" },
+                { "key_code": "5" },
                 {
                     "key_code": "period",
                     "modifiers": ["shift"]
@@ -369,7 +370,8 @@
                     "key_code": "w",
                     "modifiers": ["control"]
                 },
-                { "key_code": "2" },
+                { "key_code": "1" },
+                { "key_code": "5" },
                 {
                     "key_code": "comma",
                     "modifiers": ["shift"]

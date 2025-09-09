@@ -57,24 +57,26 @@ map({ "n", "v" }, "<C-S-h>", "6zh")
 
 
 -- =====================================
--- 창(Window) / Tab 관리
+-- 분할 창(Split Window) / Tab 관리
 -- =====================================
--- 분할 창(Split Window) 관리
-map("n", "<D-k>", "<C-w>k")
-map("n", "<D-j>", "<C-w>j")
-map("n", "<D-l>", "<C-w>l")
-map("n", "<D-h>", "<C-w>h")
+-- Terminal mode 분할 창 이동
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
-map("n", "<D-p>", "<C-w>3+")
-map("n", "<D-n>", "<C-w>3-")
-map("n", "<D-.>", "<C-w>3>")
-map("n", "<D-,>", "<C-w>3<")
-map("n", "<D-m>", "<C-w>=")
 
--- Tab 페이지
+-- Normal mode 분할 창 이동, 크기 조절 (karabiner 에서 설정해야함)
+-- map("n", "<D-k>", "<C-w>k")
+-- map("n", "<D-j>", "<C-w>j")
+-- map("n", "<D-l>", "<C-w>l")
+-- map("n", "<D-h>", "<C-w>h")
+-- map("n", "<D-p>", "<C-w>3+")
+-- map("n", "<D-n>", "<C-w>3-")
+-- map("n", "<D-.>", "<C-w>15>")
+-- map("n", "<D-,>", "<C-w>15<")
+-- map("n", "<D-m>", "<C-w>=")
+
+-- Tab 관리
 map("n", "te", function() vim.cmd("tabedit") end)
 map("n", "tx", function() vim.cmd("tabclose") end)
 map("n", "tn", function() vim.cmd("tabnext") end)
@@ -132,16 +134,15 @@ map("n", "s<leader>", function() vim.cmd("WhichKey <leader>") end)
 -- Sidebar / Floating / Terminal
 -- =====================================
 vim.api.nvim_del_keymap("n", "<leader>e")     -- for nvimtree
+vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
 map("n", "<leader>h", function() vim.cmd("NvimTreeToggle") end, { desc = "nvimtree" })
 map({ "n", "t" }, "<leader><leader>", function() vim.cmd("ToggleTerm direction=float") end, { desc = "terminal(floating)" })
 map({ "n", "t" }, "<leader>j", function() vim.cmd("ToggleTerm size=10 direction=horizontal") end, { desc = "terminal(bottom)" })
 map("n", "<leader>k", function() vim.cmd("Outline") end, { desc = "outline" })
 map("n", "<leader>t", function() vim.cmd("TagbarToggle") end, { desc = "tagbar" })
 map("n", "<leader>l", function() require("custom.gemini").toggle() end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
-vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
 map("n", "<leader>d", ToggleDiagnostics_qflist, { desc = "diagnostics list" })
 map("n", "<leader>f", function() require('fzf-lua').files() end, { desc = "FZF file explorer" })
 map("n", "<leader>g", function() require('fzf-lua').grep() end, { desc = "FZF grep explorer" })
 map("n", "<leader><tab>", function() vim.cmd("JABSOpen") end, { desc = "show buffers" })
-
 
