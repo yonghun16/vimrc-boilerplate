@@ -139,7 +139,7 @@ map("n", "<leader>h", function() vim.cmd("NvimTreeToggle") end, { desc = "nvimtr
 map({ "n", "t" }, "<leader><leader>", function() vim.cmd("ToggleTerm direction=float") end, { desc = "terminal(floating)" })
 map({ "n", "t" }, "<leader>j", function() vim.cmd("ToggleTerm size=10 direction=horizontal") end, { desc = "terminal(bottom)" })
 map("n", "<leader>k", function() vim.cmd("Outline") end, { desc = "outline" })
-map("n", "<leader>t", function() vim.cmd("TagbarToggle") end, { desc = "tagbar" })
+map("n", "<leader>K", function() vim.cmd("TagbarToggle") end, { desc = "tagbar" })
 map("n", "<leader>l", function() require("custom.gemini").toggle() end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
 map("n", "<leader>d", ToggleDiagnostics_qflist, { desc = "diagnostics list" })
 map("n", "<leader>f", function() require('fzf-lua').files() end, { desc = "FZF file explorer" })
