@@ -126,7 +126,7 @@ end)
             zsh-autosuggestions
         )
         ```
-  -  Neofetch
+  - Neofetch
     ```shell
     $ brew install neofetch
     ```
@@ -141,7 +141,7 @@ end)
       cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
       ```
   - Ctrl+Tab behavior : [settings] → [settings] → Ctrl+Tab behavior = circle most recent session
-  - Apperance : `wrap_apperance.png`
+  - Apperance : [wrap_apperance.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/warp/wrap_apperance.png?raw=true)
     - input type : classic
 
 ### 3) Cursor
@@ -170,7 +170,7 @@ end)
     - [설정] → [키보드] → [키보드 단축키] → [입력소스]
     - 이전 입력 소스 선택 : `contrl + shift + spacebar`
     - 입력 메뉴에서 다음 소스 선택 : 체크해제
-  - Detail : `gureum_setting.png`, `keyboard_inputsource_setting.png`
+  - Detail : [gureum_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/gureum_setting.png), [keyboard_inputsource_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/keyboard_inputsource_setting.png?raw=true)
 
 
 ## 3. Plugins 
