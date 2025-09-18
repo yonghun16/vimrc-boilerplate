@@ -77,18 +77,18 @@ end)
 ```
 
 #### extra plugins setting
-```bash
-brew install fd universal-ctags luarocks fzf ripgrep
-```
-```vim
-MasonInstall black pyright clang-format clangd google-java-format jdtls sqlls
-```
-```vim
-MasonInstall stylua prettier tailwindcss-language-server typescript-language-server css-lsp html-lsp
-```
-```vim
-TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
-```
+- package
+  ```bash
+  brew install fd universal-ctags luarocks fzf ripgrep
+  ```
+- Mason language server
+  ```vim
+  MasonInstall stylua prettier tailwindcss-language-server typescript-language-server css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
+  ```
+- Tree-sitter parser
+  ```vim
+  TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
+  ```
 
 
 ## 2. Other App Settings (for nvim)
