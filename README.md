@@ -7,7 +7,8 @@
 ## 1. Neovim(Nvchad)
 > Nvchad : https://nvchad.com
 
-#### Install
+### 1) Install
+- Install
 ```shell
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 ```
@@ -15,22 +16,77 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
   - Delete the `.git` folder from nvim folder.
   - Learn customization of ui & base46 from `:h nvui`.
 
-#### Update
+- Update
   - Run `:Lazy sync`
 
-#### Uninstall
+- Uninstall
 ```shell
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
 ```
 
-#### Setting
-```shell
-git clone https://github.com/yonghun16/vimrc-boilerplate ~
-cd ~/vimrc-boilerplate
-cp -r nvim ~/.config
-```
+### 2) Setting
+- copy
+  ```shell
+  git clone https://github.com/yonghun16/vimrc-boilerplate ~
+  cd ~/vimrc-boilerplate
+  cp -r nvim ~/.config
+  ```
+-  ~/.config/nvim/init.lua 수정
+  ```lua
+  vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+  vim.g.mapleader = ","   -- 1. <leader> 키 설정
+  
+  -- bootstrap lazy and all plugins
+  local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+  
+  if not vim.uv.fs_stat(lazypath) then
+    local repo = "https://github.com/folke/lazy.nvim.git"
+    vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+  end
+  
+  vim.opt.rtp:prepend(lazypath)
+  
+  local lazy_config = require "configs.lazy"
+  
+  -- load plugins
+  require("lazy").setup({
+    {
+      "NvChad/NvChad",
+      lazy = false,
+      branch = "v2.5",
+      import = "nvchad.plugins",
+    },
+    { import = "plugins" },
+    { import = "custom.plugins" },  --2. custom.plugins 경로 추가
+  }, lazy_config)
+  
+  -- load theme
+  dofile(vim.g.base46_cache .. "defaults")
+  dofile(vim.g.base46_cache .. "statusline")
+  
+  require "custom.options"      -- 3. custom.options 경로 수정
+  require "custom.autocmds"     -- 4. custom.autocmds 경로 수정
+  require "custom.lspconfig"    -- 5. custom.lspconfig 경로 수정
+  
+  vim.schedule(function()
+    require "custom.mappings"   -- 6. custom.mappings 경로 수정
+  end)
+  ```
+- extra plugins setting
+  ```bash
+  brew install fd universal-ctags luarocks fzf ripgrep
+  ```
+  ```vim
+  MasonInstall black pyright clang-format clangd google-java-format jdtls sqlls
+  ```
+  ```vim
+  MasonInstall stylua prettier tailwindcss-language-server typescript-language-server css-lsp html-lsp
+  ```
+  ```vim
+  TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
+  ```
 
 
 ## 2. Other App Settings (for nvim)

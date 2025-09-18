@@ -2,7 +2,6 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-
 -- =====================================
 -- 기본 종료 동작 (Escape, Close, Quit)
 -- =====================================
@@ -10,7 +9,6 @@ map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
 map("n", "<leader>w", SafeBufferClose, { desc = "Safe close buffer", noremap = true, silent = true })
 map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, silent = true })
-
 
 -- =====================================
 -- Insert 모드 / 입력 관련
@@ -133,8 +131,8 @@ map("n", "s<leader>", function() vim.cmd("WhichKey <leader>") end)
 -- =====================================
 -- Sidebar / Floating / Terminal
 -- =====================================
-vim.api.nvim_del_keymap("n", "<leader>e")     -- for nvimtree
-vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
+-- vim.api.nvim_del_keymap("n", "<leader>e")     -- for nvimtree
+-- vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
 map("n", "<leader>h", function() vim.cmd("NvimTreeToggle") end, { desc = "nvimtree" })
 map({ "n", "t" }, "<leader><leader>", function() vim.cmd("ToggleTerm direction=float") end, { desc = "terminal(floating)" })
 map({ "n", "t" }, "<leader>j", function() vim.cmd("ToggleTerm size=10 direction=horizontal") end, { desc = "terminal(bottom)" })

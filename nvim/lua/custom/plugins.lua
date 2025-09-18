@@ -1,10 +1,3 @@
--------------------------------------------
--- Manually install additional plugins
--------------------------------------------
--- $ brew install fd universal-ctags luarocks fzf ripgrep
--- :MasonInstall stylua black prettier pyright clang-format clangd css-lsp google-java-format jdtls sqlls
--- :MasonInstall tailwindcss-language-server typescript-language-server
-
 local plugins = {
   -------------------------------------------
   -- 편집 보조 플러그인
@@ -18,7 +11,7 @@ local plugins = {
   -- vim-visual-multi (멀티 커서)
   {
     "mg979/vim-visual-multi",
-    event = "vimEnter",
+    event = "VimEnter",
   },
 
   -- vim-illuminate (단어 하이라이트)
@@ -59,10 +52,13 @@ local plugins = {
   -- nvim-cmp (자동완성)
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     opts = function(_, opts)
-      -- Tab 관련 키맵 제거
-      opts.mapping["<Tab>"] = nil
-      opts.mapping["<S-Tab>"] = nil
+      if opts.mapping then
+        -- Tab 관련 키맵 제거
+        opts.mapping["<Tab>"] = nil
+        opts.mapping["<S-Tab>"] = nil
+      end
     end,
   },
 
@@ -94,7 +90,8 @@ local plugins = {
     event = "BufWritePre",
   },
 
-  -- vim-snippets (코드 스니펫) https://github.com/honza/vim-snippets/tree/master/snippets
+  -- vim-snippets (코드 스니펫) 
+  -- 스니펫 참조 : https://github.com/honza/vim-snippets/tree/master/snippets
   {
     "honza/vim-snippets",
     event = "BufRead",
@@ -140,7 +137,7 @@ local plugins = {
       require("outline").setup {
         outline_window = {
           position = "left", -- 사이드바 위치
-          width = 20 -- 사이드바 가로 길이
+          width = 20, -- 사이드바 가로 길이
         },
         show_numbers = false, -- 라인 번호 표시 여부
         show_relative_numbers = false,
@@ -223,10 +220,10 @@ local plugins = {
     },
     event = "BufReadPost",
     config = function(_, opts)
-      local barbecue = require("barbecue")
+      local barbecue = require "barbecue"
       barbecue.setup(opts)
-      local navic = require("nvim-navic")
-      vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile"}, {
+      local navic = require "nvim-navic"
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
         callback = function()
           vim.defer_fn(function()
             if navic.is_available() then
@@ -237,9 +234,6 @@ local plugins = {
       })
     end,
   },
-
-  -- nvchad.blink.lazyspec (for Lazy)
-  -- { import = "nvchad.blink.lazyspec" }
 }
 
 return plugins
