@@ -131,8 +131,8 @@ map("n", "s<leader>", function() vim.cmd("WhichKey <leader>") end)
 -- =====================================
 -- Sidebar / Floating / Terminal
 -- =====================================
--- vim.api.nvim_del_keymap("n", "<leader>e")     -- for nvimtree
--- vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
+vim.api.nvim_del_keymap("n", "<leader>e")     -- for nvimtree
+vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
 map("n", "<leader>h", function() vim.cmd("NvimTreeToggle") end, { desc = "nvimtree" })
 map({ "n", "t" }, "<leader><leader>", function() vim.cmd("ToggleTerm direction=float") end, { desc = "terminal(floating)" })
 map({ "n", "t" }, "<leader>j", function() vim.cmd("ToggleTerm size=10 direction=horizontal") end, { desc = "terminal(bottom)" })
