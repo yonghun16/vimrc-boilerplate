@@ -91,11 +91,11 @@ vim.opt.updatetime = 200
 -- Plugin options
 ------------------------------------------------------------------
 -- Neovide
-vim.g.neovide_opacity = 0.97
-vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h17"
-vim.opt.termguicolors = true
-
 if vim.g.neovide then
+  vim.g.neovide_opacity = 0.97
+  vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h17"
+  vim.opt.termguicolors = true
+
   -- Neovide terminal color for solarized_osaka
   vim.g.terminal_color_0 = "#073642"
   vim.g.terminal_color_1 = "#DC322F"

@@ -26,7 +26,7 @@ rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
 ```
 
-### 2) Setting
+### 2) init setting
 #### file copy
 ```shell
 git clone https://github.com/yonghun16/vimrc-boilerplate ~
@@ -76,7 +76,7 @@ vim.schedule(function()
 end)
 ```
 
-#### extra plugins setting
+#### Manual plugins setting
 - package
   ```bash
   brew install fd universal-ctags luarocks fzf ripgrep
@@ -89,6 +89,28 @@ end)
   ```vim
   TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
   ```
+
+### 3) Input & Hangul setting
+#### Karabiner
+> karabiner : https://karabiner-elements.pqrs.org/
+  - preset file
+    - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
+    - `karabiner-vim.json`
+  - [Complex Modifications] → [Add your own rule]
+  - [Devices] → 외장키보드 사용 시 추가
+
+#### Gureum
+> Gureum : https://gureum.io/
+  - Config
+    - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)
+    - 오른쪽 키로 언어 전환 : `Command` (한/영 키 대체)
+    - 한자 및 이모지 바꾸기 : `control + shift + spacebar`
+    - 한글 입력기 설정 : 모아치기, MS윈도호환, JDK호환, vi모드 
+  - Mac 입력 소스 설정
+    - [설정] → [키보드] → [키보드 단축키] → [입력소스]
+    - 이전 입력 소스 선택 : `contrl + shift + spacebar`
+    - 입력 메뉴에서 다음 소스 선택 : 체크해제
+  - Detail : [gureum_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/gureum_setting.png), [keyboard_inputsource_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/keyboard_inputsource_setting.png?raw=true)
 
 
 ## 2. Other App Settings (for nvim)
@@ -148,7 +170,7 @@ end)
 > Neovide : https://neovide.dev/
   - install
   ```bash
-  brew install --cask neovide
+  brew install neovide
   ```
 
 ### 4) Cursor
@@ -158,29 +180,8 @@ end)
   - Key binding file : `cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json`
   - settings : (Commend ,) → 설정열기(JSON) → 여기에 `cursor-seetings.json` 내용 추가
 
-### 5) Karabiner
-> karabiner : https://karabiner-elements.pqrs.org/
-  - preset file
-    - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
-    - `karabiner-vim.json`
-  - [Complex Modifications] → [Add your own rule]
-  - [Devices] → 외장키보드 사용 시 추가
 
-### 6) Gureum
-> Gureum : https://gureum.io/
-  - Config
-    - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)
-    - 오른쪽 키로 언어 전환 : `Command` (한/영 키 대체)
-    - 한자 및 이모지 바꾸기 : `control + shift + spacebar`
-    - 한글 입력기 설정 : 모아치기, MS윈도호환, JDK호환, vi모드 
-  - Mac 입력 소스 설정
-    - [설정] → [키보드] → [키보드 단축키] → [입력소스]
-    - 이전 입력 소스 선택 : `contrl + shift + spacebar`
-    - 입력 메뉴에서 다음 소스 선택 : 체크해제
-  - Detail : [gureum_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/gureum_setting.png), [keyboard_inputsource_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/keyboard_inputsource_setting.png?raw=true)
-
-
-## 3. Plugins 
+## 3. Plugins info
 #### 편집 보조 플러그인
   - vim-windsurf (windsurf AI)
   - vim-visual-multi (멀티 커서)
@@ -199,5 +200,3 @@ end)
   - JABS.nvim (버퍼 리스트 보기)
   - toggleterm.nvim (플로팅 터미널 보기)
   - barbecue.nvim (상단에 파일 및 요소 정보 표시)
-
-
