@@ -173,7 +173,22 @@ end)
   brew install neovide
   ```
 
-### 4) Cursor
+### 4) tmux 
+> tmux : https://github.com/tmux/tmux/wiki
+  - install
+  ```bash
+  brew install tmux
+  ```
+  - setting : `.tmux.conf`
+    - ```shell
+      cp .tmux.conf ~/.tmux.conf
+      ```
+  - 파일을 수정한 뒤 tmux 안에서:
+    - ```shell
+      tmux source-file ~/.tmux.conf
+      ```
+
+### 5) Cursor
 > Cursor : https://www.cursor.com/
   - Vim Mode 설정 : 확장 → Vim emulation install 
   - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → `cursor-vimkeymap.vim` 적용

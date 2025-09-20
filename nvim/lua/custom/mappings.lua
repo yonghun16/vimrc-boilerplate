@@ -23,7 +23,6 @@ map("i", "<C-j>", "<ENTER>")
 map("i", "<C-u>", "<ESC>d^xi")
 map("i", "<C-k>", "<ESC><RIGHT>C")
 map("i", "<C-f>", "<C-RIGHT>")
-map("i", "<C-v>", "<C-LEFT>")
 map("i", "<C-CR>", "<ESC>o")
 map("i", "<C-s>", "<ESC><C-s>")
 
