@@ -1,5 +1,5 @@
 {
-    "description": "warp, item2 키 리매핑 및 무력화 설정(for vim)",
+    "description": "warp, item2, neovide 키 리매핑 및 무력화 설정(for vim)",
     "manipulators": [
         {
             "conditions": [
@@ -22,47 +22,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command+W 무력화",
-            "from": {
-                "key_code": "w",
-                "modifiers": { "mandatory": ["command"] }
-            },
-            "to": [],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "bundle_identifiers": [
-                        "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                }
-            ],
-            "description": "iTerm2에서 Command+R 무력화",
-            "from": {
-                "key_code": "r",
-                "modifiers": { "mandatory": ["command"] }
-            },
-            "to": [],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "bundle_identifiers": [
-                        "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                }
-            ],
-            "description": "iTerm2에서 Control+C 입력 시 ESC 두 번 입력",
+            "description": "Control+C 입력 시 ESC 두 번 입력(한글 -> 영문)",
             "from": {
                 "key_code": "c",
                 "modifiers": { "mandatory": ["control"] }
@@ -81,13 +48,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Control+/ 입력 시 * 누르고 Shift+n 누르기",
+            "description": "* 누르고 Shift+n 누르기( Control + / )",
             "from": {
                 "key_code": "slash",
                 "modifiers": { "mandatory": ["control"] }
@@ -108,13 +76,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Shift + Control + / 입력 시 Ctrl+X 후 / 입력",
+            "description": "visualmuti 단어 찾기 ( Shift + Control + / )",
             "from": {
                 "key_code": "slash",
                 "modifiers": { "mandatory": ["control", "shift"] }
@@ -132,13 +101,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Shift + Control + L 입력",
+            "description": "화면 오른쪽으로 이동( Shift + Control + L )",
             "from": {
                 "key_code": "l",
                 "modifiers": { "mandatory": ["control", "shift"] }
@@ -154,13 +124,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Shift + Control + H 입력",
+            "description": "화면 왼쪽으로 움직이기( Shift + Control + H )",
             "from": {
                 "key_code": "h",
                 "modifiers": { "mandatory": ["control", "shift"] }
@@ -176,13 +147,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + K 입력 (분할창 위쪽 이동)",
+            "description": "Command + K (분할창 위쪽 이동)",
             "from": {
                 "key_code": "k",
                 "modifiers": { "mandatory": ["command"] }
@@ -200,13 +172,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + J 입력 (분할창 아래 이동)",
+            "description": "Command + J (분할창 아래 이동)",
             "from": {
                 "key_code": "j",
                 "modifiers": { "mandatory": ["command"] }
@@ -224,13 +197,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + H 입력 (분할창 왼쪽 이동)",
+            "description": "Command + H (분할창 왼쪽 이동)",
             "from": {
                 "key_code": "h",
                 "modifiers": { "mandatory": ["command"] }
@@ -248,13 +222,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + L 입력 (분할창 오른쪽 이동)",
+            "description": "Command + L (분할창 오른쪽 이동)",
             "from": {
                 "key_code": "l",
                 "modifiers": { "mandatory": ["command"] }
@@ -272,13 +247,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + N 입력 (분할창 세로폭 증가)",
+            "description": "Command + N (분할창 세로폭 증가)",
             "from": {
                 "key_code": "n",
                 "modifiers": { "mandatory": ["command"] }
@@ -300,13 +276,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + P 입력 (분할창 세로폭 감소)",
+            "description": "Command + P (분할창 세로폭 감소)",
             "from": {
                 "key_code": "p",
                 "modifiers": { "mandatory": ["command"] }
@@ -325,13 +302,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + . 입력 (분할창 가로폭 증가)",
+            "description": "Command + . (분할창 가로폭 증가)",
             "from": {
                 "key_code": "period",
                 "modifiers": { "mandatory": ["command"] }
@@ -354,13 +332,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + , 입력 (분할창 가로폭 감소)",
+            "description": "Command + , (분할창 가로폭 감소)",
             "from": {
                 "key_code": "comma",
                 "modifiers": { "mandatory": ["command"] }
@@ -383,13 +362,14 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.googlecode\\.iterm2$"
+                        "^com\\.neovide\\.neovide$"
                     ],
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "Warp/iTerm2에서 Command + m 입력 (분할창 가로세로 균등)",
+            "description": "Command + m (분할창 가로세로 균등)",
             "from": {
                 "key_code": "m",
                 "modifiers": { "mandatory": ["command"] }

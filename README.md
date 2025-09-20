@@ -144,14 +144,21 @@ end)
   - Apperance : [wrap_apperance.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/warp/wrap_apperance.png?raw=true)
     - input type : classic
 
-### 3) Cursor
+### 3) Neovide
+> Neovide : https://neovide.dev/
+  - install
+  ```bash
+  brew install --cask neovide
+  ```
+
+### 4) Cursor
 > Cursor : https://www.cursor.com/
   - Vim Mode 설정 : 확장 → Vim emulation install 
   - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → `cursor-vimkeymap.vim` 적용
   - Key binding file : `cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json`
   - settings : (Commend ,) → 설정열기(JSON) → 여기에 `cursor-seetings.json` 내용 추가
 
-### 4) Karabiner
+### 5) Karabiner
 > karabiner : https://karabiner-elements.pqrs.org/
   - preset file
     - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
@@ -159,7 +166,7 @@ end)
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
 
-### 5) Gureum
+### 6) Gureum
 > Gureum : https://gureum.io/
   - Config
     - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)

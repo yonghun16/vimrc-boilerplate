@@ -30,16 +30,31 @@ map("i", "<C-s>", "<ESC><C-s>")
 -- Codeium(WindSurf) / 자동완성
 vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { noremap = true, expr = true })
 map("i", "<Tab>", "codeium#Accept()", { expr = true, silent = true, nowait = true, desc = "Accept Codeium suggestion" })
-map("i", "<C-;>", "codeium#AcceptNextLine()", { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" })
-map("i", "<C-'>", "codeium#AcceptNextWord()", { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" })
-map("i", "<C-.>", function() vim.cmd("call codeium#CycleCompletions(1)") end, { silent = true, desc = "Cycle Codeium completions forward" })
-map("i", "<C-,>", function() vim.cmd("call codeium#CycleCompletions(-1)") end, { silent = true, desc = "Cycle Codeium completions backward" })
-map("i", "<C-x>", function() vim.cmd("call codeium#Clear()") end, { silent = true, desc = "Clear Codeium suggestion" })
+map(
+  "i",
+  "<C-;>",
+  "codeium#AcceptNextLine()",
+  { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" }
+)
+map(
+  "i",
+  "<C-'>",
+  "codeium#AcceptNextWord()",
+  { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" }
+)
+map("i", "<C-.>", function()
+  vim.cmd "call codeium#CycleCompletions(1)"
+end, { silent = true, desc = "Cycle Codeium completions forward" })
+map("i", "<C-,>", function()
+  vim.cmd "call codeium#CycleCompletions(-1)"
+end, { silent = true, desc = "Cycle Codeium completions backward" })
+map("i", "<C-x>", function()
+  vim.cmd "call codeium#Clear()"
+end, { silent = true, desc = "Clear Codeium suggestion" })
 map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
 
 -- Toggle Codieum(WindSurf) On/Off
 map("n", "ta", ToggleAIAutoComplete)
-
 
 -- =====================================
 -- 커서 이동 & 화면 스크롤
@@ -52,7 +67,6 @@ map({ "n", "v" }, "<C-n>", "5<C-e>")
 map({ "n", "v" }, "<C-p>", "5<C-y>")
 map({ "n", "v" }, "<C-S-l>", "6zl")
 map({ "n", "v" }, "<C-S-h>", "6zh")
-
 
 -- =====================================
 -- 분할 창(Split Window) / Tab 관리
@@ -75,11 +89,23 @@ map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 -- map("n", "<D-m>", "<C-w>=")
 
 -- Tab 관리
-map("n", "te", function() vim.cmd("tabedit") end)
-map("n", "tx", function() vim.cmd("tabclose") end)
-map("n", "tn", function() vim.cmd("tabnext") end)
-map("n", "tp", function() vim.cmd("tabprevious") end)
-
+map("n", "te", function()
+  vim.cmd "tabedit"
+end)
+map("n", "tt", function()
+  vim.cmd "tabedit"
+  vim.cmd "terminal"
+  vim.api.nvim_feedkeys("i", "n", false)
+end)
+map("n", "tx", function()
+  vim.cmd "tabclose"
+end)
+map("n", "tn", function()
+  vim.cmd "tabnext"
+end)
+map("n", "tp", function()
+  vim.cmd "tabprevious"
+end)
 
 -- =====================================
 -- 편집 관련
@@ -91,8 +117,12 @@ map("n", "<leader>a", Compile, { desc = "compile" })
 map("n", "tw", ToggleWrapCodes)
 map("n", "tf", ToggleFoldColumn)
 map("n", "z.", FoldColumnExpands, { noremap = true, silent = true })
-map("n", "zmv", function() vim.cmd("mkview") end, { noremap = true, silent = true })
-map("n", "zlv", function() vim.cmd("loadview") end, { noremap = true, silent = true })
+map("n", "zmv", function()
+  vim.cmd "mkview"
+end, { noremap = true, silent = true })
+map("n", "zlv", function()
+  vim.cmd "loadview"
+end, { noremap = true, silent = true })
 
 -- Visual block 이동
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
@@ -101,9 +131,10 @@ map("v", ">", ">gv")
 map("v", "<", "<gv")
 
 -- 검색 초기화 / 새로고침
-map("n", "<leader><SPACE>", function() vim.cmd("noh") end, { desc = "clean search item" })
+map("n", "<leader><SPACE>", function()
+  vim.cmd "noh"
+end, { desc = "clean search item" })
 map("n", "<Leader>r", ReloadAndLSPRestart, { desc = "Reload file and restart LSP" })
-
 
 -- Git push
 map("n", "<leader>p", CommitAndPush, { desc = "Git commit and push" })
@@ -114,33 +145,54 @@ map("n", "<leader>v", ":vert diffsplit ", { desc = "diffsplit" })
 -- 현재 파일 위치를 작업 디렉토리로 바꾸기
 map("n", "<leader>.", Sync_nvimtree_to_current_buffer, { desc = "Sync NvimTree to current buffer path" })
 
-
 -- =====================================
 -- 정보 표시 / LSP 관련
 -- =====================================
 map("n", "s", "")
 map("n", "ss", ToggleNvDash, { desc = "NvDash screen", noremap = true, silent = true })
-map("n", "sm", function() vim.cmd("message") end)
-map("n", "sr", function() vim.cmd("reg") end)
+map("n", "sm", function()
+  vim.cmd "message"
+end)
+map("n", "sr", function()
+  vim.cmd "reg"
+end)
 map("n", "sd", vim.diagnostic.open_float)
 map("n", "sk", vim.lsp.buf.hover)
 map("n", "sl", vim.lsp.buf.signature_help)
-map("n", "s<leader>", function() vim.cmd("WhichKey <leader>") end)
-
+map("n", "s<leader>", function()
+  vim.cmd "WhichKey <leader>"
+end)
 
 -- =====================================
 -- Sidebar / Floating / Terminal
 -- =====================================
-vim.api.nvim_del_keymap("n", "<leader>e")     -- for nvimtree
-vim.api.nvim_del_keymap("n", "<leader>ds")    -- for diagnostics list
-map("n", "<leader>h", function() vim.cmd("NvimTreeToggle") end, { desc = "nvimtree" })
-map({ "n", "t" }, "<leader><leader>", function() vim.cmd("ToggleTerm direction=float") end, { desc = "terminal(floating)" })
-map({ "n", "t" }, "<leader>j", function() vim.cmd("ToggleTerm size=10 direction=horizontal") end, { desc = "terminal(bottom)" })
-map("n", "<leader>k", function() vim.cmd("Outline") end, { desc = "outline" })
-map("n", "<leader>K", function() vim.cmd("TagbarToggle") end, { desc = "tagbar" })
-map("n", "<leader>l", function() require("custom.gemini").toggle() end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
+vim.api.nvim_del_keymap("n", "<leader>e") -- for nvimtree
+vim.api.nvim_del_keymap("n", "<leader>ds") -- for diagnostics list
+map("n", "<leader>h", function()
+  vim.cmd "NvimTreeToggle"
+end, { desc = "nvimtree" })
+map({ "n", "t" }, "<leader><leader>", function()
+  vim.cmd "ToggleTerm direction=float"
+end, { desc = "terminal(floating)" })
+map({ "n", "t" }, "<leader>j", function()
+  vim.cmd "ToggleTerm size=10 direction=horizontal"
+end, { desc = "terminal(bottom)" })
+map("n", "<leader>k", function()
+  vim.cmd "Outline"
+end, { desc = "outline" })
+map("n", "<leader>K", function()
+  vim.cmd "TagbarToggle"
+end, { desc = "tagbar" })
+map("n", "<leader>l", function()
+  require("custom.gemini").toggle()
+end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
 map("n", "<leader>d", ToggleDiagnostics_qflist, { desc = "diagnostics list" })
-map("n", "<leader>f", function() require('fzf-lua').files() end, { desc = "FZF file explorer" })
-map("n", "<leader>g", function() require('fzf-lua').grep() end, { desc = "FZF grep explorer" })
-map("n", "<leader><tab>", function() vim.cmd("JABSOpen") end, { desc = "show buffers" })
-
+map("n", "<leader>f", function()
+  require("fzf-lua").files()
+end, { desc = "FZF file explorer" })
+map("n", "<leader>g", function()
+  require("fzf-lua").grep()
+end, { desc = "FZF grep explorer" })
+map("n", "<leader><tab>", function()
+  vim.cmd "JABSOpen"
+end, { desc = "show buffers" })

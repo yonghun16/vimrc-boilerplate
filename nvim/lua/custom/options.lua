@@ -84,13 +84,37 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 
 -- etc
-vim.opt.wrap = false
-vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h16"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 200
 
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
+-- Neovide
+vim.g.neovide_opacity = 0.97
+vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h17"
+vim.opt.termguicolors = true
+
+if vim.g.neovide then
+  -- Neovide terminal color for solarized_osaka
+  vim.g.terminal_color_0 = "#073642"
+  vim.g.terminal_color_1 = "#DC322F"
+  vim.g.terminal_color_2 = "#859900"
+  vim.g.terminal_color_3 = "#B58900"
+  vim.g.terminal_color_4 = "#268BD2"
+  vim.g.terminal_color_5 = "#D33682"
+  vim.g.terminal_color_6 = "#2AA198"
+  vim.g.terminal_color_7 = "#EEE8D5"
+  vim.g.terminal_color_8 = "#002B36"
+  vim.g.terminal_color_9 = "#CB4B16"
+  vim.g.terminal_color_10 = "#586E75"
+  vim.g.terminal_color_11 = "#657B83"
+  vim.g.terminal_color_12 = "#839496"
+  vim.g.terminal_color_13 = "#6C71C4"
+  vim.g.terminal_color_14 = "#93A1A1"
+  vim.g.terminal_color_15 = "#FDF6E3"
+end
+
 -- fzf
 vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
@@ -141,7 +165,7 @@ require("ibl").update {
 }
 
 -- snippets
-require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/snippets" }
+require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/snippets" }
 
 ------------------------------------------------------------------
 -- Functions
