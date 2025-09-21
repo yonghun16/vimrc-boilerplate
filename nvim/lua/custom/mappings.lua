@@ -14,17 +14,18 @@ map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, sil
 -- Insert 모드 / 입력 관련
 -- =====================================
 -- 터미널 단축키 적용
-map("i", "<C-h>", "<BACKSPACE>")
-map("i", "<C-b>", "<LEFT>")
-map("i", "<C-a>", "<ESC>^i")
-map("i", "<C-e>", "<ESC>$a")
-map("i", "<C-d>", "<DEL>")
-map("i", "<C-j>", "<ENTER>")
-map("i", "<C-u>", "<ESC>d^xi")
-map("i", "<C-k>", "<ESC><RIGHT>C")
-map("i", "<C-f>", "<C-RIGHT>")
-map("i", "<C-CR>", "<ESC>o")
-map("i", "<C-s>", "<ESC><C-s>")
+map("i", "<C-h>", "<BS>")
+map("i", "<C-w>", "<C-\\><C-o>dB")
+map("i", "<C-b>", "<Left>")
+map("i", "<C-a>", "<C-\\><C-o>^")
+map("i", "<C-e>", "<C-\\><C-o>$")
+map("i", "<C-d>", "<Del>")
+map("i", "<C-j>", "<CR>")
+map("i", "<C-u>", "<C-\\><C-o>d^")
+map("i", "<C-k>", "<C-\\><C-o>d$")
+map("i", "<C-f>", "<Right>")
+map("i", "<C-CR>", "<Esc>o")
+map("i", "<C-s>", "<Esc><C-s>")
 
 -- Codeium(WindSurf) / 자동완성
 vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { noremap = true, expr = true })
