@@ -1,9 +1,5 @@
 {
-  "Ansi 0 Color" : {
-    "Green Component" : 0.15575926005840302,
-    "Red Component" : 0,
-    "Blue Component" : 0.19370138645172119
-  },
+  "Non-ASCII Anti Aliased" : true,
   "Ansi 15 Color (Dark)" : {
     "Green Component" : 0.95794391632080078,
     "Blue Component" : 0.86405980587005615,
@@ -164,7 +160,7 @@
     "Blue Component" : 0.19370138645172119,
     "Red Component" : 0
   },
-  "Transparency" : 0.097332589285714213,
+  "Transparency" : 0.10000000000000001,
   "Use Bright Bold" : true,
   "Horizontal Spacing" : 1,
   "Ansi 13 Color (Light)" : {
@@ -290,8 +286,8 @@
   },
   "Title Components" : 3,
   "Semantic History" : {
-    "text" : "",
     "action" : "best editor",
+    "text" : "",
     "editor" : "com.github.atom"
   },
   "Ansi 9 Color (Dark)" : {
@@ -852,11 +848,15 @@
     "Red Component" : 0.47797361016273499,
     "Blue Component" : 0.55732053518295288
   },
-  "Non-ASCII Anti Aliased" : true,
-  "Close Sessions On End" : true,
   "Ansi 12 Color (Light)" : {
     "Green Component" : 0.55553519725799561,
     "Blue Component" : 0.78393226861953735,
     "Red Component" : 0.091996639966964722
+  },
+  "Close Sessions On End" : true,
+  "Ansi 0 Color" : {
+    "Green Component" : 0.15575926005840302,
+    "Red Component" : 0,
+    "Blue Component" : 0.19370138645172119
   }
 }
