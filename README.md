@@ -198,6 +198,11 @@ end)
 
 
 ## 3. Plugins info
+#### 디버거 플러그인
+  - nvim-dap (Debug Adapter Protocol)
+  - js-debug-adapter (JS/TS Debuger)
+  - debugpy (Pythion Debuger)
+
 #### 편집 보조 플러그인
   - vim-windsurf (windsurf AI)
   - vim-visual-multi (멀티 커서)
