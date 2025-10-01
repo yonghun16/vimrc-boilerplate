@@ -134,7 +134,7 @@ map("v", "<", "<gv")
 map("n", "<leader><SPACE>", function()
   vim.cmd "noh"
 end, { desc = "clean search item" })
-map("n", "<Leader>r", ReloadAndLSPRestart, { desc = "Reload file and restart LSP" })
+map("n", "<leader>r", ReloadAndLSPRestart, { desc = "Reload file and restart LSP" })
 
 -- Git push
 map("n", "<leader>p", CommitAndPush, { desc = "Git commit and push" })
@@ -169,22 +169,21 @@ end)
 local dap = require "dap"
 local dapui = require "dapui"
 
-vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
-vim.keymap.set("n", "<C-SPACE>", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
-vim.keymap.set("n", "<Leader>db", function()
+vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
+vim.keymap.set("n", "<leader>c", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
+vim.keymap.set("n", "<leader>db", function()
   dap.toggle_breakpoint(vim.fn.input "Breakpoint condition: ")
 end, { desc = "Debug: Toggle Conditional Breakpoint" }) -- 조건부 중단점 설정 (debug breakpoint conditional) 조건이 참(true)일 때만 실행을 멈춥니다.
-vim.keymap.set("n", "<Leader>do", dap.step_over, { desc = "Debug: Step Over" }) -- 한 줄 실행 (debug over)
-vim.keymap.set("n", "<Leader>di", dap.step_into, { desc = "Debug: Step Into" }) -- 함수 안으로 들어가기 (debug into)
-vim.keymap.set("n", "<Leader>dk", dap.step_out, { desc = "Debug: Step Out" }) -- 현재 함수 빠져나가기 (debug out)
-vim.keymap.set("n", "<Leader>dq", dap.terminate, { desc = "Debug: Quit" }) -- 디버깅 세션 종료 (debug quit)
-vim.keymap.set("n", "<Leader>du", dapui.toggle, { desc = "Debug: Toggle UI" }) -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
+vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Debug: Step Over" }) -- 한 줄 실행 (debug over)
+vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Debug: Step Into" }) -- 함수 안으로 들어가기 (debug into)
+vim.keymap.set("n", "<leader>dk", dap.step_out, { desc = "Debug: Step Out" }) -- 현재 함수 빠져나가기 (debug out)
+vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" }) -- 디버깅 세션 종료 (debug quit)
+vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" }) -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
 
 -- =====================================
 -- Sidebar / Floating / Terminal Window
 -- =====================================
 vim.api.nvim_del_keymap("n", "<leader>e") -- for nvimtree
-vim.api.nvim_del_keymap("n", "<leader>ds") -- for diagnostics list
 map("n", "<leader>h", function()
   vim.cmd "NvimTreeToggle"
 end, { desc = "nvimtree" })
@@ -203,7 +202,7 @@ end, { desc = "tagbar" })
 map("n", "<leader>l", function()
   require("custom.gemini").toggle()
 end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
-map("n", "<leader>d", ToggleDiagnostics_qflist, { desc = "diagnostics list" })
+map("n", "<leader>dd", ToggleDiagnostics_qflist, { desc = "diagnostics list" })
 map("n", "<leader>f", function()
   require("fzf-lua").files()
 end, { desc = "FZF file explorer" })
