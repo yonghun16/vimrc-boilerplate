@@ -80,24 +80,15 @@ end)
 - package
   ```bash
   brew install fd universal-ctags luarocks fzf ripgrep
+  pip3 install debugpy
   ```
 - Mason language server
   ```vim
-  MasonInstall stylua prettier tailwindcss-language-server typescript-language-server css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
+  MasonInstall stylua prettier tailwindcss-language-server typescript-language-server js-debug-adapter css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
   ```
 - Tree-sitter parser
   ```vim
   TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
-  ```
-- Debuger
-  ```bash
-  pip3 install debugpy
-  ```
-  ```bash
-  git clone https://github.com/microsoft/vscode-js-debug.git ~/.local/share/nvim/lazy/vscode-js-debug
-  cd ~/.local/share/nvim/lazy/vscode-js-debug
-  npm install --legacy-peer-deps
-  npm run compile
   ```
   
 ### 3) Input & Hangul setting
