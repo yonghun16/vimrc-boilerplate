@@ -77,16 +77,16 @@ end)
 ```
 
 #### 🟢 Manual plugins setting
-- package
+- package (shell)
   ```bash
   brew install fd universal-ctags luarocks fzf ripgrep
   pip3 install debugpy
   ```
-- Mason language server
+- Mason language server (vim mode)
   ```vim
   MasonInstall stylua prettier tailwindcss-language-server typescript-language-server js-debug-adapter css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
   ```
-- Tree-sitter parser
+- Tree-sitter parser (vim mode)
   ```vim
   TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
   ```
