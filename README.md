@@ -27,14 +27,14 @@ rm -rf ~/.local/state/nvim
 ```
 
 ### 2) init setting
-#### 🟢 file copy
+#### 🔵 Config file copy
 ```shell
 git clone https://github.com/yonghun16/vimrc-boilerplate ~
 cd ~/vimrc-boilerplate
 cp -r nvim ~/.config
 ```
 
-#### 🟢 ~/.config/nvim/init.lua 수정
+#### 🔵 ~/.config/nvim/init.lua 수정
 ```lua
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = ","   -- 1. <leader> 키 설정
@@ -76,7 +76,7 @@ vim.schedule(function()
 end)
 ```
 
-#### 🟢 Manual plugins setting
+#### 🔵 Manual plugins setting
 - package (shell)
   ```bash
   brew install fd universal-ctags luarocks fzf ripgrep
@@ -92,7 +92,7 @@ end)
   ```
   
 ### 3) Input & Hangul setting
-#### 🟢 Karabiner
+#### 🟡 Karabiner
 > karabiner : https://karabiner-elements.pqrs.org/
   - preset file
     - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
@@ -100,7 +100,7 @@ end)
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
 
-#### 🟢 Gureum
+#### 🟡 Gureum
 > Gureum : https://gureum.io/
   - Config
     - 로마자로만 바꾸기 단축키 : `^C` (ESC 단축키)
