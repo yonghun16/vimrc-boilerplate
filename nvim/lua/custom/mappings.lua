@@ -15,16 +15,16 @@ map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, sil
 -- =====================================
 -- 터미널 단축키 적용
 map("i", "<C-h>", "<BS>")
-map("i", "<C-w>", "<C-\\><C-o>dB")
+map("i", "<C-f>", "<Right>")
 map("i", "<C-b>", "<Left>")
 map("i", "<C-a>", "<C-\\><C-o>^")
 map("i", "<C-e>", "<C-\\><C-o>$")
 map("i", "<C-d>", "<Del>")
-map("i", "<C-j>", "<CR>")
 map("i", "<C-u>", "<C-\\><C-o>d^")
+map("i", "<C-w>", "<C-\\><C-o>dB")
 map("i", "<C-k>", "<C-\\><C-o>d$")
-map("i", "<C-f>", "<Right>")
 map("i", "<C-CR>", "<Esc>o")
+map("i", "<C-j>", "<CR>")
 map("i", "<C-s>", "<Esc><C-s>")
 
 -- Codeium(WindSurf) / 자동완성
@@ -59,20 +59,17 @@ map("n", "ta", ToggleAIAutoComplete) -- Toggle Codieum(WindSurf) On/Off
 -- =====================================
 -- 커서 이동
 map("n", "s", "")
-map({ "n", "v" }, "<C-l>", "L")
 map({ "n", "v" }, "<C-h>", "H")
-map({ "n", "v" }, "<C-m>", "M")
-map({ "n", "v" }, "<C-k>", "5k")
+map({ "n", "v" }, "<C-l>", "L")
 map({ "n", "v" }, "<C-j>", "5j")
-map({ "n", "v" }, "sl", "$")
+map({ "n", "v" }, "<C-k>", "5k")
+map({ "n", "v" }, "<C-m>", "M")
 map({ "n", "v" }, "sh", "^")
-map({ "n", "v" }, "sm", function()
-  local col = vim.fn.col "$" / 2
-  vim.cmd.normal { args = { "0" .. math.floor(col) .. "l" }, bang = true }
-end, { noremap = true, silent = true })
-map({ "n", "v" }, "sk", "{")
+map({ "n", "v" }, "sl", "$")
 map({ "n", "v" }, "sj", "}")
-map({ "n", "v" }, "sg", "%")
+map({ "n", "v" }, "sk", "{")
+map({ "n", "v" }, "sm", MoveCursorToCenter, { noremap = true, silent = true })
+map({ "n", "v" }, "s;", "%")
 
 -- 화면 이동
 map({ "n", "v" }, "<C-n>", "5<C-e>")
@@ -175,7 +172,7 @@ vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" }) -- �
 vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" }) -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
 
 -- =====================================
--- Split, Floating, Hover Windows
+-- Split, Floating Windows
 -- =====================================
 vim.api.nvim_del_keymap("n", "<leader>e") -- for nvimtree
 
@@ -214,8 +211,5 @@ end, { desc = "show buffers" })
 map("n", "s<leader>", function() -- WhichKey
   vim.cmd "WhichKey <leader>"
 end)
-
--- Hover
 map("n", "sd", vim.diagnostic.open_float) -- diagnostics
-map("n", "ss", vim.lsp.buf.hover) -- lsp hover
-map("n", "sf", vim.lsp.buf.signature_help) -- lsp signature help
+map("n", "ss", vim.lsp.buf.signature_help) -- lsp signature help

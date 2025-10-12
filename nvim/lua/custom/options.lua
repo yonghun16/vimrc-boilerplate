@@ -260,6 +260,12 @@ function ToggleWrapCodes()
   end
 end
 
+-- Move Cursor to Center
+function MoveCursorToCenter()
+  local col = vim.fn.col "$" / 2
+  vim.cmd.normal { args = { "0" .. math.floor(col) .. "l" }, bang = true }
+end
+
 -- Toggle Codium(Windsurf) 토글 함수
 function ToggleAIAutoComplete()
   if vim.g.codeium_enabled == nil or vim.g.codeium_enabled == false then

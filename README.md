@@ -161,7 +161,7 @@ end)
       mkdir -p $HOME/.warp
       cd $HOME/.warp/
       git clone https://github.com/warpdotdev/themes.git
-      cp ~/vimrc-boilerplate/vimbase16_solarized_dark.yaml ~/.warp/themes/base16
+      cp ~/vimrc-boilerplate/base16_solarized_dark.yaml ~/.warp/themes/base16
       ```
   - Ctrl+Tab behavior : [settings] → [settings] → Ctrl+Tab behavior = circle most recent session
   - Apperance : [wrap_apperance.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/warp/wrap_apperance.png?raw=true)
