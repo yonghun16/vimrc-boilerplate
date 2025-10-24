@@ -1,9 +1,5 @@
 require "nvchad.mappings"
-
-local map = vim.keymap.set
-
--- =====================================
--- 기본 종료 동작 (Escape, Close, Quit)
+local map = vim.keymap.set -- ===================================== 기본 종료 동작 (Escape, Close, Quit)
 -- =====================================
 map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
@@ -59,17 +55,12 @@ map("n", "ta", ToggleAIAutoComplete) -- Toggle Codieum(WindSurf) On/Off
 -- =====================================
 -- 커서 이동
 map("n", "s", "")
-map({ "n", "v" }, "<C-h>", "H")
-map({ "n", "v" }, "<C-l>", "L")
+map({ "n", "v" }, "<C-h>", "^")
+map({ "n", "v" }, "<C-l>", "$")
 map({ "n", "v" }, "<C-j>", "5j")
 map({ "n", "v" }, "<C-k>", "5k")
-map({ "n", "v" }, "<C-m>", "M")
-map({ "n", "v" }, "sh", "^")
-map({ "n", "v" }, "sl", "$")
-map({ "n", "v" }, "sj", "}")
-map({ "n", "v" }, "sk", "{")
-map({ "n", "v" }, "sm", MoveCursorToCenter, { noremap = true, silent = true })
-map({ "n", "v" }, "s;", "%")
+map({ "n", "v" }, "<C-m>", MoveCursorToCenter, { noremap = true, silent = true })
+map({ "n", "v" }, "ss", "%")
 
 -- 화면 이동
 map({ "n", "v" }, "<C-n>", "5<C-e>")
@@ -212,4 +203,4 @@ map("n", "s<leader>", function() -- WhichKey
   vim.cmd "WhichKey <leader>"
 end)
 map("n", "sd", vim.diagnostic.open_float) -- diagnostics
-map("n", "ss", vim.lsp.buf.signature_help) -- lsp signature help
+map("n", "si", vim.lsp.buf.signature_help) -- lsp signature help

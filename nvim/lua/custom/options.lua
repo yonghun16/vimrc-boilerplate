@@ -80,10 +80,15 @@ vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
 -- visual-multi
 vim.cmd [[ let g:VM_maps = {} ]]
-vim.cmd [[ let g:VM_maps["Find Under"] = '<C-x>/' ]]
-vim.cmd [[ let g:VM_maps["Find Subword Under"] = '<C-x>/' ]] -- used in Visual Mode
-vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = '<C-RIGHT>' ]]
--- Goto Next ],  Goto Prev [,  Skip Region q,  Remove Region Q
+vim.cmd [[ let g:VM_maps["Find Under"] = 's/' ]]
+vim.cmd [[ let g:VM_maps["Find Subword Under"] = 's/' ]]
+vim.cmd [[ let g:VM_maps["Add Cursor Down"] = 'sj' ]]
+vim.cmd [[ let g:VM_maps["Add Cursor Up"] = 'sk' ]]
+vim.cmd [[ let g:VM_maps["Move Right"] = 'sl' ]]
+vim.cmd [[ let g:VM_maps["Move Left"] = 'sh' ]]
+vim.cmd [[ let g:VM_maps["Mouse Cursor"] = 's<LeftMouse>' ]]
+vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = 's<CR>' ]]
+vim.cmd [[ let g:VM_maps["Select Operator"] = 'ss' ]]
 
 -- Codium(Windsurf)
 vim.g.codeium_enabled = true

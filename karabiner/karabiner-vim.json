@@ -83,31 +83,6 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "visualmuti 단어 찾기 ( Shift + Control + / )",
-            "from": {
-                "key_code": "slash",
-                "modifiers": { "mandatory": ["control", "shift"] }
-            },
-            "to": [
-                {
-                    "key_code": "x",
-                    "modifiers": ["control"]
-                },
-                { "key_code": "slash" }
-            ],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "bundle_identifiers": [
-                        "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
-                    ],
-                    "type": "frontmost_application_if"
-                }
-            ],
             "description": "화면 오른쪽으로 이동( Shift + Control + L )",
             "from": {
                 "key_code": "l",
@@ -394,10 +369,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 오른쪽 pane 이동 ( Command + Control + l )",
+            "description": "tmux 오른쪽 pane 이동",
             "from": {
                 "key_code": "l",
-                "modifiers": { "mandatory": ["command", "control"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -421,10 +396,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 왼쪽 pane 이동 ( Command + Control + h )",
+            "description": "tmux 왼쪽 pane 이동",
             "from": {
                 "key_code": "h",
-                "modifiers": { "mandatory": ["command", "control"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -448,10 +423,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 위쪽 pane 이동 ( Command + Control + k )",
+            "description": "tmux 위쪽 pane 이동",
             "from": {
                 "key_code": "k",
-                "modifiers": { "mandatory": ["command", "control"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -475,10 +450,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 아래쪽 pane 이동 ( Command + Control + j )",
+            "description": "tmux 아래쪽 pane 이동",
             "from": {
                 "key_code": "j",
-                "modifiers": { "mandatory": ["command", "control"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -502,10 +477,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 수직 경계선 오른쪽 이동( Command + Control + . )",
+            "description": "tmux 수직 경계선 오른쪽 이동",
             "from": {
                 "key_code": "period",
-                "modifiers": { "mandatory": ["control", "command"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -530,10 +505,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 수직 경계선 왼쪽 이동( Command + Control + , )",
+            "description": "tmux 수직 경계선 왼쪽 이동",
             "from": {
                 "key_code": "comma",
-                "modifiers": { "mandatory": ["control", "command"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -558,10 +533,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 수평 경계선 위로 이동( Command + Control + p )",
+            "description": "tmux 수평 경계선 위로 이동",
             "from": {
                 "key_code": "p",
-                "modifiers": { "mandatory": ["control", "command"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
@@ -586,10 +561,10 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "tmux 수평 경계선 아래로 이동( Command + Control + n )",
+            "description": "tmux 수평 경계선 아래로 이동",
             "from": {
                 "key_code": "n",
-                "modifiers": { "mandatory": ["control", "command"] }
+                "modifiers": { "mandatory": ["option"] }
             },
             "to": [
                 {
