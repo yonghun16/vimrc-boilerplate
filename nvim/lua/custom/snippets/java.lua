@@ -6,44 +6,25 @@ local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
-  -- Online judge용 주석 Header (Python)
   s(
     "header-comment_oj",
     fmt(
       [[
-"""
-------------------------------------------------------------
-Sub    : [{}]
-Link   : {}
-Level  :   
-Tag    : Python, 
-Memo
-------------------------------------------------------------
-"""
+/** 
+ * ------------------------------------------------------------
+ * Sub    : [{}]
+ * Link   : {}
+ * Level  :   
+ * Tag    : Java, 
+ * Memo
+ * ------------------------------------------------------------
+ */
 
-import sys
-
-# [환경 설정]
-TEST_MODE = True
-
-# [입력 처리 함수]
-def get_inputs():
-    # 로컬 테스트 (input.txt 파일 읽기)
-    if TEST_MODE:
-        with open('input.txt', 'r') as f:
-            for line in f:
-                yield line.rstrip('\n')
-    else:
-    # 제출 환경 (표준 입력)
-        for line in sys.stdin:
-            yield line.rstrip('\n')
-
-input_gen = get_inputs()
-
-def input():
-    return next(input_gen)
-
-
+public class Main {{
+    public static void main(String[] args) {{
+        
+    }}
+}}
 ]],
       {
         -- 1. 플랫폼 선택
@@ -69,24 +50,34 @@ def input():
     "header-comment_file",
     fmt(
       [[
-"""
-------------------------------------------------------------
-File     : {}
-Brief    : 
-Author   : {}
-Date     : {}
-Version  : 
-History
-------------------------------------------------------------
-"""
+/** 
+ * ------------------------------------------------------------
+ * File     : {}
+ * Brief    : 
+ * Author   : {}
+ * Date     : {}
+ * Version  : 
+ * History
+ * ------------------------------------------------------------
+ */
 
+public class {} {{
+    public static void main(String[] args) {{
+        
+    }}
+}}
 ]],
       {
-        i(1, "current_file"),
+        i(1, "Main.java"),
         i(2, "송용훈"),
         f(function()
           return os.date "%Y-%m-%d"
         end, {}),
+        f(function(args)
+          -- 파일 이름에서 확장자 제거
+          local filename = args[1][1]
+          return filename:gsub("%.java$", "")
+        end, { 1 }),
       }
     )
   ),
