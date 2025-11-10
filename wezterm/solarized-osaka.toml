@@ -1,0 +1,39 @@
+[colors]
+# 기본 배경/전경
+foreground = "#bbd5d7"
+background = "#0b0c10"
+
+# 커서 색상 (Base 6, Base 0)
+cursor_bg = "#a4afc2"
+cursor_border = "#a4afc2"
+cursor_fg = "#0b0c10"
+
+# 선택 영역 (Base 2, Base 8)
+selection_bg = "#27323d"
+selection_fg = "#e8e6e0"
+
+# ANSI 8 Colors (Normal)
+# 각 색상 줄의 3번째 칸 (중간 톤)
+ansi = [
+  "#1b232c",  # Black (Base 1)
+  "#d1453d",  # Red
+  "#75931e",  # Green
+  "#c19522",  # Yellow
+  "#2f86d7",  # Blue
+  "#c43c7c",  # Magenta
+  "#2fa59f",  # Cyan
+  "#d3d6d9"   # White (Base 7)
+]
+
+# ANSI 8 Colors (Bright)
+# 각 색상 줄의 5번째 칸 (가장 밝은 톤)
+brights = [
+  "#576375",  # Bright Black (Base 4)
+  "#f3736b",  # Bright Red
+  "#b7d92e",  # Bright Green
+  "#ebcb58",  # Bright Yellow
+  "#6bbaf6",  # Bright Blue
+  "#f065a9",  # Bright Magenta
+  "#50bbad",  # Bright Cyan
+  "#f9f8f6"   # Bright White (Base 9)
+]
