@@ -133,7 +133,7 @@ end)
       )
       ```
   - Syntax Highlighter
-  ```shell
+    ```shell
     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
     - ~/.zshrc 에 아래 플러그인 경로를 추가.
@@ -159,14 +159,7 @@ end)
       cp .wezterm.lua ~/.wezterm.lua
       ```
 
-### 3) Neovide
-> Neovide : https://neovide.dev/
-  - install
-  ```bash
-  brew install neovide
-  ```
-
-### 4) tmux 
+### 3) tmux 
 > tmux : https://github.com/tmux/tmux/wiki
   - install
   ```bash
@@ -180,13 +173,6 @@ end)
     - ```shell
       tmux source-file ~/.tmux.conf
       ```
-
-### 5) Cursor
-> Cursor : https://www.cursor.com/
-  - Vim Mode 설정 : 확장 → Vim emulation install 
-  - Vimscript file : (Commend ,) → (vim search) → Vim>vimrc:Path → `cursor-vimkeymap.vim` 적용
-  - Key binding file : `cp cursor-keybindings.json ~/Library/Application\ Support/Cursor/User/keybindings.json`
-  - settings : (Commend ,) → 설정열기(JSON) → 여기에 `cursor-seetings.json` 내용 추가
 
 
 ## 3. Plugins info
