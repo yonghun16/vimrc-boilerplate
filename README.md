@@ -95,7 +95,7 @@ end)
 #### 🟡 Karabiner
 > karabiner : https://karabiner-elements.pqrs.org/
   - preset file
-    - `karabiner-korean.json`  (오른쪽 커맨드 키 [한/영] 버튼, 오른쪽 옵션 키 [한자])
+    - `karabiner-korean.json`
     - `karabiner-vim.json`
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
