@@ -115,57 +115,49 @@ end)
 
 
 ## 2. Other App Settings (for nvim)
-### 1) iTerm2
-> iterm2 : https://iterm2.com/
-  - json config file : `iterm2-vim.json`
-    - [setting] → [Profiles] → [Others Actions] → [Import JSON Profiles]
-  - Shell Integration
-    ```shell
-    $ curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash
-    ```
-  - Oh-my-zhs
+### 1) Oh-my-zsh
+> oh-my-zsh : https://ohmyz.sh/
+  - install
     ```shell
     $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ```
-    - zsh-autosuggestions
+  - zsh-autosuggestions
+    ```shell
+    $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+    - ~/.zshrc 에 플러그인 경로를 추가.
       ```shell
-      $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+      plugins=( 
+          # other plugins...
+          zsh-autosuggestions
+      )
       ```
-      - ~/.zshrc 에 플러그인 경로를 추가.
-        ```shell
-        plugins=( 
-            # other plugins...
-            zsh-autosuggestions
-        )
-        ```
-    - Syntax Highlighter
+  - Syntax Highlighter
+  ```shell
+    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    ```
+    - ~/.zshrc 에 아래 플러그인 경로를 추가.
       ```shell
-      $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+      plugins=( 
+          # other plugins...
+          zsh-autosuggestions
+      )
       ```
-      - ~/.zshrc 에 아래 플러그인 경로를 추가.
-        ```shell
-        plugins=( 
-            # other plugins...
-            zsh-autosuggestions
-        )
-        ```
   - Neofetch
     ```shell
     $ brew install neofetch
     ```
 
-### 2) Wrap
-> wrap : https://www.warp.dev/
-  - theme : `base16_solarized_dark.yaml`
+### 2) WezTerm
+> WezTerm : https://wezterm.org/
+  - install
+    ```shell
+    brew install --cask wezterm
+    ```
+  - setting : `.wezterm.lua`
     - ```shell
-      mkdir -p $HOME/.warp
-      cd $HOME/.warp/
-      git clone https://github.com/warpdotdev/themes.git
-      cp ~/vimrc-boilerplate/base16_solarized_dark.yaml ~/.warp/themes/base16
+      cp .wezterm.lua ~/.wezterm.lua
       ```
-  - Ctrl+Tab behavior : [settings] → [settings] → Ctrl+Tab behavior = circle most recent session
-  - Apperance : [wrap_apperance.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/warp/wrap_apperance.png?raw=true)
-    - input type : classic
 
 ### 3) Neovide
 > Neovide : https://neovide.dev/

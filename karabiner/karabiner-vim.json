@@ -1,27 +1,11 @@
 {
-    "description": "item2, warp, neovide 키 리매핑 설정(for vim, tmux)",
+    "description": "키 리매핑 설정(for vim, tmux)",
     "manipulators": [
         {
             "conditions": [
                 {
                     "bundle_identifiers": [
-                        "^dev\\.warp\\.Warp-Stable$"
-                    ],
-                    "type": "frontmost_application_if"
-                }
-            ],
-            "description": "Warp에서 Ctrl+Space를 space로 변환(warp 버그, 나중에 삭제해야 함)",
-            "from": {
-                "key_code": "spacebar",
-                "modifiers": { "mandatory": ["control"] }
-            },
-            "to": [{ "key_code": "spacebar" }],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -48,6 +32,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -76,6 +61,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -99,6 +85,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -122,6 +109,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -147,6 +135,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -172,6 +161,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -197,6 +187,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -222,6 +213,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -251,6 +243,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -277,6 +270,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -307,6 +301,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -337,6 +332,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -362,6 +358,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -389,6 +386,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -416,6 +414,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -443,6 +442,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -470,6 +470,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -498,6 +499,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -526,6 +528,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"
@@ -554,6 +557,7 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
                         "^dev\\.warp\\.Warp-Stable$",
                         "^com\\.neovide\\.neovide$"

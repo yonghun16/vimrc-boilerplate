@@ -1,0 +1,12 @@
+# Solarized Osaka Night
+[colors]
+foreground = "#b0e4f5"
+background = "#041218"
+cursor_bg = "#6fc7ef"
+cursor_border = "#6fc7ef"
+cursor_fg = "#0c171c"
+selection_bg = "#1a3e54"
+selection_fg = "#b0e4f5"
+
+ansi = ["#15161e","#f7768e","#9ece6a","#e0af68","#7aa2f7","#bb9af7","#50bbad","#a9b1d6"]
+brights = ["#414868","#f7768e","#9ece6a","#e0af68","#7aa2f7","#bb9af7","#50bbad","#c0caf5"]
