@@ -1,21 +1,6 @@
 {
-    "description": "오른쪽 커맨드키 → 한/영, 오른쪽 옵션키 → 한자",
+    "description": "오른쪽 옵션키 → 한자, Right Command+W 무효화",
     "manipulators": [
-        {
-            "description": "오른쪽 커맨드키로 한/영 전환",
-            "from": {
-                "key_code": "right_gui",
-                "modifiers": { "optional": ["any"] }
-            },
-            "to": [
-                {
-                    "key_code": "spacebar",
-                    "modifiers": ["left_control", "left_shift"],
-                    "repeat": false
-                }
-            ],
-            "type": "basic"
-        },
         {
             "description": "오른쪽 옵션키로 한자 입력",
             "from": {
@@ -28,6 +13,15 @@
                     "modifiers": ["left_control", "left_option"]
                 }
             ],
+            "type": "basic"
+        },
+        {
+            "description": "오른쪽 커맨드 + W 완전 무효화",
+            "from": {
+                "key_code": "w",
+                "modifiers": { "mandatory": ["right_command"] }
+            },
+            "to": [{ "key_code": "vk_none" }],
             "type": "basic"
         }
     ]
