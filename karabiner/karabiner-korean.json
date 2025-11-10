@@ -1,5 +1,5 @@
 {
-    "description": "오른쪽 옵션키 → 한자, Right Command+W 무효화",
+    "description": "Right Option → 한자key, Right Command + any key → 무효화",
     "manipulators": [
         {
             "description": "오른쪽 옵션키로 한자 입력",
@@ -16,9 +16,9 @@
             "type": "basic"
         },
         {
-            "description": "오른쪽 커맨드 + W 완전 무효화",
+            "description": "오른쪽 커맨드 + 모든 키 무효화",
             "from": {
-                "key_code": "w",
+                "any": "key_code",
                 "modifiers": { "mandatory": ["right_command"] }
             },
             "to": [{ "key_code": "vk_none" }],
