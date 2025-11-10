@@ -10,7 +10,6 @@
             "to": [
                 {
                     "key_code": "spacebar",
-                    "lazy": true,
                     "modifiers": ["left_control", "left_shift"],
                     "repeat": false
                 }
