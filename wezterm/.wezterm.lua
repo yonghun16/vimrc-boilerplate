@@ -30,4 +30,25 @@ return {
 	-- 시작할 때 창 크기 (열 x 행)
 	initial_cols = 120, -- 너비 (열)
 	initial_rows = 40, -- 높이 (행)
+
+	keys = {
+		-- 전체화면 전환 (Cmd + Enter)
+		{
+			key = "Enter",
+			mods = "CMD",
+			action = wezterm.action.ToggleFullScreen,
+		},
+		-- 스크롤 올리기 (Ctrl + Cmd + p)
+		{
+			key = "p",
+			mods = "CTRL|CMD",
+			action = wezterm.action.ScrollByPage(-1), -- -1이면 위로 스크롤
+		},
+		-- 스크롤 내리기 (Ctrl + Cmd + n)
+		{
+			key = "n",
+			mods = "CTRL|CMD",
+			action = wezterm.action.ScrollByPage(1), -- 1이면 아래로 스크롤
+		},
+	},
 }
