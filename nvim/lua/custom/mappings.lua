@@ -1,10 +1,15 @@
 require "nvchad.mappings"
-local map = vim.keymap.set -- ===================================== 기본 종료 동작 (Escape, Close, Quit)
+local map = vim.keymap.set 
+
+
+-- ===================================== 
+-- 기본 동작 (Escape, Close, Quit, Termux Copy)
 -- =====================================
 map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
 map("n", "<leader>w", SafeBufferClose, { desc = "Safe close buffer", noremap = true, silent = true })
 map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, silent = true })
+map("v", "<leader>y", ":<C-U> '<,'>w !termux-clipboard-set<CR><CR>", { desc = "Copy selection to Android clipboard" })
 
 -- =====================================
 -- Insert 모드 입력
