@@ -1,13 +1,13 @@
--- ~/.config/nvim/lua/snippets/javascript_common.lua
 local ls = require "luasnip"
 local s = ls.snippet
 local i = ls.insert_node
 local c = ls.choice_node
-local f = ls.function_node
+local d = ls.dynamic_node
+local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
-  -- Online judge용 주석 Header
+  -- Online judge용 주석 Header (JavaScript)
   s(
     "header-comment_oj",
     fmt(
@@ -41,16 +41,17 @@ if (TEST_MODE) {{
         -- 1. 플랫폼 선택
         c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
 
-        -- 2. 플랫폼 선택 후 링크 자동 생성
-        f(function(args)
+        -- 2. 링크 + 사용자 입력 문제번호
+        d(2, function(args)
           local platform = args[1][1]
+          local prefix = ""
           if platform == "BOJ" then
-            return "https://www.acmicpc.net/problem/"
+            prefix = "https://www.acmicpc.net/problem/"
           elseif platform == "Programmers" then
-            return "https://school.programmers.co.kr/learn/courses/30/lessons/"
-          else
-            return ""
+            prefix = "https://school.programmers.co.kr/learn/courses/30/lessons/"
           end
+          -- prefix가 기본값으로 들어간 insert_node 생성
+          return sn(nil, i(1, prefix))
         end, { 1 }),
       }
     )
