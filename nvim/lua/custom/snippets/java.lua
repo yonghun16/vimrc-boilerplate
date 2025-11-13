@@ -5,6 +5,7 @@ local c = ls.choice_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
+local f = ls.function_node
 
 return {
   -- Online judge용 주석 Header (Java)

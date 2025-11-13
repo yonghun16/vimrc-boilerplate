@@ -5,7 +5,7 @@ local c = ls.choice_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
-local rep = require("luasnip.extras").rep
+local f = ls.function_node
 
 return {
   -- Online judge용 주석 Header (Python)
@@ -17,7 +17,7 @@ return {
 ------------------------------------------------------------
 Sub    : [{}] {}
 Link   : {}
-Level  :   
+Level  : 
 Tag    : Python, 
 Memo
 ------------------------------------------------------------
