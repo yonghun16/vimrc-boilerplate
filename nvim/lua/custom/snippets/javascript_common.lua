@@ -1,9 +1,11 @@
+-- ~/.config/nvim/lua/custom/snippets/javascript_common.lua
 local ls = require "luasnip"
 local s = ls.snippet
 local i = ls.insert_node
 local c = ls.choice_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
+local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
@@ -35,13 +37,12 @@ if (TEST_MODE) {{
   // 제출 환경 (표준 입력)
   input = require('fs').readFileSync(0, 'utf-8').trim().split('\n');
 }}
-
 ]],
       {
         -- 1. 플랫폼 선택
         c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
 
-        -- 2. 링크 + 사용자 입력 문제번호
+        -- 2. 링크 + 사용자 입력 가능
         d(2, function(args)
           local platform = args[1][1]
           local prefix = ""
@@ -50,7 +51,7 @@ if (TEST_MODE) {{
           elseif platform == "Programmers" then
             prefix = "https://school.programmers.co.kr/learn/courses/30/lessons/"
           end
-          -- prefix가 기본값으로 들어간 insert_node 생성
+          -- prefix 포함 insert node, 사용자가 뒤에 문제 번호 입력 가능
           return sn(nil, i(1, prefix))
         end, { 1 }),
       }
