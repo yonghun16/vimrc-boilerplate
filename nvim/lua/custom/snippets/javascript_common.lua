@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/custom/snippets/javascript_common.lua
 local ls = require "luasnip"
 local s = ls.snippet
 local i = ls.insert_node
@@ -16,7 +15,7 @@ return {
       [[
 /** 
  * -----------------------------------------------------------
- * Sub    : [{}]
+ * Sub    : [{}] {}
  * Link   : {}
  * Level  :   
  * Tag    : JS, 
@@ -42,16 +41,19 @@ if (TEST_MODE) {{
         -- 1. 플랫폼 선택
         c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
 
-        -- 2. 링크 + 사용자 입력 가능
-        d(2, function(args)
-          local platform = args[1][1]
+        -- 2. 문제 제목
+        i(2, "문제 제목"),
+
+        -- 3. 링크 자동 생성
+        d(3, function(args)
+          local platform = args[1][1] or ""
           local prefix = ""
           if platform == "BOJ" then
             prefix = "https://www.acmicpc.net/problem/"
           elseif platform == "Programmers" then
             prefix = "https://school.programmers.co.kr/learn/courses/30/lessons/"
           end
-          -- prefix 포함 insert node, 사용자가 뒤에 문제 번호 입력 가능
+          -- prefix 포함 insert_node, 뒤에 문제 번호 입력 가능
           return sn(nil, i(1, prefix))
         end, { 1 }),
       }

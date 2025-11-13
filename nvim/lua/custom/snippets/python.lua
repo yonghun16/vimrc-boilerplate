@@ -5,6 +5,7 @@ local c = ls.choice_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
+local rep = require("luasnip.extras").rep
 
 return {
   -- Online judge용 주석 Header (Python)
@@ -14,7 +15,7 @@ return {
       [[
 """
 ------------------------------------------------------------
-Sub    : [{}]
+Sub    : [{}] {}
 Link   : {}
 Level  :   
 Tag    : Python, 
@@ -50,16 +51,18 @@ def input():
         -- 1. 플랫폼 선택
         c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
 
-        -- 2. 링크 + 사용자 입력 문제번호
-        d(2, function(args)
-          local platform = args[1][1]
+        -- 2. 문제 제목
+        i(2, "문제 제목"),
+
+        -- 3. 링크 자동 생성
+        d(3, function(args)
+          local platform = args[1][1] or ""
           local prefix = ""
           if platform == "BOJ" then
             prefix = "https://www.acmicpc.net/problem/"
           elseif platform == "Programmers" then
             prefix = "https://school.programmers.co.kr/learn/courses/30/lessons/"
           end
-          -- prefix가 기본값으로 들어간 insert_node 생성
           return sn(nil, i(1, prefix))
         end, { 1 }),
       }
