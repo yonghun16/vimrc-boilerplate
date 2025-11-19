@@ -184,15 +184,19 @@ end
 -- Compile and Run
 function Compile()
   local filetype = vim.bo.filetype
+  local filename = vim.fn.expand "%:t:r" -- 파일 이름 (확장자 제외)
+  local filepath = vim.fn.expand "%:p" -- 전체 경로
+  local bin_dir = os.getenv "HOME" .. "/bin"
+  vim.fn.mkdir(bin_dir, "p") -- ~/bin 디렉토리 없으면 생성
+  local binpath = bin_dir .. "/" .. filename
+
+  vim.cmd "w" -- 항상 저장
+
   if filetype == "python" then
-    vim.cmd "w"
-    vim.cmd 'TermExec cmd="python3 %"'
+    vim.cmd(string.format('TermExec cmd="python3 %s"', filepath))
   elseif filetype == "javascript" then
-    vim.cmd "w"
-    local filename = vim.fn.expand "%"
-    vim.cmd('TermExec cmd="node ' .. filename .. '"')
+    vim.cmd(string.format('TermExec cmd="node %s"', filepath))
   elseif filetype == "typescript" then
-    vim.cmd "w"
     local tsconfig_exists = vim.fn.filereadable "tsconfig.json" == 1
     if not tsconfig_exists then
       local tsconfig_content = {
@@ -213,23 +217,22 @@ function Compile()
       }
       vim.fn.writefile(tsconfig_content, "tsconfig.json")
     end
-    vim.cmd 'TermExec cmd="ts-node %"'
-    -- vim.cmd ":! tsc % --outDir ~/bin"
-    -- vim.cmd 'TermExec cmd="node ~/bin/%<.js"'
+    -- ts-node로 직접 실행
+    vim.cmd(string.format('TermExec cmd="ts-node %s"', filepath))
+    -- 만약 ~/bin에 JS 파일로 컴파일 후 실행하고 싶으면 아래 주석 해제
+    -- vim.cmd(string.format(":!tsc %s --outDir %s", filepath, bin_dir))
+    -- vim.cmd(string.format('TermExec cmd="node %s/%s.js"', bin_dir, filename))
   elseif filetype == "c" then
-    vim.cmd "w"
-    vim.cmd ":! gcc -o %< %"
-    vim.cmd 'TermExec cmd="./%<"'
+    vim.cmd(string.format(":!gcc -o %s %s", binpath, filepath))
+    vim.cmd(string.format('TermExec cmd="%s"', binpath))
   elseif filetype == "cpp" then
-    vim.cmd "w"
-    vim.cmd ":! g++ -o %< %"
-    vim.cmd 'TermExec cmd="./%<"'
+    vim.cmd(string.format(":!g++ -o %s %s", binpath, filepath))
+    vim.cmd(string.format('TermExec cmd="%s"', binpath))
   elseif filetype == "java" then
-    vim.cmd "w"
-    vim.cmd ":! javac -encoding utf-8 -d . %"
-    vim.cmd 'TermExec cmd="java %<"'
+    vim.cmd(string.format(":!javac -encoding utf-8 -d %s %s", bin_dir, filepath))
+    vim.cmd(string.format('TermExec cmd="java -cp %s %s"', bin_dir, filename))
   else
-    vim.cmd ':echo "This file is not a source file."'
+    vim.cmd ':echo "This file is not a supported source file."'
   end
 end
 
