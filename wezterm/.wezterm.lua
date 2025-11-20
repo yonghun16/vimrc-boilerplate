@@ -8,6 +8,9 @@ return {
 		"Noto Color Emoji", -- 이모지
 	}),
 
+	-- 모든 리가처 끄기
+	harfbuzz_features = { "liga=0", "clig=0", "calt=0" },
+
 	-- 폰트 크기 & 행간
 	font_size = 17.0,
 	line_height = 1.1,
