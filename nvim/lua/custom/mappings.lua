@@ -1,8 +1,7 @@
 require "nvchad.mappings"
-local map = vim.keymap.set 
+local map = vim.keymap.set
 
-
--- ===================================== 
+-- =====================================
 -- 기본 동작 (Escape, Close, Quit, Termux Copy)
 -- =====================================
 map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
@@ -117,6 +116,7 @@ end)
 -- =====================================
 -- 컴파일 & 런
 map("n", "<leader>a", Compile, { desc = "compile" })
+map("n", "<leader>A", CompileSingle, { desc = "compile single" })
 
 -- 폴딩 관련
 map("n", "tw", ToggleWrapCodes)

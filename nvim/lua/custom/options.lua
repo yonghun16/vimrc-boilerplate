@@ -237,6 +237,29 @@ function Compile()
   end
 end
 
+-- Compile single file
+function CompileSingle()
+  local filetype = vim.bo.filetype
+  local filename = vim.fn.expand "%:t:r" -- 파일 이름 (확장자 제외)
+  local filepath = vim.fn.expand "%:p" -- 전체 경로
+  local bin_dir = os.getenv "HOME" .. "/bin"
+  vim.fn.mkdir(bin_dir, "p") -- ~/bin 없으면 생성
+  local binpath = bin_dir .. "/" .. filename
+
+  vim.cmd "w" -- 항상 저장
+
+  if filetype == "c" then
+    -- 현재 파일만 컴파일
+    vim.cmd(string.format(":!gcc -o %s %s", binpath, filepath))
+    vim.cmd(string.format('TermExec cmd="%s"', binpath))
+  elseif filetype == "cpp" then
+    vim.cmd(string.format(":!g++ -o %s %s", binpath, filepath))
+    vim.cmd(string.format('TermExec cmd="%s"', binpath))
+  else
+    vim.cmd ':echo "This file is not supported for single file compile."'
+  end
+end
+
 -- Reload and LSP Restart
 function ReloadAndLSPRestart()
   local bufnr = vim.api.nvim_get_current_buf()
