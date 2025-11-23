@@ -1,4 +1,8 @@
+# .clang-format
 BasedOnStyle: Google
-IndentWidth: 4
+IndentWidth: 4  # 들여쓰기 4칸
 TabWidth: 4
 UseTab: Never
+
+# 선택 사항
+ColumnLimit: 0  # 줄 길이 제한 없음

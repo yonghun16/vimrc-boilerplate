@@ -36,4 +36,3 @@ require "custom.lspconfig"
 vim.schedule(function()
   require "custom.mappings"
 end)
-

@@ -12,20 +12,20 @@ function M.toggle()
   else
     if not M.buf or not vim.api.nvim_buf_is_valid(M.buf) then
       M.buf = vim.api.nvim_create_buf(false, true)
-      vim.cmd("botright vsplit")  -- 여기 변경
+      vim.cmd "botright vsplit" -- 여기 변경
       M.win = vim.api.nvim_get_current_win()
       vim.api.nvim_win_set_buf(M.win, M.buf)
       vim.api.nvim_win_set_width(M.win, 60)
       vim.wo[M.win].winfixwidth = true
-      vim.fn.termopen("gemini")
-      vim.cmd("startinsert")
+      vim.fn.termopen "gemini"
+      vim.cmd "startinsert"
     else
-      vim.cmd("botright vsplit")  -- 여기도 변경
+      vim.cmd "botright vsplit" -- 여기도 변경
       M.win = vim.api.nvim_get_current_win()
       vim.api.nvim_win_set_buf(M.win, M.buf)
       vim.api.nvim_win_set_width(M.win, 60)
       vim.wo[M.win].winfixwidth = true
-      vim.cmd("startinsert")
+      vim.cmd "startinsert"
     end
     M.is_open = true
   end
