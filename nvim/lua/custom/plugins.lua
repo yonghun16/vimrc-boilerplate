@@ -103,19 +103,19 @@ local plugins = {
   -- windsuf.vim (AI 자동완성, Codeium 기반) :Codeium Auth
   {
     "Exafunction/windsurf.vim",
-    event = "BufReadPost",
+    event = { "InsertEnter", "BufReadPost" },
   },
 
   -- vim-visual-multi (멀티 커서)
   {
     "mg979/vim-visual-multi",
-    event = "BufReadPost",
+    event = { "BufReadPost", "BufNewFile" },
   },
 
   -- vim-illuminate (단어 하이라이트)
   {
     "RRethy/vim-illuminate",
-    event = "BufReadPost",
+    event = { "BufReadPost", "BufNewFile" },
   },
 
   -- nvim-lastplace (커서 마지막 위치 저장, lua 포트 버전)
@@ -308,7 +308,7 @@ local plugins = {
       "nvim-tree/nvim-web-devicons",
       "echasnovski/mini.nvim",
     },
-    event = "BufReadPost",
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       attach_navic = true,
       show_dirname = true,

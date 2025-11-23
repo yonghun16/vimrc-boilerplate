@@ -68,7 +68,7 @@ if (TEST_MODE) {{
 /** 
  * ------------------------------------------------------------
  * File     : {}
- * Brief    : 
+ * Brief    : {}
  * Author   : {}
  * Date     : {}
  * Version  : 
@@ -78,7 +78,10 @@ if (TEST_MODE) {{
 
 ]],
       {
-        i(1, "current_file"),
+        f(function()
+          return vim.fn.expand "%:t"
+        end, {}), -- 현재 파일명 자동 적용
+        i(1, "간단 설명 입력"),
         i(2, "송용훈"),
         f(function()
           return os.date "%Y-%m-%d"

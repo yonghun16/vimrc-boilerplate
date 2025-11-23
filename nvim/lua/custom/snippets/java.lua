@@ -59,7 +59,7 @@ public class Main {{
 /** 
  * ------------------------------------------------------------
  * File     : {}
- * Brief    : 
+ * Brief    : {}
  * Author   : {}
  * Date     : {}
  * Version  : 
@@ -74,15 +74,17 @@ public class {} {{
 }}
 ]],
       {
-        i(1, "Main.java"),
+        f(function()
+          return vim.fn.expand "%:t"
+        end, {}), -- 현재 파일명
+        i(1, "간단 설명 입력"), -- Brief
         i(2, "송용훈"),
         f(function()
           return os.date "%Y-%m-%d"
-        end, {}),
-        f(function(args)
-          local filename = args[1][1]
-          return filename:gsub("%.java$", "")
-        end, { 1 }),
+        end, {}), -- Date
+        f(function()
+          return vim.fn.expand "%:t:r"
+        end, {}), -- 클래스 이름 (파일명에서 .java 제거)
       }
     )
   ),
