@@ -60,11 +60,11 @@ map("n", "ta", ToggleAIAutoComplete) -- Toggle Codieum(WindSurf) On/Off
 -- 커서 이동
 map("n", "s", "")
 map({ "n", "v" }, "<C-h>", "^")
-map({ "n", "v" }, "<C-l>", "$")
 map({ "n", "v" }, "<C-j>", "5j")
 map({ "n", "v" }, "<C-k>", "5k")
+map({ "n", "v" }, "<C-l>", "$")
 map({ "n", "v" }, "<C-m>", MoveCursorToCenter, { noremap = true, silent = true })
-map({ "n", "v" }, "ss", "%")
+map({ "n", "v" }, "<C-;>", "%")
 
 -- 화면 이동
 map({ "n", "v" }, "<C-n>", "5<C-e>")
@@ -76,16 +76,16 @@ map({ "n", "v" }, "<C-S-h>", "6zh")
 -- 분할 창 이동 / Tab 이동
 -- =====================================
 -- Terminal mode 분할 창 이동
+map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
+map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
-map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
-map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 
 -- Normal mode 분할 창 이동, 크기 조절 (karabiner에서 설정해야함)
--- map("n", "<D-k>", "<C-w>k")
--- map("n", "<D-j>", "<C-w>j")
--- map("n", "<D-l>", "<C-w>l")
 -- map("n", "<D-h>", "<C-w>h")
+-- map("n", "<D-j>", "<C-w>j")
+-- map("n", "<D-k>", "<C-w>k")
+-- map("n", "<D-l>", "<C-w>l")
 -- map("n", "<D-p>", "<C-w>4+")
 -- map("n", "<D-n>", "<C-w>4-")
 -- map("n", "<D-.>", "<C-w>15>")
