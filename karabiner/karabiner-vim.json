@@ -69,54 +69,6 @@
                     "type": "frontmost_application_if"
                 }
             ],
-            "description": "화면 오른쪽으로 이동( Shift + Control + L )",
-            "from": {
-                "key_code": "l",
-                "modifiers": { "mandatory": ["control", "shift"] }
-            },
-            "to": [
-                { "key_code": "6" },
-                { "key_code": "z" },
-                { "key_code": "l" }
-            ],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "bundle_identifiers": [
-                        "^com\\.github\\.wez\\.wezterm$",
-                        "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
-                    ],
-                    "type": "frontmost_application_if"
-                }
-            ],
-            "description": "화면 왼쪽으로 움직이기( Shift + Control + H )",
-            "from": {
-                "key_code": "h",
-                "modifiers": { "mandatory": ["control", "shift"] }
-            },
-            "to": [
-                { "key_code": "6" },
-                { "key_code": "z" },
-                { "key_code": "h" }
-            ],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "bundle_identifiers": [
-                        "^com\\.github\\.wez\\.wezterm$",
-                        "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
-                    ],
-                    "type": "frontmost_application_if"
-                }
-            ],
             "description": "Command + K (분할창 위쪽 이동)",
             "from": {
                 "key_code": "k",
@@ -376,9 +328,7 @@
                     "key_code": "a",
                     "modifiers": ["control"]
                 },
-                {
-                    "key_code": "right_arrow"
-                }
+                { "key_code": "right_arrow" }
             ],
             "type": "basic"
         },
@@ -404,9 +354,7 @@
                     "key_code": "a",
                     "modifiers": ["control"]
                 },
-                {
-                    "key_code": "left_arrow"
-                }
+                { "key_code": "left_arrow" }
             ],
             "type": "basic"
         },
@@ -432,9 +380,7 @@
                     "key_code": "a",
                     "modifiers": ["control"]
                 },
-                {
-                    "key_code": "up_arrow"
-                }
+                { "key_code": "up_arrow" }
             ],
             "type": "basic"
         },
@@ -460,9 +406,7 @@
                     "key_code": "a",
                     "modifiers": ["control"]
                 },
-                {
-                    "key_code": "down_arrow"
-                }
+                { "key_code": "down_arrow" }
             ],
             "type": "basic"
         },

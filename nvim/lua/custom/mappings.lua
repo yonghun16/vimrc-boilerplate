@@ -12,7 +12,7 @@ map("v", "<leader>y", ":<C-U> '<,'>w !termux-clipboard-set<CR><CR>", { desc = "C
 map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle transparency", noremap = true, silent = true })
 
 -- =====================================
--- Insert 모드 입력
+-- AI, 터미널 단축키 적용
 -- =====================================
 -- 터미널 단축키 적용
 map("i", "<C-h>", "<BS>")
@@ -56,7 +56,7 @@ map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
 map("n", "ta", ToggleAIAutoComplete) -- Toggle Codieum(WindSurf) On/Off
 
 -- =====================================
--- 커서 이동 / 화면 이동
+-- 커서 이동 / 화면 이동 / Tab 이동
 -- =====================================
 -- 커서 이동
 map("n", "s", "")
@@ -70,19 +70,36 @@ map({ "n", "v" }, "<C-;>", "%")
 -- 화면 이동
 map({ "n", "v" }, "<C-n>", "5<C-e>")
 map({ "n", "v" }, "<C-p>", "5<C-y>")
-map({ "n", "v" }, "<C-S-l>", "6zl")
-map({ "n", "v" }, "<C-S-h>", "6zh")
+map({ "n", "v" }, "<C-.>", "6zl")
+map({ "n", "v" }, "<C-,>", "6zh")
+
+-- Tab 이동
+map("n", "te", function() -- new tab
+  vim.cmd "tabedit"
+end)
+map("n", "tt", function() -- new tab to terminal
+  vim.cmd "tabedit"
+  vim.cmd "terminal"
+  vim.api.nvim_feedkeys("i", "n", false)
+end)
+map("n", "tx", function() -- tab close
+  vim.cmd "tabclose"
+end)
+map("n", "tn", function() -- tab next
+  vim.cmd "tabnext"
+end)
+map("n", "tp", function() -- tab previous
+  vim.cmd "tabprevious"
+end)
 
 -- =====================================
--- 분할 창 이동 / Tab 이동
+-- Split window, tmux pane 이동 & 크기 조절
 -- =====================================
--- Terminal mode 분할 창 이동
+-- Split window
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
-
--- Normal mode 분할 창 이동, 크기 조절 (karabiner에서 설정해야함)
 -- map("n", "<D-h>", "<C-w>h")
 -- map("n", "<D-j>", "<C-w>j")
 -- map("n", "<D-k>", "<C-w>k")
@@ -93,24 +110,15 @@ map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 -- map("n", "<D-,>", "<C-w>15<")
 -- map("n", "<D-m>", "<C-w>=")
 
--- Tab 이동
-map("n", "te", function()
-  vim.cmd "tabedit"
-end)
-map("n", "tt", function()
-  vim.cmd "tabedit"
-  vim.cmd "terminal"
-  vim.api.nvim_feedkeys("i", "n", false)
-end)
-map("n", "tx", function()
-  vim.cmd "tabclose"
-end)
-map("n", "tn", function()
-  vim.cmd "tabnext"
-end)
-map("n", "tp", function()
-  vim.cmd "tabprevious"
-end)
+-- tmux pane
+-- <A-l> = right move
+-- <A-h> = left move
+-- <A-j> = down move
+-- <A-k> = up move
+-- <A-.> = increase width
+-- <A-,> = decrease width
+-- <A-p> = decrease height
+-- <A-n> = increase height
 
 -- =====================================
 -- 편집 관련
@@ -119,7 +127,7 @@ end)
 map("n", "<leader>a", Compile, { desc = "Compile" })
 map("n", "<leader>A", CompileSingle, { desc = "Compile single" })
 
--- 폴딩 관련
+-- 폴딩
 map("n", "tw", ToggleWrapCodes)
 map("n", "tf", ToggleFoldColumn)
 map("n", "z.", FoldColumnExpands, { noremap = true, silent = true })
@@ -136,10 +144,7 @@ map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
 map("v", "<", "<gv")
 
--- 검색 초기화 / 새로고침
-map("n", "<C-BS>", function()
-  vim.cmd "noh"
-end, { desc = "clean search item" })
+-- 새로고침
 map("n", "<leader>r", ReloadAndLSPRestart, { desc = "Reload file and restart LSP" })
 
 -- Git push
@@ -148,11 +153,11 @@ map("n", "<leader>p", CommitAndPush, { desc = "Git commit and push" })
 -- 파일 비교
 map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit" })
 
--- 현재 파일 위치를 작업 디렉토리로 바꾸기
+-- 작업 디렉토리로 변경
 map("n", "<leader>.", Sync_nvimtree_to_current_buffer, { desc = "Sync NvimTree to current buffer path" })
 
 -- =====================================
--- 디버깅
+-- Debugging
 -- =====================================
 local dap = require "dap"
 local dapui = require "dapui"
