@@ -158,21 +158,21 @@ local dap = require "dap"
 local dapui = require "dapui"
 
 vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
-vim.keymap.set("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" })             -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
+vim.keymap.set("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
 vim.keymap.set("n", "<leader>db", function()
   dap.toggle_breakpoint(vim.fn.input "Breakpoint condition: ")
-end, { desc = "Debug: Toggle Conditional Breakpoint" })                         -- 조건부 중단점 설정 (debug breakpoint conditional) 조건이 참(true)일 때만 실행을 멈춥니다.
+end, { desc = "Debug: Toggle Conditional Breakpoint" }) -- 조건부 중단점 설정 (debug breakpoint conditional) 조건이 참(true)일 때만 실행을 멈춥니다.
 vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Debug: Step Over" }) -- 한 줄 실행 (debug over)
 vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Debug: Step Into" }) -- 함수 안으로 들어가기 (debug into)
-vim.keymap.set("n", "<leader>dk", dap.step_out, { desc = "Debug: Step Out" })   -- 현재 함수 빠져나가기 (debug out)
-vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" })      -- 디버깅 세션 종료 (debug quit)
-vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" })  -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
+vim.keymap.set("n", "<leader>dk", dap.step_out, { desc = "Debug: Step Out" }) -- 현재 함수 빠져나가기 (debug out)
+vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" }) -- 디버깅 세션 종료 (debug quit)
+vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" }) -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
 
 -- =====================================
 -- Sidebars (h, j, k, l)
 -- =====================================
 vim.api.nvim_del_keymap("n", "<leader>e") -- for nvimtree
-map("n", "<leader>h", function()          -- nvimtree (left side)
+map("n", "<leader>h", function() -- nvimtree (left side)
   vim.cmd "NvimTreeToggle"
 end, { desc = "File explorer" })
 map("n", "<leader>k", function() -- outline (left side)
@@ -185,7 +185,7 @@ map({ "n", "t" }, "<leader>j", function() -- terminal(bottom side)
   vim.cmd "ToggleTerm size=10 direction=horizontal"
 end, { desc = "Terminal(bottom)" })
 map("n", "<leader>J", ToggleDiagnostics_qflist, { desc = "Diagnostics message" }) -- Diagnostics message (bottom side)
-map({ "n", "t" }, "<leader><leader>", function()                                  -- terminal(floating)
+map({ "n", "t" }, "<leader><leader>", function() -- terminal(floating)
   vim.cmd "ToggleTerm direction=float"
 end, { desc = "Terminal(floating)" })
 map("n", "<leader>l", function() -- Gemini (right side)
@@ -204,12 +204,13 @@ end, { desc = "FZF grep" })
 map("n", "<leader><tab>", function() -- JABS (buffer explorer)
   vim.cmd "JABSOpen"
 end, { desc = "Show buffers" })
-map("n", "<leader>n", ToggleNvDash,
-  { desc = "NvDash screen", noremap = true, silent = true }) -- NvDash
+map("n", "<leader>n", ToggleNvDash, { desc = "NvDash screen", noremap = true, silent = true }) -- NvDash
 
 -- =====================================
 -- Show Messages
 -- =====================================
-map("n", "sd", vim.diagnostic.open_float)                                                     -- Diagnostics
-map("n", "ss", vim.lsp.buf.signature_help)                                                    -- LSP signature help
-map("n", "<leader>s", function() vim.cmd "WhichKey <leader>" end, { desc = "Show mappings" }) -- WhichKey (mappings explorer)
+map("n", "sd", vim.diagnostic.open_float) -- Diagnostics
+map("n", "ss", vim.lsp.buf.signature_help) -- LSP signature help
+map("n", "<leader>s", function()
+  vim.cmd "WhichKey <leader>"
+end, { desc = "Show mappings" }) -- WhichKey (mappings explorer)

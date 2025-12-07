@@ -39,7 +39,6 @@ local plugins = {
     event = { "BufReadPost", "BufNewFile" },
   },
 
-
   -------------------------------------------
   -- Debuger
   -------------------------------------------
@@ -295,7 +294,7 @@ local plugins = {
   {
     "mfussenegger/nvim-lint",
     config = function()
-      local lint = require("lint")
+      local lint = require "lint"
 
       lint.linters_by_ft = {
         lua = { "luacheck" },
@@ -363,10 +362,10 @@ local plugins = {
     "karb94/neoscroll.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>' },
+      mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>" },
       hide_cursor = true,
-      easing = 'quadratic',
-    }
+      easing = "quadratic",
+    },
   },
 
   -------------------------------------------

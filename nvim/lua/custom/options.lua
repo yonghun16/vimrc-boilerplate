@@ -109,7 +109,7 @@ require("nvim-tree").setup {
       return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
-    vim.keymap.del("n", "<C-k>", { buffer = bufnr })                     -- Ctrl+k 제거
+    vim.keymap.del("n", "<C-k>", { buffer = bufnr }) -- Ctrl+k 제거
     vim.keymap.set("n", "K", api.node.show_info_popup, opts "Show Info") -- Shift+k 로 파일 정보 보기
     vim.keymap.set("n", "i", api.node.open.vertical, opts "Open: Vertical Split")
     vim.keymap.set("n", "s", api.node.open.horizontal, opts "Open: Horizontal Split")
@@ -143,8 +143,8 @@ function SafeBufferClose()
     -- 변경사항이 있으면 확인 메시지
     local choice = vim.fn.confirm("There are unsaved changes. Save before closing?", "&Yes\n&No\n&Cancel", 3)
     if choice == 1 then
-      vim.cmd "write"    -- 저장
-      vim.cmd "bdelete"  -- 버퍼 닫기
+      vim.cmd "write" -- 저장
+      vim.cmd "bdelete" -- 버퍼 닫기
     elseif choice == 2 then
       vim.cmd "bdelete!" -- 저장하지 않고 강제 닫기
     else
@@ -169,12 +169,12 @@ function SafeQuitAll()
   if #modified_bufs > 0 then
     local choice = vim.fn.confirm("There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 3)
     if choice == 1 then
-      vim.cmd "wa"  -- 모든 버퍼 저장
-      vim.cmd "qa"  -- 종료
+      vim.cmd "wa" -- 모든 버퍼 저장
+      vim.cmd "qa" -- 종료
     elseif choice == 2 then
       vim.cmd "qa!" -- 저장하지 않고 종료
     else
-      return        -- Cancel: 종료 안 함
+      return -- Cancel: 종료 안 함
     end
   else
     vim.cmd "qa" -- 변경사항 없으면 그냥 종료
@@ -184,11 +184,11 @@ end
 -- Compile and Run
 function Compile()
   local filetype = vim.bo.filetype
-  local filename = vim.fn.expand "%:t:r"    -- 파일 이름 (확장자 제외)
+  local filename = vim.fn.expand "%:t:r" -- 파일 이름 (확장자 제외)
   local project_dir = vim.fn.expand "%:p:h" -- 현재 파일이 속한 디렉토리
-  local filepath = vim.fn.expand "%:p"      -- 전체 경로
+  local filepath = vim.fn.expand "%:p" -- 전체 경로
   local bin_dir = os.getenv "HOME" .. "/bin"
-  vim.fn.mkdir(bin_dir, "p")                -- ~/bin 디렉토리 없으면 생성
+  vim.fn.mkdir(bin_dir, "p") -- ~/bin 디렉토리 없으면 생성
   local binpath = bin_dir .. "/" .. filename
 
   vim.cmd "w" -- 항상 저장
@@ -241,9 +241,9 @@ end
 function CompileSingle()
   local filetype = vim.bo.filetype
   local filename = vim.fn.expand "%:t:r" -- 파일 이름 (확장자 제외)
-  local filepath = vim.fn.expand "%:p"   -- 전체 경로
+  local filepath = vim.fn.expand "%:p" -- 전체 경로
   local bin_dir = os.getenv "HOME" .. "/bin"
-  vim.fn.mkdir(bin_dir, "p")             -- ~/bin 없으면 생성
+  vim.fn.mkdir(bin_dir, "p") -- ~/bin 없으면 생성
   local binpath = bin_dir .. "/" .. filename
 
   vim.cmd "w" -- 항상 저장
@@ -275,10 +275,10 @@ end
 function CommitAndPush()
   local commit_message = vim.fn.input "Commit message: " -- 사용자로부터 커밋 메시지 입력받기
   if commit_message == "" then
-    print "Commit aborted: No message provided."         -- 메시지가 비어 있으면 커밋 중단
+    print "Commit aborted: No message provided." -- 메시지가 비어 있으면 커밋 중단
     return
   end
-  vim.cmd "write"      -- 현재 파일 저장
+  vim.cmd "write" -- 현재 파일 저장
   local git_command = string.format("!git add -A && git commit -m '%s' && git push", commit_message)
   vim.cmd(git_command) -- Git 명령 실행
 end
@@ -320,7 +320,7 @@ function ToggleGemini()
   else
     -- 오른쪽 vertical split에 터미널 열기
     vim.cmd "vsplit"
-    vim.cmd "wincmd l"  -- 오른쪽으로 이동
+    vim.cmd "wincmd l" -- 오른쪽으로 이동
     vim.cmd "resize 45" -- 너비 조정
 
     -- 터미널 실행
@@ -361,7 +361,7 @@ function ToggleDiagnostics_qflist()
   if qf_open then
     vim.cmd "cclose"
   else
-    vim.fn.setqflist {}        -- 기존 Quickfix 리스트 초기화
+    vim.fn.setqflist {} -- 기존 Quickfix 리스트 초기화
     vim.diagnostic.setqflist() -- 새로운 LSP 진단 정보 추가
     vim.cmd "copen"
   end
@@ -374,7 +374,7 @@ function ToggleNvDash()
 
   -- NvDash 화면인지 판별: 파일 이름이 없거나 특정 filetype인 경우
   if filetype == "alpha" or filetype == "dashboard" or filetype == "starter" then
-    vim.cmd "b#"     -- 이전 버퍼로 이동
+    vim.cmd "b#" -- 이전 버퍼로 이동
   else
     vim.cmd "Nvdash" -- NvDash 열기
   end
@@ -404,32 +404,31 @@ function Sync_nvimtree_to_current_buffer()
   -- NvimTree가 닫혀있으면 열지 않고, 사용자가 수동으로 열도록 놔둠
 end
 
--- Toggle Transparency
-local toggle_transparent = true
-
-local function apply_transparent()
-  vim.opt.termguicolors = true
-  vim.cmd "autocmd! ColorScheme *" -- 기존 ColorScheme autocmd 정리
-  vim.cmd [[
-    highlight Normal     guibg=NONE
-    highlight StatusLine  guibg=#00212e
-    highlight CursorLine  guibg=#00212e
-  ]]
-end
-
-local function apply_opaque()
-  vim.cmd [[
-    highlight Normal     guibg=#00121a
-  ]]
-end
-
+-- Transparency Toggle Function
 function ToggleTransparency()
-  toggle_transparent = not toggle_transparent
-  if toggle_transparent then
-    apply_transparent()
+  local nvconfig = require "nvconfig"
+  local base46 = require "base46"
+
+  local new_state = not nvconfig.base46.transparency
+
+  nvconfig.base46.transparency = new_state
+  local bg_color = new_state and "NONE" or "#00121a"
+  nvconfig.base46.hl_override.Normal = { bg = bg_color }
+
+  local state_file = vim.fn.stdpath "data" .. "/transparency_state"
+  vim.fn.writefile({ tostring(new_state) }, state_file)
+
+  base46.load_all_highlights()
+
+  vim.api.nvim_set_hl(0, "BarbecueNormal", { bg = bg_color })
+  vim.api.nvim_set_hl(0, "BarbecueContext", { bg = bg_color })
+
+  -- (선택사항) Barbecue가 활성화되지 않은 창(Inactive)도 맞추려면 아래 주석 해제
+  vim.api.nvim_set_hl(0, "BarbecueNormalNC", { bg = bg_color })
+
+  if new_state then
     print "Transparency enabled"
   else
-    apply_opaque()
-    print "Transparency disabled"
+    print "Transparency disabled (Opaque)"
   end
 end
