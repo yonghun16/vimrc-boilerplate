@@ -1,12 +1,12 @@
 [colors]
 # 기본 배경/전경
 foreground = "#bbd5d7"
-background = "#0b0c10"
+background = "#00121a"
 
 # 커서 색상 (Base 6, Base 0)
 cursor_bg = "#a4afc2"
 cursor_border = "#a4afc2"
-cursor_fg = "#0b0c10"
+cursor_fg = "#00121a"
 
 # 선택 영역 (Base 2, Base 8)
 selection_bg = "#27323d"

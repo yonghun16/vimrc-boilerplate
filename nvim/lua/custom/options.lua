@@ -380,26 +380,32 @@ function ToggleNvDash()
   end
 end
 
--- NvimTree 현재 버퍼 파일 경로 기준으로 위치 맞추는 함수
-function Sync_nvimtree_to_current_buffer()
-  local api = require "nvim-tree.api"
-  local filepath = vim.api.nvim_buf_get_name(0)
-  local ft = vim.bo.filetype
+-- Toggle Transparency
+local toggle_transparent = true
 
-  if filepath == "" or ft == "NvimTree" or ft == "nvimtree" then
-    print "빈 버퍼거나 NvimTree 버퍼라서 리턴됨"
-    return
+local function apply_transparent()
+  vim.opt.termguicolors = true
+  vim.cmd "autocmd! ColorScheme *" -- 기존 ColorScheme autocmd 정리
+  vim.cmd [[
+    highlight Normal     guibg=NONE
+    highlight StatusLine  guibg=#00212e
+    highlight CursorLine  guibg=#00212e
+  ]]
+end
+
+local function apply_opaque()
+  vim.cmd [[
+    highlight Normal     guibg=#00121a
+  ]]
+end
+
+function ToggleTransparency()
+  toggle_transparent = not toggle_transparent
+  if toggle_transparent then
+    apply_transparent()
+    print "Transparency enabled"
+  else
+    apply_opaque()
+    print "Transparency disabled"
   end
-
-  local dir = vim.fn.fnamemodify(filepath, ":h")
-
-  -- Neovim 현재 작업 디렉토리 변경
-  vim.cmd("lcd " .. dir)
-  print("Working directory changed: " .. dir)
-
-  if api.tree.is_visible() then
-    -- NvimTree가 열려 있으면 트리 루트만 변경
-    api.tree.change_root(dir)
-  end
-  -- NvimTree가 닫혀있으면 열지 않고, 사용자가 수동으로 열도록 놔둠
 end

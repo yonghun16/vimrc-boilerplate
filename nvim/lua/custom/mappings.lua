@@ -191,7 +191,7 @@ end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
 map("n", "<leader>dd", ToggleDiagnostics_qflist, { desc = "diagnostics list" }) -- diagnostics Split
 
 -- Floating
-map("n", "<leader><ESC>", ToggleNvDash, { desc = "NvDash screen", noremap = true, silent = true }) -- NvDash
+map("n", "<leader>s", ToggleNvDash, { desc = "NvDash screen", noremap = true, silent = true }) -- NvDash
 map({ "n", "t" }, "<leader><leader>", function() -- terminal(floating)
   vim.cmd "ToggleTerm direction=float"
 end, { desc = "terminal(floating)" })

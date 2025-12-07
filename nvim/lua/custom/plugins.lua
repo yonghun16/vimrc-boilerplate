@@ -1,4 +1,38 @@
 local plugins = {
+  -- neo-tree (파일 탐색기)
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    event = "VeryLazy",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("neo-tree").setup {
+        close_if_last_window = true,
+        popup_border_style = "rounded",
+        enable_git_status = true,
+        enable_diagnostics = false,
+
+        filesystem = {
+          hijack_netrw_behavior = "open_current",
+          filtered_items = {
+            visible = true,
+          },
+          follow_current_file = { enabled = true, leave_dirs_open = false },
+          use_libuv_file_watcher = true,
+        },
+
+        window = {
+          position = "left",
+          width = 32,
+        },
+      }
+    end,
+  },
+
   -------------------------------------------
   -- 디버거 플러그인
   -------------------------------------------
@@ -132,21 +166,26 @@ local plugins = {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+      preset = "helix",
       triggers = { { "<leader>", mode = { "n", "v" } } },
-    },
-    keys = {
-      {
-        "<leader>",
-        function() end,
+      window = {
+        border = "rounded",
+        winblend = 10,
+        -- position은 옵션으로 남겨도 되지만 preset이 우선 적용될 수 있음
+        position = "right",
+        padding = { 2, 3, 2, 3 },
       },
-      {
-        "<leader>?",
-        function()
-          require("which-key").show { global = false }
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
+      layout = {
+        align = "left",
+        spacing = 3,
       },
     },
+    config = function(_, opts)
+      local wk = require "which-key"
+      wk.setup(opts)
+
+      pcall(vim.api.nvim_set_hl, 0, "WhichKeyFloat", { bg = "NONE" })
+    end,
   },
 
   -- nvim-cmp (자동완성)
