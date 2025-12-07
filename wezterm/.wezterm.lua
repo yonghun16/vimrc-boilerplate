@@ -13,7 +13,7 @@ return {
 
 	-- 폰트 크기 & 행간
 	font_size = 17.0,
-	line_height = 1.1,
+	line_height = 1.2,
 
 	-- 내부 여백 제거
 	window_padding = {
@@ -31,7 +31,7 @@ return {
 	window_background_opacity = 0.90,
 
 	-- 시작할 때 창 크기 (열 x 행)
-	initial_cols = 120, -- 너비 (열)
+	initial_cols = 140, -- 너비 (열)
 	initial_rows = 40, -- 높이 (행)
 
 	keys = {
