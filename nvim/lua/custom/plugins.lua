@@ -1,6 +1,47 @@
 local plugins = {
   -------------------------------------------
-  -- 디버거 플러그인
+  -- AI
+  -------------------------------------------
+  -- windsuf.vim (AI 자동완성, Codeium 기반) :Codeium Auth
+  {
+    "Exafunction/windsurf.vim",
+    event = { "InsertEnter", "BufReadPost" },
+  },
+
+  -------------------------------------------
+  -- Coding
+  -------------------------------------------
+  -- LuaSnip (스니펫)
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    event = "InsertEnter",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
+
+  -- nvim-cmp (자동완성)
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    opts = function(_, opts)
+      if opts.mapping then
+        opts.mapping["<Tab>"] = nil
+        opts.mapping["<S-Tab>"] = nil
+      end
+    end,
+  },
+
+  -- vim-visual-multi (멀티 커서)
+  {
+    "mg979/vim-visual-multi",
+    event = { "BufReadPost", "BufNewFile" },
+  },
+
+
+  -------------------------------------------
+  -- Debuger
   -------------------------------------------
   -- nvim-dap (Debug Adapter Protocol)
   {
@@ -98,125 +139,8 @@ local plugins = {
   },
 
   -------------------------------------------
-  -- 편집 보조 플러그인
+  -- Editor
   -------------------------------------------
-  -- windsuf.vim (AI 자동완성, Codeium 기반) :Codeium Auth
-  {
-    "Exafunction/windsurf.vim",
-    event = { "InsertEnter", "BufReadPost" },
-  },
-
-  -- vim-visual-multi (멀티 커서)
-  {
-    "mg979/vim-visual-multi",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-
-  -- vim-illuminate (단어 하이라이트)
-  {
-    "RRethy/vim-illuminate",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-
-  -- nvim-lastplace (커서 마지막 위치 저장, lua 포트 버전)
-  {
-    "ethanholz/nvim-lastplace",
-    event = "BufReadPost",
-    config = function()
-      require("nvim-lastplace").setup {}
-    end,
-  },
-
-  -- which-key.nvim (키맵 도움말)
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    opts = {
-      triggers = { { "<leader>", mode = { "n", "v" } } },
-    },
-    keys = {
-      {
-        "<leader>",
-        function() end,
-      },
-      {
-        "<leader>?",
-        function()
-          require("which-key").show { global = false }
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
-  },
-
-  -- nvim-cmp (자동완성)
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    opts = function(_, opts)
-      if opts.mapping then
-        opts.mapping["<Tab>"] = nil
-        opts.mapping["<S-Tab>"] = nil
-      end
-    end,
-  },
-
-  -- luasnip + friendly-snippets (스니펫)
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    event = "InsertEnter",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
-  },
-
-  -------------------------------------------
-  -- 문법 / 포맷팅 플러그인
-  -------------------------------------------
-
-  -- conform.nvim (포맷터)
-  {
-    "stevearc/conform.nvim",
-    event = "BufWritePre",
-    config = function()
-      require("conform").setup {
-        formatters_by_ft = {
-          lua = { "stylua" },
-          python = { "isort", "black" },
-          javascript = { "prettier" },
-          typescript = { "prettier" },
-          html = { "prettier" },
-          css = { "prettier" },
-          c = { "clang_format" },
-          cpp = { "clang_format" },
-          java = { "google-java-format" },
-          sh = { "shfmt" },
-        },
-        format_on_save = {
-          timeout_ms = 3000,
-          lsp_fallback = true,
-        },
-      }
-    end,
-  },
-
-  -- vim-pug (pug 문법)
-  {
-    "digitaltoad/vim-pug",
-    ft = "pug",
-  },
-
-  -- emmet-vim (emmet 문법)
-  {
-    "mattn/emmet-vim",
-    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  },
-
-  -------------------------------------------
-  -- 탐색 / 사이드 바 플러그인
-  -------------------------------------------
-
   -- fzf-lua (빠른 탐색기)
   {
     "ibhagwan/fzf-lua",
@@ -232,29 +156,6 @@ local plugins = {
         },
       }
     end,
-  },
-
-  -- outline (코드 아웃라인 보기)
-  {
-    "hedyhli/outline.nvim",
-    cmd = "Outline",
-    config = function()
-      require("outline").setup {
-        outline_window = {
-          position = "left",
-          width = 20,
-        },
-        show_numbers = false,
-        show_relative_numbers = false,
-        show_guides = true,
-      }
-    end,
-  },
-
-  -- tagbar (코드 태그 보기)
-  {
-    "preservim/tagbar",
-    cmd = "TagbarToggle",
   },
 
   -- JABS.nvim (버퍼 리스트)
@@ -286,20 +187,146 @@ local plugins = {
     end,
   },
 
-  -- toggleterm.nvim (터미널)
+  -- nvim-lastplace (커서 마지막 위치 저장, lua 포트 버전)
   {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    event = "VeryLazy",
+    "ethanholz/nvim-lastplace",
+    event = "BufReadPost",
     config = function()
-      require("toggleterm").setup {
-        shade_terminals = true,
-        start_in_insert = true,
-        direction = "float",
+      require("nvim-lastplace").setup {}
+    end,
+  },
+
+  -- outline (코드 아웃라인 보기)
+  {
+    "hedyhli/outline.nvim",
+    cmd = "Outline",
+    config = function()
+      require("outline").setup {
+        outline_window = {
+          position = "left",
+          width = 20,
+        },
+        show_numbers = false,
+        show_relative_numbers = false,
+        show_guides = true,
       }
     end,
   },
 
+  -- tagbar (코드 태그 보기)
+  {
+    "preservim/tagbar",
+    cmd = "TagbarToggle",
+  },
+
+  -- vim-illuminate (단어 하이라이트)
+  {
+    "RRethy/vim-illuminate",
+    event = { "BufReadPost", "BufNewFile" },
+  },
+
+  -- which-key.nvim (키맵 도움말)
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      triggers = { { "<leader>", mode = { "n", "v" } } },
+    },
+    keys = {
+      {
+        "<leader>",
+        function() end,
+      },
+      {
+        "<leader>?",
+        function()
+          require("which-key").show { global = false }
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
+
+  -------------------------------------------
+  -- Formatting
+  -------------------------------------------
+  -- conform.nvim (포맷터)
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    config = function()
+      require("conform").setup {
+        formatters_by_ft = {
+          lua = { "stylua" },
+          python = { "isort", "black" },
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
+          c = { "clang_format" },
+          cpp = { "clang_format" },
+          java = { "google-java-format" },
+          sh = { "shfmt" },
+        },
+        format_on_save = {
+          timeout_ms = 3000,
+          lsp_fallback = true,
+        },
+      }
+    end,
+  },
+
+  -- emmet-vim (emmet 문법)
+  {
+    "mattn/emmet-vim",
+    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  },
+
+  -- vim-pug (pug 문법)
+  {
+    "digitaltoad/vim-pug",
+    ft = "pug",
+  },
+
+  -------------------------------------------
+  -- Linting
+  -------------------------------------------
+  -- nvim-lint (코드 린팅)
+  {
+    "mfussenegger/nvim-lint",
+    config = function()
+      local lint = require("lint")
+
+      lint.linters_by_ft = {
+        lua = { "luacheck" },
+        python = { "flake8" },
+        javascript = { "eslint" },
+        typescript = { "eslint" },
+      }
+
+      -- 저장 시 자동 lint
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        pattern = "*",
+        callback = function()
+          lint.try_lint()
+        end,
+      })
+    end,
+  },
+
+  -------------------------------------------
+  -- TreeSitter
+  -------------------------------------------
+  -- nvim-ts-autotag (자동 태그)
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
+
+  -------------------------------------------
+  -- UI
+  -------------------------------------------
   -- barbecue.nvim (상단 breadcrumb)
   {
     "utilyre/barbecue.nvim",
@@ -329,6 +356,33 @@ local plugins = {
           end, 100)
         end,
       })
+    end,
+  },
+  -- neoscroll.nvim (부드러운 스크롤)
+  {
+    "karb94/neoscroll.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>' },
+      hide_cursor = true,
+      easing = 'quadratic',
+    }
+  },
+
+  -------------------------------------------
+  -- Util
+  -------------------------------------------
+  -- toggleterm.nvim (터미널)
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("toggleterm").setup {
+        shade_terminals = true,
+        start_in_insert = true,
+        direction = "float",
+      }
     end,
   },
 }

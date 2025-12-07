@@ -10,17 +10,11 @@ M.base46 = {
   transparency = true,
 
   hl_override = {
-    CursorLine = { bg = "#00212e" },
-    StatusLine = { bg = "#00212e" },
-    Comment = { italic = true },
+    CursorLine   = { bg = "#00212e" },
+    StatusLine   = { bg = "#00212e" },
+    Comment      = { italic = true },
     ["@comment"] = { italic = true },
-  },
-}
-
-M.nvdash = { load_on_startup = true }
-M.ui = {
-  tabufline = {
-    lazyload = false,
+    NormalFloat  = { bg = "#021923" },
   },
 }
 

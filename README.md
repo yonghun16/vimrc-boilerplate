@@ -81,6 +81,7 @@ end)
   ```bash
   brew install fd universal-ctags luarocks fzf ripgrep
   pip3 install debugpy
+  npm install -g eslint
   ```
 - Mason language server (vim mode)
   ```vim
@@ -176,26 +177,39 @@ end)
 
 
 ## 3. Plugins info
-#### 디버거 플러그인
+#### AI
+  - vim-windsurf (windsurf AI)
+
+#### Coding
+  - LuaSnip (스니펫)
+  - nvim-cmp (자동완성)
+  - vim-visual-multi (멀티 커서)
+
+#### Debuger
   - nvim-dap (Debug Adapter Protocol)
   - js-debug-adapter (JS/TS Debuger)
   - debugpy (Pythion Debuger)
 
-#### 편집 보조 플러그인
-  - vim-windsurf (windsurf AI)
-  - vim-visual-multi (멀티 커서)
-  - vim-illuminate (단어 하이라이팅)
-  - nvim-lastplace (커서 마지막 위치 저장)
-
-#### 문법 플러그인
-  - conform.nvim (코드 포맷팅)
-  - vim-pug (pug문법 사용)
-  - emmet-vim (emmet 문법 사용)
-
-#### 탐색 / 사이드바 플러그인
+#### Editor
   - fzf-lua (fzf 파일 탐색기 보기)
+  - JABS.nvim (버퍼 리스트 보기)
+  - nvim-lastplace (커서 마지막 위치 저장)
   - outline (코드 아웃라인 보기)
   - tagbar (코드 태그 보기)
-  - JABS.nvim (버퍼 리스트 보기)
+  - vim-illuminate (단어 하이라이팅)
+  - which-key.nvim (키맵 도움말)
+
+#### Formatting
+  - conform.nvim (코드 포맷팅)
+  - emmet-vim (emmet 문법 사용)
+  - vim-pug (pug문법 사용)
+
+#### Linting
+  - nvim-lint (코드 린팅)
+
+#### UI
+  - barbecue.nvim (파일 및 요소 정보 표시)
+  - neoscroll.nvim (부드러운 스크롤)
+
+#### Util
   - toggleterm.nvim (플로팅 터미널 보기)
-  - barbecue.nvim (상단에 파일 및 요소 정보 표시)
