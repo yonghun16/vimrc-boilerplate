@@ -168,10 +168,9 @@ local plugins = {
     opts = {
       preset = "helix",
       triggers = { { "<leader>", mode = { "n", "v" } } },
-      window = {
+      win = {
         border = "rounded",
         winblend = 10,
-        -- position은 옵션으로 남겨도 되지만 preset이 우선 적용될 수 있음
         position = "right",
         padding = { 2, 3, 2, 3 },
       },
