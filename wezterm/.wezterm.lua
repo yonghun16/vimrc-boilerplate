@@ -13,7 +13,7 @@ return {
 
 	-- 폰트 크기 & 행간
 	font_size = 17.0,
-	line_height = 1.2,
+	line_height = 1.15,
 
 	-- 내부 여백 제거
 	window_padding = {
