@@ -169,22 +169,12 @@ map("n", "<leader>p", CommitAndPush, { desc = "Git commit and push" })
 -- 파일 비교
 map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit" })
 
--- 현재 파일 위치로 트리 이동
-map("n", "<leader>.", function()
-  if api.tree.is_visible() then
-    api.tree.toggle()
-    api.tree.find_file { open = true }
-  else
-    api.tree.find_file { open = true }
-  end
-end, { desc = "Smart NvimTree Find File" })
-
 -- 현재 파일의 디렉토리를 루트로 변경
-map("n", "<leader>>", function()
+map("n", "<leader>.", function()
   local path = vim.fn.expand "%:p:h"
   api.tree.change_root(path)
   vim.notify("NvimTree root changed to: " .. path, vim.log.levels.INFO)
-end, { desc = "NvimTree: change root to current file dir" })
+end, { desc = "Change root to current file dir" })
 
 -- Toggle Background Transparency
 map(
@@ -200,7 +190,12 @@ map(
 -- nvimtree (left side)
 map("n", "<leader>h", function()
   vim.cmd "NvimTreeToggle"
-end, { desc = "File explorer" })
+end, { desc = "Explorer" })
+
+-- nvimtree (left side: current file)
+map("n", "<leader>H", function()
+  api.tree.find_file { open = true, focus = true }
+end, { desc = "Explorer (current file)" })
 
 -- outline (left side)
 map("n", "<leader>k", function()
@@ -212,18 +207,18 @@ map("n", "<leader>K", function()
   vim.cmd "TagbarToggle"
 end, { desc = "Tagbar" })
 
--- terminal(bottom side)
-map({ "n", "t" }, "<leader>j", function()
-  vim.cmd "ToggleTerm size=10 direction=horizontal"
-end, { desc = "Terminal(bottom)" })
-
 -- Diagnostics message (bottom side)
 map("n", "<leader>J", ToggleDiagnostics_qflist, { desc = "Diagnostics message" })
 
--- terminal(floating)
+-- terminal (bottom side)
+map({ "n", "t" }, "<leader>j", function()
+  vim.cmd "ToggleTerm size=10 direction=horizontal"
+end, { desc = "Terminal (bottom)" })
+
+-- terminal (floating)
 map({ "n", "t" }, "<leader><leader>", function()
   vim.cmd "ToggleTerm direction=float"
-end, { desc = "Terminal(floating)" })
+end, { desc = "Terminal (floating)" })
 
 -- Gemini (right side)
 map("n", "<leader>l", function()
