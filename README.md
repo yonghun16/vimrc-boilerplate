@@ -185,7 +185,7 @@ end)
   - nvim-cmp (자동완성)
   - vim-visual-multi (멀티 커서)
 
-#### Debuger
+#### Debugging
   - nvim-dap (Debug Adapter Protocol)
   - js-debug-adapter (JS/TS Debuger)
   - debugpy (Pythion Debuger)

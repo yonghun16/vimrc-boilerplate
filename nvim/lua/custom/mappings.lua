@@ -180,6 +180,7 @@ map(
   ":lua require('base46').toggle_transparency()<CR>",
   { noremap = true, silent = true, desc = "Toggle Background Transparency" }
 )
+
 -- Diagnostics
 map("n", "sd", vim.diagnostic.open_float)
 

@@ -41,7 +41,7 @@ local plugins = {
   },
 
   -------------------------------------------
-  -- Debuger
+  -- Debugging
   -------------------------------------------
   -- nvim-dap (Debug Adapter Protocol)
   {
