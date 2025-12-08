@@ -1,15 +1,18 @@
 require "nvchad.mappings"
 local map = vim.keymap.set
 
+local api = require "nvim-tree.api"
+local dap = require "dap"
+local dapui = require "dapui"
+
 -- =====================================
--- 기본 동작 (Escape, Close, Quit)
+-- Escape, Close, Quit
 -- =====================================
 map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
 map("n", "<leader>w", SafeBufferClose, { desc = "Safe close buffer", noremap = true, silent = true })
 map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, silent = true })
 map("v", "<leader>y", ":<C-U> '<,'>w !termux-clipboard-set<CR><CR>", { desc = "Copy selection to Android clipboard" })
-map("n", "<leader>tt", ToggleTransparency, { desc = "Toggle transparency", noremap = true, silent = true })
 
 -- =====================================
 -- AI, 터미널 단축키 적용
@@ -56,7 +59,7 @@ map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
 map("n", "ta", ToggleAIAutoComplete) -- Toggle Codieum(WindSurf) On/Off
 
 -- =====================================
--- 커서 이동 / 화면 이동 / Tab 이동
+-- Cursor, Screen, Tab
 -- =====================================
 -- 커서 이동
 map("n", "s", "")
@@ -93,7 +96,7 @@ map("n", "tp", function() -- tab previous
 end)
 
 -- =====================================
--- Split window, tmux pane 이동 & 크기 조절
+-- Split window, tmux pane
 -- =====================================
 -- Split window
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
@@ -121,13 +124,13 @@ map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 -- <A-n> = increase height
 
 -- =====================================
--- 편집 관련
+-- Editor
 -- =====================================
 -- 컴파일 & 런
 map("n", "<leader>a", Compile, { desc = "Compile" })
 map("n", "<leader>A", CompileSingle, { desc = "Compile single" })
 
--- 폴딩
+-- Folding
 map("n", "tw", ToggleWrapCodes)
 map("n", "tf", ToggleFoldColumn)
 map("n", "z.", FoldColumnExpands, { noremap = true, silent = true })
@@ -153,15 +156,44 @@ map("n", "<leader>p", CommitAndPush, { desc = "Git commit and push" })
 -- 파일 비교
 map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit" })
 
--- 작업 디렉토리로 변경
-map("n", "<leader>.", Sync_nvimtree_to_current_buffer, { desc = "Sync NvimTree to current buffer path" })
+-- 현재 파일 위치로 트리 이동
+map("n", "<leader>.", function()
+  if api.tree.is_visible() then
+    api.tree.toggle()
+    api.tree.find_file { open = true }
+  else
+    api.tree.find_file { open = true }
+  end
+end, { desc = "Smart NvimTree Find File" })
+
+-- 현재 파일의 디렉토리를 루트로 변경
+map("n", "<leader>>", function()
+  local path = vim.fn.expand "%:p:h"
+  api.tree.change_root(path)
+  vim.notify("NvimTree root changed to: " .. path, vim.log.levels.INFO)
+end, { desc = "NvimTree: change root to current file dir" })
+
+-- toggle transparency
+map(
+  "n",
+  "<leader>tt",
+  ":lua require('base46').toggle_transparency()<CR>",
+  { noremap = true, silent = true, desc = "Toggle Background Transparency" }
+)
+-- Diagnostics
+map("n", "sd", vim.diagnostic.open_float)
+
+-- LSP signature help
+map("n", "ss", vim.lsp.buf.signature_help)
+
+-- WhichKey (mappings explorer)
+map("n", "<leader>s", function()
+  vim.cmd "WhichKey <leader>"
+end, { desc = "Show mappings" })
 
 -- =====================================
 -- Debugging
 -- =====================================
-local dap = require "dap"
-local dapui = require "dapui"
-
 map("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
 map("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
 map("n", "<leader>db", function()
@@ -209,13 +241,8 @@ end, { desc = "FZF grep" })
 map("n", "<leader><tab>", function() -- JABS (buffer explorer)
   vim.cmd "JABSOpen"
 end, { desc = "Show buffers" })
-map("n", "<leader>n", ToggleNvDash, { desc = "NvDash screen", noremap = true, silent = true }) -- NvDash
-
--- =====================================
--- Show Messages
--- =====================================
-map("n", "sd", vim.diagnostic.open_float) -- Diagnostics
-map("n", "ss", vim.lsp.buf.signature_help) -- LSP signature help
-map("n", "<leader>s", function()
-  vim.cmd "WhichKey <leader>"
-end, { desc = "Show mappings" }) -- WhichKey (mappings explorer)
+map("n", "<leader>n", ToggleNvDash, { -- NvDash (front Screen)
+  desc = "NvDash screen",
+  noremap = true,
+  silent = true,
+})
