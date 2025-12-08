@@ -45,6 +45,7 @@ vim.opt.foldlevel = 99
 -- etc
 vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 200
+vim.opt.wrap = false
 
 ------------------------------------------------------------------
 -- Plugin options
