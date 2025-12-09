@@ -52,7 +52,7 @@ map(
   { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" }
 )
 map(
-  "i",
+  "i", 
   "<C-'>",
   "codeium#AcceptNextWord()",
   { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" }
@@ -67,7 +67,7 @@ map("i", "<C-x>", function() -- Clear completions
   vim.cmd "call codeium#Clear()"
 end, { silent = true, desc = "Clear Codeium suggestion" })
 map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
-map("n", "ta", ToggleAIAutoComplete) -- Toggle Codieum(WindSurf) On/Off
+map("n", "<leader>ta", ToggleAIAutoComplete, { desc = "toggle AI AutoComplete"}) -- Toggle Codieum(WindSurf) On/Off
 
 -- nvim-dap (Debugging)
 map("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
@@ -148,15 +148,15 @@ map("n", "<leader>.", function()
   vim.notify("NvimTree root changed to: " .. path, vim.log.levels.INFO)
 end, { desc = "Change root to current file dir" })
 
--- Toggle Fold column
-map("n", "tz", ToggleDynamicFoldColumn, { desc = "toggle Fold column" })
+-- Toggle FoldColumn
+map("n", "<leader>tf", ToggleDynamicFoldColumn, { desc = "toggle FoldColumn" })
 
--- Toggle Background Transparency
+-- Toggle Transparency
 map(
   "n",
   "<leader>tt",
   ":lua require('base46').toggle_transparency()<CR>",
-  { noremap = true, silent = true, desc = "toggle Background Transparency" }
+  { noremap = true, silent = true, desc = "toggle Transparency" }
 )
 
 -- ================================================================
