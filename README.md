@@ -26,7 +26,7 @@ rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
 ```
 
-### 2) init setting
+### 2) Basic setting
 #### 🔵 Config file copy
 ```shell
 git clone https://github.com/yonghun16/vimrc-boilerplate ~
@@ -34,7 +34,11 @@ cd ~/vimrc-boilerplate
 cp -r nvim ~/.config
 ```
 
-#### 🔵 ~/.config/nvim/init.lua 수정
+#### 🔵 init.lua 수정
+
+<details>
+<summary>변경 내용 (또는 init_back.lua -> init.lua) </summary>
+
 ```lua
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = ","   -- 1. <leader> 키 설정
@@ -76,21 +80,35 @@ vim.schedule(function()
 end)
 ```
 
+</details>
+
+```shell
+cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
+```
+
 #### 🔵 Manual plugins setting
 - package (shell)
   ```bash
   brew install fd luarocks fzf ripgrep
+  ```
+  ```bash
   pip3 install debugpy
+  ```
+  ```bash
   npm install -g eslint
   ```
 - Mason LSP, Formatter, Linter (vim mode)
-  ```vim
+  ```bash
   MasonInstall typescript-language-server tailwindcss-language-server css-lsp html-lsp pyright clangd jdtls sqlls 
+  ```
+  ```bash
   MasonInstall stylua prettier black clang-format google-java-format js-debug-adapter
+  ```
+  ```bash
   MasonInstall flake8 eslint cpplint checkstyle htmlhint stylelint shellcheck
   ```
 - Tree-sitter parser (vim mode)
-  ```vim
+  ```bash
   TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
   ```
   
@@ -118,7 +136,7 @@ end)
 
 
 ## 2. Other App Settings (for nvim)
-### 1) Oh-my-zsh
+#### 🔴 Oh-my-zsh
 > oh-my-zsh : https://ohmyz.sh/
   - install
     ```shell
@@ -151,7 +169,7 @@ end)
     $ brew install neofetch
     ```
 
-### 2) WezTerm
+#### 🔴 WezTerm
 > WezTerm : https://wezterm.org/
   - install
     ```shell
@@ -162,7 +180,7 @@ end)
       cp .wezterm.lua ~/.wezterm.lua
       ```
 
-### 3) tmux 
+#### 🔴 tmux 
 > tmux : https://github.com/tmux/tmux/wiki
   - install
   ```bash
