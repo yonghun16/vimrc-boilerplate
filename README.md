@@ -79,7 +79,7 @@ end)
 #### 🔵 Manual plugins setting
 - package (shell)
   ```bash
-  brew install fd universal-ctags luarocks fzf ripgrep
+  brew install fd luarocks fzf ripgrep
   pip3 install debugpy
   npm install -g eslint
   ```
@@ -183,8 +183,9 @@ end)
 
 #### Coding
   - LuaSnip (스니펫)
-  - nvim-cmp (자동완성)
-  - vim-visual-multi (멀티 커서)
+  - nvim-cmp (코드 자동완성)
+  - outline (코드 아웃라인)
+  - nvim-ts-autotag (닫는 태그 자동완성)
 
 #### Debugging
   - nvim-dap (Debug Adapter Protocol)
@@ -193,17 +194,15 @@ end)
 
 #### Editor
   - fzf-lua (fzf 파일 탐색기 보기)
-  - JABS.nvim (버퍼 리스트 보기)
   - nvim-lastplace (커서 마지막 위치 저장)
-  - outline (코드 아웃라인)
-  - tagbar (코드 태그)
   - vim-illuminate (단어 하이라이팅)
+  - vim-visual-multi (멀티 커서)
   - which-key.nvim (키맵 도움말)
 
 #### Formatting
   - conform.nvim (코드 포맷팅)
   - emmet-vim (emmet 문법)
-  - vim-pug (pug문법)
+  - vim-pug (pug 문법)
 
 #### Linting
   - nvim-lint (코드 린팅)

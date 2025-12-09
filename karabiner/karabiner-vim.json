@@ -292,6 +292,32 @@
                     "type": "frontmost_application_if"
                 }
             ],
+            "description": "Command + c (분할창 닫기)",
+            "from": {
+                "key_code": "c",
+                "modifiers": { "mandatory": ["command"] }
+            },
+            "to": [
+                {
+                    "key_code": "w",
+                    "modifiers": ["control"]
+                },
+                { "key_code": "c" }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "bundle_identifiers": [
+                        "^com\\.github\\.wez\\.wezterm$",
+                        "^com\\.googlecode\\.iterm2$",
+                        "^dev\\.warp\\.Warp-Stable$",
+                        "^com\\.neovide\\.neovide$"
+                    ],
+                    "type": "frontmost_application_if"
+                }
+            ],
             "description": "Command + m (분할창 가로세로 균등)",
             "from": {
                 "key_code": "m",

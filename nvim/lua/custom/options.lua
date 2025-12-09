@@ -88,11 +88,6 @@ require("nvim-tree").setup {
 -- snippets
 require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/snippets" }
 
--- tagbar
-vim.g.tagbar_width = 30
-vim.g.tagbar_left = 1
-vim.g.tagbar_left = 1
-
 -- visual-multi
 vim.cmd [[ let g:VM_maps = {} ]]
 vim.cmd [[ let g:VM_maps["Find Under"] = 's/' ]]
@@ -237,18 +232,15 @@ function ToggleAIAutoComplete()
 end
 
 -- Toggle Gemini CLI
-local gemini_term = nil -- 사이드바 터미널용 변수
+local gemini_term = nil
 function ToggleGemini()
   if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
-    vim.api.nvim_win_close(gemini_term, true) -- 닫기
+    vim.api.nvim_win_close(gemini_term, true)
     gemini_term = nil
   else
-    -- 오른쪽 vertical split에 터미널 열기
     vim.cmd "vsplit"
     vim.cmd "wincmd l" -- 오른쪽으로 이동
     vim.cmd "resize 45" -- 너비 조정
-
-    -- 터미널 실행
     vim.cmd "terminal gemini chat"
     gemini_term = vim.api.nvim_get_current_win()
   end
@@ -270,7 +262,7 @@ local function get_max_fold_level()
   return math.min(max_level, MAX_FOLDCOL)
 end
 
-function ToggleDynamicFoldColumn()
+function ToggleFoldColumn()
   if not foldcolumn_visible then
     vim.wo.foldcolumn = tostring(math.max(get_max_fold_level(), 1))
     vim.wo.relativenumber = false
@@ -279,23 +271,5 @@ function ToggleDynamicFoldColumn()
     vim.wo.foldcolumn = tostring(MIN_FOLDCOL)
     vim.wo.relativenumber = true
     foldcolumn_visible = false
-  end
-end
-
--- Toogle Diagnostic quickfix list
-function ToggleDiagnostics_qflist()
-  local qf_open = false
-  for _, win in ipairs(vim.fn.getwininfo()) do
-    if win.quickfix == 1 then
-      qf_open = true
-      break
-    end
-  end
-  if qf_open then
-    vim.cmd "cclose"
-  else
-    vim.fn.setqflist {} -- 기존 Quickfix 리스트 초기화
-    vim.diagnostic.setqflist() -- 새로운 LSP 진단 정보 추가
-    vim.cmd "copen"
   end
 end

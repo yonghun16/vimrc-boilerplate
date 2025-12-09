@@ -7,14 +7,10 @@ local map = vim.keymap.set
 local api = require "nvim-tree.api"
 local dap = require "dap"
 local dapui = require "dapui"
-vim.api.nvim_del_keymap("n", "<leader>e")
+-- vim.api.nvim_del_keymap("n", "<leader>e")
+vim.api.nvim_del_keymap("n", "<leader>n")
+vim.api.nvim_del_keymap("n", "<leader>gt")
 vim.keymap.set("n", "s", "")
-vim.keymap.set(
-  "v",
-  "<leader>y",
-  ":<C-U> '<,'>w !termux-clipboard-set<CR><CR>",
-  { desc = "Copy selection to Android clipboard" }
-)
 
 -- ================================================================
 -- Escape, Quit
@@ -52,7 +48,7 @@ map(
   { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" }
 )
 map(
-  "i", 
+  "i",
   "<C-'>",
   "codeium#AcceptNextWord()",
   { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" }
@@ -67,10 +63,10 @@ map("i", "<C-x>", function() -- Clear completions
   vim.cmd "call codeium#Clear()"
 end, { silent = true, desc = "Clear Codeium suggestion" })
 map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
-map("n", "<leader>ta", ToggleAIAutoComplete, { desc = "toggle AI AutoComplete"}) -- Toggle Codieum(WindSurf) On/Off
+map("n", "<leader>ta", ToggleAIAutoComplete, { desc = "toggle AI AutoComplete" }) -- Toggle Codieum(WindSurf) On/Off
 
 -- nvim-dap (Debugging)
-map("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
+map("n", "<leader>dd", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
 map("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
 map("n", "<leader>db", function()
   dap.toggle_breakpoint(vim.fn.input "Breakpoint condition: ") -- 조건부 중단점 설정 (debug breakpoint conditional) -> 조건이 참(true)일 때만 실행을 멈춤.
@@ -136,10 +132,10 @@ map("n", "<leader>a", Compile, { desc = "Code Compile" })
 map("n", "<leader>A", CompileSingle, { desc = "Code Compile (single)" })
 
 -- Reload
-map("n", "<leader>r", ReloadAndLSPRestart, { desc = "reload File and Restart LSP" })
+map("n", "<leader>R", ReloadAndLSPRestart, { desc = "reload File and Restart LSP" })
 
 -- Diffsplit(파일 비교)
-map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit(compare files)" })
+map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit (compare files)" })
 
 -- Change root directory
 map("n", "<leader>.", function()
@@ -149,7 +145,7 @@ map("n", "<leader>.", function()
 end, { desc = "Change root to current file dir" })
 
 -- Toggle FoldColumn
-map("n", "<leader>tf", ToggleDynamicFoldColumn, { desc = "toggle FoldColumn" })
+map("n", "<leader>tf", ToggleFoldColumn, { desc = "toggle FoldColumn" })
 
 -- Toggle Transparency
 map(
@@ -177,14 +173,6 @@ map("n", "<leader>k", function()
   vim.cmd "Outline"
 end, { desc = "toggle Outline" })
 
--- Tagbar (left side)
-map("n", "<leader>K", function()
-  vim.cmd "TagbarToggle"
-end, { desc = "toggle Tagbar" })
-
--- Diagnostics message (bottom side)
-map("n", "<leader>J", ToggleDiagnostics_qflist, { desc = "Diagnostics message" })
-
 -- Terminal (bottom side)
 map({ "n", "t" }, "<leader>j", function()
   vim.cmd "ToggleTerm size=10 direction=horizontal"
@@ -203,20 +191,20 @@ end, { desc = "toggle Gemini CLI", noremap = true, silent = true })
 -- ================================================================
 -- Explorer
 -- ================================================================
--- FZF (file explorer)
-map("n", "<leader>f", function()
+-- FZF Files (file explorer)
+map("n", "<leader>e", function()
   require("fzf-lua").files()
-end, { desc = "FZF file" })
+end, { desc = "find Files (fzf)" })
 
--- FZF grep (word explorer)
+-- FZF Grep (grep explorer)
 map("n", "<leader>g", function()
   require("fzf-lua").grep()
-end, { desc = "FZF grep" })
+end, { desc = "find Grep (fzf)" })
 
--- JABS (buffer explorer)
+-- FZF Buffers (buffer explorer)
 map("n", "<leader><tab>", function()
-  vim.cmd "JABSOpen"
-end, { desc = "find Buffers" })
+  require("fzf-lua").buffers()
+end, { desc = "find Buffers (fzf)" })
 
 -- WhichKey
 map("n", "<leader>s", function()

@@ -22,7 +22,7 @@ local plugins = {
     end,
   },
 
-  -- nvim-cmp (자동완성)
+  -- nvim-cmp (코드 자동완성 및 제안)
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -34,10 +34,28 @@ local plugins = {
     end,
   },
 
-  -- vim-visual-multi (멀티 커서)
+  -- nvim-ts-autotag (닫는 태그 자동완성)
   {
-    "mg979/vim-visual-multi",
-    event = { "BufReadPost", "BufNewFile" },
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
+
+  -- outline (코드 아웃라인 보기)
+  {
+    "hedyhli/outline.nvim",
+    cmd = "Outline",
+    config = function()
+      require("outline").setup {
+        outline_window = {
+          position = "left",
+          width = 20,
+        },
+        show_numbers = false,
+        show_relative_numbers = false,
+        show_guides = true,
+      }
+    end,
   },
 
   -------------------------------------------
@@ -147,6 +165,7 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons", "echasnovski/mini.nvim" },
     cmd = "FzfLua",
     config = function()
+      local actions = require "fzf-lua.actions"
       require("fzf-lua").setup {
         keymap = {
           builtin = {
@@ -154,34 +173,12 @@ local plugins = {
             ["<C-d>"] = "preview-page-down",
           },
         },
-      }
-    end,
-  },
-
-  -- JABS.nvim (버퍼 리스트)
-  {
-    "matbme/JABS.nvim",
-    cmd = "JABSOpen",
-    config = function()
-      require("jabs").setup {
-        position = { "center", "center" },
-        width = 80,
-        height = 20,
-        border = "single",
-        sort_mru = true,
-        preview = {
-          width = 90,
-          height = 40,
-          border = "single",
-        },
-        symbols = {
-          current = "C",
-          alternate = "A",
-          ro = "R",
-        },
-        keymap = {
-          close = "dd",
-          preview = "p",
+        buffers = {
+          sort_lastused = true,
+          include_current = true,
+          actions = {
+            ["ctrl-D"] = { fn = actions.buf_del, reload = true },
+          },
         },
       }
     end,
@@ -196,32 +193,15 @@ local plugins = {
     end,
   },
 
-  -- outline (코드 아웃라인 보기)
-  {
-    "hedyhli/outline.nvim",
-    cmd = "Outline",
-    config = function()
-      require("outline").setup {
-        outline_window = {
-          position = "left",
-          width = 20,
-        },
-        show_numbers = false,
-        show_relative_numbers = false,
-        show_guides = true,
-      }
-    end,
-  },
-
-  -- tagbar (코드 태그 보기)
-  {
-    "preservim/tagbar",
-    cmd = "TagbarToggle",
-  },
-
   -- vim-illuminate (단어 하이라이트)
   {
     "RRethy/vim-illuminate",
+    event = { "BufReadPost", "BufNewFile" },
+  },
+
+  -- vim-visual-multi (멀티 커서)
+  {
+    "mg979/vim-visual-multi",
     event = { "BufReadPost", "BufNewFile" },
   },
 
@@ -312,16 +292,6 @@ local plugins = {
         end,
       })
     end,
-  },
-
-  -------------------------------------------
-  -- TreeSitter
-  -------------------------------------------
-  -- nvim-ts-autotag (자동 태그)
-  {
-    "windwp/nvim-ts-autotag",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
   },
 
   -------------------------------------------
