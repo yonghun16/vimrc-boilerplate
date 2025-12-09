@@ -58,6 +58,18 @@ local plugins = {
     end,
   },
 
+  -- emmet-vim (emmet)
+  {
+    "mattn/emmet-vim",
+    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  },
+
+  -- vim-pug (pug)
+  {
+    "digitaltoad/vim-pug",
+    ft = "pug",
+  },
+
   -------------------------------------------
   -- Debugging
   -------------------------------------------
@@ -206,30 +218,8 @@ local plugins = {
     event = { "BufReadPost", "BufNewFile" },
   },
 
-  -- which-key.nvim (키맵 도움말)
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    opts = {
-      triggers = { { "<leader>", mode = { "n", "v" } } },
-    },
-    keys = {
-      {
-        "<leader>",
-        function() end,
-      },
-      {
-        "<leader>?",
-        function()
-          require("which-key").show { global = false }
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
-  },
-
   -------------------------------------------
-  -- Formatting & Linting
+  -- Formatting & Linting & Treesitter
   -------------------------------------------
   -- conform.nvim (포맷터)
   {
@@ -283,16 +273,39 @@ local plugins = {
     end,
   },
 
-  -- emmet-vim (emmet 문법)
+  -- nvim-treesitter (문법 강조 및 구문 분석)
   {
-    "mattn/emmet-vim",
-    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  },
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = {
+          "lua",
+          "python",
+          "javascript",
+          "typescript",
+          "c",
+          "cpp",
+          "java",
+          "json",
+          "jsdoc",
+          "pug",
+          "html",
+          "css",
+          "vim",
+          "vimdoc",
+          "query",
+        },
 
-  -- vim-pug (pug 문법)
-  {
-    "digitaltoad/vim-pug",
-    ft = "pug",
+        auto_install = true,
+
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+      }
+    end,
   },
 
   -------------------------------------------

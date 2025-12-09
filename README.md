@@ -103,7 +103,7 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   ```
 - Tree-sitter parser (Command-line Mode in vim)
   ```bash
-  :TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
+  :TSUpdate
   ```
   
 ### 3) Input & Hangul setting
@@ -200,6 +200,8 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   - nvim-cmp (코드 자동완성)
   - outline (코드 아웃라인)
   - nvim-ts-autotag (닫는 태그 자동완성)
+  - emmet-vim (emmet 문법)
+  - vim-pug (pug 문법)
 
 #### Debugging
   - nvim-dap (Debug Adapter Protocol)
@@ -211,16 +213,15 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   - nvim-lastplace (커서 마지막 위치 저장)
   - vim-illuminate (단어 하이라이팅)
   - vim-visual-multi (멀티 커서)
-  - which-key.nvim (키맵 도움말)
 
-#### Formatting & Linting
+#### Formatting & Linting & Treesitter
   - conform.nvim (코드 포맷팅)
   - nvim-lint (코드 린팅)
-  - emmet-vim (emmet 문법)
-  - vim-pug (pug 문법)
+  - Tree-sitter (문법 강조 및 구문 분석)
 
 #### UI
   - neoscroll.nvim (부드러운 스크롤)
 
 #### Util
   - toggleterm.nvim (플로팅 터미널)
+  - which-key.nvim (키맵 도움말)
