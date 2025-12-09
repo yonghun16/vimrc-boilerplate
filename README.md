@@ -97,19 +97,13 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   ```bash
   npm install -g eslint
   ```
-- Mason LSP, Formatter, Linter (vim mode)
+- Mason LSP, Formatter, Linter (Command Mode in vim)
   ```bash
-  MasonInstall typescript-language-server tailwindcss-language-server css-lsp html-lsp pyright clangd jdtls sqlls 
+  :MasonInstallAll
   ```
+- Tree-sitter parser (Command Mode in vim)
   ```bash
-  MasonInstall stylua prettier black clang-format google-java-format js-debug-adapter
-  ```
-  ```bash
-  MasonInstall flake8 eslint cpplint checkstyle htmlhint stylelint shellcheck
-  ```
-- Tree-sitter parser (vim mode)
-  ```bash
-  TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
+  :TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
   ```
   
 ### 3) Input & Hangul setting
