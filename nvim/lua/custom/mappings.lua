@@ -7,9 +7,8 @@ local map = vim.keymap.set
 local api = require "nvim-tree.api"
 local dap = require "dap"
 local dapui = require "dapui"
--- vim.api.nvim_del_keymap("n", "<leader>e")
-vim.api.nvim_del_keymap("n", "<leader>n")
-vim.api.nvim_del_keymap("n", "<leader>gt")
+vim.api.nvim_del_keymap("n", "<leader>n") -- toogle number line
+vim.api.nvim_del_keymap("n", "<leader>gt") -- git status
 vim.keymap.set("n", "s", "")
 
 -- ================================================================
@@ -66,7 +65,7 @@ map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
 map("n", "<leader>ta", ToggleAIAutoComplete, { desc = "toggle AI AutoComplete" }) -- Toggle Codieum(WindSurf) On/Off
 
 -- nvim-dap (Debugging)
-map("n", "<leader>dd", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
+map("n", "<leader>z", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
 map("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
 map("n", "<leader>db", function()
   dap.toggle_breakpoint(vim.fn.input "Breakpoint condition: ") -- 조건부 중단점 설정 (debug breakpoint conditional) -> 조건이 참(true)일 때만 실행을 멈춤.
@@ -166,7 +165,7 @@ end, { desc = "toggle Explorer" })
 -- Nvimtree (left side: current file)
 map("n", "<leader>H", function()
   api.tree.find_file { open = true, focus = true }
-end, { desc = "Explorer (find current file)" })
+end, { desc = "find current File" })
 
 -- Outline (left side)
 map("n", "<leader>k", function()
@@ -191,17 +190,17 @@ end, { desc = "toggle Gemini CLI", noremap = true, silent = true })
 -- ================================================================
 -- Explorer
 -- ================================================================
--- FZF Files (file explorer)
+-- file explorer (fzf files)
 map("n", "<leader>e", function()
   require("fzf-lua").files()
 end, { desc = "find Files (fzf)" })
 
--- FZF Grep (grep explorer)
+-- grep explorer (fzf grep)
 map("n", "<leader>g", function()
   require("fzf-lua").grep()
 end, { desc = "find Grep (fzf)" })
 
--- FZF Buffers (buffer explorer)
+-- buffer explorer (fzf buffers)
 map("n", "<leader><tab>", function()
   require("fzf-lua").buffers()
 end, { desc = "find Buffers (fzf)" })
