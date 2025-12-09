@@ -216,12 +216,12 @@ end, { desc = "FZF grep" })
 -- JABS (buffer explorer)
 map("n", "<leader><tab>", function()
   vim.cmd "JABSOpen"
-end, { desc = "Show buffers" })
+end, { desc = "find Buffers" })
 
 -- WhichKey
 map("n", "<leader>s", function()
   vim.cmd "WhichKey <leader>"
-end, { desc = "Show mappings" })
+end, { desc = "find Mappings" })
 
 -- Diagnostics message
 map("n", "sd", vim.diagnostic.open_float)
