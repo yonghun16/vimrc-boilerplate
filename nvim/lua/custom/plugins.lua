@@ -338,6 +338,28 @@ local plugins = {
       }
     end,
   },
+
+  -- which-key.nvim (키맵 도움말)
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      triggers = { { "<leader>", mode = { "n", "v" } } },
+    },
+    keys = {
+      {
+        "<leader>",
+        function() end,
+      },
+      {
+        "<leader>?",
+        function()
+          require("which-key").show { global = false }
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
 }
 
 return plugins
