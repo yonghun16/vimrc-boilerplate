@@ -135,21 +135,21 @@ map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 map("n", "<leader>a", Compile, { desc = "Code Compile" })
 map("n", "<leader>A", CompileSingle, { desc = "Code Compile (single)" })
 
--- Folding
-map("n", "tf", ToggleFoldColumn, { desc = "toggle fold column" })
-
 -- Reload
-map("n", "<leader>r", ReloadAndLSPRestart, { desc = "Reload file and restart LSP" })
+map("n", "<leader>r", ReloadAndLSPRestart, { desc = "reload File and Restart LSP" })
 
--- 파일 비교
+-- Diffsplit(파일 비교)
 map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit(compare files)" })
 
--- 현재 파일의 디렉토리를 루트로 변경
+-- Change root directory
 map("n", "<leader>.", function()
   local path = vim.fn.expand "%:p:h"
   api.tree.change_root(path)
   vim.notify("NvimTree root changed to: " .. path, vim.log.levels.INFO)
 end, { desc = "Change root to current file dir" })
+
+-- Toggle Fold column
+map("n", "tz", ToggleDynamicFoldColumn, { desc = "toggle Fold column" })
 
 -- Toggle Background Transparency
 map(
