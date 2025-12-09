@@ -50,52 +50,19 @@ vim.opt.wrap = false
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
-
--- Neovide
-if vim.g.neovide then
-  vim.g.neovide_opacity = 0.97
-  vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h17"
-  vim.opt.termguicolors = true
-
-  -- Neovide terminal color for solarized_osaka
-  vim.g.terminal_color_0 = "#073642"
-  vim.g.terminal_color_1 = "#DC322F"
-  vim.g.terminal_color_2 = "#859900"
-  vim.g.terminal_color_3 = "#B58900"
-  vim.g.terminal_color_4 = "#268BD2"
-  vim.g.terminal_color_5 = "#D33682"
-  vim.g.terminal_color_6 = "#2AA198"
-  vim.g.terminal_color_7 = "#EEE8D5"
-  vim.g.terminal_color_8 = "#002B36"
-  vim.g.terminal_color_9 = "#CB4B16"
-  vim.g.terminal_color_10 = "#586E75"
-  vim.g.terminal_color_11 = "#657B83"
-  vim.g.terminal_color_12 = "#839496"
-  vim.g.terminal_color_13 = "#6C71C4"
-  vim.g.terminal_color_14 = "#93A1A1"
-  vim.g.terminal_color_15 = "#FDF6E3"
-end
-
--- fzf
-vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
-
--- visual-multi
-vim.cmd [[ let g:VM_maps = {} ]]
-vim.cmd [[ let g:VM_maps["Find Under"] = 's/' ]]
-vim.cmd [[ let g:VM_maps["Find Subword Under"] = 's/' ]]
-vim.cmd [[ let g:VM_maps["Add Cursor Down"] = 'sj' ]]
-vim.cmd [[ let g:VM_maps["Add Cursor Up"] = 'sk' ]]
-vim.cmd [[ let g:VM_maps["Move Right"] = 'sl' ]]
-vim.cmd [[ let g:VM_maps["Move Left"] = 'sh' ]]
-vim.cmd [[ let g:VM_maps["Mouse Cursor"] = 's<LeftMouse>' ]]
-vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = 's<CR>' ]]
-vim.cmd [[ let g:VM_maps["Select Operator"] = 'ss' ]]
-
--- Codium(Windsurf)
+-- codium(Windsurf)
 vim.g.codeium_enabled = true
 
 -- emmet-vim
 vim.g.user_emmet_leader_key = ","
+
+-- fzf
+vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
+
+-- indent-blankline
+require("ibl").update {
+  vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }), -- function definitions (height -> underline)
+}
 
 -- nvim-Tree
 require("nvim-tree").setup {
@@ -118,45 +85,29 @@ require("nvim-tree").setup {
   end,
 }
 
+-- snippets
+require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/snippets" }
+
 -- tagbar
 vim.g.tagbar_width = 30
 vim.g.tagbar_left = 1
-
--- Tagbar를 왼쪽에 열기
 vim.g.tagbar_left = 1
 
--- indent-blankline
-require("ibl").update {
-  vim.api.nvim_set_hl(0, "IndentBlanklineChar", { underline = true }), -- function definitions (height -> underline)
-}
-
--- snippets
-require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/snippets" }
+-- visual-multi
+vim.cmd [[ let g:VM_maps = {} ]]
+vim.cmd [[ let g:VM_maps["Find Under"] = 's/' ]]
+vim.cmd [[ let g:VM_maps["Find Subword Under"] = 's/' ]]
+vim.cmd [[ let g:VM_maps["Add Cursor Down"] = 'sj' ]]
+vim.cmd [[ let g:VM_maps["Add Cursor Up"] = 'sk' ]]
+vim.cmd [[ let g:VM_maps["Move Right"] = 'sl' ]]
+vim.cmd [[ let g:VM_maps["Move Left"] = 'sh' ]]
+vim.cmd [[ let g:VM_maps["Mouse Cursor"] = 's<LeftMouse>' ]]
+vim.cmd [[ let g:VM_maps["Add Cursor At Pos"] = 's<CR>' ]]
+vim.cmd [[ let g:VM_maps["Select Operator"] = 'ss' ]]
 
 ------------------------------------------------------------------
 -- Functions
 ------------------------------------------------------------------
-
--- Safe Buffer Close
-function SafeBufferClose()
-  local buf = vim.api.nvim_get_current_buf()
-  if vim.bo[buf].modified then
-    -- 변경사항이 있으면 확인 메시지
-    local choice = vim.fn.confirm("There are unsaved changes. Save before closing?", "&Yes\n&No\n&Cancel", 3)
-    if choice == 1 then
-      vim.cmd "write" -- 저장
-      vim.cmd "bdelete" -- 버퍼 닫기
-    elseif choice == 2 then
-      vim.cmd "bdelete!" -- 저장하지 않고 강제 닫기
-    else
-      -- Cancel: 아무 것도 안 함
-      return
-    end
-  else
-    vim.cmd "bdelete" -- 변경사항 없으면 그냥 닫기
-  end
-end
-
 -- Safe Quit
 function SafeQuitAll()
   -- 저장되지 않은 버퍼가 있는지 확인
@@ -238,7 +189,7 @@ function Compile()
   end
 end
 
--- Compile single file
+-- Compile and Run (single file)
 function CompileSingle()
   local filetype = vim.bo.filetype
   local filename = vim.fn.expand "%:t:r" -- 파일 이름 (확장자 제외)
@@ -261,7 +212,7 @@ function CompileSingle()
   end
 end
 
--- Reload and LSP Restart
+-- Reload (and LSP Restart)
 function ReloadAndLSPRestart()
   local bufnr = vim.api.nvim_get_current_buf()
   for _, client in pairs(vim.lsp.get_clients { bufnr = bufnr }) do
@@ -272,34 +223,7 @@ function ReloadAndLSPRestart()
   end, 100)
 end
 
--- Git Commit and Push
-function CommitAndPush()
-  local commit_message = vim.fn.input "Commit message: " -- 사용자로부터 커밋 메시지 입력받기
-  if commit_message == "" then
-    print "Commit aborted: No message provided." -- 메시지가 비어 있으면 커밋 중단
-    return
-  end
-  vim.cmd "write" -- 현재 파일 저장
-  local git_command = string.format("!git add -A && git commit -m '%s' && git push", commit_message)
-  vim.cmd(git_command) -- Git 명령 실행
-end
-
--- Toggle Wrap codes
-function ToggleWrapCodes()
-  if vim.wo.wrap then
-    vim.wo.wrap = false
-  else
-    vim.wo.wrap = true
-  end
-end
-
--- Move Cursor to Center
-function MoveCursorToCenter()
-  local col = vim.fn.col "$" / 2
-  vim.cmd.normal { args = { "0" .. math.floor(col) .. "l" }, bang = true }
-end
-
--- Toggle Codium(Windsurf) 토글 함수
+-- Toggle Codium(Windsurf)
 function ToggleAIAutoComplete()
   if vim.g.codeium_enabled == nil or vim.g.codeium_enabled == false then
     vim.g.codeium_enabled = true
@@ -312,7 +236,7 @@ function ToggleAIAutoComplete()
   end
 end
 
--- Gemini CLI 토글 함수
+-- Toggle Gemini CLI
 local gemini_term = nil -- 사이드바 터미널용 변수
 function ToggleGemini()
   if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
@@ -333,20 +257,11 @@ end
 -- Toggle Foldcolumn
 function ToggleFoldColumn()
   if vim.wo.foldcolumn == "0" then
-    vim.wo.foldcolumn = "4"
+    vim.wo.foldcolumn = "9"
     vim.wo.relativenumber = false
   else
     vim.wo.foldcolumn = "0"
     vim.wo.relativenumber = true
-  end
-end
-
--- Foldcolumn Expands
-function FoldColumnExpands()
-  if vim.wo.foldcolumn == "4" then
-    vim.wo.foldcolumn = "8"
-  elseif vim.wo.foldcolumn == "8" then
-    vim.wo.foldcolumn = "4"
   end
 end
 
@@ -365,18 +280,5 @@ function ToggleDiagnostics_qflist()
     vim.fn.setqflist {} -- 기존 Quickfix 리스트 초기화
     vim.diagnostic.setqflist() -- 새로운 LSP 진단 정보 추가
     vim.cmd "copen"
-  end
-end
-
--- Toggle NvDash
-function ToggleNvDash()
-  local current_buf = vim.api.nvim_get_current_buf()
-  local filetype = vim.bo[current_buf].filetype
-
-  -- NvDash 화면인지 판별: 파일 이름이 없거나 특정 filetype인 경우
-  if filetype == "alpha" or filetype == "dashboard" or filetype == "starter" then
-    vim.cmd "b#" -- 이전 버퍼로 이동
-  else
-    vim.cmd "Nvdash" -- NvDash 열기
   end
 end

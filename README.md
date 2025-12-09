@@ -178,7 +178,8 @@ end)
 
 ## 3. Plugins info
 #### AI
-  - vim-windsurf (windsurf AI)
+  - vim-windsurf (Codeium)
+  - Gemini-CLI (Gemini AI)
 
 #### Coding
   - LuaSnip (스니펫)
@@ -194,22 +195,21 @@ end)
   - fzf-lua (fzf 파일 탐색기 보기)
   - JABS.nvim (버퍼 리스트 보기)
   - nvim-lastplace (커서 마지막 위치 저장)
-  - outline (코드 아웃라인 보기)
-  - tagbar (코드 태그 보기)
+  - outline (코드 아웃라인)
+  - tagbar (코드 태그)
   - vim-illuminate (단어 하이라이팅)
   - which-key.nvim (키맵 도움말)
 
 #### Formatting
   - conform.nvim (코드 포맷팅)
-  - emmet-vim (emmet 문법 사용)
-  - vim-pug (pug문법 사용)
+  - emmet-vim (emmet 문법)
+  - vim-pug (pug문법)
 
 #### Linting
   - nvim-lint (코드 린팅)
 
 #### UI
-  - barbecue.nvim (파일 및 요소 정보 표시)
   - neoscroll.nvim (부드러운 스크롤)
 
 #### Util
-  - toggleterm.nvim (플로팅 터미널 보기)
+  - toggleterm.nvim (플로팅 터미널)

@@ -1,25 +1,30 @@
+require "nvchad.mappings"
+
 -- ================================================================
 -- Environment
 -- ================================================================
-require "nvchad.mappings"
 local map = vim.keymap.set
 local api = require "nvim-tree.api"
 local dap = require "dap"
 local dapui = require "dapui"
-map("n", "s", "")
 vim.api.nvim_del_keymap("n", "<leader>e")
-map("v", "<leader>y", ":<C-U> '<,'>w !termux-clipboard-set<CR><CR>", { desc = "Copy selection to Android clipboard" })
+vim.keymap.set("n", "s", "")
+vim.keymap.set(
+  "v",
+  "<leader>y",
+  ":<C-U> '<,'>w !termux-clipboard-set<CR><CR>",
+  { desc = "Copy selection to Android clipboard" }
+)
 
 -- ================================================================
--- Escape, Close, Quit
+-- Escape, Quit
 -- ================================================================
 map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
-map("n", "<leader>w", SafeBufferClose, { desc = "Safe close buffer", noremap = true, silent = true })
 map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, silent = true })
 
 -- ================================================================
--- 입력모드 : 터미널 단축키 적용
+-- Apply terminal keybindings in INSERT Mode
 -- ================================================================
 map("i", "<C-h>", "<BS>")
 map("i", "<C-f>", "<Right>")
@@ -77,7 +82,7 @@ map("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" }) -- 디버깅 세
 map("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" }) -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
 
 -- ================================================================
--- Cursor, Block, Visual, Screen, Tab, Window, Pane
+-- Cursor, Screen, Block, Tab, Split
 -- ================================================================
 -- Cursor move
 map({ "n", "v" }, "<C-h>", "^")
@@ -86,17 +91,17 @@ map({ "n", "v" }, "<C-k>", "5k")
 map({ "n", "v" }, "<C-l>", "$")
 map({ "n", "v" }, "<C-;>", "%")
 
--- Visual block
-map("v", "<S-k>", ":m '<-2<CR>gv=gv")
-map("v", "<S-j>", ":m '>+1<CR>gv=gv")
-map("v", ">", ">gv")
-map("v", "<", "<gv")
-
 -- Screen move
 map({ "n", "v" }, "<C-n>", "5<C-e>")
 map({ "n", "v" }, "<C-p>", "5<C-y>")
 map({ "n", "v" }, "<C-.>", "6zl")
 map({ "n", "v" }, "<C-,>", "6zh")
+
+-- Visual block
+map("v", "<S-k>", ":m '<-2<CR>gv=gv")
+map("v", "<S-j>", ":m '>+1<CR>gv=gv")
+map("v", ">", ">gv")
+map("v", "<", "<gv")
 
 -- Tab move
 map("n", "te", function() -- new tab
@@ -122,52 +127,22 @@ map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
 map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
--- map("n", "<D-h>", "<C-w>h")
--- map("n", "<D-j>", "<C-w>j")
--- map("n", "<D-k>", "<C-w>k")
--- map("n", "<D-l>", "<C-w>l")
--- map("n", "<D-p>", "<C-w>4+")
--- map("n", "<D-n>", "<C-w>4-")
--- map("n", "<D-.>", "<C-w>15>")
--- map("n", "<D-,>", "<C-w>15<")
--- map("n", "<D-m>", "<C-w>=")
-
--- Tmux pane
--- <A-l> = right move
--- <A-h> = left move
--- <A-j> = down move
--- <A-k> = up move
--- <A-.> = increase width
--- <A-,> = decrease width
--- <A-p> = decrease height
--- <A-n> = increase height
 
 -- ================================================================
 -- Editor
 -- ================================================================
 -- Compile and Run
-map("n", "<leader>a", Compile, { desc = "Compile" })
-map("n", "<leader>A", CompileSingle, { desc = "Compile single" })
+map("n", "<leader>a", Compile, { desc = "Code Compile" })
+map("n", "<leader>A", CompileSingle, { desc = "Code Compile (single)" })
 
 -- Folding
-map("n", "tw", ToggleWrapCodes)
-map("n", "tf", ToggleFoldColumn)
-map("n", "z.", FoldColumnExpands, { noremap = true, silent = true })
-map("n", "zmv", function()
-  vim.cmd "mkview"
-end, { noremap = true, silent = true })
-map("n", "zlv", function()
-  vim.cmd "loadview"
-end, { noremap = true, silent = true })
+map("n", "tf", ToggleFoldColumn, { desc = "toggle fold column" })
 
 -- Reload
 map("n", "<leader>r", ReloadAndLSPRestart, { desc = "Reload file and restart LSP" })
 
--- Git push
-map("n", "<leader>p", CommitAndPush, { desc = "Git commit and push" })
-
 -- 파일 비교
-map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit" })
+map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit(compare files)" })
 
 -- 현재 파일의 디렉토리를 루트로 변경
 map("n", "<leader>.", function()
@@ -181,36 +156,36 @@ map(
   "n",
   "<leader>tt",
   ":lua require('base46').toggle_transparency()<CR>",
-  { noremap = true, silent = true, desc = "Toggle Background Transparency" }
+  { noremap = true, silent = true, desc = "toggle Background Transparency" }
 )
 
 -- ================================================================
 -- Sidebars (h, j, k, l)
 -- ================================================================
--- nvimtree (left side)
+-- Nvimtree (left side)
 map("n", "<leader>h", function()
   vim.cmd "NvimTreeToggle"
-end, { desc = "Explorer" })
+end, { desc = "toggle Explorer" })
 
--- nvimtree (left side: current file)
+-- Nvimtree (left side: current file)
 map("n", "<leader>H", function()
   api.tree.find_file { open = true, focus = true }
-end, { desc = "Explorer (current file)" })
+end, { desc = "Explorer (find current file)" })
 
--- outline (left side)
+-- Outline (left side)
 map("n", "<leader>k", function()
   vim.cmd "Outline"
-end, { desc = "Outline" })
+end, { desc = "toggle Outline" })
 
--- tagbar (left side)
+-- Tagbar (left side)
 map("n", "<leader>K", function()
   vim.cmd "TagbarToggle"
-end, { desc = "Tagbar" })
+end, { desc = "toggle Tagbar" })
 
 -- Diagnostics message (bottom side)
 map("n", "<leader>J", ToggleDiagnostics_qflist, { desc = "Diagnostics message" })
 
--- terminal (bottom side)
+-- Terminal (bottom side)
 map({ "n", "t" }, "<leader>j", function()
   vim.cmd "ToggleTerm size=10 direction=horizontal"
 end, { desc = "Terminal (bottom)" })
@@ -223,7 +198,7 @@ end, { desc = "Terminal (floating)" })
 -- Gemini (right side)
 map("n", "<leader>l", function()
   require("custom.gemini").toggle()
-end, { desc = "Gemini CLI Toggle", noremap = true, silent = true })
+end, { desc = "toggle Gemini CLI", noremap = true, silent = true })
 
 -- ================================================================
 -- Explorer
@@ -243,19 +218,12 @@ map("n", "<leader><tab>", function()
   vim.cmd "JABSOpen"
 end, { desc = "Show buffers" })
 
--- NvDash (front Screen)
-map("n", "<leader>n", ToggleNvDash, {
-  desc = "NvDash screen",
-  noremap = true,
-  silent = true,
-})
-
 -- WhichKey
 map("n", "<leader>s", function()
   vim.cmd "WhichKey <leader>"
 end, { desc = "Show mappings" })
 
--- Diagnostics
+-- Diagnostics message
 map("n", "sd", vim.diagnostic.open_float)
 
 -- LSP signature help
