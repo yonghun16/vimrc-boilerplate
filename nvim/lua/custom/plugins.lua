@@ -229,7 +229,7 @@ local plugins = {
   },
 
   -------------------------------------------
-  -- Formatting
+  -- Formatting & Linting
   -------------------------------------------
   -- conform.nvim (포맷터)
   {
@@ -242,11 +242,11 @@ local plugins = {
           python = { "isort", "black" },
           javascript = { "prettier" },
           typescript = { "prettier" },
-          html = { "prettier" },
-          css = { "prettier" },
           c = { "clang_format" },
           cpp = { "clang_format" },
           java = { "google-java-format" },
+          html = { "prettier" },
+          css = { "prettier" },
           sh = { "shfmt" },
         },
         format_on_save = {
@@ -254,6 +254,32 @@ local plugins = {
           lsp_fallback = true,
         },
       }
+    end,
+  },
+
+  -- nvim-lint (코드 린팅)
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      local lint = require "lint"
+      lint.linters_by_ft = {
+        python = { "flake8" },
+        javascript = { "eslint" },
+        typescript = { "eslint" },
+        c = { "cpplint" },
+        cpp = { "cpplint" },
+        java = { "checkstyle" },
+        html = { "htmlhint" },
+        css = { "stylelint" },
+        sh = { "shellcheck" },
+      }
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        pattern = "*",
+        callback = function()
+          lint.try_lint()
+        end,
+      })
     end,
   },
 
@@ -267,33 +293,6 @@ local plugins = {
   {
     "digitaltoad/vim-pug",
     ft = "pug",
-  },
-
-  -------------------------------------------
-  -- Linting
-  -------------------------------------------
-  -- nvim-lint (코드 린팅)
-  {
-    "mfussenegger/nvim-lint",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local lint = require "lint"
-
-      lint.linters_by_ft = {
-        lua = { "luacheck" },
-        python = { "flake8" },
-        javascript = { "eslint" },
-        typescript = { "eslint" },
-      }
-
-      -- 저장 시 자동 lint
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        pattern = "*",
-        callback = function()
-          lint.try_lint()
-        end,
-      })
-    end,
   },
 
   -------------------------------------------

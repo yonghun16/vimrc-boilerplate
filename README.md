@@ -83,9 +83,11 @@ end)
   pip3 install debugpy
   npm install -g eslint
   ```
-- Mason language server (vim mode)
+- Mason LSP, Formatter, Linter (vim mode)
   ```vim
-  MasonInstall stylua luacheck prettier tailwindcss-language-server typescript-language-server js-debug-adapter css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
+  MasonInstall typescript-language-server tailwindcss-language-server css-lsp html-lsp pyright clangd jdtls sqlls 
+  MasonInstall stylua prettier black clang-format google-java-format js-debug-adapter
+  MasonInstall flake8 eslint cpplint checkstyle htmlhint stylelint shellcheck
   ```
 - Tree-sitter parser (vim mode)
   ```vim
@@ -199,13 +201,11 @@ end)
   - vim-visual-multi (멀티 커서)
   - which-key.nvim (키맵 도움말)
 
-#### Formatting
+#### Formatting & Linting
   - conform.nvim (코드 포맷팅)
+  - nvim-lint (코드 린팅)
   - emmet-vim (emmet 문법)
   - vim-pug (pug 문법)
-
-#### Linting
-  - nvim-lint (코드 린팅)
 
 #### UI
   - neoscroll.nvim (부드러운 스크롤)
