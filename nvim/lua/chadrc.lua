@@ -14,11 +14,11 @@ M.base46 = {
     StatusLine = { bg = "#00212e" },
     Comment = { italic = true },
     ["@comment"] = { italic = true },
-    NormalFloat = { bg = "#021923" },
+    NormalFloat = { bg = "#001a24" },
 
     -- NvimTree fixes
-    NvimTreeCursorLine = { bg = "#00212e" },
-    NvimTreeCursorColumn = { bg = "#00212e" },
+    NvimTreeCursorLine = { bg = "#002330" },
+    NvimTreeCursorColumn = { bg = "#002330" },
   },
 }
 
