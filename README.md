@@ -97,11 +97,11 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   ```bash
   npm install -g eslint
   ```
-- Mason LSP, Formatter, Linter (Command Mode in vim)
+- Mason LSP, Formatter, Linter (Command-line mode in vim)
   ```bash
   :MasonInstallAll
   ```
-- Tree-sitter parser (Command Mode in vim)
+- Tree-sitter parser (Command-line Mode in vim)
   ```bash
   :TSInstall javascript typescript html css python lua c cpp java json jsdoc pug
   ```
