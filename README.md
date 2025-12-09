@@ -85,7 +85,7 @@ end)
   ```
 - Mason language server (vim mode)
   ```vim
-  MasonInstall stylua prettier tailwindcss-language-server typescript-language-server js-debug-adapter css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
+  MasonInstall stylua luacheck prettier tailwindcss-language-server typescript-language-server js-debug-adapter css-lsp html-lsp black pyright clang-format clangd google-java-format jdtls sqlls
   ```
 - Tree-sitter parser (vim mode)
   ```vim

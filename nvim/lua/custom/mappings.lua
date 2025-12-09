@@ -3,6 +3,7 @@ require "nvchad.mappings"
 -- ================================================================
 -- Environment
 -- ================================================================
+-- luacheck: globals vim SafeQuitAll ToggleAIAutoComplete Compile CompileSingle ReloadAndLSPRestart ToggleFoldColumn
 local map = vim.keymap.set
 local api = require "nvim-tree.api"
 local dap = require "dap"
@@ -131,7 +132,7 @@ map("n", "<leader>a", Compile, { desc = "Code Compile" })
 map("n", "<leader>A", CompileSingle, { desc = "Code Compile (single)" })
 
 -- Reload
-map("n", "<leader>R", ReloadAndLSPRestart, { desc = "reload File and Restart LSP" })
+map("n", "<leader>R", ReloadAndLSPRestart, { desc = "Reload File and LSP" })
 
 -- Diffsplit(파일 비교)
 map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit (compare files)" })
