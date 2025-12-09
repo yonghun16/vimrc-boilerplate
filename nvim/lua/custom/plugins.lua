@@ -37,7 +37,7 @@ local plugins = {
   -- nvim-ts-autotag (닫는 태그 자동완성)
   {
     "windwp/nvim-ts-autotag",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "InsertEnter",
     opts = {},
   },
 
@@ -64,10 +64,11 @@ local plugins = {
   -- nvim-dap (Debug Adapter Protocol)
   {
     "mfussenegger/nvim-dap",
+    cmd = { "DapContinue", "DapToggleBreakpoint" },
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "nvim-neotest/nvim-nio" }, -- 필수
+        dependencies = { "nvim-neotest/nvim-nio" },
         config = function()
           local dapui = require "dapui"
           dapui.setup()
@@ -117,7 +118,7 @@ local plugins = {
         },
       }
 
-      -- JavaScript / TypeScript Config
+      -- JS / TS Config
       dap.adapters["pwa-node"] = {
         type = "server",
         host = "localhost",
@@ -274,6 +275,7 @@ local plugins = {
   -- nvim-lint (코드 린팅)
   {
     "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lint = require "lint"
 
