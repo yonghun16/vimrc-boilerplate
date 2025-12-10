@@ -29,9 +29,9 @@ rm -rf ~/.local/state/nvim
 ### 2) Basic setting
 #### 🔵 Config file copy
 ```shell
-git clone https://github.com/yonghun16/vimrc-boilerplate ~
+git clone https://github.com/yonghun16/vimrc-boilerplate ~/vimrc-boilerplate
 cd ~/vimrc-boilerplate
-cp -r nvim ~/.config
+cp -r nvim ~/.config/
 ```
 
 #### 🔵 init.lua 수정
@@ -216,7 +216,7 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   - mason.nvim (LSP Server Management)
   - conform.nvim (포맷팅)
   - nvim-lint (린팅)
-  - Tree-sitter (문법 강조 및 구문 분석)
+  - nvim-treesitter (문법 강조 및 구문 분석)
 
 #### UI
   - neoscroll.nvim (부드러운 스크롤)
