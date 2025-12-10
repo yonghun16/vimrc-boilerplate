@@ -6,6 +6,9 @@ local plugins = {
   {
     "Exafunction/windsurf.vim",
     event = { "InsertEnter", "BufReadPost" },
+    init = function()
+      vim.g.codeium_enabled = true
+    end,
   },
 
   -------------------------------------------
@@ -19,6 +22,9 @@ local plugins = {
     event = "InsertEnter",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_lua").load {
+        paths = vim.fn.stdpath "config" .. "/lua/custom/snippets",
+      }
     end,
   },
 
@@ -56,18 +62,6 @@ local plugins = {
         show_guides = true,
       }
     end,
-  },
-
-  -- emmet-vim (emmet)
-  {
-    "mattn/emmet-vim",
-    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  },
-
-  -- vim-pug (pug)
-  {
-    "digitaltoad/vim-pug",
-    ft = "pug",
   },
 
   -------------------------------------------
@@ -219,9 +213,28 @@ local plugins = {
   },
 
   -------------------------------------------
-  -- Formatting & Linting & Treesitter
+  -- LSP & Formatter & Lintter & Treesitter
   -------------------------------------------
-  -- conform.nvim (포맷터)
+  -- mason.nvim (LSP)
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "pyright",
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "html-lsp",
+        "pug-lsp",
+        "css-lsp",
+        "clangd",
+        "jdtls",
+        "sqlls",
+        "emmet-language-server",
+      },
+    },
+  },
+
+  -- conform.nvim (포맷팅)
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
@@ -247,7 +260,7 @@ local plugins = {
     end,
   },
 
-  -- nvim-lint (코드 린팅)
+  -- nvim-lint (린팅)
   {
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },

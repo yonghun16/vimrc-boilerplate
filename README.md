@@ -200,8 +200,6 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   - nvim-cmp (코드 자동완성)
   - outline (코드 아웃라인)
   - nvim-ts-autotag (닫는 태그 자동완성)
-  - emmet-vim (emmet 문법)
-  - vim-pug (pug 문법)
 
 #### Debugging
   - nvim-dap (Debug Adapter Protocol)
@@ -214,9 +212,10 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   - vim-illuminate (단어 하이라이팅)
   - vim-visual-multi (멀티 커서)
 
-#### Formatting & Linting & Treesitter
-  - conform.nvim (코드 포맷팅)
-  - nvim-lint (코드 린팅)
+#### LSP & Formatting & Linting & Treesitter
+  - mason.nvim (LSP Server Management)
+  - conform.nvim (포맷팅)
+  - nvim-lint (린팅)
   - Tree-sitter (문법 강조 및 구문 분석)
 
 #### UI

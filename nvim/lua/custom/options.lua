@@ -50,12 +50,6 @@ vim.opt.wrap = false
 ------------------------------------------------------------------
 -- Plugin options
 ------------------------------------------------------------------
--- codium(Windsurf)
-vim.g.codeium_enabled = true
-
--- emmet-vim
-vim.g.user_emmet_leader_key = ","
-
 -- fzf
 vim.cmd "set rtp+=/opt/homebrew/opt/fzf"
 
@@ -84,9 +78,6 @@ require("nvim-tree").setup {
     vim.keymap.set("n", "t", api.node.open.tab, opts "Open: New Tab")
   end,
 }
-
--- snippets
-require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/snippets" }
 
 -- visual-multi
 vim.cmd [[ let g:VM_maps = {} ]]

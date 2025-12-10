@@ -3,7 +3,6 @@ require "nvchad.mappings"
 -- ================================================================
 -- Environment
 -- ================================================================
--- luacheck: globals vim SafeQuitAll ToggleAIAutoComplete Compile CompileSingle ReloadAndLSPRestart ToggleFoldColumn
 local map = vim.keymap.set
 local api = require "nvim-tree.api"
 local dap = require "dap"
