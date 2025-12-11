@@ -7,6 +7,7 @@ local map = vim.keymap.set
 local api = require "nvim-tree.api"
 local dap = require "dap"
 local dapui = require "dapui"
+vim.api.nvim_del_keymap("n", "<leader>e") -- nvimtree focus window
 vim.api.nvim_del_keymap("n", "<leader>n") -- toogle number line
 vim.api.nvim_del_keymap("n", "<leader>gt") -- git status
 vim.keymap.set("n", "s", "")
@@ -16,7 +17,7 @@ vim.keymap.set("n", "s", "")
 -- ================================================================
 map({ "n", "i", "v", "c" }, "<C-c>", "<ESC>")
 map("t", "<ESC>", "<C-\\><C-n>")
-map("n", "<leader>q", SafeQuitAll, { desc = "Safe quit all", noremap = true, silent = true })
+map("n", "<leader>q", SafeQuitAll, { desc = "Safe Quit All", noremap = true, silent = true })
 
 -- ================================================================
 -- Apply terminal keybindings in INSERT Mode
@@ -154,18 +155,24 @@ map(
   { noremap = true, silent = true, desc = "toggle Transparency" }
 )
 
+-- Diagnostics message
+map("n", "sd", vim.diagnostic.open_float)
+
+-- LSP signature help
+map("n", "ss", vim.lsp.buf.signature_help)
+
 -- ================================================================
 -- Sidebars (h, j, k, l)
 -- ================================================================
 -- Nvimtree (left side)
 map("n", "<leader>h", function()
   vim.cmd "NvimTreeToggle"
-end, { desc = "toggle Explorer" })
+end, { desc = "toggle Explorer (NvimTree)" })
 
 -- Nvimtree (left side: current file)
 map("n", "<leader>H", function()
   api.tree.find_file { open = true, focus = true }
-end, { desc = "find current File" })
+end, { desc = "find current File (NvimTree)" })
 
 -- Outline (left side)
 map("n", "<leader>k", function()
@@ -188,30 +195,39 @@ map("n", "<leader>l", function()
 end, { desc = "toggle Gemini CLI", noremap = true, silent = true })
 
 -- ================================================================
--- Explorer
+-- Finder
 -- ================================================================
--- file explorer (fzf files)
-map("n", "<leader>e", function()
+-- File finder (fzf files)
+map("n", "<leader>ff", function()
   require("fzf-lua").files()
-end, { desc = "find Files (fzf)" })
+end, { desc = "fzf find Files" })
 
--- grep explorer (fzf grep)
-map("n", "<leader>g", function()
+-- Grep finder (fzf grep)
+map("n", "<leader>fg", function()
   require("fzf-lua").grep()
-end, { desc = "find Grep (fzf)" })
+end, { desc = "fzf find Grep" })
 
--- buffer explorer (fzf buffers)
+-- Grep finder (fzf grep current word)
+map("n", "<leader>fc", function()
+  require("fzf-lua").grep_cword()
+end, { desc = "fzf find current word" })
+
+-- Buffer finder (fzf buffers)
 map("n", "<leader><tab>", function()
   require("fzf-lua").buffers()
-end, { desc = "find Buffers (fzf)" })
+end, { desc = "Buffer finder (fzf)" })
 
--- WhichKey
+-- Symbols finder (fzf symbols)
+map("n", "<leader>fs", function()
+  require("fzf-lua").lsp_live_workspace_symbols()
+end, { desc = "fzf find Symbols" })
+
+-- Definition finder (fzf definitions)
+map("n", "<leader>fd", function()
+  require("fzf-lua").lsp_definitions()
+end, { desc = "fzf find Definition" })
+
+-- WhichKey finder
 map("n", "<leader>s", function()
   vim.cmd "WhichKey <leader>"
-end, { desc = "find Mappings" })
-
--- Diagnostics message
-map("n", "sd", vim.diagnostic.open_float)
-
--- LSP signature help
-map("n", "ss", vim.lsp.buf.signature_help)
+end, { desc = "find Mappings (which-key)" })

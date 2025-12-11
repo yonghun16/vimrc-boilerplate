@@ -191,7 +191,7 @@ local plugins = {
     end,
   },
 
-  -- nvim-lastplace (커서 마지막 위치 저장, lua 포트 버전)
+  -- nvim-lastplace (커서 마지막 위치 저장)
   {
     "ethanholz/nvim-lastplace",
     event = "BufReadPost",
