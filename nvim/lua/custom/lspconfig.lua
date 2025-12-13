@@ -1,7 +1,10 @@
------------------------------------------------------------
+-- ================================================================
+-- Warning Message 무시
+-- ================================================================
 -- 1.vim.deprecate 무시 (0.11 버전의 주된 경고 경로)
 if vim.deprecate then
   local original_deprecate = vim.deprecate
+  ---@diagnostic disable-next-line: duplicate-set-field
   vim.deprecate = function(msg, ...)
     if msg and (msg:find "lspconfig" or msg:find "deprecated") then
       return -- lspconfig 관련 경고면 아무것도 안 하고 종료
@@ -12,14 +15,18 @@ end
 
 -- 2. vim.notify 무시 (구버전 호환 및 기타 알림 경로)
 local original_notify = vim.notify
+---@diagnostic disable-next-line: duplicate-set-field
 vim.notify = function(msg, level, opts)
   if type(msg) == "string" and (msg:find "require%('lspconfig'%)" or msg:find "deprecated") then
     return
   end
   original_notify(msg, level, opts)
 end
------------------------------------------------------------
 
+-- ================================================================
+-- LSP Config
+-- ================================================================
+-- LSP Servers Setup
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
