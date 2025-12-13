@@ -27,17 +27,17 @@ rm -rf ~/.local/state/nvim
 ```
 
 ### 2) Basic setting
-#### 🔵 Config file copy
+#### 🔵 Config file install
 ```bash
 git clone https://github.com/yonghun16/dotfiles ~/dotfiles
 cd ~/dotfiles
-cp -r nvim ~/.config/
+./install.sh
 ```
 
-#### 🔵 init.lua 수정
+#### 🔵 init.lua 수정 내용
 
 <details>
-<summary>변경 내용 (또는 init_back.lua -> init.lua) </summary>
+<summary>수정 내용 확인 </summary>
 
 ```lua
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
@@ -82,26 +82,20 @@ end)
 
 </details>
 
-```bash
-cp -r ~/dotfiles/nvim/init_back.lua ~/.config/nvim/init.lua
-```
 
 #### 🔵 Manual plugins setting
 - package (bash)
-  ```bash
-  brew install fd luarocks fzf ripgrep gemini-cli
-  ```
   ```bash
   pip3 install debugpy
   ```
   ```bash
   npm install -g eslint
   ```
-- Mason LSP, Formatter, Linter (Command-line mode in vim)
+- Mason (Command-line mode in vim)
   ```bash
   :MasonInstallAll
   ```
-- Tree-sitter parser (Command-line Mode in vim)
+- Tree-sitter (Command-line Mode in vim)
   ```bash
   :TSUpdate
   ```
@@ -110,8 +104,7 @@ cp -r ~/dotfiles/nvim/init_back.lua ~/.config/nvim/init.lua
 #### 🟡 Karabiner
 > karabiner : https://karabiner-elements.pqrs.org/
   - preset file
-    - `karabiner-korean.json`
-    - `karabiner-vim.json`
+    - `karabiner.json`
   - [Complex Modifications] → [Add your own rule]
   - [Devices] → 외장키보드 사용 시 추가
 
@@ -130,37 +123,11 @@ cp -r ~/dotfiles/nvim/init_back.lua ~/.config/nvim/init.lua
 
 
 ## 2. Other App Settings
-#### 🔴 Oh-my-zsh
+#### 🔴 Zinit
 > oh-my-zsh : https://ohmyz.sh/
-  - install
-    ```bash
-    $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    ```
-  - zsh-autosuggestions
-    ```bash
-    $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    ```
-    - ~/.zshrc 에 플러그인 경로를 추가.
-      ```bash
-      plugins=( 
-          # other plugins...
-          zsh-autosuggestions
-      )
-      ```
-  - Syntax Highlighter
-    ```bash
-    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    ```
-    - ~/.zshrc 에 아래 플러그인 경로를 추가.
-      ```bash
-      plugins=( 
-          # other plugins...
-          zsh-autosuggestions
-      )
-      ```
   - Neofetch
     ```bash
-    $ brew install neofetch
+    source ~/.zshrc
     ```
 
 #### 🔴 Alacritty
