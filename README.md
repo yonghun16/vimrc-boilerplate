@@ -1,4 +1,4 @@
-# vimrc-boilerplate 
+# dotfiles
 <div align="center">
   <img src="https://raw.githubusercontent.com/yonghun16/yonghun16/refs/heads/main/images/nvim_preview.png" width=800px />
 </div>
@@ -9,7 +9,7 @@
 
 ### 1) Install
 #### 🟢 Install
-```shell
+```bash
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 ```
   - Run `:MasonInstallAll` command after lazy.nvim finishes downloading plugins.
@@ -20,7 +20,7 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
   - Run `:Lazy sync`
 
 #### 🟢 Uninstall
-```shell
+```bash
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.local/state/nvim
@@ -28,9 +28,9 @@ rm -rf ~/.local/state/nvim
 
 ### 2) Basic setting
 #### 🔵 Config file copy
-```shell
-git clone https://github.com/yonghun16/vimrc-boilerplate ~/vimrc-boilerplate
-cd ~/vimrc-boilerplate
+```bash
+git clone https://github.com/yonghun16/dotfiles ~/dotfiles
+cd ~/dotfiles
 cp -r nvim ~/.config/
 ```
 
@@ -82,12 +82,12 @@ end)
 
 </details>
 
-```shell
-cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
+```bash
+cp -r ~/dotfiles/nvim/init_back.lua ~/.config/nvim/init.lua
 ```
 
 #### 🔵 Manual plugins setting
-- package (shell)
+- package (bash)
   ```bash
   brew install fd luarocks fzf ripgrep gemini-cli
   ```
@@ -126,51 +126,51 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
     - [설정] → [키보드] → [키보드 단축키] → [입력소스]
     - 이전 입력 소스 선택 : `contrl + shift + spacebar`
     - 입력 메뉴에서 다음 소스 선택 : 체크해제
-  - Detail : [gureum_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/gureum_setting.png), [keyboard_inputsource_setting.png](https://github.com/yonghun16/vimrc-boilerplate/blob/master/gureum/keyboard_inputsource_setting.png?raw=true)
+  - Detail : [gureum_setting.png](https://github.com/yonghun16/dotfiles/blob/master/gureum/gureum_setting.png), [keyboard_inputsource_setting.png](https://github.com/yonghun16/dotfiles/blob/master/gureum/keyboard_inputsource_setting.png?raw=true)
 
 
-## 2. Other App Settings (for nvim)
+## 2. Other App Settings
 #### 🔴 Oh-my-zsh
 > oh-my-zsh : https://ohmyz.sh/
   - install
-    ```shell
+    ```bash
     $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ```
   - zsh-autosuggestions
-    ```shell
+    ```bash
     $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     ```
     - ~/.zshrc 에 플러그인 경로를 추가.
-      ```shell
+      ```bash
       plugins=( 
           # other plugins...
           zsh-autosuggestions
       )
       ```
   - Syntax Highlighter
-    ```shell
+    ```bash
     $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
     - ~/.zshrc 에 아래 플러그인 경로를 추가.
-      ```shell
+      ```bash
       plugins=( 
           # other plugins...
           zsh-autosuggestions
       )
       ```
   - Neofetch
-    ```shell
+    ```bash
     $ brew install neofetch
     ```
 
 #### 🔴 Alacritty
 > Alacritty : https://alacritty.org/
   - install
-    ```shell
+    ```bash
     brew install --cask alacritty
     ```
   - setting : Disabling macOS Font Smoothing
-    ```shell
+    ```bash
     defaults write org.alacritty AppleFontSmoothing -int 0
     ```
 
@@ -181,16 +181,16 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
   brew install tmux
   ```
   - setting : `.tmux.conf`
-    - ```shell
+    - ```bash
       cp .tmux.conf ~/.tmux.conf
       ```
   - 파일을 수정한 뒤 tmux 안에서:
-    - ```shell
+    - ```bash
       tmux source-file ~/.tmux.conf
       ```
 
 
-## 3. Plugins info
+## 3. Neovim Plugins info
 #### AI
   - windsurf.vim (AI 코드 자동완성)
 
