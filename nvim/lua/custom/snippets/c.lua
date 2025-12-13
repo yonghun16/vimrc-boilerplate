@@ -10,7 +10,7 @@ local f = ls.function_node
 return {
   -- Online judge용 주석 Header (C)
   s(
-    "header-comment_oj",
+    "headerComment OJ",
     fmt(
       [[
 /* ------------------------------------------------------------
@@ -18,8 +18,10 @@ return {
  * Link   : {}
  * Level  : 
  * Tag    : C, 
- * Memo
- * ----------------------------------------------------------- */
+ * ------------------------------------------------------------
+ * Details
+ * {}
+ * ------------------------------------------------------------ */
 
 #include <stdio.h>
 
@@ -29,13 +31,8 @@ int main() {{
 }}
 ]],
       {
-        -- 1. 플랫폼 선택
         c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
-
-        -- 2. 문제 제목
         i(2, "문제 제목"),
-
-        -- 3. 링크 자동 생성
         d(3, function(args)
           local platform = args[1][1] or ""
           local prefix = ""
@@ -46,34 +43,37 @@ int main() {{
           end
           return sn(nil, i(1, prefix))
         end, { 1 }),
+        i(0),
       }
     )
   ),
 
-  -- 일반 파일용 주석 Header
+  -- 일반 파일용 주석 Header (C)
   s(
-    "header-comment_file",
+    "headerComment",
     fmt(
       [[
 /* ------------------------------------------------------------
  * File     : {}
  * Brief    : {}
- * Author   : {}
- * Date     : {}
- * Version  : 
- * History
+ * ------------------------------------------------------------
+ * Details
+ * {}
  * ------------------------------------------------------------ */
 
+#include <stdio.h>
+
+int main() {{
+
+    return 0;
+}}
 ]],
       {
         f(function()
           return vim.fn.expand "%:t"
-        end, {}), -- 현재 파일명 자동 적용
-        i(1, "간단 설명 입력"),
-        i(2, "송용훈"),
-        f(function()
-          return os.date "%Y-%m-%d"
         end, {}),
+        i(1, "간단 설명 입력"),
+        i(0),
       }
     )
   ),

@@ -9,7 +9,7 @@ local dap = require "dap"
 local dapui = require "dapui"
 vim.api.nvim_del_keymap("n", "<leader>e") -- nvimtree focus window
 vim.api.nvim_del_keymap("n", "<leader>n") -- toogle number line
-vim.api.nvim_del_keymap("n", "<leader>gt") -- git status
+vim.api.nvim_del_keymap("n", "<leader>v") -- terminal new vertical term
 vim.keymap.set("n", "s", "")
 
 -- ================================================================
@@ -20,7 +20,7 @@ map("t", "<ESC>", "<C-\\><C-n>")
 map("n", "<leader>q", SafeQuitAll, { desc = "Safe Quit All", noremap = true, silent = true })
 
 -- ================================================================
--- Apply terminal keybindings in INSERT Mode
+-- Apply Terminal Keybindings in INSERT Mode
 -- ================================================================
 map("i", "<C-h>", "<BS>")
 map("i", "<C-f>", "<Right>")
@@ -36,49 +36,7 @@ map("i", "<C-j>", "<CR>")
 map("i", "<C-s>", "<Esc><C-s>")
 
 -- ================================================================
--- AI / Debugging
--- ================================================================
--- Codeium(WindSurf) / 자동완성
-vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { noremap = true, expr = true })
-map("i", "<Tab>", "codeium#Accept()", { expr = true, silent = true, nowait = true, desc = "Accept Codeium suggestion" })
-map(
-  "i",
-  "<C-;>",
-  "codeium#AcceptNextLine()",
-  { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" }
-)
-map(
-  "i",
-  "<C-'>",
-  "codeium#AcceptNextWord()",
-  { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" }
-)
-map("i", "<C-.>", function() -- Cycle completions
-  vim.cmd "call codeium#CycleCompletions(1)"
-end, { silent = true, desc = "Cycle Codeium completions forward" })
-map("i", "<C-,>", function() -- Cycle completions
-  vim.cmd "call codeium#CycleCompletions(-1)"
-end, { silent = true, desc = "Cycle Codeium completions backward" })
-map("i", "<C-x>", function() -- Clear completions
-  vim.cmd "call codeium#Clear()"
-end, { silent = true, desc = "Clear Codeium suggestion" })
-map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
-map("n", "<leader>ta", ToggleAIAutoComplete, { desc = "toggle AI AutoComplete" }) -- Toggle Codieum(WindSurf) On/Off
-
--- nvim-dap (Debugging)
-map("n", "<leader>z", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" }) -- 중단점 설정/해제 (debug breakpoint)
-map("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" }) -- 디버깅 시작 또는 계속 진행 (Start or Continue Debugging)
-map("n", "<leader>db", function()
-  dap.toggle_breakpoint(vim.fn.input "Breakpoint condition: ") -- 조건부 중단점 설정 (debug breakpoint conditional) -> 조건이 참(true)일 때만 실행을 멈춤.
-end, { desc = "Debug: Toggle Conditional Breakpoint" })
-map("n", "<leader>do", dap.step_over, { desc = "Debug: Step Over" }) -- 한 줄 실행 (debug over)
-map("n", "<leader>di", dap.step_into, { desc = "Debug: Step Into" }) -- 함수 안으로 들어가기 (debug into)
-map("n", "<leader>dk", dap.step_out, { desc = "Debug: Step Out" }) -- 현재 함수 빠져나가기 (debug out)
-map("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" }) -- 디버깅 세션 종료 (debug quit)
-map("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" }) -- 디버깅 UI 창 열기/닫기 (debug ui toggle)
-
--- ================================================================
--- Cursor, Screen, Block, Tab, Split
+-- Moving (Cursor, Screen, Block, Tab, Splits)
 -- ================================================================
 -- Cursor move
 map({ "n", "v" }, "<C-h>", "^")
@@ -93,7 +51,7 @@ map({ "n", "v" }, "<C-p>", "5<C-y>")
 map({ "n", "v" }, "<C-.>", "6zl")
 map({ "n", "v" }, "<C-,>", "6zh")
 
--- Visual block
+-- Visual block move
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
 map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", ">", ">gv")
@@ -118,7 +76,7 @@ map("n", "tp", function() -- tab previous
   vim.cmd "tabprevious"
 end)
 
--- Split window
+-- Splits move
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j")
 map("t", "<C-w>k", "<C-\\><C-n><C-w>k")
@@ -127,22 +85,36 @@ map("t", "<C-w>l", "<C-\\><C-n><C-w>l")
 -- ================================================================
 -- Editor
 -- ================================================================
--- Compile and Run
-map("n", "<leader>a", Compile, { desc = "Code Compile" })
-map("n", "<leader>A", CompileSingle, { desc = "Code Compile (single)" })
+-- Create Annotation
+map("n", "<leader>ca", ":Neogen<CR>", { desc = "Create code Annotation", silent = true })
 
--- Reload
-map("n", "<leader>R", ReloadAndLSPRestart, { desc = "Reload File and LSP" })
-
--- Diffsplit(파일 비교)
-map("n", "<leader>v", ":vert diffsplit ", { desc = "Diffsplit (compare files)" })
-
--- Change root directory
+-- change root directory
 map("n", "<leader>.", function()
   local path = vim.fn.expand "%:p:h"
   api.tree.change_root(path)
   vim.notify("NvimTree root changed to: " .. path, vim.log.levels.INFO)
-end, { desc = "Change root to current file dir" })
+end, { desc = "change root to current file dir" })
+
+-- Diffsplit Vertical(파일 비교)
+map("n", "<leader>dv", ":vert diffsplit ", { desc = "Diffsplit (compare files)" })
+
+-- Run code (All, Single)
+map("n", "<leader>a", Compile, { desc = "Run Code" })
+map("n", "<leader>rs", CompileSingle, { desc = "Run Single Code" })
+
+-- Reload File
+map("n", "<leader>rf", ReloadAndLSPRestart, { desc = "Reload File and LSP" })
+
+-- See which-key
+map("n", "<leader>s", function()
+  vim.cmd "WhichKey <leader>"
+end, { desc = "find mappings (which-key)" })
+
+-- See Diagnostics message
+map("n", "sd", vim.diagnostic.open_float)
+
+-- See Signature help
+map("n", "ss", vim.lsp.buf.signature_help)
 
 -- Toggle FoldColumn
 map("n", "<leader>tf", ToggleFoldColumn, { desc = "toggle FoldColumn" })
@@ -155,79 +127,143 @@ map(
   { noremap = true, silent = true, desc = "toggle Transparency" }
 )
 
--- Diagnostics message
-map("n", "sd", vim.diagnostic.open_float)
-
--- LSP signature help
-map("n", "ss", vim.lsp.buf.signature_help)
-
--- ================================================================
--- Sidebars (h, j, k, l)
--- ================================================================
--- Nvimtree (left side)
-map("n", "<leader>h", function()
-  vim.cmd "NvimTreeToggle"
-end, { desc = "toggle Explorer (NvimTree)" })
-
--- Nvimtree (left side: current file)
-map("n", "<leader>H", function()
-  api.tree.find_file { open = true, focus = true }
-end, { desc = "find current File (NvimTree)" })
-
--- Outline (left side)
-map("n", "<leader>k", function()
-  vim.cmd "Outline"
-end, { desc = "toggle Outline" })
-
--- Terminal (bottom side)
-map({ "n", "t" }, "<leader>j", function()
-  vim.cmd "ToggleTerm size=10 direction=horizontal"
-end, { desc = "Terminal (bottom)" })
-
--- terminal (floating)
+-- Terminal (floating)
 map({ "n", "t" }, "<leader><leader>", function()
   vim.cmd "ToggleTerm direction=float"
 end, { desc = "Terminal (floating)" })
 
--- Gemini (right side)
+-- ================================================================
+-- Sidebars (h, j, k, l)
+-- ================================================================
+-- h : Nvimtree (left side)
+map("n", "<leader>h", function()
+  vim.cmd "NvimTreeToggle"
+end, { desc = "toggle Explorer (NvimTree)" })
+
+-- H : Nvimtree current path (left side)
+map("n", "<leader>H", function()
+  api.tree.find_file { open = true, focus = true }
+end, { desc = "find current path (NvimTree)" })
+
+-- j : Terminal (bottom side)
+map({ "n", "t" }, "<leader>j", function()
+  vim.cmd "ToggleTerm size=10 direction=horizontal"
+end, { desc = "Terminal (bottom)" })
+
+-- k : Outline (left side)
+map("n", "<leader>k", function()
+  vim.cmd "Outline"
+end, { desc = "toggle Outline" })
+
+-- l : Gemini (right side)
 map("n", "<leader>l", function()
   require("custom.gemini").toggle()
 end, { desc = "toggle Gemini CLI", noremap = true, silent = true })
 
 -- ================================================================
--- Finder
+-- Finder (fzf-lua)
 -- ================================================================
--- File finder (fzf files)
+-- Find Files
 map("n", "<leader>ff", function()
   require("fzf-lua").files()
-end, { desc = "fzf find Files" })
+end, { desc = "fzf Find Files" })
 
--- Grep finder (fzf grep)
+-- Find Grep
 map("n", "<leader>fg", function()
   require("fzf-lua").grep()
-end, { desc = "fzf find Grep" })
+end, { desc = "fzf Find Grep" })
 
--- Grep finder (fzf grep current word)
+-- Find Current word
 map("n", "<leader>fc", function()
   require("fzf-lua").grep_cword()
-end, { desc = "fzf find current word" })
+end, { desc = "fzf Find Current word" })
 
--- Buffer finder (fzf buffers)
+-- Find Buffers
 map("n", "<leader><tab>", function()
   require("fzf-lua").buffers()
-end, { desc = "Buffer finder (fzf)" })
+end, { desc = "buffer explorer (fzf)" })
 
--- Symbols finder (fzf symbols)
+-- Find Symbols
 map("n", "<leader>fs", function()
   require("fzf-lua").lsp_live_workspace_symbols()
-end, { desc = "fzf find Symbols" })
+end, { desc = "fzf Find Symbols" })
 
--- Definition finder (fzf definitions)
+-- Find Definition
 map("n", "<leader>fd", function()
   require("fzf-lua").lsp_definitions()
-end, { desc = "fzf find Definition" })
+end, { desc = "fzf Find Definition" })
 
--- WhichKey finder
-map("n", "<leader>s", function()
-  vim.cmd "WhichKey <leader>"
-end, { desc = "find Mappings (which-key)" })
+-- ================================================================
+-- AI (windsurf.vim)
+-- ================================================================
+-- Navigate completion menu (자동완성 메뉴 이동)
+vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { noremap = true, expr = true })
+
+-- Accept Codeium suggestion (Codeium 제안 수락)
+map("i", "<Tab>", "codeium#Accept()", { expr = true, silent = true, nowait = true, desc = "Accept Codeium suggestion" })
+
+-- Accept next line (다음 줄만 수락)
+map(
+  "i",
+  "<C-;>",
+  "codeium#AcceptNextLine()",
+  { expr = true, silent = true, nowait = true, desc = "Accept next line from Codeium" }
+)
+
+-- Accept next word (다음 단어만 수락)
+map(
+  "i",
+  "<C-'>",
+  "codeium#AcceptNextWord()",
+  { expr = true, silent = true, nowait = true, desc = "Accept next word from Codeium" }
+)
+
+-- Cycle next suggestion (다음 제안 보기)
+map("i", "<C-.>", function()
+  vim.cmd "call codeium#CycleCompletions(1)"
+end, { silent = true, desc = "Cycle Codeium completions forward" })
+
+-- Cycle previous suggestion (이전 제안 보기)
+map("i", "<C-,>", function() -- Cycle completions
+  vim.cmd "call codeium#CycleCompletions(-1)"
+end, { silent = true, desc = "Cycle Codeium completions backward" })
+
+-- Clear suggestion (제안 지우기)
+map("i", "<C-x>", function() -- Clear completions
+  vim.cmd "call codeium#Clear()"
+end, { silent = true, desc = "Clear Codeium suggestion" })
+
+-- Restore Jump Forward (점프 앞으로 가기 복구)
+map("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
+
+-- Toggle AI Auto Completion (AI 자동완성 켜기/끄기)
+map("n", "<leader>ta", ToggleAIAutoComplete, { desc = "toggle AI code completion" })
+
+-- ================================================================
+-- Debugging (nvim-dap)
+-- ================================================================
+-- debug: toggle breakpoint (중단점 설정/해제)
+map("n", "<leader>z", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+
+-- debug: start or continue debugging (디버깅 시작 또는 계속 진행)
+map("n", "<leader><SPACE>", dap.continue, { desc = "Debug: Continue" })
+
+-- Debug: conditional Breakpoint (조건부 중단점 설정 - 조건이 참일 때만 멈춤)
+map("n", "<leader>db", function()
+  dap.toggle_breakpoint(vim.fn.input "Breakpoint condition: ")
+end, { desc = "Debug: Toggle Conditional Breakpoint" })
+
+-- Debug: step Over (한 줄 실행 - 함수 건너뛰기)
+map("n", "<leader>do", dap.step_over, { desc = "Debug: Step Over" })
+
+-- Debug: step Into (함수 안으로 들어가기)
+map("n", "<leader>di", dap.step_into, { desc = "Debug: Step Into" })
+
+-- Debug: step Out (현재 함수 빠져나가기)
+map("n", "<leader>dk", dap.step_out, { desc = "Debug: Step Out" })
+
+-- Debug: Quit (디버깅 세션 종료)
+map("n", "<leader>dq", dap.terminate, { desc = "Debug: Quit" })
+
+-- Debug: toggle Ui (디버깅 UI 창 열기/닫기)
+map("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" })

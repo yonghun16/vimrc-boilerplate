@@ -2,7 +2,8 @@ local plugins = {
   -------------------------------------------
   -- AI
   -------------------------------------------
-  -- windsuf.vim (AI 자동완성, Codeium 기반) :Codeium Auth
+  -- windsuf.vim (AI 코드 자동완성)
+  -- :Codeium Auth
   {
     "Exafunction/windsurf.vim",
     event = { "InsertEnter", "BufReadPost" },
@@ -26,6 +27,14 @@ local plugins = {
         paths = vim.fn.stdpath "config" .. "/lua/custom/snippets",
       }
     end,
+  },
+
+  -- neogen (함수/클래스 주석 자동 생성)
+  {
+    "danymat/neogen",
+    config = true,
+    cmd = "Neogen",
+    -- version = "*"
   },
 
   -- nvim-cmp (코드 자동완성 및 제안)

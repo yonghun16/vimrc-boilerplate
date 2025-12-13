@@ -192,11 +192,12 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
 
 ## 3. Plugins info
 #### AI
-  - vim-windsurf (Codeium)
-  - Gemini-CLI (Gemini AI)
+  - windsurf.vim (AI 코드 자동완성)
+  - Gemini-CLI (AI CLI 클라이언트)
 
 #### Coding
   - LuaSnip (스니펫)
+  - neogen (함수/클래스 주석 자동 생성)
   - nvim-cmp (코드 자동완성)
   - outline (코드 아웃라인)
   - nvim-ts-autotag (닫는 태그 자동완성)
