@@ -5,10 +5,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -32,10 +32,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -61,10 +61,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -87,10 +87,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -113,10 +113,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -139,10 +139,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -165,10 +165,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -195,10 +195,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -222,10 +222,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -253,10 +253,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -284,10 +284,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -310,10 +310,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -336,10 +336,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -362,10 +362,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -388,10 +388,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -414,10 +414,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -440,10 +440,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -469,10 +469,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -498,10 +498,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }
@@ -527,10 +527,10 @@
             "conditions": [
                 {
                     "bundle_identifiers": [
+                        "^org\\.alacritty$",
                         "^com\\.github\\.wez\\.wezterm$",
                         "^com\\.googlecode\\.iterm2$",
-                        "^dev\\.warp\\.Warp-Stable$",
-                        "^com\\.neovide\\.neovide$"
+                        "^dev\\.warp\\.Warp-Stable$"
                     ],
                     "type": "frontmost_application_if"
                 }

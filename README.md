@@ -163,16 +163,16 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
     $ brew install neofetch
     ```
 
-#### 🔴 WezTerm
-> WezTerm : https://wezterm.org/
+#### 🔴 Alacritty
+> Alacritty : https://alacritty.org/
   - install
     ```shell
-    brew install --cask wezterm
+    brew install --cask alacritty
     ```
-  - setting : `.wezterm.lua`
-    - ```shell
-      cp .wezterm.lua ~/.wezterm.lua
-      ```
+  - setting : Disabling macOS Font Smoothing
+    ```shell
+    defaults write org.alacritty AppleFontSmoothing -int 0
+    ```
 
 #### 🔴 tmux 
 > tmux : https://github.com/tmux/tmux/wiki
