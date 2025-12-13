@@ -89,7 +89,7 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
 #### 🔵 Manual plugins setting
 - package (shell)
   ```bash
-  brew install fd luarocks fzf ripgrep
+  brew install fd luarocks fzf ripgrep gemini-cli
   ```
   ```bash
   pip3 install debugpy
@@ -193,7 +193,6 @@ cp -r ~/vimrc-boilerplate/nvim/init_back.lua ~/.config/nvim/init.lua
 ## 3. Plugins info
 #### AI
   - windsurf.vim (AI 코드 자동완성)
-  - Gemini-CLI (AI CLI 클라이언트)
 
 #### Coding
   - LuaSnip (스니펫)

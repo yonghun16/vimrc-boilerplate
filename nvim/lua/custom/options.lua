@@ -209,7 +209,47 @@ function ReloadAndLSPRestart()
   end, 100)
 end
 
--- Toggle Codium(Windsurf)
+-- Toggle Gemini CLI
+local gemini_win = nil
+local gemini_buf = nil
+
+function ToggleGeminiCli()
+  -- 이미 유효한 윈도우가 존재하면 (열려 있으면) -> 숨기기
+  if gemini_win and vim.api.nvim_win_is_valid(gemini_win) then
+    vim.api.nvim_win_hide(gemini_win)
+
+  -- 윈도우가 없거나 닫혀 있다면 -> 열기
+  else
+    -- 버퍼가 없거나 유효하지 않으면 새로 생성
+    if not gemini_buf or not vim.api.nvim_buf_is_valid(gemini_buf) then
+      gemini_buf = vim.api.nvim_create_buf(false, true)
+      vim.cmd "botright vsplit"
+      gemini_win = vim.api.nvim_get_current_win()
+      vim.api.nvim_win_set_buf(gemini_win, gemini_buf)
+
+      -- 창 너비 설정
+      vim.api.nvim_win_set_width(gemini_win, 60)
+      vim.wo[gemini_win].winfixwidth = true
+
+      -- 터미널 열기
+      vim.fn.termopen "gemini"
+      vim.cmd "startinsert"
+
+    -- 버퍼는 살아있는데 창만 닫힌 경우 (재사용)
+    else
+      vim.cmd "botright vsplit"
+      gemini_win = vim.api.nvim_get_current_win()
+      vim.api.nvim_win_set_buf(gemini_win, gemini_buf)
+
+      -- 창 너비 설정
+      vim.api.nvim_win_set_width(gemini_win, 60)
+      vim.wo[gemini_win].winfixwidth = true
+      vim.cmd "startinsert"
+    end
+  end
+end
+
+-- Toggle Windsurf(Codeium)
 function ToggleAIAutoComplete()
   if vim.g.codeium_enabled == nil or vim.g.codeium_enabled == false then
     vim.g.codeium_enabled = true
@@ -222,22 +262,7 @@ function ToggleAIAutoComplete()
   end
 end
 
--- Toggle Gemini CLI
-local gemini_term = nil
-function ToggleGemini()
-  if gemini_term and vim.api.nvim_win_is_valid(gemini_term) then
-    vim.api.nvim_win_close(gemini_term, true)
-    gemini_term = nil
-  else
-    vim.cmd "vsplit"
-    vim.cmd "wincmd l" -- 오른쪽으로 이동
-    vim.cmd "resize 45" -- 너비 조정
-    vim.cmd "terminal gemini chat"
-    gemini_term = vim.api.nvim_get_current_win()
-  end
-end
-
--- Toggle Dynamic Foldcolumn
+-- Toggle Foldcolumn
 local MIN_FOLDCOL = 0
 local MAX_FOLDCOL = 6
 local foldcolumn_visible = false
