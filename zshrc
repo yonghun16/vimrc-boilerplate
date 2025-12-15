@@ -85,7 +85,7 @@ alias tree="eza --icons --tree"
 alias vi="nvim"
 if [ -n "$TMUX" ]; then
   alias exit="tmux detach"
-  setopt ignore_eof
+  export IGNOREEOF=10 # Ctrl+d를 10번 연타해야 꺼짐 (실수 방지)
 fi
 
 # Neofetch (터미널 켤 때 정보 표시)
