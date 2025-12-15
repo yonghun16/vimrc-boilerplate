@@ -73,16 +73,20 @@ SAVEHIST=10000
 # ==========================================
 # 6. 사용자 Aliases
 # ==========================================
-alias swap="rm -rf ~/.local/state/nvim/swap/*"
-alias rm="trash"
 alias cp="cp -i"
-alias mv='mv -i'
-alias vi="nvim"
-alias python="python3"
-alias pip="pip3"
-alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons -l --group-directories-first --git"
+alias ls="eza --icons --group-directories-first"
+alias mv='mv -i'
+alias pip="pip3"
+alias python="python3"
+alias rm="trash"
+alias swap="rm -rf ~/.local/state/nvim/swap/*"
 alias tree="eza --icons --tree"
+alias vi="nvim"
+if [ -n "$TMUX" ]; then
+  alias exit="tmux detach"
+  setopt ignore_eof
+fi
 
 # Neofetch (터미널 켤 때 정보 표시)
 neofetch

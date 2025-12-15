@@ -1,8 +1,14 @@
+# [General]
 [general]
 import = [
     "~/.config/alacritty/themes/solarized-osaka.toml"
 ]
 live_config_reload = true
+
+# [Terminal.shell]
+[terminal.shell]
+program = "/bin/zsh" 
+args = ["-l", "-c", "tmux attach -t main || tmux new -s main"]
 
 # [Env]
 [env]
