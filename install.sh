@@ -61,17 +61,13 @@ function install_or_update_zinit() {
 # 1. Homebrew 설치 및 업데이트
 install_or_update_homebrew
 
-# 2. 폰트 설치 (요청하신 부분 추가)
-echo "installing font-jetbrains-mono-nerd-font..."
-brew install --cask font-jetbrains-mono-nerd-font || true
-
-# 3. 나머지 패키지 설치 (Brewfile)
+# 2. 패키지 설치 (Brewfile)
 brew bundle --upgrade --file "$SOURCE_DIR/Brewfile"
 
-# 4. Zinit 설치
+# 3. Zinit 설치
 install_or_update_zinit
 
-# 5. 설정 파일 링크
+# 4. 설정 파일 링크
 ## Home 폴더 내부 연결
 link "zshrc" "$HOME/.zshrc"
 link "tmux.conf" "$HOME/.tmux.conf"
