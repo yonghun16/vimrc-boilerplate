@@ -132,7 +132,20 @@ function Compile()
   vim.cmd "w" -- 항상 저장
 
   if filetype == "python" then
-    vim.cmd(string.format('TermExec cmd="python3 %s"', filepath))
+    -- 1. 현재 작업 경로(Root)나 파일 경로 주변에서 venv/bin/python을 찾음
+    local cwd = vim.fn.getcwd()
+    local venv_python = cwd .. "/venv/bin/python"
+    local dot_venv_python = cwd .. "/.venv/bin/python"
+    -- 기본 실행 명령어 (venv가 없으면 그냥 python3)
+    local python_cmd = "python3"
+    -- 2. venv가 실제로 존재하는지 확인 후 교체
+    if vim.fn.filereadable(venv_python) == 1 then
+      python_cmd = venv_python
+    elseif vim.fn.filereadable(dot_venv_python) == 1 then
+      python_cmd = dot_venv_python
+    end
+    -- 3. 찾은 파이썬 경로로 실행
+    vim.cmd(string.format('TermExec cmd="%s %s"', python_cmd, filepath))
   elseif filetype == "javascript" then
     vim.cmd(string.format('TermExec cmd="node %s"', filepath))
   elseif filetype == "typescript" then
