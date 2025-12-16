@@ -80,6 +80,7 @@ alias mv='mv -i'
 alias rm="trash"
 alias swap="rm -rf ~/.local/state/nvim/swap/*"
 alias tree="eza --icons --tree"
+alias t="tmux attach -t main || tmux new -s main"
 alias vi="nvim"
 if [ -n "$TMUX" ]; then
   alias exit="tmux detach"
