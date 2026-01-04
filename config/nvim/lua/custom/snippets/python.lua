@@ -29,13 +29,17 @@ import os
 import sys
 
 if sys.platform == "linux":
-    lines = sys.stdin.read().strip().split("\n")
+    lines = sys.stdin.read().splitlines()
 else:
     file_path = os.path.join(os.path.dirname(__file__), "input.txt")
-    with open(file_path, "r") as f:
-        lines = f.read().strip().split("\n")
+    if os.path.exists(file_path):
+        with open(file_path, "r") as f:
+            lines = f.read().splitlines()
+    else:
+        lines = []
 
 input = iter(lines).__next__
+
 ]],
       {
         c(1, { i(nil, "BOJ"), i(nil, "Programmers") }),
